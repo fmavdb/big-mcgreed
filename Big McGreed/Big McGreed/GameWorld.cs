@@ -8,13 +8,15 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Big_McGreed.logic.player;
+using Big_McGreed.logic.npc;
 
 namespace Big_McGreed
 {
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class GameWorld : Microsoft.Xna.Framework.Game
     {
 
         private enum GameState
@@ -26,11 +28,14 @@ namespace Big_McGreed
 
         private GameState gameState = GameState.HoofdMenu;
         private GameState lastState = GameState.HoofdMenu;
+        private Player player = null;
+        private NPC[] npcs = null;
+
 
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
-        public Game1()
+        public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -77,6 +82,15 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            switch (gameState)
+            {
+                case GameState.HoofdMenu:
+                    break;
+                case GameState.Menu:
+                    break;
+                case GameState.InGame:
+                    break;
+            }
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
