@@ -16,8 +16,19 @@ namespace Big_McGreed
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+
+        private enum GameState
+        {
+            HoofdMenu,
+            Menu,
+            InGame
+        }
+
+        private GameState gameState = GameState.HoofdMenu;
+        private GameState lastState = GameState.HoofdMenu;
+
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
 
         public Game1()
         {
