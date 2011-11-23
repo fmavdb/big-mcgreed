@@ -7,7 +7,7 @@ using Big_McGreed.utility;
 
 namespace Big_McGreed.logic
 {
-    public abstract class Entity : Runnable
+    public abstract class Entity : Runnable, Locatable
     {
         //NPC of Speler gebruiken deze gemeenschappelijke class.
 
@@ -15,7 +15,7 @@ namespace Big_McGreed.logic
 
         public Entity()
         {
-            if (this is Player) //instancof Player
+            if (this is Player) //instanceof Player
             {
             }
         }
