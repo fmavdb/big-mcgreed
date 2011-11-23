@@ -109,6 +109,8 @@
   <ItemGroup>
     <Compile Include="engine\Engine.cs" />
     <Compile Include="engine\events\Event.cs" />
+    <Compile Include="engine\update\NPCUpdate.cs" />
+    <Compile Include="engine\update\PlayerUpdate.cs" />
     <Compile Include="logic\Entity.cs" />
     <Compile Include="logic\map\GameMap.cs" />
     <Compile Include="logic\map\AStarPathFinding.cs" />
