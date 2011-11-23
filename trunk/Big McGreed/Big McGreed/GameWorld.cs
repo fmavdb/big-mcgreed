@@ -10,6 +10,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Big_McGreed.logic.player;
 using Big_McGreed.logic.npc;
+using Big_McGreed.engine;
+using Big_McGreed.engine.update;
 
 namespace Big_McGreed
 {
@@ -29,8 +31,11 @@ namespace Big_McGreed
         private GameState gameState = GameState.HoofdMenu;
         private GameState lastState = GameState.HoofdMenu;
         private Player player = null;
-        private NPC[] npcs = null;
-
+        private PlayerUpdate playerUpdate = null;
+        private LinkedList<NPC> npcs = new LinkedList<NPC>();
+        private NPCUpdate npcUpdate = null;
+        //Gebruikt voor het berekenen van de tijd.
+        private GameTime gameTime { get; set; } 
 
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -39,6 +44,9 @@ namespace Big_McGreed
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            player = new Player();
+            playerUpdate = new PlayerUpdate();
+            npcUpdate = new NPCUpdate();
         }
 
         /// <summary>
@@ -49,8 +57,8 @@ namespace Big_McGreed
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            playerUpdate.start();
+            npcUpdate.start();
             base.Initialize();
         }
 
@@ -62,8 +70,6 @@ namespace Big_McGreed
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -72,7 +78,20 @@ namespace Big_McGreed
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            if (npcUpdate != null)
+                npcUpdate.stop();
+            lock (npcs)
+            {
+                foreach(NPC npc in npcs) {
+                    npc.destroy();
+                }
+            }
+            if (playerUpdate != null)
+                playerUpdate.stop();
+            if (player != null)
+                player.destroy();
+            Engine.getInstance().destroy();
+
         }
 
         /// <summary>
@@ -82,21 +101,22 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (this.gameTime != gameTime)
+                this.gameTime = gameTime;
+            // Allows the game to exit
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
             switch (gameState)
             {
                 case GameState.HoofdMenu:
                     break;
                 case GameState.Menu:
+                    //
                     break;
                 case GameState.InGame:
+                    //Update lopen ofzo, maar geen speler of npcs deze worden in een andere thread gedaan.
                     break;
             }
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
-            // TODO: Add your update logic here
-
             base.Update(gameTime);
         }
 
@@ -108,9 +128,17 @@ namespace Big_McGreed
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-
             base.Draw(gameTime);
+        }
+
+        public Player getPlayer()
+        {
+            return player;
+        }
+
+        public LinkedList<NPC> getNPCs()
+        {
+            return npcs;
         }
     }
 }

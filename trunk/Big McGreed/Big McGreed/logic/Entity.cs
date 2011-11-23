@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Big_McGreed.logic.utility;
 using Big_McGreed.logic.player;
+using Big_McGreed.utility;
 
 namespace Big_McGreed.logic
 {

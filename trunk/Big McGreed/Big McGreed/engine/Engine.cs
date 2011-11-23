@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using Big_McGreed.logic.utility;
 using Big_McGreed.engine.events;
 using Big_McGreed.utility;
 
@@ -38,6 +37,10 @@ namespace Big_McGreed.engine
             }
         }
 
+        /*
+         * Wordt alleen gebruikt voor KLEINE processen. 
+         * Voor de belangrijkere processen zoals het updaten van de speler of npcs worden threads gebruikt.
+         */
         public void submitEvent(Event e)
         {
             lock (events)
