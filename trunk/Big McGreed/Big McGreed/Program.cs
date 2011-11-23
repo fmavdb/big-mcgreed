@@ -5,14 +5,18 @@ namespace Big_McGreed
 #if WINDOWS || XBOX
     static class Program
     {
+
+        public static GameWorld INSTANCE = null;
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            INSTANCE = new GameWorld();
+            using (INSTANCE)
             {
-                game.Run();
+                INSTANCE.Run();
             }
         }
     }

@@ -1,0 +1,6 @@
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Big McGreed.exe
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Big McGreed.pdb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\obj\x86\Debug\Big McGreed.exe
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\obj\x86\Debug\Big McGreed.pdb
