@@ -112,10 +112,11 @@
     <Compile Include="engine\update\NPCUpdate.cs" />
     <Compile Include="engine\update\PlayerUpdate.cs" />
     <Compile Include="logic\Entity.cs" />
+    <Compile Include="logic\Locatable.cs" />
     <Compile Include="logic\map\GameMap.cs" />
     <Compile Include="logic\map\AStarPathFinding.cs" />
     <Compile Include="logic\map\PathFinding.cs" />
-    <Compile Include="logic\map\SimplePathFinder.cs" />
+    <Compile Include="logic\map\PrimitivePathFinder.cs" />
     <Compile Include="logic\npc\NPC.cs" />
     <Compile Include="logic\player\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

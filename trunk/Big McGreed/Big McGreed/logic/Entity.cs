@@ -7,7 +7,7 @@ using Big_McGreed.utility;
 
 namespace Big_McGreed.logic
 {
-    public abstract class Entity : Runnable, Locatable
+    public abstract class Entity : Locatable, Runnable
     {
         //NPC of Speler gebruiken deze gemeenschappelijke class.
 
