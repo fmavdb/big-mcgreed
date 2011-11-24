@@ -114,11 +114,12 @@
     <Compile Include="logic\Entity.cs" />
     <Compile Include="logic\Locatable.cs" />
     <Compile Include="logic\map\GameMap.cs" />
-    <Compile Include="logic\map\AStarPathFinding.cs" />
     <Compile Include="logic\map\PathFinding.cs" />
     <Compile Include="logic\map\PrimitivePathFinder.cs" />
     <Compile Include="logic\npc\NPC.cs" />
+    <Compile Include="logic\npc\NPCDefinition.cs" />
     <Compile Include="logic\player\Player.cs" />
+    <Compile Include="logic\player\PlayerDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="GameWorld.cs" />

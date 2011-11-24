@@ -10,6 +10,8 @@ namespace Big_McGreed.logic.npc
     {
         //Stelt een door de computer gestuurde entiteit voor.
 
+        public NPCDefinition definition { get; set; }
+
         public NPC()
         {
         }
@@ -26,6 +28,9 @@ namespace Big_McGreed.logic.npc
          */
         protected override void run2()
         {
+        }
+
+        public override void Draw() {
         }
     }
 }

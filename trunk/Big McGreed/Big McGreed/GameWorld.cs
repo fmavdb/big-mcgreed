@@ -34,8 +34,6 @@ namespace Big_McGreed
         private PlayerUpdate playerUpdate = null;
         private LinkedList<NPC> npcs = new LinkedList<NPC>();
         private NPCUpdate npcUpdate = null;
-        //Gebruikt voor het berekenen van de tijd.
-        private GameTime gameTime { get; set; } 
 
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -45,6 +43,7 @@ namespace Big_McGreed
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             player = new Player();
+            player.definition = PlayerDefinition.loadDefinition();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
         }
@@ -101,17 +100,16 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (this.gameTime != gameTime)
-                this.gameTime = gameTime;
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
             switch (gameState)
             {
                 case GameState.HoofdMenu:
+                    //Update hoofd menu.
                     break;
                 case GameState.Menu:
-                    //
+                    //Update ingame menu.
                     break;
                 case GameState.InGame:
                     //Update lopen ofzo, maar geen speler of npcs deze worden in een andere thread gedaan.
@@ -126,8 +124,29 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            switch (gameState)
+            {
+                case GameState.HoofdMenu:
+                    //Update hoofd menu.
+                    break;
+                case GameState.Menu:
+                    //Update ingame menu.
+                    break;
+                case GameState.InGame:
+                    if (player != null && player.definition.mainTexture != null)
+                        player.Draw();
+                    lock (npcs)
+                    {
+                        foreach (NPC npc in npcs)
+                        {
+                            if (npc.visible && npc.definition.mainTexture != null)
+                            {
+                                npc.Draw();
+                            }
+                        }
+                    }
+                    break;
+            }
             base.Draw(gameTime);
         }
 

@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Big_McGreed.engine.update
 {
-    class PlayerUpdate
+    public class PlayerUpdate
     {
         private Thread main;
 
@@ -27,7 +27,7 @@ namespace Big_McGreed.engine.update
         public PlayerUpdate()
         {
             main = new Thread(new ThreadStart(run));
-            main.Priority = ThreadPriority.AboveNormal;          
+            main.Priority = ThreadPriority.AboveNormal;        
         }
 
         protected void run()
