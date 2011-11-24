@@ -8,10 +8,14 @@ namespace Big_McGreed.logic.player
 {
     public class Player : Entity, Destroyable
     {
+
+        public PlayerDefinition definition { get; set; }
+
         //Stelt een speler voor.
 
         public Player()
         {
+
         }
 
         /*
@@ -26,6 +30,11 @@ namespace Big_McGreed.logic.player
          */
         protected override void run2()
         {
+        }
+
+        public override void Draw()
+        {
+            
         }
     }
 }

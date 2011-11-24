@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Big_McGreed.logic.player;
 using Big_McGreed.utility;
+using Big_McGreed.logic.npc;
 
 namespace Big_McGreed.logic
 {
@@ -13,11 +14,13 @@ namespace Big_McGreed.logic
 
         public int lifes { get; private set; }
 
+        public bool visible { get; set; }
+
+        public int radius { get; set; }
+
         public Entity()
         {
-            if (this is Player) //instanceof Player
-            {
-            }
+            visible = false;
         }
 
         /*
@@ -25,8 +28,15 @@ namespace Big_McGreed.logic
          */
         public void run()
         {
+
         }
 
+        /*
+         * Specifieke update.
+         */
         protected abstract void run2();
+
+        public abstract void Draw();
+
     }
 }
