@@ -39,11 +39,13 @@ namespace Big_McGreed.engine.update
                 {
                     foreach (NPC npc in Program.INSTANCE.getNPCs())
                     {
-                        //if (npc.updateRequired()) {
-                        npc.run();
-                        //}
+                        if (npc.visible && npc.definition.mainTexture != null)
+                        {
+                            npc.run();
+                        }
                     }
                 }
+                System.Threading.Thread.Sleep(50);
             }
         }
     }

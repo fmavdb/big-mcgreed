@@ -13,7 +13,7 @@ namespace Big_McGreed.logic.npc
         public static NPCDefinition forType(int type)
         {
             NPCDefinition def = new NPCDefinition();
-            //Laad gegevens.
+            def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
             return def;
         }
 

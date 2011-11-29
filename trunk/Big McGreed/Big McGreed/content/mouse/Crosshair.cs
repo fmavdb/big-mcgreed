@@ -32,6 +32,7 @@ namespace Big_McGreed.content.mouse
         public void crosshairDraw()
         {
             mousePosition = PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, mouseCrosshair.Width, mouseCrosshair.Height, 2);
+            
             Program.INSTANCE.spriteBatch.Begin();
             Program.INSTANCE.spriteBatch.Draw(mouseCrosshair, mousePosition, Color.Black);
             Program.INSTANCE.spriteBatch.End();

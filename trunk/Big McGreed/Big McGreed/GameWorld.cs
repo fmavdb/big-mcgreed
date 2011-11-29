@@ -30,7 +30,7 @@ namespace Big_McGreed
         }
 
         private Vector2 mousePosition = Vector2.Zero;
-        private GameState gameState = GameState.HoofdMenu;
+        private GameState gameState = GameState.InGame;
         private GameState lastState = GameState.HoofdMenu;
         private Player player = null;
         private PlayerUpdate playerUpdate = null;
@@ -50,6 +50,7 @@ namespace Big_McGreed
             player.definition = PlayerDefinition.loadDefinition();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
+
             crosshair = new Big_McGreed.content.mouse.Crosshair();
             IsMouseVisible = true;
 
@@ -67,6 +68,7 @@ namespace Big_McGreed
         protected override void Initialize()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            npcs.AddFirst(new NPC());
             playerUpdate.start();
             npcUpdate.start();
             base.Initialize();
@@ -112,7 +114,7 @@ namespace Big_McGreed
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
             switch (gameState)
             {
@@ -126,6 +128,7 @@ namespace Big_McGreed
                     //Update lopen ofzo, maar geen speler of npcs deze worden in een andere thread gedaan.
                     break;
             }
+
             base.Update(gameTime);
         }
 
@@ -160,6 +163,7 @@ namespace Big_McGreed
                     break;
                     
             }
+
             // MOUSE CROSSHAIR
                     crosshair.crosshairDraw();
 
