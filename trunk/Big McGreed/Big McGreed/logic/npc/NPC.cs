@@ -43,7 +43,11 @@ namespace Big_McGreed.logic.npc
 
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-
+                visible = false;
+            }
+            if (Mouse.GetState().RightButton == ButtonState.Pressed)
+            {
+                visible = true;
             }
         }
 

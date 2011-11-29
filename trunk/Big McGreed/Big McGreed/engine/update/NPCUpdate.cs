@@ -39,7 +39,7 @@ namespace Big_McGreed.engine.update
                 {
                     foreach (NPC npc in Program.INSTANCE.getNPCs())
                     {
-                        if (npc.visible && npc.definition.mainTexture != null)
+                        if (npc.definition.mainTexture != null)
                         {
                             npc.run();
                         }
