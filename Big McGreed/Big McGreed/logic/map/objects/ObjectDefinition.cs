@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Big_McGreed.logic.map
+namespace Big_McGreed.logic.map.objects
 {
-    class Object
-    {
-    }
+	public class ObjectDefinition
+	{
+	}
 }
