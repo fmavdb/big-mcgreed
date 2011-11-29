@@ -40,7 +40,7 @@ namespace Big_McGreed.logic.map
                     if (npc.visible && npc.definition.mainTexture != null) {
                         if (entity is Player) //crosshair
                         {
-                            if (intersects(new Rectangle(x, y, 1, 1), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
+                            if (intersects(new Rectangle(x, y, Player.dotSize, Player.dotSize), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
                             {
                                 return true;
                             }
@@ -55,6 +55,56 @@ namespace Big_McGreed.logic.map
                     }
                 }
             }
+            return false;
+        }
+
+        public static List<NPC> collision(Player player, int x, int y)
+        {
+            List<NPC> npcsCollided= new List<NPC>();
+            Rectangle crossHair = new Rectangle(x, y, Player.dotSize, Player.dotSize);
+            foreach (NPC npc in Program.INSTANCE.getNPCs())
+            {
+                if (npc.visible && npc.definition.mainTexture != null)
+                {
+                    Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height);
+                    if (intersects(crossHair, npcRectangle))
+                    {
+                        Color[] pixels = new Color[npc.definition.mainTexture.Width * npc.definition.mainTexture.Height];
+                        npc.definition.mainTexture.GetData<Color>(pixels);
+                        if (colorCollision(Color.Black, crossHair, npcRectangle, pixels))
+                        {
+                            npcsCollided.Add(npc);
+                        }
+                    }
+                }
+            }
+            return npcsCollided;
+        }
+
+        public static bool colorCollision(Color collideColor, Rectangle crossHair, Rectangle npc, Color[] pixels)
+        {
+            // Find the bounds of the rectangle intersection
+            int top = Math.Max(crossHair.Top, npc.Top);
+            int bottom = Math.Min(crossHair.Bottom, npc.Bottom);
+            int left = Math.Max(crossHair.Left, npc.Left);
+            int right = Math.Min(crossHair.Right, npc.Right);
+
+            // Check every point within the intersection bounds
+            for (int y = top; y < bottom; y++)
+            {
+                for (int x = left; x < right; x++)
+                {
+                    Color color = pixels[(x - npc.Left) + (y - npc.Top) * npc.Width];
+                    // Transparency is color.A == 0
+                    if (color == collideColor)
+                    {
+                        // then an intersection has been found
+                        return true;
+                    }
+                }
+            }
+
+            // No intersection found
             return false;
         }
 
