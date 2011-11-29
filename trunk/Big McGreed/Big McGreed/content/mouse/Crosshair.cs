@@ -13,7 +13,7 @@ using Big_McGreed.content;
 
 namespace Big_McGreed.content.mouse
 {
-    class Crosshair: Game
+    public class Crosshair
     {
         public Crosshair()
         {
@@ -30,7 +30,17 @@ namespace Big_McGreed.content.mouse
 
         public void crosshairDraw()
         {
-            mousePosition = new Vector2(Mouse.GetState().X - (mouseCrosshair.Width / 2), Mouse.GetState().Y - (mouseCrosshair.Height / 2));
+            //mousePosition = new Vector2(Mouse.GetState().X - (mouseCrosshair.Width / 2), Mouse.GetState().Y - (mouseCrosshair.Height / 2));
+            mousePosition.X = Mouse.GetState().X - (mouseCrosshair.Width / 2);
+            mousePosition.Y = Mouse.GetState().Y - (mouseCrosshair.Height / 2);
+            if (mousePosition.X < (0 - mouseCrosshair.Width / 2))
+                mousePosition.X = (0 - mouseCrosshair.Width / 2);
+            if (mousePosition.X > Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Width)
+                mousePosition.X = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Width;
+            if (mousePosition.Y < (0 - mouseCrosshair.Height / 2))
+                mousePosition.Y = (0 - mouseCrosshair.Height / 2);
+            if (mousePosition.Y > Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Height)
+                mousePosition.Y = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Height;
             Program.INSTANCE.spriteBatch.Begin();
             Program.INSTANCE.spriteBatch.Draw(mouseCrosshair, mousePosition, Color.Black);
             Program.INSTANCE.spriteBatch.End();

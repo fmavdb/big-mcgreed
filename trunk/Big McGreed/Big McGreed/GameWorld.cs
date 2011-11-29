@@ -12,6 +12,7 @@ using Big_McGreed.logic.player;
 using Big_McGreed.logic.npc;
 using Big_McGreed.engine;
 using Big_McGreed.engine.update;
+using Big_McGreed.content.mouse;
 
 
 namespace Big_McGreed
@@ -21,9 +22,6 @@ namespace Big_McGreed
     /// </summary>
     public class GameWorld : Microsoft.Xna.Framework.Game
     {
-        Texture2D mouseCrosshair;
-        
-
         private enum GameState
         {
             HoofdMenu,
@@ -42,7 +40,7 @@ namespace Big_McGreed
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
-        Big_McGreed.content.mouse.Crosshair crosshair;
+        private Crosshair crosshair;
 
         public GameWorld()
         {
@@ -53,10 +51,11 @@ namespace Big_McGreed
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
             crosshair = new Big_McGreed.content.mouse.Crosshair();
+            IsMouseVisible = true;
 
             //this.graphics.PreferredBackBufferWidth = 1280;
             //this.graphics.PreferredBackBufferHeight = 720;
-            //this.graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
         }
 
         /// <summary>
