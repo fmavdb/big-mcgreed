@@ -30,7 +30,8 @@ namespace Big_McGreed.content.mouse
 
         public void crosshairDraw()
         {
-            //mousePosition = new Vector2(Mouse.GetState().X - (mouseCrosshair.Width / 2), Mouse.GetState().Y - (mouseCrosshair.Height / 2));
+            float x = mousePosition.X;
+            float y = mousePosition.Y;
             mousePosition.X = Mouse.GetState().X - (mouseCrosshair.Width / 2);
             mousePosition.Y = Mouse.GetState().Y - (mouseCrosshair.Height / 2);
             if (mousePosition.X < (0 - mouseCrosshair.Width / 2))
