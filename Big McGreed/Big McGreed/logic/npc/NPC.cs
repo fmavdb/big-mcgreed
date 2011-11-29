@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Big_McGreed.utility;
+using Big_McGreed.logic.map;
 
 namespace Big_McGreed.logic.npc
 {
@@ -37,8 +38,7 @@ namespace Big_McGreed.logic.npc
          */
         protected override void run2()
         {
-            setLocation(new Vector2(getLocation().X + 1, getLocation().Y));
-
+            setLocation(PrimitivePathFinder.getPosition(getX() + 1, getY(), definition.mainTexture.Width, definition.mainTexture.Height, 0));
         }
 
         public override void Draw() 

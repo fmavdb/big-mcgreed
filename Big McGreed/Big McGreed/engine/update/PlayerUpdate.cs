@@ -41,7 +41,7 @@ namespace Big_McGreed.engine.update
                         Program.INSTANCE.getPlayer().run();
                     }
                 }
-                System.Threading.Thread.Sleep(50);
+                System.Threading.Thread.Sleep(25);
             }
         }
     }
