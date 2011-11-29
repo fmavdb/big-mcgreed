@@ -13,8 +13,8 @@ namespace Big_McGreed.logic.map
 
         public static Vector2 getPosition(float curX, float curY, float imageWidth, float imageHeight, float divider)
         {
-            float xRadius = imageWidth / divider;
-            float yRadius = imageHeight / divider;
+            float xRadius = divider > 0 ? imageWidth / divider : 0;
+            float yRadius = divider > 0 ? imageHeight / divider : 0;
             curX = curX - xRadius;
             curY = curY - yRadius;
             float maxX = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Width;

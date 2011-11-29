@@ -14,8 +14,6 @@ namespace Big_McGreed.logic.player
 
         public PlayerDefinition definition { get; set; }
 
-        Vector2 mousePosition = Vector2.Zero;
-
         //Stelt een speler voor.
 
         public Player()
@@ -46,13 +44,13 @@ namespace Big_McGreed.logic.player
             {
                 visible = true;
             }
+            setLocation(PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, definition.mainTexture.Width, definition.mainTexture.Height, 2));
         }
 
         public override void Draw()
         {
-            mousePosition = PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, definition.mainTexture.Width, definition.mainTexture.Height, 2);
             Program.INSTANCE.spriteBatch.Begin();
-            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, mousePosition, Color.Black);
+            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.Black);
             Program.INSTANCE.spriteBatch.End();
         }
     }
