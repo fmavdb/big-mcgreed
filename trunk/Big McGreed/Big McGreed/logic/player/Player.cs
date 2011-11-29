@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Big_McGreed.utility;
+using Microsoft.Xna.Framework;
+using Big_McGreed.logic.map;
+using Microsoft.Xna.Framework.Input;
 
 namespace Big_McGreed.logic.player
 {
@@ -11,11 +14,13 @@ namespace Big_McGreed.logic.player
 
         public PlayerDefinition definition { get; set; }
 
+        Vector2 mousePosition = Vector2.Zero;
+
         //Stelt een speler voor.
 
         public Player()
         {
-
+            visible = true;
         }
 
         /*
@@ -30,11 +35,25 @@ namespace Big_McGreed.logic.player
          */
         protected override void run2()
         {
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                if (PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y, true))
+                {
+                    visible = false;
+                }
+            }
+            if (Mouse.GetState().RightButton == ButtonState.Pressed)
+            {
+                visible = true;
+            }
         }
 
         public override void Draw()
         {
-            
+            mousePosition = PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, definition.mainTexture.Width, definition.mainTexture.Height, 2);
+            Program.INSTANCE.spriteBatch.Begin();
+            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, mousePosition, Color.Black);
+            Program.INSTANCE.spriteBatch.End();
         }
     }
 }
