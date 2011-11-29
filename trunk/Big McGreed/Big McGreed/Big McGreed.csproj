@@ -115,8 +115,8 @@
     <Compile Include="logic\Entity.cs" />
     <Compile Include="logic\Locatable.cs" />
     <Compile Include="logic\map\GameMap.cs" />
-    <Compile Include="logic\map\object\Object.cs" />
-    <Compile Include="logic\map\object\ObjectDefinition.cs" />
+    <Compile Include="logic\map\objects\GameObject.cs" />
+    <Compile Include="logic\map\objects\ObjectDefinition.cs" />
     <Compile Include="logic\map\PathFinding.cs" />
     <Compile Include="logic\map\PrimitivePathFinder.cs" />
     <Compile Include="logic\npc\NPC.cs" />

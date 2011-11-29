@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Big_McGreed.content;
+using Big_McGreed.logic.map;
 
 namespace Big_McGreed.content.mouse
 {
@@ -30,18 +31,7 @@ namespace Big_McGreed.content.mouse
 
         public void crosshairDraw()
         {
-            float x = mousePosition.X;
-            float y = mousePosition.Y;
-            mousePosition.X = Mouse.GetState().X - (mouseCrosshair.Width / 2);
-            mousePosition.Y = Mouse.GetState().Y - (mouseCrosshair.Height / 2);
-            if (mousePosition.X < (0 - mouseCrosshair.Width / 2))
-                mousePosition.X = (0 - mouseCrosshair.Width / 2);
-            if (mousePosition.X > Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Width)
-                mousePosition.X = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Width;
-            if (mousePosition.Y < (0 - mouseCrosshair.Height / 2))
-                mousePosition.Y = (0 - mouseCrosshair.Height / 2);
-            if (mousePosition.Y > Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Height)
-                mousePosition.Y = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Height;
+            mousePosition = PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, mouseCrosshair.Width, mouseCrosshair.Height, 2);
             Program.INSTANCE.spriteBatch.Begin();
             Program.INSTANCE.spriteBatch.Draw(mouseCrosshair, mousePosition, Color.Black);
             Program.INSTANCE.spriteBatch.End();
