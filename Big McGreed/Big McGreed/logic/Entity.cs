@@ -28,7 +28,7 @@ namespace Big_McGreed.logic
          */
         public void run()
         {
-
+            run2();
         }
 
         /*

@@ -36,8 +36,12 @@ namespace Big_McGreed.engine.update
             {
                 if (Program.INSTANCE.getPlayer() != null)
                 {
-                    Program.INSTANCE.getPlayer().run();
+                    if (Program.INSTANCE.getPlayer().definition.mainTexture != null)
+                    {
+                        Program.INSTANCE.getPlayer().run();
+                    }
                 }
+                System.Threading.Thread.Sleep(50);
             }
         }
     }
