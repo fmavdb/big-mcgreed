@@ -6,11 +6,14 @@ using Big_McGreed.utility;
 using Microsoft.Xna.Framework;
 using Big_McGreed.logic.map;
 using Microsoft.Xna.Framework.Input;
+using Big_McGreed.logic.npc;
 
 namespace Big_McGreed.logic.player
 {
     public class Player : Entity, Destroyable
     {
+        //De grootte van de 'dot' van de crosshair, stelt dotSize x dotSize pixels voor.
+        public static int dotSize = 5;
 
         public PlayerDefinition definition { get; set; }
 
@@ -35,9 +38,9 @@ namespace Big_McGreed.logic.player
         {
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                if (PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y, true))
+                foreach (NPC npc in PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y))
                 {
-                    visible = false;
+                    npc.visible = false;
                 }
             }
             if (Mouse.GetState().RightButton == ButtonState.Pressed)
