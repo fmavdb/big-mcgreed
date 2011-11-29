@@ -13,6 +13,7 @@ using Big_McGreed.logic.npc;
 using Big_McGreed.engine;
 using Big_McGreed.engine.update;
 
+
 namespace Big_McGreed
 {
     /// <summary>
@@ -20,6 +21,8 @@ namespace Big_McGreed
     /// </summary>
     public class GameWorld : Microsoft.Xna.Framework.Game
     {
+        Texture2D mouseCrosshair;
+        
 
         private enum GameState
         {
@@ -28,6 +31,7 @@ namespace Big_McGreed
             InGame
         }
 
+        private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.HoofdMenu;
         private GameState lastState = GameState.HoofdMenu;
         private Player player = null;
@@ -36,7 +40,9 @@ namespace Big_McGreed
         private NPCUpdate npcUpdate = null;
 
         private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
+
+        Big_McGreed.content.mouse.Crosshair crosshair;
 
         public GameWorld()
         {
@@ -46,6 +52,11 @@ namespace Big_McGreed
             player.definition = PlayerDefinition.loadDefinition();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
+            crosshair = new Big_McGreed.content.mouse.Crosshair();
+
+            //this.graphics.PreferredBackBufferWidth = 1280;
+            //this.graphics.PreferredBackBufferHeight = 720;
+            //this.graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -56,6 +67,7 @@ namespace Big_McGreed
         /// </summary>
         protected override void Initialize()
         {
+            spriteBatch = new SpriteBatch(GraphicsDevice);
             playerUpdate.start();
             npcUpdate.start();
             base.Initialize();
@@ -68,7 +80,7 @@ namespace Big_McGreed
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+                    crosshair.crosshairLoad();
         }
 
         /// <summary>
@@ -124,6 +136,7 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+
             switch (gameState)
             {
                 case GameState.HoofdMenu:
@@ -146,7 +159,11 @@ namespace Big_McGreed
                         }
                     }
                     break;
+                    
             }
+            // MOUSE CROSSHAIR
+                    crosshair.crosshairDraw();
+
             base.Draw(gameTime);
         }
 
