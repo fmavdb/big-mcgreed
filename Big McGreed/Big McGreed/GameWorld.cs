@@ -12,7 +12,6 @@ using Big_McGreed.logic.player;
 using Big_McGreed.logic.npc;
 using Big_McGreed.engine;
 using Big_McGreed.engine.update;
-using Big_McGreed.content.mouse;
 
 
 namespace Big_McGreed
@@ -40,18 +39,17 @@ namespace Big_McGreed
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
-        private Crosshair crosshair;
+        //private Crosshair crosshair;
 
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             player = new Player();
-            player.definition = PlayerDefinition.loadDefinition();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
 
-            crosshair = new Big_McGreed.content.mouse.Crosshair();
+            //crosshair = new Big_McGreed.content.mouse.Crosshair();
             IsMouseVisible = true;
 
             //this.graphics.PreferredBackBufferWidth = 1280;
@@ -68,6 +66,7 @@ namespace Big_McGreed
         protected override void Initialize()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            player.definition = PlayerDefinition.loadDefinition();
             npcs.AddFirst(new NPC());
             playerUpdate.start();
             npcUpdate.start();
@@ -81,7 +80,7 @@ namespace Big_McGreed
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-                    crosshair.crosshairLoad();
+                    //crosshair.crosshairLoad();
         }
 
         /// <summary>
@@ -148,7 +147,7 @@ namespace Big_McGreed
                     //Update ingame menu.
                     break;
                 case GameState.InGame:
-                    if (player != null && player.definition.mainTexture != null)
+                    if (player != null &&  player.visible && player.definition.mainTexture != null)
                         player.Draw();
                     lock (npcs)
                     {
@@ -165,7 +164,7 @@ namespace Big_McGreed
             }
 
             // MOUSE CROSSHAIR
-                    crosshair.crosshairDraw();
+                    //crosshair.crosshairDraw();
 
             base.Draw(gameTime);
         }

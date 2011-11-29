@@ -38,8 +38,12 @@ namespace Big_McGreed.logic.map
             {
                 foreach (NPC npc in Program.INSTANCE.getNPCs()) {
                     if (npc.visible && npc.definition.mainTexture != null) {
-                        if (entity is Player)
+                        if (entity is Player) //crosshair
                         {
+                            if (intersects(new Rectangle(x, y, 1, 1), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
+                            {
+                                return true;
+                            }
                         }
                         else if (entity is NPC)
                         {

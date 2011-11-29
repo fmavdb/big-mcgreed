@@ -19,8 +19,6 @@ namespace Big_McGreed.logic.npc
 
         public NPCDefinition definition { get; set; }
 
-        Vector2 npcPosition = Vector2.Zero;
-
         public NPC()
         {
             definition = NPCDefinition.forType(1);
@@ -39,22 +37,14 @@ namespace Big_McGreed.logic.npc
          */
         protected override void run2()
         {
-            npcPosition.X += 1;
+            setLocation(new Vector2(getLocation().X + 1, getLocation().Y));
 
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                visible = false;
-            }
-            if (Mouse.GetState().RightButton == ButtonState.Pressed)
-            {
-                visible = true;
-            }
         }
 
         public override void Draw() 
         {
             Program.INSTANCE.spriteBatch.Begin();
-            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, npcPosition, Color.White);
+            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.White);
             Program.INSTANCE.spriteBatch.End();
         }
     }

@@ -11,7 +11,7 @@ namespace Big_McGreed.logic.player
         public static PlayerDefinition loadDefinition() {
             PlayerDefinition def = new PlayerDefinition();
             //Laad gegevens.
-            //def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("");
+            def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("crosshair");
             return def;
         }
 
