@@ -11,6 +11,27 @@ namespace Big_McGreed.logic.map
     public class PrimitivePathFinder : PathFinding
     {
 
+        public static Vector2 getPosition(float curX, float curY, float imageWidth, float imageHeight, float divider)
+        {
+            float xRadius = imageWidth / divider;
+            float yRadius = imageHeight / divider;
+            curX = curX - xRadius;
+            curY = curY - yRadius;
+            float maxX = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Width;
+            float maxY = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Height;
+            float minX = 0 - xRadius;
+            float minY = 0 - yRadius;
+            if (curX < minX)
+                curX = minX;
+            else if (curX > maxX)
+                curX = maxX;
+            if (curY < minY)
+                curY = minY;
+            else if (curY > maxY)
+                curY = maxY;
+            return new Vector2(curX, curY);
+        }
+
         public static bool collision(Entity entity, int x, int y, bool checkForNPCCollision)
         {
             if (checkForNPCCollision)
