@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Big_McGreed.content.menu.buttons
 {
@@ -9,7 +10,10 @@ namespace Big_McGreed.content.menu.buttons
     {
         public Quit()
         {
-            //Laad button + hover.
+            normal = Program.INSTANCE.Content.Load<Texture2D>("QuitNormal");
+            pressed = Program.INSTANCE.Content.Load<Texture2D>("QuitPressed");
+            hover = Program.INSTANCE.Content.Load<Texture2D>("QuitHighlight");
+            current = normal;
         }
 
         public override void action()

@@ -23,7 +23,7 @@ namespace Big_McGreed.content.menu
 
         public void Draw()
         {
-            Program.INSTANCE.spriteBatch.Draw(current, location, Color.Black);
+            Program.INSTANCE.spriteBatch.Draw(current, location, Color.White);
         }
     }
 }

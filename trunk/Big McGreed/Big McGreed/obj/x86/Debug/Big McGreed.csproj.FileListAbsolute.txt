@@ -15,3 +15,6 @@ C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\FPS.xnb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitHighlight.xnb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitNormal.xnb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitPressed.xnb
