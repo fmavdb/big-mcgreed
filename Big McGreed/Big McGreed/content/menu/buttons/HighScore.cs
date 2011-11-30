@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace Big_McGreed.content.menu.buttons
 {
-    public class Quit : Button
+    public class HighScore : Button
     {
-        public Quit()
+        public HighScore()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("QuitNormal");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("QuitPressed");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("QuitHighlight");
+            normal = Program.INSTANCE.Content.Load<Texture2D>("HighscoreNormal");
+            pressed = Program.INSTANCE.Content.Load<Texture2D>("HighscorePressed");
+            hover = Program.INSTANCE.Content.Load<Texture2D>("HighscoreHighlight");
             current = normal;
         }
 

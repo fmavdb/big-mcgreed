@@ -17,8 +17,8 @@ namespace Big_McGreed.logic.map
             float yRadius = divider > 0 ? imageHeight / divider : 0;
             curX = curX - xRadius;
             curY = curY - yRadius;
-            float maxX = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Width;
-            float maxY = Program.INSTANCE.GraphicsDevice.Adapter.CurrentDisplayMode.Height;
+            float maxX = Program.INSTANCE.GraphicsDevice.Viewport.Width;
+            float maxY = Program.INSTANCE.GraphicsDevice.Viewport.Height;
             float minX = 0 - xRadius;
             float minY = 0 - yRadius;
             if (curX < minX)
