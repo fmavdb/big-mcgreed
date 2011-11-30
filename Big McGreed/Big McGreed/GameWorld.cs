@@ -14,6 +14,7 @@ using Big_McGreed.engine;
 using Big_McGreed.engine.update;
 using Big_McGreed.content.fps;
 using Big_McGreed.logic.map;
+using Big_McGreed.content.menu;
 
 
 namespace Big_McGreed
@@ -23,22 +24,22 @@ namespace Big_McGreed
     /// </summary>
     public class GameWorld : Microsoft.Xna.Framework.Game
     {
-        private enum GameState
+        public enum GameState
         {
-            HoofdMenu,
             Menu,
             InGame
         }
 
         private Vector2 mousePosition = Vector2.Zero;
-        private GameState gameState = GameState.InGame;
-        private GameState lastState = GameState.HoofdMenu;
+        public GameState gameState = GameState.InGame;
+        private GameState lastState = GameState.Menu;
         private Player player;
         private PlayerUpdate playerUpdate;
         private LinkedList<NPC> npcs = new LinkedList<NPC>();
         private NPCUpdate npcUpdate;
         private FPS fps;
         private GameMap gameMap;
+        private Menu menu;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -49,16 +50,14 @@ namespace Big_McGreed
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            player = new Player();
-            playerUpdate = new PlayerUpdate();
-            npcUpdate = new NPCUpdate();
 
             //crosshair = new Big_McGreed.content.mouse.Crosshair();
             IsMouseVisible = true;
 
             //this.graphics.PreferredBackBufferWidth = 1280;
             //this.graphics.PreferredBackBufferHeight = 720;
-            //graphics.IsFullScreen = true;
+            graphics.PreferMultiSampling = true;
+            graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -70,7 +69,10 @@ namespace Big_McGreed
         protected override void Initialize()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            player = new Player();
             player.definition = PlayerDefinition.loadDefinition();
+            playerUpdate = new PlayerUpdate();
+            npcUpdate = new NPCUpdate();
             fps = new FPS();
             gameMap = new GameMap();
             npcs.AddFirst(new NPC());
@@ -126,11 +128,8 @@ namespace Big_McGreed
                 this.Exit();
             switch (gameState)
             {
-                case GameState.HoofdMenu:
-                    //Update hoofd menu.
-                    break;
                 case GameState.Menu:
-                    //Update ingame menu.
+                    menu.Update();
                     break;
                 case GameState.InGame:
                     //Update lopen ofzo, maar geen speler of npcs deze worden in een andere thread gedaan.
@@ -149,11 +148,8 @@ namespace Big_McGreed
             spriteBatch.Begin();
             switch (gameState)
             {
-                case GameState.HoofdMenu:
-                    //Update hoofd menu.
-                    break;
                 case GameState.Menu:
-                    //Update ingame menu.
+                    menu.Draw();
                     break;
                 case GameState.InGame:
                     if (player != null &&  player.visible && player.definition.mainTexture != null)
