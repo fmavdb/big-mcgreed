@@ -25,7 +25,7 @@ namespace Big_McGreed.content.menu
             float startY = 100;
             foreach (Button button in buttons)
             {
-                button.location.X = Program.INSTANCE.GraphicsDevice.Viewport.Width / 2 - button.current.Width / 2;
+                button.location.X = Program.INSTANCE.Width / 2 - button.current.Width / 2;
                 button.location.Y = startY;
                 startY += button.normal.Height + 50;
             }
