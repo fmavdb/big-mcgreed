@@ -1,4 +1,5 @@
 using System;
+using System.Windows.Forms;
 
 namespace Big_McGreed
 {
@@ -7,11 +8,16 @@ namespace Big_McGreed
     {
 
         public static GameWorld INSTANCE = null;
-        
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         static void Main(string[] args)
+        {
+            startXNA();
+        }
+
+        public static void startXNA()
         {
             INSTANCE = new GameWorld();
             using (INSTANCE)
