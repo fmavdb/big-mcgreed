@@ -13,11 +13,22 @@ namespace Big_McGreed.content.menu
     {
 
         private LinkedList<Button> buttons;
+        private bool released = false;
 
         public Menu()
         {
             buttons = new LinkedList<Button>();
+            buttons.AddFirst(new HighScore());            
             buttons.AddLast(new Quit());
+
+
+            float startY = 100;
+            foreach (Button button in buttons)
+            {
+                button.location.X = Program.INSTANCE.GraphicsDevice.Viewport.Width / 2 - button.current.Width / 2;
+                button.location.Y = startY;
+                startY += button.normal.Height + 50;
+            }
         }
 
         public void Update()
@@ -25,7 +36,7 @@ namespace Big_McGreed.content.menu
             Button buttonNearMouse = null;
             lock (buttons)
             {
-                Rectangle mouse = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 100, 100);
+                Rectangle mouse = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 1, 1);
                 foreach (Button button in buttons)
                 {
                     Rectangle rectangleButton = new Rectangle((int)button.location.X, (int)button.location.Y, button.normal.Width, button.normal.Height);
@@ -41,26 +52,25 @@ namespace Big_McGreed.content.menu
                 }
             }
             switch(Mouse.GetState().LeftButton) {
-                //Dit is voor als je met de muis op de button klikt, en dan loslaat.
                 case ButtonState.Released:
                     if (buttonNearMouse != null)
                     {
-                        buttonNearMouse.current = buttonNearMouse.hover;
-                        buttonNearMouse.action();
+                        if (released)
+                        {
+                            buttonNearMouse.action();
+                            released = false;
+                        }
+                        else
+                        {
+                            buttonNearMouse.current = buttonNearMouse.hover;
+                        }
                     }
                     break;
-                //Dit is voor als je met de muis op de button klikt, en dan inhoud.
                 case ButtonState.Pressed:
                     if (buttonNearMouse != null)
                     {
                         buttonNearMouse.current = buttonNearMouse.pressed;
-                    }
-                    break;
-                default:
-                    if (buttonNearMouse != null)
-                    {
-                        buttonNearMouse.current = buttonNearMouse.hover;
-                        Console.WriteLine("sadasdfasdadsf");
+                        released = true;
                     }
                     break;
             }

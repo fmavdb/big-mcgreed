@@ -1,6 +1,15 @@
 Content\crosshair.xnb
 Content\poppetje.xnb
-Content\FPS.xnb
 Content\QuitHighlight.xnb
 Content\QuitNormal.xnb
 Content\QuitPressed.xnb
+Content\FPS.xnb
+Content\HighscoreHighlight.xnb
+Content\HighscorePressed.xnb
+Content\NewGameHighlight.xnb
+Content\NewGameNormal.xnb
+Content\NewGamePressed.xnb
+Content\ResumeHighlight.xnb
+Content\ResumeNormal.xnb
+Content\ResumePressed.xnb
+Content\HighscoreNormal.xnb

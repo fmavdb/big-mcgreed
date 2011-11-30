@@ -54,10 +54,10 @@ namespace Big_McGreed
             //crosshair = new Big_McGreed.content.mouse.Crosshair();
             IsMouseVisible = true;
 
-            //this.graphics.PreferredBackBufferWidth = 1280;
-            //this.graphics.PreferredBackBufferHeight = 720;
+            //this.graphics.PreferredBackBufferWidth = 1366;
+            //this.graphics.PreferredBackBufferHeight = 768;
             graphics.PreferMultiSampling = true;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
         }
 
         /// <summary>

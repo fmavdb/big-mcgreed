@@ -63,11 +63,60 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HighscoreHighlight.png">
+      <Name>HighscoreHighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="HighscoreNormal.png">
+      <Name>HighscoreNormal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="HighscorePressed.png">
+      <Name>HighscorePressed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="NewGameHighlight.png">
+      <Name>NewGameHighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="NewGameNormal.png">
+      <Name>NewGameNormal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="NewGamePressed.png">
+      <Name>NewGamePressed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="ResumeHighlight.png">
+      <Name>ResumeHighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="ResumeNormal.png">
+      <Name>ResumeNormal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="ResumePressed.png">
+      <Name>ResumePressed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="QuitHighlight.png">
       <Name>QuitHighlight</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="QuitNormal.png">
       <Name>QuitNormal</Name>
       <Importer>TextureImporter</Importer>
