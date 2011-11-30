@@ -12,6 +12,8 @@ using Big_McGreed.logic.player;
 using Big_McGreed.logic.npc;
 using Big_McGreed.engine;
 using Big_McGreed.engine.update;
+using Big_McGreed.content.fps;
+using Big_McGreed.logic.map;
 
 
 namespace Big_McGreed
@@ -31,10 +33,12 @@ namespace Big_McGreed
         private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.InGame;
         private GameState lastState = GameState.HoofdMenu;
-        private Player player = null;
-        private PlayerUpdate playerUpdate = null;
+        private Player player;
+        private PlayerUpdate playerUpdate;
         private LinkedList<NPC> npcs = new LinkedList<NPC>();
-        private NPCUpdate npcUpdate = null;
+        private NPCUpdate npcUpdate;
+        private FPS fps;
+        private GameMap gameMap;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -54,7 +58,7 @@ namespace Big_McGreed
 
             //this.graphics.PreferredBackBufferWidth = 1280;
             //this.graphics.PreferredBackBufferHeight = 720;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -67,7 +71,12 @@ namespace Big_McGreed
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player.definition = PlayerDefinition.loadDefinition();
+            fps = new FPS();
+            gameMap = new GameMap();
             npcs.AddFirst(new NPC());
+            NPC npc = new NPC();
+            npc.setLocation(new Vector2(0, 100));
+            npcs.AddFirst(npc);
             playerUpdate.start();
             npcUpdate.start();
             base.Initialize();
@@ -127,7 +136,7 @@ namespace Big_McGreed
                     //Update lopen ofzo, maar geen speler of npcs deze worden in een andere thread gedaan.
                     break;
             }
-
+            fps.update(gameTime);
             base.Update(gameTime);
         }
 
@@ -137,7 +146,7 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
+            spriteBatch.Begin();
             switch (gameState)
             {
                 case GameState.HoofdMenu:
@@ -149,23 +158,13 @@ namespace Big_McGreed
                 case GameState.InGame:
                     if (player != null &&  player.visible && player.definition.mainTexture != null)
                         player.Draw();
-                    lock (npcs)
-                    {
-                        foreach (NPC npc in npcs)
-                        {
-                            if (npc.visible && npc.definition.mainTexture != null)
-                            {
-                                npc.Draw();
-                            }
-                        }
-                    }
+                    npcUpdate.Draw();
+                    gameMap.Draw();
                     break;
                     
             }
-
-            // MOUSE CROSSHAIR
-                    //crosshair.crosshairDraw();
-
+            fps.draw();
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 

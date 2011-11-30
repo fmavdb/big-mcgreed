@@ -45,7 +45,21 @@ namespace Big_McGreed.engine.update
                         }
                     }
                 }
-                System.Threading.Thread.Sleep(50);
+                System.Threading.Thread.Sleep(25);
+            }
+        }
+
+        public void Draw()
+        {
+            lock (Program.INSTANCE.getNPCs())
+            {
+                foreach (NPC npc in Program.INSTANCE.getNPCs())
+                {
+                    if (npc.visible && npc.definition.mainTexture != null)
+                    {
+                        npc.Draw();
+                    }
+                }
             }
         }
     }

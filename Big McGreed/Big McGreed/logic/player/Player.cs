@@ -12,7 +12,7 @@ namespace Big_McGreed.logic.player
 {
     public class Player : Entity, Destroyable
     {
-        //De grootte van de 'dot' van de crosshair, stelt dotSize x dotSize pixels voor.
+        //De grootte van de 'dot' van de crosshair, stelt dotSize(width) x dotSize(height) pixels voor.
         public static int dotSize = 5;
 
         public PlayerDefinition definition { get; set; }
@@ -45,16 +45,17 @@ namespace Big_McGreed.logic.player
             }
             if (Mouse.GetState().RightButton == ButtonState.Pressed)
             {
-                visible = true;
+                foreach (NPC npc in Program.INSTANCE.getNPCs())
+                {
+                    npc.visible = true;
+                }
             }
             setLocation(PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, definition.mainTexture.Width, definition.mainTexture.Height, 2));
         }
 
         public override void Draw()
         {
-            Program.INSTANCE.spriteBatch.Begin();
             Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.Black);
-            Program.INSTANCE.spriteBatch.End();
         }
     }
 }

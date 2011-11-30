@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Big_McGreed.logic.projectile
 {
-    class Projectile
+    public class Projectile
     {
     }
 }
