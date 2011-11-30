@@ -30,6 +30,11 @@ namespace Big_McGreed
             InGame
         }
 
+        //Width van de application
+        public int Width;
+        //Hoogte van de application
+        public int Height;
+
         private Vector2 mousePosition = Vector2.Zero;
         public GameState gameState = GameState.Menu;
         private GameState lastState = GameState.Menu;
@@ -69,6 +74,8 @@ namespace Big_McGreed
         protected override void Initialize()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            Width = Program.INSTANCE.GraphicsDevice.Viewport.Width;
+            Height = Program.INSTANCE.GraphicsDevice.Viewport.Height;
             player = new Player();
             player.definition = PlayerDefinition.loadDefinition();
             menu = new Menu();

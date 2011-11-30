@@ -39,3 +39,12 @@ C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big Mc
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeNormal.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumePressed.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreNormal.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreHighlight.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreNormal.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscorePressed.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NewGameHighlight.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NewGameNormal.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NewGamePressed.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeHighlight.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeNormal.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumePressed.xnb
