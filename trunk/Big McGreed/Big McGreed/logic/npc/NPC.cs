@@ -43,9 +43,7 @@ namespace Big_McGreed.logic.npc
 
         public override void Draw() 
         {
-            Program.INSTANCE.spriteBatch.Begin();
             Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.White);
-            Program.INSTANCE.spriteBatch.End();
         }
     }
 }

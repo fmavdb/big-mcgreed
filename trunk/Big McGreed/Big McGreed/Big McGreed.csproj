@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="content\fps\FPS.cs" />
     <Compile Include="engine\Engine.cs" />
     <Compile Include="engine\events\Event.cs" />
     <Compile Include="engine\update\NPCUpdate.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="logic\map\objects\ObjectDefinition.cs" />
     <Compile Include="logic\map\PathFinding.cs" />
     <Compile Include="logic\map\PrimitivePathFinder.cs" />
+    <Compile Include="logic\mask\Hit.cs" />
     <Compile Include="logic\npc\NPC.cs" />
     <Compile Include="logic\npc\NPCDefinition.cs" />
     <Compile Include="logic\player\Player.cs" />

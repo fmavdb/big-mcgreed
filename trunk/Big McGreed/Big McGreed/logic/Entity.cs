@@ -5,12 +5,15 @@ using System.Text;
 using Big_McGreed.logic.player;
 using Big_McGreed.utility;
 using Big_McGreed.logic.npc;
+using Big_McGreed.logic.mask;
 
 namespace Big_McGreed.logic
 {
     public abstract class Entity : Locatable, Runnable
     {
         //NPC of Speler gebruiken deze gemeenschappelijke class.
+
+        public Queue<Hit> receivedHits { get; set; }
 
         public int lifes { get; private set; }
 
@@ -21,6 +24,7 @@ namespace Big_McGreed.logic
         public Entity()
         {
             visible = false;
+            receivedHits = new Queue<Hit>();
         }
 
         /*
@@ -29,6 +33,21 @@ namespace Big_McGreed.logic
         public void run()
         {
             run2();
+
+            processHits();
+        }
+
+        public void processHits()
+        {
+            if (receivedHits.Count > 0)
+            {
+                Hit hit = receivedHits.Dequeue();
+                lifes -= hit.damage;
+                if (lifes <= 0)
+                {
+                    //entity is dead.
+                }
+            }
         }
 
         /*
