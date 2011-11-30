@@ -31,7 +31,7 @@ namespace Big_McGreed
         }
 
         private Vector2 mousePosition = Vector2.Zero;
-        public GameState gameState = GameState.InGame;
+        public GameState gameState = GameState.Menu;
         private GameState lastState = GameState.Menu;
         private Player player;
         private PlayerUpdate playerUpdate;
@@ -57,7 +57,7 @@ namespace Big_McGreed
             //this.graphics.PreferredBackBufferWidth = 1280;
             //this.graphics.PreferredBackBufferHeight = 720;
             graphics.PreferMultiSampling = true;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -71,6 +71,7 @@ namespace Big_McGreed
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player = new Player();
             player.definition = PlayerDefinition.loadDefinition();
+            menu = new Menu();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
             fps = new FPS();

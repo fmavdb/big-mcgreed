@@ -25,7 +25,7 @@ namespace Big_McGreed.content.menu
             Button buttonNearMouse = null;
             lock (buttons)
             {
-                Rectangle mouse = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 1, 1);
+                Rectangle mouse = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 100, 100);
                 foreach (Button button in buttons)
                 {
                     Rectangle rectangleButton = new Rectangle((int)button.location.X, (int)button.location.Y, button.normal.Width, button.normal.Height);
@@ -34,15 +34,34 @@ namespace Big_McGreed.content.menu
                         buttonNearMouse = button;
                         break;
                     }
+                    else
+                    {
+                        button.current = button.normal;
+                    }
                 }
             }
             switch(Mouse.GetState().LeftButton) {
                 //Dit is voor als je met de muis op de button klikt, en dan loslaat.
                 case ButtonState.Released:
-                    buttonNearMouse.action();
+                    if (buttonNearMouse != null)
+                    {
+                        buttonNearMouse.current = buttonNearMouse.hover;
+                        buttonNearMouse.action();
+                    }
                     break;
                 //Dit is voor als je met de muis op de button klikt, en dan inhoud.
                 case ButtonState.Pressed:
+                    if (buttonNearMouse != null)
+                    {
+                        buttonNearMouse.current = buttonNearMouse.pressed;
+                    }
+                    break;
+                default:
+                    if (buttonNearMouse != null)
+                    {
+                        buttonNearMouse.current = buttonNearMouse.hover;
+                        Console.WriteLine("sadasdfasdadsf");
+                    }
                     break;
             }
         }
@@ -53,7 +72,7 @@ namespace Big_McGreed.content.menu
             {
                 foreach (Button button in buttons)
                 {
-                   
+                    button.Draw();
                 }
             }
         }
