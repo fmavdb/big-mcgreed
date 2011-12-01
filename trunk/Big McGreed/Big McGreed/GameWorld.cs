@@ -189,6 +189,13 @@ namespace Big_McGreed
             this.lastState = this.gameState;
             this.gameState = gameState;
             switch(gameState) {
+                case GameState.InGame:
+                    if (lastState == GameState.Paused)
+                    {
+                        menu.getButtons().Remove(menu.resume);
+                        menu.updateButtons();
+                    }
+                    break;
                 case GameState.Paused:
                     menu.getButtons().AddFirst(menu.resume);
                     menu.updateButtons();
