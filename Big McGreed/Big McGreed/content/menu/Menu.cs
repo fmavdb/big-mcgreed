@@ -14,21 +14,22 @@ namespace Big_McGreed.content.menu
 
         private LinkedList<Button> buttons;
         private bool released = false;
+        private NewGame newGame;
+        private HighScore highScore;
+        private Quit quit;
+        public Resume resume { get; private set; }
 
         public Menu()
         {
             buttons = new LinkedList<Button>();
-            buttons.AddFirst(new HighScore());            
-            buttons.AddLast(new Quit());
-
-
-            float startY = 100;
-            foreach (Button button in buttons)
-            {
-                button.location.X = Program.INSTANCE.Width / 2 - button.current.Width / 2;
-                button.location.Y = startY;
-                startY += button.normal.Height + 50;
-            }
+            newGame = new NewGame();
+            buttons.AddFirst(newGame);
+            highScore = new HighScore();
+            buttons.AddAfter(buttons.Find(newGame), highScore);
+            quit = new Quit();
+            buttons.AddLast(quit);
+            resume = new Resume();
+            updateButtons();
         }
 
         public void Update()
@@ -43,7 +44,6 @@ namespace Big_McGreed.content.menu
                     if (PrimitivePathFinder.intersects(mouse, rectangleButton))
                     {
                         buttonNearMouse = button;
-                        break;
                     }
                     else
                     {
@@ -84,6 +84,22 @@ namespace Big_McGreed.content.menu
                 {
                     button.Draw();
                 }
+            }
+        }
+
+        public LinkedList<Button> getButtons()
+        {
+            return buttons;
+        }
+
+        public void updateButtons()
+        {
+            float startY = 15;
+            foreach (Button button in buttons)
+            {
+                button.location.X = Program.INSTANCE.Width / 2 - button.current.Width / 2;
+                button.location.Y = startY;
+                startY += button.normal.Height + 15;
             }
         }
     }

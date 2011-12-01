@@ -35,15 +35,19 @@ namespace Big_McGreed.engine.update
         {
             while (running)
             {
-                lock (Program.INSTANCE.getNPCs())
-                {
-                    foreach (NPC npc in Program.INSTANCE.getNPCs())
-                    {
-                        if (npc.definition.mainTexture != null)
+                switch(Program.INSTANCE.getGameState()) {
+                    case GameWorld.GameState.InGame:
+                        lock (Program.INSTANCE.getNPCs())
                         {
-                            npc.run();
+                            foreach (NPC npc in Program.INSTANCE.getNPCs())
+                            {
+                                if (npc.definition.mainTexture != null)
+                                {
+                                    npc.run();
+                                }
+                            }
                         }
-                    }
+                    break;
                 }
                 System.Threading.Thread.Sleep(25);
             }
