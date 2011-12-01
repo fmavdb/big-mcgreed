@@ -13,9 +13,12 @@ namespace Big_McGreed.logic.player
     public class Player : Entity, Destroyable
     {
         //De grootte van de 'dot' van de crosshair, stelt dotSize(width) x dotSize(height) pixels voor.
-        public static int dotSize = 5;
+        public const int dotSize = 5;
 
         public PlayerDefinition definition { get; set; }
+
+
+        public int currentLevel { get; set; }
 
         //Stelt een speler voor.
 
