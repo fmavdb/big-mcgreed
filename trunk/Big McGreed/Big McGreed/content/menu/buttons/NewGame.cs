@@ -19,6 +19,7 @@ namespace Big_McGreed.content.menu.buttons
         public override void action()
         {
             Program.INSTANCE.setGameState(GameWorld.GameState.InGame);
+            Program.INSTANCE.newGame();
         }
     }
 }
