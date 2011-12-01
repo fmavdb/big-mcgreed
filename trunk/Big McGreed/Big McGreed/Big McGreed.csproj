@@ -113,7 +113,9 @@
     <Compile Include="content\fps\FPS.cs" />
     <Compile Include="content\menu\Button.cs" />
     <Compile Include="content\menu\buttons\HighScore.cs" />
+    <Compile Include="content\menu\buttons\NewGame.cs" />
     <Compile Include="content\menu\buttons\Quit.cs" />
+    <Compile Include="content\menu\buttons\Resume.cs" />
     <Compile Include="content\menu\Menu.cs" />
     <Compile Include="engine\Engine.cs" />
     <Compile Include="engine\events\Event.cs" />

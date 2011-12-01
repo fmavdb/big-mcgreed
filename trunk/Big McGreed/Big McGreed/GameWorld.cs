@@ -27,6 +27,7 @@ namespace Big_McGreed
         public enum GameState
         {
             Menu,
+            Paused,
             InGame
         }
 
@@ -36,7 +37,7 @@ namespace Big_McGreed
         public int Height;
 
         private Vector2 mousePosition = Vector2.Zero;
-        public GameState gameState = GameState.Menu;
+        private GameState gameState = GameState.Menu;
         private GameState lastState = GameState.Menu;
         private Player player;
         private PlayerUpdate playerUpdate;
@@ -56,11 +57,8 @@ namespace Big_McGreed
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            //crosshair = new Big_McGreed.content.mouse.Crosshair();
             IsMouseVisible = true;
 
-            //this.graphics.PreferredBackBufferWidth = 1366;
-            //this.graphics.PreferredBackBufferHeight = 768;
             graphics.PreferMultiSampling = true;
             graphics.IsFullScreen = true;
         }
@@ -131,16 +129,15 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                this.Exit();
             switch (gameState)
             {
+                case GameState.Paused:
                 case GameState.Menu:
                     menu.Update();
                     break;
                 case GameState.InGame:
-                    //Update lopen ofzo, maar geen speler of npcs deze worden in een andere thread gedaan.
+                    if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                        setGameState(GameState.Paused);
                     break;
             }
             fps.update(gameTime);
@@ -156,6 +153,7 @@ namespace Big_McGreed
             spriteBatch.Begin();
             switch (gameState)
             {
+                case GameState.Paused:
                 case GameState.Menu:
                     menu.Draw();
                     break;
@@ -170,7 +168,7 @@ namespace Big_McGreed
             fps.draw();
             spriteBatch.End();
             base.Draw(gameTime);
-        }
+        } 
 
         public Player getPlayer()
         {
@@ -180,6 +178,26 @@ namespace Big_McGreed
         public LinkedList<NPC> getNPCs()
         {
             return npcs;
+        }
+
+        public GameState getGameState() {
+            return gameState;
+        }
+
+        public void setGameState(GameState gameState)
+        {
+            this.lastState = this.gameState;
+            this.gameState = gameState;
+            switch(gameState) {
+                case GameState.Paused:
+                    menu.getButtons().AddFirst(menu.resume);
+                    menu.updateButtons();
+                    break;
+                case GameState.Menu:
+                    menu.getButtons().Remove(menu.resume);
+                    menu.updateButtons();
+                    break;
+            }
         }
     }
 }

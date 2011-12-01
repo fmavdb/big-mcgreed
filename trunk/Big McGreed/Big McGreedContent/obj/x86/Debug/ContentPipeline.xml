@@ -107,7 +107,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitHighlight.xnb</Output>
-      <Time>2011-11-30T15:45:33.555415+01:00</Time>
+      <Time>2011-11-30T19:55:31.6604015+01:00</Time>
     </Item>
     <Item>
       <Source>QuitNormal.png</Source>
@@ -116,7 +116,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitNormal.xnb</Output>
-      <Time>2011-11-30T15:45:33.5584152+01:00</Time>
+      <Time>2011-11-30T19:55:07.3170235+01:00</Time>
     </Item>
     <Item>
       <Source>QuitPressed.png</Source>
@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitPressed.xnb</Output>
-      <Time>2011-11-30T15:45:33.5604153+01:00</Time>
+      <Time>2011-11-30T19:55:50.0630728+01:00</Time>
     </Item>
     <Item>
       <Source>FPS.spritefont</Source>
@@ -142,10 +142,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
