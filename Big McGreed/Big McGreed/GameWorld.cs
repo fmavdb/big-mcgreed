@@ -81,15 +81,20 @@ namespace Big_McGreed
             npcUpdate = new NPCUpdate();
             fps = new FPS();
             gameMap = new GameMap();
-            npcs.AddFirst(new NPC());
-            NPC npc = new NPC();
-            npc.setLocation(new Vector2(0, 100));
-            npcs.AddFirst(npc);
+            newGame();
             playerUpdate.start();
             npcUpdate.start();
             base.Initialize();
         }
 
+        public void newGame()
+        {
+            npcs.Clear();
+            npcs.AddFirst(new NPC());
+            NPC npc = new NPC();
+            npc.setLocation(new Vector2(0, 100));
+            npcs.AddFirst(npc);
+        }
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
