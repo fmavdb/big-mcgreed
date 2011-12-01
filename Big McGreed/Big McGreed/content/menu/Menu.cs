@@ -94,7 +94,7 @@ namespace Big_McGreed.content.menu
 
         public void updateButtons()
         {
-            float startY = 15;
+            float startY = 200;
             foreach (Button button in buttons)
             {
                 button.location.X = Program.INSTANCE.Width / 2 - button.current.Width / 2;

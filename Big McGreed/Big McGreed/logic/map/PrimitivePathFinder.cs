@@ -71,7 +71,7 @@ namespace Big_McGreed.logic.map
                     {
                         Color[] pixels = new Color[npc.definition.mainTexture.Width * npc.definition.mainTexture.Height];
                         npc.definition.mainTexture.GetData<Color>(pixels);
-                        if (colorCollision(Color.Black, crossHair, npcRectangle, pixels))
+                        if (colorCollision(Color.Transparent, crossHair, npcRectangle, pixels))
                         {
                             npcsCollided.Add(npc);
                         }
@@ -96,7 +96,7 @@ namespace Big_McGreed.logic.map
                 {
                     Color color = pixels[(x - npc.Left) + (y - npc.Top) * npc.Width];
                     // Transparency is color.A == 0
-                    if (color == collideColor)
+                    if (color != collideColor)
                     {
                         // then an intersection has been found
                         return true;
