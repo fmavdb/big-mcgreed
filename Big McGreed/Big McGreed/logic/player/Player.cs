@@ -17,7 +17,6 @@ namespace Big_McGreed.logic.player
 
         public PlayerDefinition definition { get; set; }
 
-
         public int currentLevel { get; set; }
 
         //Stelt een speler voor.
