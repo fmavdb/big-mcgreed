@@ -121,6 +121,7 @@
     <Compile Include="content\menu\Menu.cs" />
     <Compile Include="engine\Engine.cs" />
     <Compile Include="engine\events\Event.cs" />
+    <Compile Include="engine\events\impl\Cleanup.cs" />
     <Compile Include="engine\ticks\Tick.cs" />
     <Compile Include="engine\update\NPCUpdate.cs" />
     <Compile Include="engine\update\PlayerUpdate.cs" />
@@ -137,6 +138,8 @@
     <Compile Include="logic\player\Player.cs" />
     <Compile Include="logic\player\PlayerDefinition.cs" />
     <Compile Include="logic\projectile\Projectile.cs" />
+    <Compile Include="logic\projectile\ProjectileDefinition.cs" />
+    <Compile Include="logic\sound\Sound.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="GameWorld.cs" />
@@ -185,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="content\upgrades\" />
-    <Folder Include="engine\events\impl\" />
     <Folder Include="engine\ticks\impl\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
