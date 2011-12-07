@@ -121,6 +121,7 @@
     <Compile Include="content\menu\Menu.cs" />
     <Compile Include="engine\Engine.cs" />
     <Compile Include="engine\events\Event.cs" />
+    <Compile Include="engine\ticks\Tick.cs" />
     <Compile Include="engine\update\NPCUpdate.cs" />
     <Compile Include="engine\update\PlayerUpdate.cs" />
     <Compile Include="logic\Entity.cs" />
@@ -185,6 +186,7 @@
   <ItemGroup>
     <Folder Include="content\upgrades\" />
     <Folder Include="engine\events\impl\" />
+    <Folder Include="engine\ticks\impl\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

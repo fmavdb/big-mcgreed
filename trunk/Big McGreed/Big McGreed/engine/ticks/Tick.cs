@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using Big_McGreed.utility;
 
-namespace Big_McGreed.engine.events
+namespace Big_McGreed.engine.ticks
 {
-	public abstract class Event : Runnable
-	{
+    public abstract class Tick : Runnable
+    {
         public int delay { get; set; }
         private DateTime lastRun { get; set; }
         protected bool running = false;
+        public string identifier { get; set; }
 
-        public Event()
+        public Tick()
         {
             lastRun = DateTime.Now;
             running = true;
@@ -22,7 +23,7 @@ namespace Big_McGreed.engine.events
 
         public int getTimeRemaining()
         {
-            return delay - ((int) (DateTime.Now.Millisecond - lastRun.Millisecond));
+            return delay - ((int)(DateTime.Now.Millisecond - lastRun.Millisecond));
         }
 
         public void updateLastRun()
@@ -34,5 +35,5 @@ namespace Big_McGreed.engine.events
         {
             return running;
         }
-	}
+    }
 }
