@@ -8,7 +8,12 @@ namespace Big_McGreed.logic.sound
 {
     public class Sound
     {
-        public string name { get; 
+        public string name
+        {
+            get
+            {
+                return this.name;
+            }
             set {
                 this.name = value;
                 soundEffect = Program.INSTANCE.Content.Load<SoundEffect>(value);

@@ -1,5 +1,7 @@
 using System;
 using System.Windows.Forms;
+using Big_McGreed.engine;
+using Big_McGreed.engine.events.impl;
 
 namespace Big_McGreed
 {
@@ -24,6 +26,7 @@ namespace Big_McGreed
             {
                 INSTANCE.Run();
             }
+            Engine.getInstance().submitEvent(new Cleanup());
         }
     }
 #endif

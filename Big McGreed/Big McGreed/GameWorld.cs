@@ -90,10 +90,14 @@ namespace Big_McGreed
         public void newGame()
         {
             npcs.Clear();
-            npcs.AddFirst(new NPC());
-            NPC npc = new NPC();
-            npc.setLocation(new Vector2(0, 100));
-            npcs.AddFirst(npc);
+            for (int i = 0; i < 1000; i++)
+            {
+                NPC npc = new NPC(1);
+                npc.setLocation(new Vector2(0, 100));
+                npcs.AddFirst(new NPC(1));
+            }
+            //npc.setLocation(new Vector2(0, 100));
+            //npcs.AddFirst(npc);
         }
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
@@ -182,7 +186,10 @@ namespace Big_McGreed
 
         public LinkedList<NPC> getNPCs()
         {
-            return npcs;
+            lock (npcs)
+            {
+                return npcs;
+            }
         }
 
         public GameState getGameState() {

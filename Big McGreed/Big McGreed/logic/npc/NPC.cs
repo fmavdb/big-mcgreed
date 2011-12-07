@@ -18,11 +18,14 @@ namespace Big_McGreed.logic.npc
     {
         //Stelt een door de computer gestuurde entiteit voor.
 
+        public int type { get; private set; }
+
         public NPCDefinition definition { get; set; }
 
-        public NPC()
+        public NPC(int type)
         {
-            definition = NPCDefinition.forType(1);
+            this.type = type;
+            definition = NPCDefinition.forType(type);
             visible = true;
         }
 
