@@ -205,15 +205,20 @@ namespace Big_McGreed
                     if (lastState == GameState.Paused)
                     {
                         menu.getButtons().Remove(menu.resume);
+                        menu.getButtons().Remove(menu.upgrade);
                         menu.updateButtons();
                     }
                     break;
                 case GameState.Paused:
                     menu.getButtons().AddFirst(menu.resume);
+                    menu.getButtons().AddLast(menu.upgrade);
                     menu.updateButtons();
+                    menu.upgrade.location.X = 10;
+                    menu.upgrade.location.Y = Height - (menu.upgrade.current.Height + 10);
                     break;
                 case GameState.Menu:
                     menu.getButtons().Remove(menu.resume);
+                    menu.getButtons().Remove(menu.upgrade);
                     menu.updateButtons();
                     break;
             }

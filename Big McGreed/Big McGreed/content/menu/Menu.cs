@@ -17,6 +17,7 @@ namespace Big_McGreed.content.menu
         private NewGame newGame;
         private HighScore highScore;
         private Quit quit;
+        public Upgrade upgrade {get; private set; }
         public Resume resume { get; private set; }
 
         public Menu()
@@ -29,6 +30,7 @@ namespace Big_McGreed.content.menu
             quit = new Quit();
             buttons.AddLast(quit);
             resume = new Resume();
+            upgrade = new Upgrade();
             updateButtons();
         }
 

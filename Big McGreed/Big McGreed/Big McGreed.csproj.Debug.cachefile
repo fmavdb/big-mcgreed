@@ -12,5 +12,8 @@ Content\ResumePressed.xnb
 Content\QuitHighlight.xnb
 Content\QuitNormal.xnb
 Content\QuitPressed.xnb
-Content\FPS.xnb
 Content\Achtergrond.xnb
+Content\UpgradeHighlight.xnb
+Content\UpgradeNormal.xnb
+Content\UpgradePressed.xnb
+Content\FPS.xnb
