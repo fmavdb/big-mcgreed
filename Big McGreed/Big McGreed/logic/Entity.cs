@@ -61,9 +61,22 @@ namespace Big_McGreed.logic
                 lifes -= hit.damage;
                 if (lifes <= 0)
                 {
-                    //entity is dead.
+                    visible = false; //TODO
                 }
             }
+        }
+
+        public void hit(Hit hit)
+        {
+            lock (receivedHits)
+            {
+                receivedHits.Enqueue(hit);
+            }
+        }
+
+        public void updateLifes(int lifes)
+        {
+            this.lifes = lifes;
         }
 
         /*

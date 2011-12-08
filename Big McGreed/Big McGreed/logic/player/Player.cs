@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Big_McGreed.logic.map;
 using Microsoft.Xna.Framework.Input;
 using Big_McGreed.logic.npc;
+using Big_McGreed.logic.mask;
 
 namespace Big_McGreed.logic.player
 {
@@ -18,6 +19,9 @@ namespace Big_McGreed.logic.player
         public PlayerDefinition definition { get; set; }
 
         public int currentLevel { get; set; }
+
+        public bool pressed = false;
+
 
         //Stelt een speler voor.
 
@@ -42,17 +46,23 @@ namespace Big_McGreed.logic.player
             {
                 foreach (NPC npc in PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y))
                 {
-                    npc.visible = false;
+                    npc.hit(new Hit(npc, this, 10));
                 }
             }
             if (Mouse.GetState().RightButton == ButtonState.Pressed)
             {
-                foreach (NPC npc in Program.INSTANCE.getNPCs())
+                lock (Program.INSTANCE.npcs)
                 {
-                    npc.visible = true;
+                    foreach (NPC npc in Program.INSTANCE.npcs)
+                    {
+                        npc.visible = true;
+                    }
                 }
             }
-            setLocation(PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, definition.mainTexture.Width, definition.mainTexture.Height, 2));
+            if (Mouse.GetState().X != getX() || Mouse.GetState().Y != getY())
+            {
+                setLocation(PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, definition.mainTexture.Width, definition.mainTexture.Height, 2));
+            }
         }
 
         public override void Draw()

@@ -26,6 +26,7 @@ namespace Big_McGreed.logic.npc
         {
             this.type = type;
             definition = NPCDefinition.forType(type);
+            updateLifes(definition.hp);
             visible = true;
         }
 

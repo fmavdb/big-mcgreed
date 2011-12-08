@@ -11,7 +11,6 @@ namespace Big_McGreed.engine.update
     public class NPCUpdate
     {
         private Thread main;
-        private Thread draw;
 
         protected bool running = false;
 
@@ -39,24 +38,27 @@ namespace Big_McGreed.engine.update
             {
                 switch(Program.INSTANCE.getGameState()) {
                     case GameWorld.GameState.InGame:
-                        Parallel.ForEach(Program.INSTANCE.getNPCs(), delegate(NPC npc)
+                        lock (Program.INSTANCE.npcs)
                         {
-                            if (npc.definition.mainTexture != null)
+                            foreach (NPC npc in Program.INSTANCE.npcs)
                             {
-                                npc.run();
+                                if (npc.definition.mainTexture != null)
+                                {
+                                    npc.run();
+                                }
                             }
-                        });
+                        }
                     break;
                 }
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(25);
             }
         }
 
         public void Draw()
         {
-            lock (Program.INSTANCE.getNPCs())
+            lock (Program.INSTANCE.npcs)
             {
-                foreach (NPC npc in Program.INSTANCE.getNPCs())
+                foreach (NPC npc in Program.INSTANCE.npcs)
                 {
                     if (npc.visible && npc.definition.mainTexture != null)
                     {

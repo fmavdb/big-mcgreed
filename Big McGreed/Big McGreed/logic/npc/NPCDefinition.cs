@@ -13,12 +13,15 @@ namespace Big_McGreed.logic.npc
 
         public Color[] pixels { get; set; }
 
+        public int hp = 0;
+
         public static NPCDefinition forType(int type)
         {
             NPCDefinition def = new NPCDefinition();
             def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
-            //def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
-            //def.mainTexture.GetData<Color>(def.pixels);
+            def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
+            def.mainTexture.GetData<Color>(def.pixels);
+            def.hp = 100;
             return def;
         }
 

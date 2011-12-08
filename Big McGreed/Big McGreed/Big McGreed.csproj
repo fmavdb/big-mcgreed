@@ -37,7 +37,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\x86\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -119,14 +119,11 @@
     <Compile Include="content\menu\buttons\Quit.cs" />
     <Compile Include="content\menu\buttons\Resume.cs" />
     <Compile Include="content\menu\Menu.cs" />
-    <Compile Include="engine\Engine.cs" />
-    <Compile Include="engine\events\Event.cs" />
-    <Compile Include="engine\events\impl\Cleanup.cs" />
+    <Compile Include="engine\misc\CleanUp.cs" />
     <Compile Include="engine\ticks\Tick.cs" />
     <Compile Include="engine\update\NPCUpdate.cs" />
     <Compile Include="engine\update\PlayerUpdate.cs" />
     <Compile Include="logic\Entity.cs" />
-    <Compile Include="logic\EntityManipulation.cs" />
     <Compile Include="logic\Locatable.cs" />
     <Compile Include="logic\map\GameMap.cs" />
     <Compile Include="logic\map\objects\GameObject.cs" />
