@@ -48,3 +48,4 @@ C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeHighlight.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeNormal.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumePressed.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb

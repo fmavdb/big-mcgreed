@@ -15,7 +15,6 @@ namespace Big_McGreed.logic.player
             return def;
         }
 
-
         public Texture2D mainTexture { get; set; }
 
         public PlayerDefinition()

@@ -60,7 +60,7 @@ namespace Big_McGreed
             IsMouseVisible = true;
 
             graphics.PreferMultiSampling = true;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -90,11 +90,13 @@ namespace Big_McGreed
         public void newGame()
         {
             npcs.Clear();
-            for (int i = 0; i < 1000; i++)
+            int d = 50;
+            for (int i = 0; i < 100; i++)
             {
                 NPC npc = new NPC(1);
-                npc.setLocation(new Vector2(0, 100));
-                npcs.AddFirst(new NPC(1));
+                npc.setLocation(new Vector2(0, d));
+                d += 3;
+                npcs.AddFirst(npc);
             }
             //npc.setLocation(new Vector2(0, 100));
             //npcs.AddFirst(npc);
@@ -128,7 +130,6 @@ namespace Big_McGreed
             if (player != null)
                 player.destroy();
             Engine.getInstance().destroy();
-
         }
 
         /// <summary>
@@ -159,7 +160,9 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            //LET OP! - De volgorde bepaalt de layer op het scherm. (Dus door een plaatje als eerste te drawen, krijg je een background)
             spriteBatch.Begin();
+            gameMap.DrawBackground();
             switch (gameState)
             {
                 case GameState.Paused:
@@ -167,10 +170,10 @@ namespace Big_McGreed
                     menu.Draw();
                     break;
                 case GameState.InGame:
+                    gameMap.Draw();
                     if (player != null &&  player.visible && player.definition.mainTexture != null)
                         player.Draw();
                     npcUpdate.Draw();
-                    gameMap.Draw();
                     break;
                     
             }
@@ -186,10 +189,7 @@ namespace Big_McGreed
 
         public LinkedList<NPC> getNPCs()
         {
-            lock (npcs)
-            {
-                return npcs;
-            }
+            return npcs;
         }
 
         public GameState getGameState() {

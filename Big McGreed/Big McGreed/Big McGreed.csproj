@@ -126,6 +126,7 @@
     <Compile Include="engine\update\NPCUpdate.cs" />
     <Compile Include="engine\update\PlayerUpdate.cs" />
     <Compile Include="logic\Entity.cs" />
+    <Compile Include="logic\EntityManipulation.cs" />
     <Compile Include="logic\Locatable.cs" />
     <Compile Include="logic\map\GameMap.cs" />
     <Compile Include="logic\map\objects\GameObject.cs" />
