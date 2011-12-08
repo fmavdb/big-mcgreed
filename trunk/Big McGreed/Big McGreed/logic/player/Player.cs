@@ -20,8 +20,7 @@ namespace Big_McGreed.logic.player
 
         public int currentLevel { get; set; }
 
-        public bool pressed = false;
-
+        public bool leftButtonPressed = false;
 
         //Stelt een speler voor.
 
@@ -44,10 +43,18 @@ namespace Big_McGreed.logic.player
         {
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                foreach (NPC npc in PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y))
+                if (!leftButtonPressed)
                 {
-                    npc.hit(new Hit(npc, this, 10));
+                    foreach (NPC npc in PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y))
+                    {
+                        npc.hit(new Hit(npc, this, 10));
+                    }
+                    leftButtonPressed = true;
                 }
+            }
+            else
+            {
+                leftButtonPressed = false;
             }
             if (Mouse.GetState().RightButton == ButtonState.Pressed)
             {
