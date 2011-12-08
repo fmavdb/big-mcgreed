@@ -8,14 +8,14 @@ using Microsoft.Xna.Framework;
 
 namespace Big_McGreed.content.fps
 {
-    public class FPS
+    public class ProgramInformation
     {
         private SpriteFont spriteFont;
         private int frameRate = 0;
         private int frameCounter = 0;
         private TimeSpan elapsedTime = TimeSpan.Zero;
 
-        public FPS()
+        public ProgramInformation()
         {
             spriteFont = Program.INSTANCE.Content.Load<SpriteFont>("FPS");
         }
@@ -37,7 +37,8 @@ namespace Big_McGreed.content.fps
         public void draw()
         {
             frameCounter++;
-            Program.INSTANCE.spriteBatch.DrawString(spriteFont, frameRate.ToString(), Vector2.One, Color.White);
+            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "FPS: " + frameRate.ToString(), Vector2.One, Color.White);
+            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "Memory: " + System.GC.GetTotalMemory(false), new Vector2(0, spriteFont.LineSpacing), Color.White);
         }
     }
 }

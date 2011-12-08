@@ -36,20 +36,25 @@ namespace Big_McGreed.logic.map
         {
             if (checkForNPCCollision)
             {
-                foreach (NPC npc in Program.INSTANCE.getNPCs()) {
-                    if (npc.visible && npc.definition.mainTexture != null) {
-                        if (entity is Player) //crosshair
+                lock (Program.INSTANCE.npcs)
+                {
+                    foreach (NPC npc in Program.INSTANCE.npcs)
+                    {
+                        if (npc.visible && npc.definition.mainTexture != null)
                         {
-                            if (intersects(new Rectangle(x, y, Player.dotSize, Player.dotSize), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
+                            if (entity is Player) //crosshair
                             {
-                                return true;
+                                if (intersects(new Rectangle(x, y, Player.dotSize, Player.dotSize), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
+                                {
+                                    return true;
+                                }
                             }
-                        }
-                        else if (entity is NPC)
-                        {
-                            if (intersects(new Rectangle(x, y, ((NPC)entity).definition.mainTexture.Width, ((NPC)entity).definition.mainTexture.Height), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
+                            else if (entity is NPC)
                             {
-                                return true;
+                                if (intersects(new Rectangle(x, y, ((NPC)entity).definition.mainTexture.Width, ((NPC)entity).definition.mainTexture.Height), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
+                                {
+                                    return true;
+                                }
                             }
                         }
                     }
@@ -62,18 +67,21 @@ namespace Big_McGreed.logic.map
         {
             List<NPC> npcsCollided= new List<NPC>();
             Rectangle crossHair = new Rectangle(x, y, Player.dotSize, Player.dotSize);
-            foreach (NPC npc in Program.INSTANCE.getNPCs())
+            lock (Program.INSTANCE.npcs)
             {
-                if (npc.visible && npc.definition.mainTexture != null)
+                foreach (NPC npc in Program.INSTANCE.npcs)
                 {
-                    Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height);
-                    if (intersects(crossHair, npcRectangle))
+                    if (npc.visible && npc.definition.mainTexture != null)
                     {
-                        Color[] pixels = new Color[npc.definition.mainTexture.Width * npc.definition.mainTexture.Height];
-                        npc.definition.mainTexture.GetData<Color>(pixels);
-                        if (colorCollision(Color.Transparent, crossHair, npcRectangle, pixels))
+                        Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height);
+                        if (intersects(crossHair, npcRectangle))
                         {
-                            npcsCollided.Add(npc);
+                            //Color[] pixels = new Color[npc.definition.mainTexture.Width * npc.definition.mainTexture.Height];
+                            //npc.definition.mainTexture.GetData<Color>(pixels);
+                            if (colorCollision(Color.Transparent, crossHair, npcRectangle, npc.definition.pixels))
+                            {
+                                npcsCollided.Add(npc);
+                            }
                         }
                     }
                 }

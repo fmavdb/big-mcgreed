@@ -15,6 +15,7 @@ using Big_McGreed.engine.update;
 using Big_McGreed.content.fps;
 using Big_McGreed.logic.map;
 using Big_McGreed.content.menu;
+using Big_McGreed.engine.misc;
 
 
 namespace Big_McGreed
@@ -39,16 +40,17 @@ namespace Big_McGreed
         private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.Menu;
         private GameState lastState = GameState.Menu;
-        private Player player;
+        public Player player { get; private set; }
         private PlayerUpdate playerUpdate;
-        private LinkedList<NPC> npcs = new LinkedList<NPC>();
+        public LinkedList<NPC> npcs { get; private set; }
         private NPCUpdate npcUpdate;
-        private FPS fps;
+        private ProgramInformation info;
         private GameMap gameMap;
         private Menu menu;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
+        public MouseState lastMouseState { get; private set; }
 
         //private Crosshair crosshair;
 
@@ -60,7 +62,7 @@ namespace Big_McGreed
             IsMouseVisible = true;
 
             graphics.PreferMultiSampling = true;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -74,29 +76,36 @@ namespace Big_McGreed
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Width = Program.INSTANCE.GraphicsDevice.Viewport.Width;
             Height = Program.INSTANCE.GraphicsDevice.Viewport.Height;
+            npcs = new LinkedList<NPC>();
             player = new Player();
             player.definition = PlayerDefinition.loadDefinition();
             menu = new Menu();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
-            fps = new FPS();
+            info = new ProgramInformation();
             gameMap = new GameMap();
             newGame();
             playerUpdate.start();
             npcUpdate.start();
+            //Engine.getInstance().start();
+            CleanUp.INSTANCE.start();
+            //Engine.getInstance().submitEvent(new Cleanup());
             base.Initialize();
         }
 
         public void newGame()
         {
-            npcs.Clear();
-            int d = 50;
-            for (int i = 0; i < 100; i++)
+            lock (npcs)
             {
-                NPC npc = new NPC(1);
-                npc.setLocation(new Vector2(0, d));
-                d += 3;
-                npcs.AddFirst(npc);
+                npcs.Clear();
+                int d = 0;
+                for (int i = 0; i < 10; i++)
+                {
+                    NPC npc = new NPC(1);
+                    npc.setLocation(new Vector2(0, d));
+                    d += 80;
+                    npcs.AddFirst(npc);
+                }
             }
             //npc.setLocation(new Vector2(0, 100));
             //npcs.AddFirst(npc);
@@ -129,7 +138,8 @@ namespace Big_McGreed
                 playerUpdate.stop();
             if (player != null)
                 player.destroy();
-            Engine.getInstance().destroy();
+            CleanUp.INSTANCE.stop();
+            //Engine.getInstance().destroy();
         }
 
         /// <summary>
@@ -150,7 +160,7 @@ namespace Big_McGreed
                         setGameState(GameState.Paused);
                     break;
             }
-            fps.update(gameTime);
+            info.update(gameTime);
             base.Update(gameTime);
         }
 
@@ -171,26 +181,16 @@ namespace Big_McGreed
                     break;
                 case GameState.InGame:
                     gameMap.Draw();
-                    if (player != null &&  player.visible && player.definition.mainTexture != null)
-                        player.Draw();
                     npcUpdate.Draw();
+                    if (player != null && player.visible && player.definition.mainTexture != null)
+                        player.Draw();
                     break;
                     
             }
-            fps.draw();
+            info.draw();
             spriteBatch.End();
             base.Draw(gameTime);
         } 
-
-        public Player getPlayer()
-        {
-            return player;
-        }
-
-        public LinkedList<NPC> getNPCs()
-        {
-            return npcs;
-        }
 
         public GameState getGameState() {
             return gameState;

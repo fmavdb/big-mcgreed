@@ -37,9 +37,9 @@ namespace Big_McGreed.engine.update
             {
                 switch(Program.INSTANCE.getGameState()) {
                     case GameWorld.GameState.InGame:
-                        if (Program.INSTANCE.getPlayer() != null)
+                        if (Program.INSTANCE.player != null && Program.INSTANCE.player.definition.mainTexture != null)
                         {
-                            EntityManipulation.PlayerRun(Program.INSTANCE.getPlayer());
+                            Program.INSTANCE.player.run();
                         }
                     break;
                 }
