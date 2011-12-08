@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using Big_McGreed.logic.npc;
+using System.Threading.Tasks;
 
 namespace Big_McGreed.engine.update
 {
     public class NPCUpdate
     {
         private Thread main;
+        private Thread draw;
 
         protected bool running = false;
 
@@ -37,19 +39,16 @@ namespace Big_McGreed.engine.update
             {
                 switch(Program.INSTANCE.getGameState()) {
                     case GameWorld.GameState.InGame:
-                        lock (Program.INSTANCE.getNPCs())
+                        Parallel.ForEach(Program.INSTANCE.getNPCs(), delegate(NPC npc)
                         {
-                            foreach (NPC npc in Program.INSTANCE.getNPCs())
+                            if (npc.definition.mainTexture != null)
                             {
-                                if (npc.definition.mainTexture != null)
-                                {
-                                    npc.run();
-                                }
+                                npc.run();
                             }
-                        }
+                        });
                     break;
                 }
-                System.Threading.Thread.Sleep(25);
+                System.Threading.Thread.Sleep(10);
             }
         }
 

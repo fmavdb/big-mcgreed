@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using Big_McGreed.logic;
 
 namespace Big_McGreed.engine.update
 {
@@ -38,10 +39,7 @@ namespace Big_McGreed.engine.update
                     case GameWorld.GameState.InGame:
                         if (Program.INSTANCE.getPlayer() != null)
                         {
-                            if (Program.INSTANCE.getPlayer().definition.mainTexture != null)
-                            {
-                                Program.INSTANCE.getPlayer().run();
-                            }
+                            EntityManipulation.PlayerRun(Program.INSTANCE.getPlayer());
                         }
                     break;
                 }

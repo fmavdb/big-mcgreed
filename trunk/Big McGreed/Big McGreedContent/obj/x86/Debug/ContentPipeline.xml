@@ -136,16 +136,25 @@
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\FPS.xnb</Output>
       <Time>2011-11-30T09:11:14.4170599+01:00</Time>
     </Item>
+    <Item>
+      <Source>Achtergrond.jpg</Source>
+      <Name>Achtergrond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb</Output>
+      <Time>2011-12-08T10:45:45.196442+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
