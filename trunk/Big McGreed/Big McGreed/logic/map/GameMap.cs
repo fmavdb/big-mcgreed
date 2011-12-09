@@ -17,27 +17,29 @@ namespace Big_McGreed.logic.map
 
         private Texture2D mainTexture = null;
 
-        private LinkedList<GameObject> objects = new LinkedList<GameObject>();
+        private LinkedList<GameObject> objects;
 
         public GameMap()
         {
+            objects = new LinkedList<GameObject>();
             mainTexture = Program.INSTANCE.Content.Load<Texture2D>("Achtergrond");
         }
 
         public void DrawBackground()
         {
-            Program.INSTANCE.spriteBatch.Draw(mainTexture, new Vector2(0, 0), Color.White);
+            float scale = 1.0f;
+            //Console.WriteLine(scale);
+            Program.INSTANCE.spriteBatch.Draw(mainTexture, Vector2.Zero, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
         }
 
         public void Draw()
         {
-            Parallel.ForEach(objects, delegate(GameObject gameObject)
-            {
-                if (gameObject.definition.mainTexture != null)
+            lock(objects) {
+                foreach (GameObject gameObject in objects)
                 {
                     gameObject.Draw();
                 }
-            });
+            }
         }
     }
 }

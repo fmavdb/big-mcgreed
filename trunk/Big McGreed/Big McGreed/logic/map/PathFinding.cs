@@ -8,6 +8,6 @@ namespace Big_McGreed.logic.map
 {
     public interface PathFinding
     {
-        List<Vector2> findPath();
+        LinkedList<Vector2> findPath(Vector2 start, Vector2 end);
     }
 }

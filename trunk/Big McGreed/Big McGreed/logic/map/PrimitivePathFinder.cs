@@ -38,13 +38,14 @@ namespace Big_McGreed.logic.map
             {
                 lock (Program.INSTANCE.npcs)
                 {
+                    Rectangle crossHair = new Rectangle(x, y, Player.dotSize, Player.dotSize);
                     foreach (NPC npc in Program.INSTANCE.npcs)
                     {
                         if (npc.visible && npc.definition.mainTexture != null)
                         {
                             if (entity is Player) //crosshair
                             {
-                                if (intersects(new Rectangle(x, y, Player.dotSize, Player.dotSize), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
+                                if (intersects(crossHair, new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
                                 {
                                     return true;
                                 }
@@ -122,8 +123,17 @@ namespace Big_McGreed.logic.map
             return object1.Intersects(object2);
         }
 
-        public List<Vector2> findPath()
+        public LinkedList<Vector2> findPath(Vector2 start, Vector2 end)
         {
+            if (start.X < 0 || start.Y < 0 || start.X > Program.INSTANCE.Width || start.Y > Program.INSTANCE.Height || end.X < 0 || end.Y < 0 || end.X > Program.INSTANCE.Width || end.Y > Program.INSTANCE.Height)
+            {
+                return null;
+            }
+            if (start.X == end.X && start.Y == end.Y)
+            {
+                return null;
+            }
+            LinkedList<Vector2> path = new LinkedList<Vector2>();
             return null;
         }
     }
