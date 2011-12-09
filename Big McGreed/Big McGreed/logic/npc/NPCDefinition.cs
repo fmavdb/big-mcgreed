@@ -11,7 +11,9 @@ namespace Big_McGreed.logic.npc
     {
         public Texture2D mainTexture { get; set; }
 
-        public Color[] pixels { get; set; }
+        public Color[] pixels { get; private set; }
+
+        public Texture2D hittedTexture { get; private set; }
 
         public int hp = 0;
 
@@ -24,6 +26,7 @@ namespace Big_McGreed.logic.npc
         {
             NPCDefinition def = new NPCDefinition();
             def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
+            def.hittedTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje_rood");
             def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
             def.mainTexture.GetData<Color>(def.pixels);
             def.hp = 100;

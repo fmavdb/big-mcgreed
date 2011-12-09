@@ -13,8 +13,6 @@ namespace Big_McGreed.logic
 {
     public abstract class Entity : Locatable, Runnable
     {
-        //NPC of Speler gebruiken deze gemeenschappelijke class.
-
         protected Queue<Hit> receivedHits { get; private set; }
 
         protected Hashtable ticks { get; private set; }
@@ -22,6 +20,8 @@ namespace Big_McGreed.logic
         protected int lifes { get; private set; }
 
         public bool visible { get; set; }
+
+        protected bool hitted = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Entity"/> class.
@@ -79,6 +79,7 @@ namespace Big_McGreed.logic
             lock (receivedHits)
             {
                 receivedHits.Enqueue(hit);
+                hitted = true;
             }
         }
 

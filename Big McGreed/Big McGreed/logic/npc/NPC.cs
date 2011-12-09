@@ -52,7 +52,13 @@ namespace Big_McGreed.logic.npc
         /// </summary>
         public override void Draw() 
         {
-            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.White);
+            Texture2D toDraw = definition.mainTexture;
+            if (hitted)
+            {
+                toDraw = definition.hittedTexture;
+                hitted = false;
+            }
+            Program.INSTANCE.spriteBatch.Draw(toDraw, getLocation(), Color.White);
         }
     }
 }
