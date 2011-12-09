@@ -22,7 +22,7 @@ namespace Big_McGreed.content.menu.buttons
 
         public override void action()
         {
-            Program.INSTANCE.setGameState(GameWorld.GameState.Upgrade);
+            Program.INSTANCE.CurrentGameState = GameWorld.GameState.Upgrade;
         }
     }
 }

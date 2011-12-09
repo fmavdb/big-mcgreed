@@ -22,7 +22,7 @@ namespace Big_McGreed.content.menu.buttons
 
         public override void action()
         {
-            Program.INSTANCE.setGameState(GameWorld.GameState.Paused);
+            Program.INSTANCE.CurrentGameState = GameWorld.GameState.Paused;
         }
     }
 }

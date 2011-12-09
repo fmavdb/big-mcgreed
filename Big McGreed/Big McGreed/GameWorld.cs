@@ -160,7 +160,7 @@ namespace Big_McGreed
                     break;
                 case GameState.InGame:
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                        setGameState(GameState.Paused);
+                        CurrentGameState = GameState.Paused;
                     break;
             }
             info.update(gameTime);
@@ -195,97 +195,72 @@ namespace Big_McGreed
             info.draw();
             spriteBatch.End();
             base.Draw(gameTime);
-        } 
-
-        public GameState getGameState() {
-            return gameState;
         }
 
-        public void setGameState(GameState gameState)
+        public GameState CurrentGameState { 
+            get 
+            {
+                return gameState; 
+            } 
+            set 
+            {
+                this.lastState = this.gameState;
+                this.gameState = value;
+                switch (gameState)
+                {
+                    case GameState.InGame:
+                        if (lastState == GameState.Paused)
+                        {
+                            removeButton(menu.upgrade);
+                            removeButton(menu.resume);
+                        }
+                        break;
+
+                    case GameState.Paused:
+                        addButton(menu.resume, true);
+                        addButton(menu.newGame, false);
+                        addButton(menu.highScore, false);
+                        addButton(menu.quit, false);
+                        addButton(menu.upgrade, false);
+                        removeButton(menu.menuButtonKlein);
+                        removeButton(menu.resumeKlein);
+                        menu.updateButtons();
+                        break;
+
+                    case GameState.Menu:
+                        removeButton(menu.resume);
+                        removeButton(menu.upgrade);
+                        removeButton(menu.menuButtonKlein);
+                        removeButton(menu.resumeKlein);
+                        menu.updateButtons();
+                        break;
+
+                    case GameState.Upgrade:
+                        menu.getButtons().Clear();
+                        addButton(menu.menuButtonKlein, true);
+                        addButton(menu.resumeKlein, true);
+                        menu.updateButtons();
+                        break;
+                }
+            }
+        }
+
+        private void removeButton(Button button)
         {
-            this.lastState = this.gameState;
-            this.gameState = gameState;
-            switch(gameState) {
-                case GameState.InGame:
-                    if (lastState == GameState.Paused)
-                    {
-                        if (menu.getButtons().Find(menu.upgrade) != null)
-                        {
-                            menu.getButtons().Remove(menu.upgrade);
-                        }
-                        if (menu.getButtons().Find(menu.resume) != null)
-                        {
-                            menu.getButtons().Remove(menu.resume);
-                        }
-                    }
-                    break;
+            if (menu.getButtons().Find(button) != null)
+            {
+                menu.getButtons().Remove(button);
+            }
+        }
 
-                case GameState.Paused:
-
-                    if (menu.getButtons().Find(menu.resume) == null)
-                    {
-                        menu.getButtons().AddFirst(menu.resume);
-                    }
-                    if (menu.getButtons().Find(menu.newGame) == null)
-                    {
-                        menu.getButtons().AddLast(menu.newGame);
-                    }
-                    if (menu.getButtons().Find(menu.highScore) == null)
-                    {
-                        menu.getButtons().AddLast(menu.highScore);
-                    }
-                    if (menu.getButtons().Find(menu.quit) == null)
-                    {
-                        menu.getButtons().AddLast(menu.quit);
-                    }
-                    if (menu.getButtons().Find(menu.upgrade) == null)
-                    {
-                        menu.getButtons().AddLast(menu.upgrade);
-                    }
-
-                    if (menu.getButtons().Find(menu.menuButtonKlein) != null)
-                    {
-                        menu.getButtons().Remove(menu.menuButtonKlein);
-                    }
-                    if (menu.getButtons().Find(menu.resumeKlein) != null)
-                    {
-                        menu.getButtons().Remove(menu.resumeKlein);
-                    }
-                    menu.updateButtons();
-                    break;
-
-                case GameState.Menu:
-                    if (menu.getButtons().Find(menu.resume) != null)
-                    {
-                        menu.getButtons().Remove(menu.resume);
-                    }
-                    if (menu.getButtons().Find(menu.upgrade) != null)
-                    {
-                        menu.getButtons().Remove(menu.upgrade);
-                    }
-                    if (menu.getButtons().Find(menu.menuButtonKlein) != null)
-                    {
-                        menu.getButtons().Remove(menu.menuButtonKlein);
-                    }
-                    if (menu.getButtons().Find(menu.resumeKlein) != null)
-                    {
-                        menu.getButtons().Remove(menu.resumeKlein);
-                    }
-                    menu.updateButtons();
-                    break;
-
-                case GameState.Upgrade:
-                    menu.getButtons().Clear();
-                    if (menu.getButtons().Find(menu.menuButtonKlein) == null)
-                    {
-                        menu.getButtons().AddFirst(menu.menuButtonKlein);
-                    }
-                    if (menu.getButtons().Find(menu.resumeKlein) == null)
-                    {
-                        menu.getButtons().AddFirst(menu.resumeKlein);
-                    }
-                    menu.updateButtons();
-                    break;
+        private void addButton(Button button, bool first)
+        {
+            if (menu.getButtons().Find(button) == null)
+            {
+                if (first)
+                    menu.getButtons().AddFirst(button);
+                else
+                    menu.getButtons().AddLast(button);
             }
         }
     }

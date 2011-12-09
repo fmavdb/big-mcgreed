@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Big_McGreed.logic.npc;
 using Big_McGreed.logic.player;
+using System.Collections.ObjectModel;
 
 namespace Big_McGreed.logic.map
 {
@@ -64,9 +65,9 @@ namespace Big_McGreed.logic.map
             return false;
         }
 
-        public static List<NPC> collision(Player player, int x, int y)
+        public static Collection<NPC> collision(Player player, int x, int y)
         {
-            List<NPC> npcsCollided= new List<NPC>();
+            Collection<NPC> npcsCollided= new Collection<NPC>();
             Rectangle crossHair = new Rectangle(x, y, Player.dotSize, Player.dotSize);
             lock (Program.INSTANCE.npcs)
             {
