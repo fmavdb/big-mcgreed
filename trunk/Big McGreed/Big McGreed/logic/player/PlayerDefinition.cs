@@ -8,6 +8,10 @@ namespace Big_McGreed.logic.player
 {
     public class PlayerDefinition 
     {
+        /// <summary>
+        /// Loads the definition.
+        /// </summary>
+        /// <returns></returns>
         public static PlayerDefinition loadDefinition() {
             PlayerDefinition def = new PlayerDefinition();
             //Laad gegevens.
@@ -20,6 +24,9 @@ namespace Big_McGreed.logic.player
 
         public Texture2D personTexture { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerDefinition"/> class.
+        /// </summary>
         public PlayerDefinition()
         {
             mainTexture = null;

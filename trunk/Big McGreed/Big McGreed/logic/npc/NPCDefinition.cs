@@ -15,6 +15,11 @@ namespace Big_McGreed.logic.npc
 
         public int hp = 0;
 
+        /// <summary>
+        /// Initializes a new instance for the npc type.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public static NPCDefinition forType(int type)
         {
             NPCDefinition def = new NPCDefinition();

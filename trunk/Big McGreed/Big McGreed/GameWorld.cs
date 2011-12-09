@@ -55,6 +55,9 @@ namespace Big_McGreed
 
         //private Crosshair crosshair;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameWorld"/> class.
+        /// </summary>
         public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -94,6 +97,9 @@ namespace Big_McGreed
             base.Initialize();
         }
 
+        /// <summary>
+        /// Creates a new game.
+        /// </summary>
         public void newGame()
         {
             lock (npcs)
@@ -197,6 +203,13 @@ namespace Big_McGreed
             base.Draw(gameTime);
         }
 
+
+        /// <summary>
+        /// Gets or sets the state of the current game.
+        /// </summary>
+        /// <value>
+        /// The state of the current game.
+        /// </value>
         public GameState CurrentGameState { 
             get 
             {
@@ -245,6 +258,10 @@ namespace Big_McGreed
             }
         }
 
+        /// <summary>
+        /// Removes the button.
+        /// </summary>
+        /// <param name="button">The button.</param>
         private void removeButton(Button button)
         {
             if (menu.getButtons().Find(button) != null)
@@ -253,6 +270,11 @@ namespace Big_McGreed
             }
         }
 
+        /// <summary>
+        /// Adds the button.
+        /// </summary>
+        /// <param name="button">The button.</param>
+        /// <param name="first">if set to <c>true</c> [first].</param>
         private void addButton(Button button, bool first)
         {
             if (menu.getButtons().Find(button) == null)

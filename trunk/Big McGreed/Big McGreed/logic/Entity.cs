@@ -23,6 +23,9 @@ namespace Big_McGreed.logic
 
         public bool visible { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Entity"/> class.
+        /// </summary>
         public Entity()
         {
             visible = false;
@@ -30,9 +33,9 @@ namespace Big_McGreed.logic
             ticks = new Hashtable();
         }
 
-        /*
-         * Algemene update.
-         */
+        /// <summary>
+        /// Runs this instance.
+        /// </summary>
         public void run()
         {
             lock (ticks.SyncRoot)
@@ -51,6 +54,9 @@ namespace Big_McGreed.logic
             processHits();
         }
 
+        /// <summary>
+        /// Processes the hits.
+        /// </summary>
         protected void processHits()
         {
             if (receivedHits.Count > 0)
@@ -64,6 +70,10 @@ namespace Big_McGreed.logic
             }
         }
 
+        /// <summary>
+        /// Hits the specified hit.
+        /// </summary>
+        /// <param name="hit">The hit.</param>
         public void hit(Hit hit)
         {
             lock (receivedHits)
@@ -72,19 +82,23 @@ namespace Big_McGreed.logic
             }
         }
 
+        /// <summary>
+        /// Updates the lifes.
+        /// </summary>
+        /// <param name="lifes">The lifes.</param>
         protected void updateLifes(int lifes)
         {
             this.lifes = lifes;
         }
 
-        /*
-         * Specifieke update.
-         */
+        /// <summary>
+        /// Run2s this instance.
+        /// </summary>
         protected abstract void run2();
 
-        /*
-         * Specifieke draw.
-         */
+        /// <summary>
+        /// Draws this instance.
+        /// </summary>
         public abstract void Draw();
 
         public void registerTick(Tick tick, string identifier)
@@ -96,7 +110,11 @@ namespace Big_McGreed.logic
                 ticks.Add(identifier, tick);
             }
         }
-    
+
+        /// <summary>
+        /// Removes the tick.
+        /// </summary>
+        /// <param name="identifier">The identifier.</param>
         public void removeTick(string identifier)
         {
             lock (ticks.SyncRoot)

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Big_McGreed.logic.map.objects
 {
-    public class GameObject
+    public class GameObject : Locatable
     {
         public int type { get; set; }
 
@@ -13,14 +14,22 @@ namespace Big_McGreed.logic.map.objects
 
         public ObjectDefinition definition { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameObject"/> class.
+        /// </summary>
+        /// <param name="type">The type.</param>
         public GameObject(int type)
         {
             this.type = type;
             definition = ObjectDefinition.forType(type);
         }
 
+        /// <summary>
+        /// Draws this instance.
+        /// </summary>
         public void Draw()
         {
+            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.White);
         }
     }
 }

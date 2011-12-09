@@ -16,12 +16,14 @@ namespace Big_McGreed.logic.npc
 {
     public class NPC : Entity, Destroyable
     {
-        //Stelt een door de computer gestuurde entiteit voor.
-
         public int type { get; private set; }
 
         public NPCDefinition definition { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NPC"/> class.
+        /// </summary>
+        /// <param name="type">The type.</param>
         public NPC(int type)
         {
             this.type = type;
@@ -30,21 +32,24 @@ namespace Big_McGreed.logic.npc
             visible = true;
         }
 
-        /*
-         * 'Verwoest' de NPC.
-         */
+        /// <summary>
+        /// Destroys this instance.
+        /// </summary>
         public void destroy()
         {
         }
 
-        /*
-         * Specifieke update.
-         */
+        /// <summary>
+        /// Run2s this instance.
+        /// </summary>
         protected override void run2()
         {
             setLocation(PrimitivePathFinder.getPosition(getX() + 1, getY(), definition.mainTexture.Width, definition.mainTexture.Height, 0));
         }
 
+        /// <summary>
+        /// Draws this instance.
+        /// </summary>
         public override void Draw() 
         {
             Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.White);

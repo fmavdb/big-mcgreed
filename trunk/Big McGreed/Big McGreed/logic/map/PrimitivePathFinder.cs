@@ -12,6 +12,15 @@ namespace Big_McGreed.logic.map
     public class PrimitivePathFinder : PathFinding
     {
 
+        /// <summary>
+        /// Gets the position.
+        /// </summary>
+        /// <param name="curX">The cur X.</param>
+        /// <param name="curY">The cur Y.</param>
+        /// <param name="imageWidth">Width of the image.</param>
+        /// <param name="imageHeight">Height of the image.</param>
+        /// <param name="divider">The divider.</param>
+        /// <returns></returns>
         public static Vector2 getPosition(float curX, float curY, float imageWidth, float imageHeight, float divider)
         {
             float xRadius = divider > 0 ? imageWidth / divider : 0;
@@ -33,6 +42,14 @@ namespace Big_McGreed.logic.map
             return new Vector2(curX, curY);
         }
 
+        /// <summary>
+        /// Collisions the specified entity.
+        /// </summary>
+        /// <param name="entity">The entity.</param>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="checkForNPCCollision">if set to <c>true</c> [check for NPC collision].</param>
+        /// <returns></returns>
         public static bool collision(Entity entity, int x, int y, bool checkForNPCCollision)
         {
             if (checkForNPCCollision)
@@ -65,6 +82,13 @@ namespace Big_McGreed.logic.map
             return false;
         }
 
+        /// <summary>
+        /// Collisions the specified player.
+        /// </summary>
+        /// <param name="player">The player.</param>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <returns></returns>
         public static Collection<NPC> collision(Player player, int x, int y)
         {
             Collection<NPC> npcsCollided= new Collection<NPC>();
@@ -91,6 +115,14 @@ namespace Big_McGreed.logic.map
             return npcsCollided;
         }
 
+        /// <summary>
+        /// Colors the collision.
+        /// </summary>
+        /// <param name="collideColor">Color of the collide.</param>
+        /// <param name="crossHair">The cross hair.</param>
+        /// <param name="npc">The NPC.</param>
+        /// <param name="pixels">The pixels.</param>
+        /// <returns></returns>
         public static bool colorCollision(Color collideColor, Rectangle crossHair, Rectangle npc, Color[] pixels)
         {
             // Find the bounds of the rectangle intersection
@@ -119,11 +151,23 @@ namespace Big_McGreed.logic.map
         }
 
 
+        /// <summary>
+        /// Intersectses the specified object1.
+        /// </summary>
+        /// <param name="object1">The object1.</param>
+        /// <param name="object2">The object2.</param>
+        /// <returns></returns>
         public static bool intersects(Rectangle object1, Rectangle object2)
         {
             return object1.Intersects(object2);
         }
 
+        /// <summary>
+        /// Finds the path.
+        /// </summary>
+        /// <param name="start">The start.</param>
+        /// <param name="end">The end.</param>
+        /// <returns></returns>
         public LinkedList<Vector2> findPath(Vector2 start, Vector2 end)
         {
             if (start.X < 0 || start.Y < 0 || start.X > Program.INSTANCE.Width || start.Y > Program.INSTANCE.Height || end.X < 0 || end.Y < 0 || end.X > Program.INSTANCE.Width || end.Y > Program.INSTANCE.Height)

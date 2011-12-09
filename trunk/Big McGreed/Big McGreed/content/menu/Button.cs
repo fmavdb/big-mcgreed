@@ -69,6 +69,9 @@ namespace Big_McGreed.content.menu
             }
         }
 
+        /// <summary>
+        /// Draws this instance.
+        /// </summary>
         public void Draw()
         {
             Program.INSTANCE.spriteBatch.Draw(current, location, Color.White);
