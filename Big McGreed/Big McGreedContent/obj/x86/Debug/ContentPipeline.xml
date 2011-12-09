@@ -172,6 +172,60 @@
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\FPS.xnb</Output>
       <Time>2011-11-30T14:28:43.7097744+01:00</Time>
     </Item>
+    <Item>
+      <Source>MenuHighlight.png</Source>
+      <Name>MenuHighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MenuHighlight.xnb</Output>
+      <Time>2011-12-08T20:07:29.2521146+01:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuNormal.png</Source>
+      <Name>MenuNormal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MenuNormal.xnb</Output>
+      <Time>2011-12-08T20:07:04.6177056+01:00</Time>
+    </Item>
+    <Item>
+      <Source>MenuPressed.png</Source>
+      <Name>MenuPressed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MenuPressed.xnb</Output>
+      <Time>2011-12-08T20:07:54.5195599+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ResumeHighlightKlein.png</Source>
+      <Name>ResumeHighlightKlein</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeHighlightKlein.xnb</Output>
+      <Time>2011-12-08T20:57:02.1386733+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ResumeNormalKlein.png</Source>
+      <Name>ResumeNormalKlein</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeNormalKlein.xnb</Output>
+      <Time>2011-12-08T20:56:36.9992354+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ResumePressedKlein.png</Source>
+      <Name>ResumePressedKlein</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumePressedKlein.xnb</Output>
+      <Time>2011-12-08T20:57:37.1166739+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
