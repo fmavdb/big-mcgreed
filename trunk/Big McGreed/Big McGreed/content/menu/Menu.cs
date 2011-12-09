@@ -14,11 +14,13 @@ namespace Big_McGreed.content.menu
 
         private LinkedList<Button> buttons;
         private bool released = false;
-        private NewGame newGame;
-        private HighScore highScore;
-        private Quit quit;
-        public Upgrade upgrade {get; private set; }
+        public NewGame newGame;
+        public HighScore highScore;
+        public Quit quit;
+        public Upgrade upgrade { get; private set; }
         public Resume resume { get; private set; }
+        public MenuButtonKlein menuButtonKlein { get; private set; }
+        public ResumeKlein resumeKlein { get; private set; }
 
         public Menu()
         {
@@ -31,6 +33,8 @@ namespace Big_McGreed.content.menu
             buttons.AddLast(quit);
             resume = new Resume();
             upgrade = new Upgrade();
+            menuButtonKlein = new MenuButtonKlein();
+            resumeKlein = new ResumeKlein();
             updateButtons();
         }
 
@@ -101,11 +105,14 @@ namespace Big_McGreed.content.menu
             {
                 foreach (Button button in buttons)
                 {
-                    button.location.X = Program.INSTANCE.Width / 2 - button.current.Width / 2;
-                    button.location.Y = startY;
-                    startY += button.normal.Height + 15;
-                }
-            }
+                    if (button != upgrade && button != resumeKlein && button != menuButtonKlein)
+                    {
+                        button.location.X = Program.INSTANCE.Width / 2 - button.current.Width / 2;
+                        button.location.Y = startY;
+                        startY += button.normal.Height + 15;
+                    }
+                 }
+            } 
         }
     }
 }

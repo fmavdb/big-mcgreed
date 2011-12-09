@@ -29,7 +29,8 @@ namespace Big_McGreed
         {
             Menu,
             Paused,
-            InGame
+            InGame,
+            Upgrade
         }
 
         //Width van de application
@@ -151,7 +152,9 @@ namespace Big_McGreed
         {
             switch (gameState)
             {
+
                 case GameState.Paused:
+                case GameState.Upgrade:
                 case GameState.Menu:
                     menu.Update();
                     break;
@@ -175,7 +178,9 @@ namespace Big_McGreed
             gameMap.DrawBackground();
             switch (gameState)
             {
+
                 case GameState.Paused:
+                case GameState.Upgrade:
                 case GameState.Menu:
                     menu.Draw();
                     break;
@@ -204,21 +209,81 @@ namespace Big_McGreed
                 case GameState.InGame:
                     if (lastState == GameState.Paused)
                     {
-                        menu.getButtons().Remove(menu.resume);
-                        menu.getButtons().Remove(menu.upgrade);
-                        menu.updateButtons();
+                        if (menu.getButtons().Find(menu.upgrade) != null)
+                        {
+                            menu.getButtons().Remove(menu.upgrade);
+                        }
+                        if (menu.getButtons().Find(menu.resume) != null)
+                        {
+                            menu.getButtons().Remove(menu.resume);
+                        }
                     }
                     break;
+
                 case GameState.Paused:
-                    menu.getButtons().AddFirst(menu.resume);
-                    menu.getButtons().AddLast(menu.upgrade);
+
+                    if (menu.getButtons().Find(menu.resume) == null)
+                    {
+                        menu.getButtons().AddFirst(menu.resume);
+                    }
+                    if (menu.getButtons().Find(menu.newGame) == null)
+                    {
+                        menu.getButtons().AddLast(menu.newGame);
+                    }
+                    if (menu.getButtons().Find(menu.highScore) == null)
+                    {
+                        menu.getButtons().AddLast(menu.highScore);
+                    }
+                    if (menu.getButtons().Find(menu.quit) == null)
+                    {
+                        menu.getButtons().AddLast(menu.quit);
+                    }
+                    if (menu.getButtons().Find(menu.upgrade) == null)
+                    {
+                        menu.getButtons().AddLast(menu.upgrade);
+                    }
+
+                    if (menu.getButtons().Find(menu.menuButtonKlein) != null)
+                    {
+                        menu.getButtons().Remove(menu.menuButtonKlein);
+                    }
+                    if (menu.getButtons().Find(menu.resumeKlein) != null)
+                    {
+                        menu.getButtons().Remove(menu.resumeKlein);
+                    }
                     menu.updateButtons();
-                    menu.upgrade.location.X = 10;
-                    menu.upgrade.location.Y = Height - (menu.upgrade.current.Height + 10);
                     break;
+
                 case GameState.Menu:
-                    menu.getButtons().Remove(menu.resume);
-                    menu.getButtons().Remove(menu.upgrade);
+                    if (menu.getButtons().Find(menu.resume) != null)
+                    {
+                        menu.getButtons().Remove(menu.resume);
+                    }
+                    if (menu.getButtons().Find(menu.upgrade) != null)
+                    {
+                        menu.getButtons().Remove(menu.upgrade);
+                    }
+                    if (menu.getButtons().Find(menu.menuButtonKlein) != null)
+                    {
+                        menu.getButtons().Remove(menu.menuButtonKlein);
+                    }
+                    if (menu.getButtons().Find(menu.resumeKlein) != null)
+                    {
+                        menu.getButtons().Remove(menu.resumeKlein);
+                    }
+                    menu.updateButtons();
+                    break;
+
+                case GameState.Upgrade:
+                    menu.getButtons().Clear();
+                    if (menu.getButtons().Find(menu.menuButtonKlein) == null)
+                    {
+                        menu.getButtons().AddFirst(menu.menuButtonKlein);
+                    }
+                    if (menu.getButtons().Find(menu.resumeKlein) == null)
+                    {
+                        menu.getButtons().AddFirst(menu.resumeKlein);
+                    }
                     menu.updateButtons();
                     break;
             }

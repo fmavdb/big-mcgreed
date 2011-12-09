@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace Big_McGreed.content.menu.buttons
 {
-    public class Upgrade : Button
+    public class MenuButtonKlein : Button
     {
-        public Upgrade()
+        public MenuButtonKlein()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("UpgradeNormal");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("UpgradePressed");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("UpgradeHighlight");
+            normal = Program.INSTANCE.Content.Load<Texture2D>("MenuNormal");
+            pressed = Program.INSTANCE.Content.Load<Texture2D>("MenuPressed");
+            hover = Program.INSTANCE.Content.Load<Texture2D>("MenuHighlight");
             current = normal;
 
             location.X = 10;
@@ -22,7 +22,7 @@ namespace Big_McGreed.content.menu.buttons
 
         public override void action()
         {
-            Program.INSTANCE.setGameState(GameWorld.GameState.Upgrade);
+            Program.INSTANCE.setGameState(GameWorld.GameState.Paused);
         }
     }
 }
