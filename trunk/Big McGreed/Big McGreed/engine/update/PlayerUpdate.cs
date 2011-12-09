@@ -35,7 +35,7 @@ namespace Big_McGreed.engine.update
         {
             while (running)
             {
-                switch(Program.INSTANCE.getGameState()) {
+                switch(Program.INSTANCE.CurrentGameState) {
                     case GameWorld.GameState.InGame:
                         if (Program.INSTANCE.player != null && Program.INSTANCE.player.definition.mainTexture != null)
                         {

@@ -46,14 +46,14 @@ namespace Big_McGreed.content.menu
                 Rectangle mouse = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 1, 1);
                 foreach (Button button in buttons)
                 {
-                    Rectangle rectangleButton = new Rectangle((int)button.location.X, (int)button.location.Y, button.normal.Width, button.normal.Height);
+                    Rectangle rectangleButton = new Rectangle((int)button.location.X, (int)button.location.Y, button.Normal.Width, button.Normal.Height);
                     if (PrimitivePathFinder.intersects(mouse, rectangleButton))
                     {
                         buttonNearMouse = button;
                     }
                     else
                     {
-                        button.current = button.normal;
+                        button.Current = button.Normal;
                     }
                 }
             }
@@ -68,14 +68,14 @@ namespace Big_McGreed.content.menu
                         }
                         else
                         {
-                            buttonNearMouse.current = buttonNearMouse.hover;
+                            buttonNearMouse.Current = buttonNearMouse.Hover;
                         }
                     }
                     break;
                 case ButtonState.Pressed:
                     if (buttonNearMouse != null)
                     {
-                        buttonNearMouse.current = buttonNearMouse.pressed;
+                        buttonNearMouse.Current = buttonNearMouse.pressed;
                         released = true;
                     }
                     break;
@@ -107,9 +107,9 @@ namespace Big_McGreed.content.menu
                 {
                     if (button != upgrade && button != resumeKlein && button != menuButtonKlein)
                     {
-                        button.location.X = Program.INSTANCE.Width / 2 - button.current.Width / 2;
+                        button.location.X = Program.INSTANCE.Width / 2 - button.Current.Width / 2;
                         button.location.Y = startY;
-                        startY += button.normal.Height + 15;
+                        startY += button.Normal.Height + 15;
                     }
                  }
             } 

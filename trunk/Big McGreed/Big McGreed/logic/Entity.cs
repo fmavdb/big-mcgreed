@@ -15,15 +15,13 @@ namespace Big_McGreed.logic
     {
         //NPC of Speler gebruiken deze gemeenschappelijke class.
 
-        public Queue<Hit> receivedHits { get; private set; }
+        protected Queue<Hit> receivedHits { get; private set; }
 
-        public Hashtable ticks { get; private set; }
+        protected Hashtable ticks { get; private set; }
 
-        public int lifes { get; private set; }
+        protected int lifes { get; private set; }
 
         public bool visible { get; set; }
-
-        public int radius { get; set; }
 
         public Entity()
         {
@@ -53,7 +51,7 @@ namespace Big_McGreed.logic
             processHits();
         }
 
-        public void processHits()
+        protected void processHits()
         {
             if (receivedHits.Count > 0)
             {
@@ -74,7 +72,7 @@ namespace Big_McGreed.logic
             }
         }
 
-        public void updateLifes(int lifes)
+        protected void updateLifes(int lifes)
         {
             this.lifes = lifes;
         }

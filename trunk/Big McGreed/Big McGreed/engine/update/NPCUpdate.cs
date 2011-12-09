@@ -36,7 +36,7 @@ namespace Big_McGreed.engine.update
         {
             while (running)
             {
-                switch(Program.INSTANCE.getGameState()) {
+                switch(Program.INSTANCE.CurrentGameState) {
                     case GameWorld.GameState.InGame:
                         lock (Program.INSTANCE.npcs)
                         {

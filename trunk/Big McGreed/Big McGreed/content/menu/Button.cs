@@ -13,13 +13,61 @@ namespace Big_McGreed.content.menu
 
         public Vector2 location;
 
-        public Texture2D current;
+        protected Texture2D current;
 
-        public Texture2D normal;
+        public Texture2D Current
+        {
+            get
+            {
+                return current;
+            }
+            set
+            {
+                current = value;
+            }
+        }
+
+        protected Texture2D normal;
+
+        public Texture2D Normal
+        {
+            get
+            {
+                return normal;
+            }
+            set
+            {
+                normal = value;
+            }
+        }
 
         public Texture2D pressed;
 
-        public Texture2D hover;
+        public Texture2D Pressed
+        {
+            get
+            {
+                return pressed;
+            }
+            set
+            {
+                pressed = value;
+            }
+        }
+
+        protected Texture2D hover;
+
+        public Texture2D Hover
+        {
+            get
+            {
+                return hover;
+            }
+            set
+            {
+                hover = value;
+            }
+        }
 
         public void Draw()
         {
