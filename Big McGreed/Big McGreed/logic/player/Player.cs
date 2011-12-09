@@ -29,8 +29,9 @@ namespace Big_McGreed.logic.player
 
         private float rotation;
 
-        //Stelt een speler voor.
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Player"/> class.
+        /// </summary>
         public Player()
         {
             visible = true;
@@ -38,16 +39,16 @@ namespace Big_McGreed.logic.player
             setY(100);
         }
 
-        /*
-         * 'Verwoest' de speler.
-         */
+        /// <summary>
+        /// Destroys this instance.
+        /// </summary>
         public void destroy()
         {
         }
 
-        /*
-         * Specifieke update.
-         */
+        /// <summary>
+        /// Run2s this instance.
+        /// </summary>
         protected override void run2()
         {
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
@@ -84,6 +85,9 @@ namespace Big_McGreed.logic.player
             }
         }
 
+        /// <summary>
+        /// Draws this instance.
+        /// </summary>
         public override void Draw()
         {
             //crossHairDot = new Vector2(definition.mainTexture.Width / 2, definition.mainTexture.Height / 2);

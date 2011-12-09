@@ -11,7 +11,6 @@ namespace Big_McGreed.content.menu
 {
     public class Menu
     {
-
         private LinkedList<Button> buttons;
         private bool released = false;
         public NewGame newGame;
@@ -22,6 +21,9 @@ namespace Big_McGreed.content.menu
         public MenuButtonKlein menuButtonKlein { get; private set; }
         public ResumeKlein resumeKlein { get; private set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Menu"/> class.
+        /// </summary>
         public Menu()
         {
             buttons = new LinkedList<Button>();
@@ -38,6 +40,9 @@ namespace Big_McGreed.content.menu
             updateButtons();
         }
 
+        /// <summary>
+        /// Updates this instance.
+        /// </summary>
         public void Update()
         {
             Button buttonNearMouse = null;
@@ -82,6 +87,9 @@ namespace Big_McGreed.content.menu
             }
         }
 
+        /// <summary>
+        /// Draws this instance.
+        /// </summary>
         public void Draw()
         {
             lock (buttons)
@@ -93,11 +101,18 @@ namespace Big_McGreed.content.menu
             }
         }
 
+        /// <summary>
+        /// Gets the buttons.
+        /// </summary>
+        /// <returns></returns>
         public LinkedList<Button> getButtons()
         {
             return buttons;
         }
 
+        /// <summary>
+        /// Updates the buttons.
+        /// </summary>
         public void updateButtons()
         {
             float startY = Program.INSTANCE.Height / 5;

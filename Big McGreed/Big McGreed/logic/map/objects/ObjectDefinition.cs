@@ -13,6 +13,11 @@ namespace Big_McGreed.logic.map.objects
 
         public Color[] pixels { get; set; }
 
+        /// <summary>
+        /// Initializes a new definition for the given type.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public static ObjectDefinition forType(int type)
         {
             ObjectDefinition def = new ObjectDefinition();
@@ -22,6 +27,9 @@ namespace Big_McGreed.logic.map.objects
             return def;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ObjectDefinition"/> class.
+        /// </summary>
         public ObjectDefinition()
         {
             mainTexture = null;

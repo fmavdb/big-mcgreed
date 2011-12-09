@@ -13,24 +13,36 @@ namespace Big_McGreed.engine.update
 
         protected bool running = false;
 
+        /// <summary>
+        /// Starts this instance.
+        /// </summary>
         public void start()
         {
             running = true;
             main.Start();
         }
 
+        /// <summary>
+        /// Stops this instance.
+        /// </summary>
         public void stop()
         {
             running = false;
             main.Abort();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlayerUpdate"/> class.
+        /// </summary>
         public PlayerUpdate()
         {
             main = new Thread(new ThreadStart(run));
             main.Priority = ThreadPriority.AboveNormal;        
         }
 
+        /// <summary>
+        /// Runs this instance.
+        /// </summary>
         protected void run()
         {
             while (running)
