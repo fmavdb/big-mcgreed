@@ -26,6 +26,16 @@ namespace Big_McGreed.logic
             return (int)location.Y;
         }
 
+        public void setX(float x)
+        {
+            location.X = x;
+        }
+
+        public void setY(float y)
+        {
+            location.Y = y;
+        }
+
         public void setLocation(Vector2 newLocation)
         {
             this.location = newLocation;

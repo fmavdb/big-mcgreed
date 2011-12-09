@@ -128,6 +128,7 @@
     <Compile Include="engine\update\PlayerUpdate.cs" />
     <Compile Include="logic\Entity.cs" />
     <Compile Include="logic\Locatable.cs" />
+    <Compile Include="logic\map\Directions.cs" />
     <Compile Include="logic\map\GameMap.cs" />
     <Compile Include="logic\map\objects\GameObject.cs" />
     <Compile Include="logic\map\objects\ObjectDefinition.cs" />
@@ -152,7 +153,6 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-    <Content Include="GifAnimation.csproj" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Big McGreedContent\Big McGreedContent.contentproj">
