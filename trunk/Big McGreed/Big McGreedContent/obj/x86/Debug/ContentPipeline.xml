@@ -244,6 +244,15 @@
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\revolver.xnb</Output>
       <Time>2011-12-10T13:00:50.1524745+01:00</Time>
     </Item>
+    <Item>
+      <Source>bullet_bill.png</Source>
+      <Name>bullet_bill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\bullet_bill.xnb</Output>
+      <Time>2011-12-10T13:11:13.2696785+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

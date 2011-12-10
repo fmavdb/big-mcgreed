@@ -6,14 +6,16 @@ using Big_McGreed.logic.map.objects;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Threading.Tasks;
+using Big_McGreed.logic.projectile;
 
 namespace Big_McGreed.logic.map
 {
     public class GameMap
     {
-        private Texture2D mainTexture = null;
+        private Texture2D mainTexture;
 
         private LinkedList<GameObject> objects;
+        private LinkedList<Projectile> projectiles;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GameMap"/> class.
@@ -21,7 +23,13 @@ namespace Big_McGreed.logic.map
         public GameMap()
         {
             objects = new LinkedList<GameObject>();
+            projectiles = new LinkedList<Projectile>();
             mainTexture = Program.INSTANCE.Content.Load<Texture2D>("Achtergrond");
+        }
+
+        public void AddProjectile(Projectile projectile)
+        {
+            projectiles.AddLast(projectile);
         }
 
         /// <summary>
@@ -35,14 +43,42 @@ namespace Big_McGreed.logic.map
         }
 
         /// <summary>
-        /// Draws this instance.
+        /// Draws objects in this instance.
         /// </summary>
-        public void Draw()
+        public void DrawObjects()
         {
             lock(objects) {
                 foreach (GameObject gameObject in objects)
                 {
                     gameObject.Draw();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Updates the projectiles.
+        /// </summary>
+        public void UpdateProjectiles()
+        {
+            lock (projectiles)
+            {
+                foreach (Projectile projectile in projectiles)
+                {
+                    projectile.Update();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Draws projectiles in this instance.
+        /// </summary>
+        public void DrawProjectiles()
+        {
+            lock (projectiles)
+            {
+                foreach (Projectile projectile in projectiles)
+                {
+                    projectile.Draw();
                 }
             }
         }

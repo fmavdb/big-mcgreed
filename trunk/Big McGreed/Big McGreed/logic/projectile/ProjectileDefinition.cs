@@ -12,8 +12,12 @@ namespace Big_McGreed.logic.projectile
 
         public static ProjectileDefinition forType(int type)
         {
-            ProjectileDefinition def = new ProjectileDefinition();
-            //def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
+            ProjectileDefinition def = (ProjectileDefinition)GameWorld.projectileDefinitions[type];
+            if (def == null) {
+                def = new ProjectileDefinition();
+                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("bullet_bill");
+                GameWorld.projectileDefinitions.Add(type, def);
+            }
             return def;
         }
 

@@ -16,6 +16,7 @@ using Big_McGreed.content.fps;
 using Big_McGreed.logic.map;
 using Big_McGreed.content.menu;
 using Big_McGreed.engine.misc;
+using System.Collections;
 
 
 namespace Big_McGreed
@@ -25,6 +26,14 @@ namespace Big_McGreed
     /// </summary>
     public class GameWorld : Microsoft.Xna.Framework.Game
     {
+        //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        public static readonly Hashtable projectileDefinitions = new Hashtable();
+
+        //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        public static readonly Hashtable npcDefinitions = new Hashtable();
+
+        public static readonly Hashtable objectDefinitions = new Hashtable();
+
         public enum GameState
         {
             Menu,
@@ -47,6 +56,7 @@ namespace Big_McGreed
         private NPCUpdate npcUpdate;
         private ProgramInformation info;
         private GameMap gameMap;
+        public GameMap GameMap { get { return gameMap; } }
         private Menu menu;
 
         private GraphicsDeviceManager graphics;
@@ -192,8 +202,9 @@ namespace Big_McGreed
                         player.Draw();
                     break;
                 case GameState.InGame:
-                    gameMap.Draw();
+                    gameMap.DrawObjects();
                     npcUpdate.Draw();
+                    gameMap.DrawProjectiles();
                     if (player != null && player.visible && player.definition.mainTexture != null)
                         player.Draw();
                     break;

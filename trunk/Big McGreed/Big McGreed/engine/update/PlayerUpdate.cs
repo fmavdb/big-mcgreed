@@ -51,6 +51,7 @@ namespace Big_McGreed.engine.update
                 {
                     Program.INSTANCE.player.run();
                 }
+                Program.INSTANCE.GameMap.UpdateProjectiles();
                 System.Threading.Thread.Sleep(15);
             }
         }

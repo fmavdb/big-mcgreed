@@ -20,10 +20,14 @@ namespace Big_McGreed.logic.map.objects
         /// <returns></returns>
         public static ObjectDefinition forType(int type)
         {
-            ObjectDefinition def = new ObjectDefinition();
-            //def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
-            //def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
-            //def.mainTexture.GetData<Color>(def.pixels);
+            ObjectDefinition def = (ObjectDefinition)GameWorld.objectDefinitions[type];
+            if (def == null)
+            {
+                //def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
+                //def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
+                //def.mainTexture.GetData<Color>(def.pixels);
+                GameWorld.objectDefinitions.Add(type, def);
+            }
             return def;
         }
 
