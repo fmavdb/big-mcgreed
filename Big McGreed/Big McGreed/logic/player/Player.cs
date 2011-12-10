@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using Big_McGreed.logic.npc;
 using Big_McGreed.logic.mask;
 using Microsoft.Xna.Framework.Graphics;
+using Big_McGreed.logic.projectile;
 
 namespace Big_McGreed.logic.player
 {
@@ -26,6 +27,8 @@ namespace Big_McGreed.logic.player
         private Vector2 boerLocatie = Vector2.Zero;
 
         private Vector2 geweerLocatie = Vector2.Zero;
+
+        public Vector2 GeweerLocatie { get { return geweerLocatie; } }
 
         private float rotation;
 
@@ -60,10 +63,11 @@ namespace Big_McGreed.logic.player
             {
                 if (!leftButtonPressed)
                 {
-                    foreach (NPC npc in PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y))
-                    {
-                        npc.hit(new Hit(npc, this, 10));
-                    }
+                    //foreach (NPC npc in PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y))
+                    //{
+                        //npc.hit(new Hit(npc, this, 10));
+                    //}
+                    Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
                     leftButtonPressed = true;
                 }
             }

@@ -24,12 +24,17 @@ namespace Big_McGreed.logic.npc
         /// <returns></returns>
         public static NPCDefinition forType(int type)
         {
-            NPCDefinition def = new NPCDefinition();
-            def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
-            def.hittedTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje_rood");
-            def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
-            def.mainTexture.GetData<Color>(def.pixels);
-            def.hp = 100;
+            NPCDefinition def = (NPCDefinition)GameWorld.npcDefinitions[type];
+            if (def == null)
+            {
+                def = new NPCDefinition();
+                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
+                def.hittedTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje_rood");
+                def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
+                def.mainTexture.GetData<Color>(def.pixels);
+                def.hp = 100;
+                GameWorld.npcDefinitions.Add(type, def);
+            }
             return def;
         }
 
