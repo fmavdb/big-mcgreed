@@ -23,20 +23,25 @@ namespace Big_McGreed.logic.player
 
         public bool leftButtonPressed = false;
 
-        private Vector2 lastMousePosition = Vector2.Zero;
+        private Vector2 boerLocatie = Vector2.Zero;
 
-        private Vector2 crossHairDot = Vector2.Zero;
+        private Vector2 geweerLocatie = Vector2.Zero;
 
         private float rotation;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
-        public Player()
+        public Player(PlayerDefinition definition)
         {
+            this.definition = definition;
             visible = true;
-            setX(100);
-            setY(100);
+            setX(Mouse.GetState().X);
+            setY(Mouse.GetState().Y);
+            boerLocatie.X = Program.INSTANCE.Width - (Program.INSTANCE.Width / 4);
+            boerLocatie.Y = Program.INSTANCE.Height - (Program.INSTANCE.Height / 4);
+            geweerLocatie.X = boerLocatie.X;
+            geweerLocatie.Y = boerLocatie.Y + definition.personTexture.Height / 2;
         }
 
         /// <summary>
@@ -76,13 +81,13 @@ namespace Big_McGreed.logic.player
                     }
                 }
             }
-            if (Mouse.GetState().X != lastMousePosition.X || Mouse.GetState().Y != lastMousePosition.Y)
-            {
-                lastMousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-                lastMousePosition.Normalize();
+            //if (Mouse.GetState().X != lastMousePosition.X || Mouse.GetState().Y != lastMousePosition.Y)
+            //{
+                //lastMousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+                //lastMousePosition.Normalize();
                 //setLocation(new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation)));
                 setLocation(PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, definition.mainTexture.Width, definition.mainTexture.Height, 2));
-            }
+            //}
         }
 
         /// <summary>
@@ -90,10 +95,15 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public override void Draw()
         {
-            //crossHairDot = new Vector2(definition.mainTexture.Width / 2, definition.mainTexture.Height / 2);
-            rotation = (float)Math.Atan2(-lastMousePosition.Y, lastMousePosition.X);
             Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.Black);
-            Program.INSTANCE.spriteBatch.Draw(definition.personTexture, new Vector2(Program.INSTANCE.Width - (Program.INSTANCE.Width / 4), Program.INSTANCE.Height - (Program.INSTANCE.Height / 4)), null, Color.Black, rotation, new Vector2(definition.personTexture.Width / 25, definition.personTexture.Height / 2), 1.0f, SpriteEffects.None, 0f);
+            switch (Program.INSTANCE.CurrentGameState)
+            {
+                case GameWorld.GameState.InGame:
+                    rotation = (float)Math.Atan2(geweerLocatie.Y - Mouse.GetState().Y, geweerLocatie.X - Mouse.GetState().X);
+                    Program.INSTANCE.spriteBatch.Draw(definition.personTexture, boerLocatie, Color.Black);
+                    Program.INSTANCE.spriteBatch.Draw(definition.revolverTexture, geweerLocatie, new Rectangle(0, 0, definition.revolverTexture.Width, definition.revolverTexture.Height), Color.White, rotation, new Vector2(definition.revolverTexture.Width, definition.revolverTexture.Height), 0.10f, SpriteEffects.None, 1.0f);
+                    break;
+            }
         }
     }
 }

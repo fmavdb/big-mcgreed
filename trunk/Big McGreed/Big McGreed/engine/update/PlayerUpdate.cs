@@ -47,15 +47,11 @@ namespace Big_McGreed.engine.update
         {
             while (running)
             {
-                switch(Program.INSTANCE.CurrentGameState) {
-                    case GameWorld.GameState.InGame:
-                        if (Program.INSTANCE.player != null && Program.INSTANCE.player.definition.mainTexture != null)
-                        {
-                            Program.INSTANCE.player.run();
-                        }
-                    break;
+                if (Program.INSTANCE.player != null && Program.INSTANCE.player.definition.mainTexture != null)
+                {
+                    Program.INSTANCE.player.run();
                 }
-                System.Threading.Thread.Sleep(25);
+                System.Threading.Thread.Sleep(15);
             }
         }
     }
