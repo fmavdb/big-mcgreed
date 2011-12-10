@@ -17,12 +17,15 @@ namespace Big_McGreed.logic.player
             //Laad gegevens.
             def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("compas");
             def.personTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
+            def.revolverTexture = Program.INSTANCE.Content.Load<Texture2D>("revolver");
             return def;
         }
 
         public Texture2D mainTexture { get; private set; }
 
         public Texture2D personTexture { get; private set; }
+
+        public Texture2D revolverTexture { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlayerDefinition"/> class.

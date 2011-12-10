@@ -63,7 +63,7 @@ namespace Big_McGreed
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            IsMouseVisible = true;
+            //IsMouseVisible = true;
 
             graphics.PreferMultiSampling = true;
             graphics.IsFullScreen = true;
@@ -81,8 +81,7 @@ namespace Big_McGreed
             Width = Program.INSTANCE.GraphicsDevice.Viewport.Width;
             Height = Program.INSTANCE.GraphicsDevice.Viewport.Height;
             npcs = new LinkedList<NPC>();
-            player = new Player();
-            player.definition = PlayerDefinition.loadDefinition();
+            player = new Player(PlayerDefinition.loadDefinition());
             menu = new Menu();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
@@ -189,6 +188,8 @@ namespace Big_McGreed
                 case GameState.Upgrade:
                 case GameState.Menu:
                     menu.Draw();
+                    if (player != null && player.visible && player.definition.mainTexture != null)
+                        player.Draw();
                     break;
                 case GameState.InGame:
                     gameMap.Draw();
