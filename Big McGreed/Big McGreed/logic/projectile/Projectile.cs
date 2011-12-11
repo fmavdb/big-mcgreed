@@ -5,20 +5,25 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Big_McGreed.logic.mask;
+using Big_McGreed.logic.map;
+using Big_McGreed.logic.npc;
+using Big_McGreed.utility;
 
 namespace Big_McGreed.logic.projectile
 {
-    public class Projectile : Locatable
+    public class Projectile : Locatable, Destroyable
     {
         public int type { get; private set; }
 
-        private bool visible = true;
+        public bool visible = true;
+
+        public bool destroyed = false;
 
         private float rotation;
 
         private Vector2 target = Vector2.Zero;
 
-        public ProjectileDefinition definition { get; set; }
+        public ProjectileDefinition definition { get { return ProjectileDefinition.forType(type); } }
 
         private Vector2 speed = Vector2.Zero;
 
@@ -29,15 +34,24 @@ namespace Big_McGreed.logic.projectile
             this.type = type;
             this.target = target;
             this.hit = hit;
-            definition = ProjectileDefinition.forType(type);
             setLocation(Program.INSTANCE.player.GeweerLocatie);
             rotation = (float)Math.Atan2(getY() - target.Y, getX() - target.X);
-            speed = new Vector2((float)0.998, (float)0.998);
+            speed = new Vector2((float)0.985, (float)0.985);
+        }
+
+        public void destroy()
+        {
+            destroyed = true;
         }
 
         public void Update()
         {
             setLocation(getLocation() * speed);
+            foreach(NPC npc in PrimitivePathFinder.collision(this, getX(), getY())) {
+                npc.hit(hit);
+                destroy();
+                break;
+            }
         }
 
         public void Draw()

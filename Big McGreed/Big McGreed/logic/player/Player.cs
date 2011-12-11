@@ -90,7 +90,7 @@ namespace Big_McGreed.logic.player
                 //lastMousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
                 //lastMousePosition.Normalize();
                 //setLocation(new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation)));
-                setLocation(PrimitivePathFinder.getPosition(Mouse.GetState().X, Mouse.GetState().Y, definition.mainTexture.Width, definition.mainTexture.Height, 2));
+                setLocation(PrimitivePathFinder.getPosition(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), definition.mainTexture.Width, definition.mainTexture.Height, 2));
             //}
         }
 

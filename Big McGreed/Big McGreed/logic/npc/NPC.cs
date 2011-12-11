@@ -18,7 +18,7 @@ namespace Big_McGreed.logic.npc
     {
         public int type { get; private set; }
 
-        public NPCDefinition definition { get; set; }
+        public NPCDefinition definition { get { return NPCDefinition.forType(type); } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NPC"/> class.
@@ -27,7 +27,6 @@ namespace Big_McGreed.logic.npc
         public NPC(int type)
         {
             this.type = type;
-            definition = NPCDefinition.forType(type);
             updateLifes(definition.hp);
             visible = true;
         }
@@ -44,7 +43,7 @@ namespace Big_McGreed.logic.npc
         /// </summary>
         protected override void run2()
         {
-            setLocation(PrimitivePathFinder.getPosition(getX() + 1, getY(), definition.mainTexture.Width, definition.mainTexture.Height, 0));
+            setLocation(PrimitivePathFinder.getPosition(translate(1, 0), definition.mainTexture.Width, definition.mainTexture.Height, 0));
         }
 
         /// <summary>

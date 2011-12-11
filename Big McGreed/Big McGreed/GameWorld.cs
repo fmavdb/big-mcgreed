@@ -32,6 +32,7 @@ namespace Big_McGreed
         //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
         public static readonly Hashtable npcDefinitions = new Hashtable();
 
+        //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
         public static readonly Hashtable objectDefinitions = new Hashtable();
 
         public enum GameState
@@ -76,7 +77,7 @@ namespace Big_McGreed
             //IsMouseVisible = true;
 
             graphics.PreferMultiSampling = true;
-            graphics.IsFullScreen = true;
+            //graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -123,6 +124,7 @@ namespace Big_McGreed
                     npcs.AddFirst(npc);
                 }
             }
+            gameMap.ClearProjectiles();
             //npc.setLocation(new Vector2(0, 100));
             //npcs.AddFirst(npc);
         }
