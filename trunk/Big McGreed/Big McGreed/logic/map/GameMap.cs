@@ -29,7 +29,26 @@ namespace Big_McGreed.logic.map
 
         public void AddProjectile(Projectile projectile)
         {
-            projectiles.AddLast(projectile);
+            lock (projectiles)
+            {
+                projectiles.AddLast(projectile);
+            }
+        }
+
+        public void RemoveProjectile(Projectile projectile)
+        {
+            lock (projectiles)
+            {
+                projectiles.Remove(projectile);
+            }
+        }
+
+        public void ClearProjectiles()
+        {
+            lock (projectiles)
+            {
+                projectiles.Clear();
+            }
         }
 
         /// <summary>
@@ -62,9 +81,18 @@ namespace Big_McGreed.logic.map
         {
             lock (projectiles)
             {
-                foreach (Projectile projectile in projectiles)
+                //This prevents enumaration errors.
+                LinkedList<Projectile> currentProjectiles = new LinkedList<Projectile>(projectiles);
+                foreach (Projectile projectile in currentProjectiles)
                 {
-                    projectile.Update();
+                    if (!projectile.destroyed)
+                    {
+                        projectile.Update();
+                    }
+                    else
+                    {
+                        RemoveProjectile(projectile);
+                    }
                 }
             }
         }
@@ -78,7 +106,10 @@ namespace Big_McGreed.logic.map
             {
                 foreach (Projectile projectile in projectiles)
                 {
-                    projectile.Draw();
+                    if (projectile.visible)
+                    {
+                        projectile.Draw();
+                    }
                 }
             }
         }

@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Big_McGreed.logic.npc;
 using Big_McGreed.logic.player;
 using System.Collections.ObjectModel;
+using Big_McGreed.logic.projectile;
 
 namespace Big_McGreed.logic.map
 {
@@ -21,25 +22,25 @@ namespace Big_McGreed.logic.map
         /// <param name="imageHeight">Height of the image.</param>
         /// <param name="divider">The divider.</param>
         /// <returns></returns>
-        public static Vector2 getPosition(float curX, float curY, float imageWidth, float imageHeight, float divider)
+        public static Vector2 getPosition(Vector2 curPos, float imageWidth, float imageHeight, float divider)
         {
             float xRadius = divider > 0 ? imageWidth / divider : 0;
             float yRadius = divider > 0 ? imageHeight / divider : 0;
-            curX = curX - xRadius;
-            curY = curY - yRadius;
+            curPos.X = curPos.X - xRadius;
+            curPos.Y = curPos.Y - yRadius;
             float maxX = Program.INSTANCE.Width;
             float maxY = Program.INSTANCE.Height;
             float minX = 0 - xRadius;
             float minY = 0 - yRadius;
-            if (curX < minX)
-                curX = minX;
-            else if (curX > maxX)
-                curX = maxX;
-            if (curY < minY)
-                curY = minY;
-            else if (curY > maxY)
-                curY = maxY;
-            return new Vector2(curX, curY);
+            if (curPos.X < minX)
+                curPos.X = minX;
+            else if (curPos.X > maxX)
+                curPos.X = maxX;
+            if (curPos.Y < minY)
+                curPos.Y = minY;
+            else if (curPos.Y > maxY)
+                curPos.Y = maxY;
+            return curPos;
         }
 
         /// <summary>
@@ -83,16 +84,17 @@ namespace Big_McGreed.logic.map
         }
 
         /// <summary>
-        /// Collisions the specified player.
+        /// Collisions the specified projectile.
         /// </summary>
-        /// <param name="player">The player.</param>
+        /// <param name="projectile">The player.</param>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
         /// <returns></returns>
-        public static Collection<NPC> collision(Player player, int x, int y)
+        public static Collection<NPC> collision(Projectile projectile, int x, int y)
         {
             Collection<NPC> npcsCollided= new Collection<NPC>();
-            Rectangle crossHair = new Rectangle(x, y, Player.dotSize, Player.dotSize);
+            //TODO fix the projectilesize to include the rotation.
+            Rectangle projectileSize = new Rectangle(x, y, Player.dotSize, Player.dotSize);
             lock (Program.INSTANCE.npcs)
             {
                 foreach (NPC npc in Program.INSTANCE.npcs)
@@ -100,11 +102,11 @@ namespace Big_McGreed.logic.map
                     if (npc.visible && npc.definition.mainTexture != null)
                     {
                         Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height);
-                        if (intersects(crossHair, npcRectangle))
+                        if (intersects(projectileSize, npcRectangle))
                         {
                             //Color[] pixels = new Color[npc.definition.mainTexture.Width * npc.definition.mainTexture.Height];
                             //npc.definition.mainTexture.GetData<Color>(pixels);
-                            if (colorCollision(Color.Transparent, crossHair, npcRectangle, npc.definition.pixels))
+                            if (colorCollision(Color.Transparent, projectileSize, npcRectangle, npc.definition.pixels))
                             {
                                 npcsCollided.Add(npc);
                             }

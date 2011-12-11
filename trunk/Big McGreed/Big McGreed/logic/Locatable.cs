@@ -20,6 +20,11 @@ namespace Big_McGreed.logic
             return location;
         }
 
+
+        public Vector2 translate(float x, float y)
+        {
+            return new Vector2(location.X + x, location.Y + y);
+        }
         /// <summary>
         /// Gets the X.
         /// </summary>

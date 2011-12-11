@@ -12,7 +12,7 @@ namespace Big_McGreed.logic.map.objects
 
         public bool visible { get; set; }
 
-        public ObjectDefinition definition { get; private set; }
+        public ObjectDefinition definition { get { return ObjectDefinition.forType(type); } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GameObject"/> class.
@@ -21,7 +21,6 @@ namespace Big_McGreed.logic.map.objects
         public GameObject(int type)
         {
             this.type = type;
-            definition = ObjectDefinition.forType(type);
         }
 
         /// <summary>
