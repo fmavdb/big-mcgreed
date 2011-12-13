@@ -77,7 +77,7 @@ namespace Big_McGreed
             //IsMouseVisible = true;
 
             graphics.PreferMultiSampling = true;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
         }
 
         /// <summary>
