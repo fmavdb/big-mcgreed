@@ -20,6 +20,10 @@ namespace Big_McGreed.content.menu
         public Resume resume { get; private set; }
         public MenuButtonKlein menuButtonKlein { get; private set; }
         public ResumeKlein resumeKlein { get; private set; }
+        public MainMenu mainMenu { get; private set; }
+        public YesButton yesButton { get; private set; }
+        public NoButton noButton { get; private set; }
+        public YesNoSelect yesNoSelect { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu"/> class.
@@ -37,6 +41,10 @@ namespace Big_McGreed.content.menu
             upgrade = new Upgrade();
             menuButtonKlein = new MenuButtonKlein();
             resumeKlein = new ResumeKlein();
+            mainMenu = new MainMenu();
+            yesButton = new YesButton();
+            noButton = new NoButton();
+            yesNoSelect = new YesNoSelect();
             updateButtons();
         }
 
