@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.Windows.Forms;
+using Microsoft.Xna.Framework;
 
 namespace Big_McGreed.content.menu.buttons
 {
@@ -16,8 +17,7 @@ namespace Big_McGreed.content.menu.buttons
             hover = Program.INSTANCE.Content.Load<Texture2D>("MenuHighlight");
             current = normal;
 
-            location.X = 10;
-            location.Y = Program.INSTANCE.Height - (current.Height + 10);
+            Location = new Vector2(10, Program.INSTANCE.Height - (current.Height + 10));
         }
 
         public override void action()

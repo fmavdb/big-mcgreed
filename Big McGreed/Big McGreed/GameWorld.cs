@@ -276,12 +276,13 @@ namespace Big_McGreed
                     case GameState.Upgrade:
                         menu.getButtons().Clear();
                         addButton(menu.menuButtonKlein, true);
-                        addButton(menu.resumeKlein, true);
+                        addButton(menu.resumeKlein, false);
                         removeButton(menu.yesNoSelect);
                         removeButton(menu.yesButton);
                         removeButton(menu.noButton);
                         menu.updateButtons();
                         break;
+
                     case GameState.Select:
                         addButton(menu.yesNoSelect, false);
                         addButton(menu.noButton, false);

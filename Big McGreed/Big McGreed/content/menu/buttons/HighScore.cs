@@ -15,6 +15,8 @@ namespace Big_McGreed.content.menu.buttons
             pressed = Program.INSTANCE.Content.Load<Texture2D>("HighscorePressed");
             hover = Program.INSTANCE.Content.Load<Texture2D>("HighscoreHighlight");
             current = normal;
+            text = "HIGHSCORE";
+
         }
 
         public override void action()

@@ -59,7 +59,7 @@ namespace Big_McGreed.content.menu
                 Rectangle mouse = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 1, 1);
                 foreach (Button button in buttons)
                 {
-                    Rectangle rectangleButton = new Rectangle((int)button.location.X, (int)button.location.Y, button.Normal.Width, button.Normal.Height);
+                    Rectangle rectangleButton = new Rectangle((int)button.Location.X, (int)button.Location.Y, button.Normal.Width, button.Normal.Height);
                     if (PrimitivePathFinder.intersects(mouse, rectangleButton))
                     {
                         buttonNearMouse = button;
@@ -130,8 +130,7 @@ namespace Big_McGreed.content.menu
                 {
                     if (button != upgrade && button != resumeKlein && button != menuButtonKlein)
                     {
-                        button.location.X = Program.INSTANCE.Width / 2 - button.Current.Width / 2;
-                        button.location.Y = startY;
+                        button.Location = new Vector2(Program.INSTANCE.Width / 2 - button.Current.Width / 2, startY);
                         startY += button.Normal.Height + 15;
                     }
                  }

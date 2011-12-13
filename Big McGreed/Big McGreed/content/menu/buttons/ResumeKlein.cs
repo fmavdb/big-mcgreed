@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Big_McGreed.content.menu.buttons
 {
@@ -15,8 +16,7 @@ namespace Big_McGreed.content.menu.buttons
             hover = Program.INSTANCE.Content.Load<Texture2D>("ResumeHighlightKlein");
             current = normal;
 
-            location.X = Program.INSTANCE.Width / 2 - Program.INSTANCE.Width / 2 - (current.Width + 10);
-            location.Y = Program.INSTANCE.Height / 2 -Program.INSTANCE.Height / 2 - (current.Height + 10);
+            Location = new Vector2(Program.INSTANCE.Width - (current.Width + 10), Program.INSTANCE.Height - (current.Height + 10));
         }
 
         public override void action()

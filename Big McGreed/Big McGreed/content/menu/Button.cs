@@ -11,7 +11,53 @@ namespace Big_McGreed.content.menu
     {
         public abstract void action();
 
-        public Vector2 location;
+        public Button()
+        {
+            font = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
+        }
+
+        private Vector2 location;
+
+        public Vector2 Location
+        {
+            get 
+            {
+                return location;  
+            }
+            set 
+            { 
+                location = value;
+                middleOfButton = new Vector2(value.X - font.MeasureString(text).X / 2 + current.Width / 2, value.Y - font.LineSpacing / 2 + current.Height / 2);
+            }
+        }
+
+        protected string text = "";
+
+        public string Text
+        {
+            get
+            {
+                return text;
+            }
+            set
+            {
+                text = value;
+            }
+        }
+
+        protected static SpriteFont font;
+
+        public SpriteFont Font
+        {
+            get
+            {
+                return font;
+            }
+            set
+            {
+                font = value;
+            }
+        }
 
         protected Texture2D current;
 
@@ -69,12 +115,15 @@ namespace Big_McGreed.content.menu
             }
         }
 
+        private Vector2 middleOfButton = Vector2.Zero;
+
         /// <summary>
         /// Draws this instance.
         /// </summary>
         public void Draw()
         {
             Program.INSTANCE.spriteBatch.Draw(current, location, Color.White);
+            Program.INSTANCE.spriteBatch.DrawString(font, text, middleOfButton, Color.White);
         }
     }
 }
