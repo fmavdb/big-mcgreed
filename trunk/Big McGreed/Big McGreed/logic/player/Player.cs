@@ -67,8 +67,11 @@ namespace Big_McGreed.logic.player
                     //{
                         //npc.hit(new Hit(npc, this, 10));
                     //}
-                    Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
-                    leftButtonPressed = true;
+                    if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.InGame)
+                    {
+                        Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
+                        leftButtonPressed = true;
+                    }
                 }
             }
             else

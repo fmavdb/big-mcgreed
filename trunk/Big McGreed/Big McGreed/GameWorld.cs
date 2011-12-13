@@ -50,9 +50,11 @@ namespace Big_McGreed
         //Hoogte van de application
         public int Height;
 
+        public string yesKnopGedrukt = "";
+
         private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.Menu;
-        private GameState lastState = GameState.Menu;
+        public GameState lastState = GameState.Menu;
         public Player player { get; private set; }
         private PlayerUpdate playerUpdate;
         public LinkedList<NPC> npcs { get; private set; }
@@ -269,6 +271,8 @@ namespace Big_McGreed
                         removeButton(menu.yesNoSelect);
                         removeButton(menu.yesButton);
                         removeButton(menu.noButton);
+                         addButton(menu.newGame, true);
+                        addButton(menu.highScore, false);
                         addButton(menu.quit, false);
                         menu.updateButtons();
                         break;
@@ -284,6 +288,11 @@ namespace Big_McGreed
                         break;
 
                     case GameState.Select:
+                        removeButton(menu.resume);
+                        removeButton(menu.upgrade);
+                        removeButton(menu.mainMenu);
+                        removeButton(menu.highScore);
+                        removeButton(menu.newGame);
                         addButton(menu.yesNoSelect, false);
                         addButton(menu.noButton, false);
                         addButton(menu.yesButton, false);
