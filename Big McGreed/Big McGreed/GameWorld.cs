@@ -17,6 +17,7 @@ using Big_McGreed.logic.map;
 using Big_McGreed.content.menu;
 using Big_McGreed.engine.misc;
 using System.Collections;
+using Big_McGreed.content.menu.buttons;
 
 
 namespace Big_McGreed
@@ -40,7 +41,8 @@ namespace Big_McGreed
             Menu,
             Paused,
             InGame,
-            Upgrade
+            Upgrade,
+            Select
         }
 
         //Width van de application
@@ -169,7 +171,7 @@ namespace Big_McGreed
         {
             switch (gameState)
             {
-
+                case GameState.Select:
                 case GameState.Paused:
                 case GameState.Upgrade:
                 case GameState.Menu:
@@ -195,7 +197,7 @@ namespace Big_McGreed
             gameMap.DrawBackground();
             switch (gameState)
             {
-
+                case GameState.Select:
                 case GameState.Paused:
                 case GameState.Upgrade:
                 case GameState.Menu:
@@ -247,10 +249,14 @@ namespace Big_McGreed
                         addButton(menu.resume, true);
                         addButton(menu.newGame, false);
                         addButton(menu.highScore, false);
-                        addButton(menu.quit, false);
+                        addButton(menu.mainMenu, false);
                         addButton(menu.upgrade, false);
                         removeButton(menu.menuButtonKlein);
                         removeButton(menu.resumeKlein);
+                        removeButton(menu.quit);
+                        removeButton(menu.yesNoSelect);
+                        removeButton(menu.yesButton);
+                        removeButton(menu.noButton);
                         menu.updateButtons();
                         break;
 
@@ -259,6 +265,11 @@ namespace Big_McGreed
                         removeButton(menu.upgrade);
                         removeButton(menu.menuButtonKlein);
                         removeButton(menu.resumeKlein);
+                        removeButton(menu.mainMenu);
+                        removeButton(menu.yesNoSelect);
+                        removeButton(menu.yesButton);
+                        removeButton(menu.noButton);
+                        addButton(menu.quit, false);
                         menu.updateButtons();
                         break;
 
@@ -266,7 +277,15 @@ namespace Big_McGreed
                         menu.getButtons().Clear();
                         addButton(menu.menuButtonKlein, true);
                         addButton(menu.resumeKlein, true);
+                        removeButton(menu.yesNoSelect);
+                        removeButton(menu.yesButton);
+                        removeButton(menu.noButton);
                         menu.updateButtons();
+                        break;
+                    case GameState.Select:
+                        addButton(menu.yesNoSelect, false);
+                        addButton(menu.noButton, false);
+                        addButton(menu.yesButton, false);
                         break;
                 }
             }

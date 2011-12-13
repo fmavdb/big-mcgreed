@@ -15,8 +15,8 @@ namespace Big_McGreed.content.menu.buttons
             hover = Program.INSTANCE.Content.Load<Texture2D>("ResumeHighlightKlein");
             current = normal;
 
-            location.X = Program.INSTANCE.Width - (current.Width + 10);
-            location.Y = Program.INSTANCE.Height - (current.Height + 10);
+            location.X = Program.INSTANCE.Width / 2 - Program.INSTANCE.Width / 2 - (current.Width + 10);
+            location.Y = Program.INSTANCE.Height / 2 -Program.INSTANCE.Height / 2 - (current.Height + 10);
         }
 
         public override void action()
