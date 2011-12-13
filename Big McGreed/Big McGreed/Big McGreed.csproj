@@ -128,7 +128,6 @@
     <Compile Include="engine\update\PlayerUpdate.cs" />
     <Compile Include="logic\Entity.cs" />
     <Compile Include="logic\Locatable.cs" />
-    <Compile Include="logic\map\Directions.cs" />
     <Compile Include="logic\map\GameMap.cs" />
     <Compile Include="logic\map\objects\GameObject.cs" />
     <Compile Include="logic\map\objects\ObjectDefinition.cs" />

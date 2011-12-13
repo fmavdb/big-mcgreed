@@ -62,7 +62,7 @@ namespace Big_McGreed
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
-        public MouseState lastMouseState { get; private set; }
+        //public MouseState lastMouseState { get; private set; }
 
         //private Crosshair crosshair;
 
