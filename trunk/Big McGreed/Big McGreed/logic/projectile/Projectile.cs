@@ -27,6 +27,10 @@ namespace Big_McGreed.logic.projectile
 
         private Vector2 speed = Vector2.Zero;
 
+        private Vector2 velocity = Vector2.Zero;
+
+        private Vector2 direction = Vector2.Zero;
+
         private Hit hit;
 
         public Projectile(int type, Hit hit, Vector2 target)
@@ -36,7 +40,13 @@ namespace Big_McGreed.logic.projectile
             this.hit = hit;
             setLocation(Program.INSTANCE.player.GeweerLocatie);
             rotation = (float)Math.Atan2(getY() - target.Y, getX() - target.X);
-            speed = new Vector2((float)0.985, (float)0.985);
+            direction = target - getLocation();
+            direction.Normalize();
+            speed = new Vector2((float)5, (float) 5);
+            velocity = Vector2.Multiply(direction, speed);
+            //speed = target - getLocation();
+            //speed.Normalize();
+            //speed = new Vector2(target.X / getX(), target.Y / getY());
         }
 
         public void destroy()
@@ -46,7 +56,26 @@ namespace Big_McGreed.logic.projectile
 
         public void Update()
         {
-            setLocation(getLocation() * speed);
+            setLocation(getLocation() + velocity);
+            /*float speedVal = Math.Max(Math.Abs(speed.X), Math.Abs(speed.Y));
+            Console.WriteLine(speedVal);
+            if (target.X < getX())
+                setX(getX() - speedVal);
+            else if (target.X > getX())
+                setX(getX() + speedVal);
+            if (target.Y < getY())
+                setY(getY() - speedVal);
+            else if (target.Y > getY())
+                setY(getY() + speedVal);*/
+            //setLocation(getLocation() * direction * 1.001f);
+            if (getX() <= 0)
+                destroy();
+            else if (getX() >= Program.INSTANCE.Width)
+                destroy();
+            if (getY() <= 0)
+                destroy();
+            else if (getY() >= Program.INSTANCE.Height)
+                destroy();
             foreach(NPC npc in PrimitivePathFinder.collision(this, getX(), getY())) {
                 npc.hit(hit);
                 destroy();
