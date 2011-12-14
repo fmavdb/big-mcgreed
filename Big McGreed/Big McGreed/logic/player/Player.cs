@@ -24,7 +24,7 @@ namespace Big_McGreed.logic.player
         //De grootte van de 'dot' van de crosshair, stelt dotSize(width) x dotSize(height) pixels voor.
         public const int dotSize = 5;
 
-        public PlayerDefinition definition { get; set; }
+        public PlayerDefinition definition { get { return PlayerDefinition.getDefinition(); } }
 
         public int currentLevel { get; set; }
 
@@ -41,9 +41,8 @@ namespace Big_McGreed.logic.player
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
-        public Player(PlayerDefinition definition)
+        public Player()
         {
-            this.definition = definition;
             visible = true;
             setX(Mouse.GetState().X);
             setY(Mouse.GetState().Y);
@@ -58,6 +57,7 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public void destroy()
         {
+            destroyed = true;
         }
 
         /// <summary>

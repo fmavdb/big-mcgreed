@@ -39,6 +39,8 @@ namespace Big_McGreed
         //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
         public static readonly Hashtable upgradeDefinitions = new Hashtable();
 
+        public static PlayerDefinition playerDefinition = null;
+
         public enum GameState
         {
             Menu,
@@ -99,7 +101,7 @@ namespace Big_McGreed
             Width = Program.INSTANCE.GraphicsDevice.Viewport.Width;
             Height = Program.INSTANCE.GraphicsDevice.Viewport.Height;
             npcs = new LinkedList<NPC>();
-            player = new Player(PlayerDefinition.loadDefinition());
+            player = new Player();
             menu = new Menu();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
