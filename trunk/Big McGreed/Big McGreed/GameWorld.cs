@@ -36,6 +36,9 @@ namespace Big_McGreed
         //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
         public static readonly Hashtable objectDefinitions = new Hashtable();
 
+        //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        public static readonly Hashtable upgradeDefinitions = new Hashtable();
+
         public enum GameState
         {
             Menu,
@@ -120,11 +123,11 @@ namespace Big_McGreed
             {
                 npcs.Clear();
                 int d = 0;
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     NPC npc = new NPC(1);
                     npc.setLocation(new Vector2(0, d));
-                    d += 80;
+                    d += 150;
                     npcs.AddFirst(npc);
                 }
             }
@@ -156,6 +159,7 @@ namespace Big_McGreed
                     npc.destroy();
                 }
             }
+            gameMap.ClearProjectiles();
             if (playerUpdate != null)
                 playerUpdate.stop();
             if (player != null)

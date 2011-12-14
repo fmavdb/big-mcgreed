@@ -126,6 +126,8 @@
     <Compile Include="content\menu\buttons\YesButton.cs" />
     <Compile Include="content\menu\buttons\YesNoSelect.cs" />
     <Compile Include="content\menu\Menu.cs" />
+    <Compile Include="logic\upgrades\Upgrade.cs" />
+    <Compile Include="logic\upgrades\UpgradeDefinition.cs" />
     <Compile Include="engine\misc\CleanUp.cs" />
     <Compile Include="engine\ticks\Tick.cs" />
     <Compile Include="engine\update\NPCUpdate.cs" />
@@ -192,7 +194,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\upgrades\" />
     <Folder Include="engine\ticks\impl\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
