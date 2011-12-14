@@ -36,6 +36,7 @@ namespace Big_McGreed.logic.npc
         /// </summary>
         public void destroy()
         {
+            destroyed = true;
         }
 
         /// <summary>

@@ -87,7 +87,7 @@ namespace Big_McGreed.content.menu
             }
         }
 
-        public Texture2D pressed;
+        protected Texture2D pressed;
 
         public Texture2D Pressed
         {

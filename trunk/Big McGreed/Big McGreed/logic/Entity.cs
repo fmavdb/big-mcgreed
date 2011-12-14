@@ -23,6 +23,8 @@ namespace Big_McGreed.logic
 
         protected bool hitted = false;
 
+        public bool destroyed { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Entity"/> class.
         /// </summary>
@@ -62,10 +64,13 @@ namespace Big_McGreed.logic
             if (receivedHits.Count > 0)
             {
                 Hit hit = receivedHits.Dequeue();
-                lifes -= hit.damage;
-                if (lifes <= 0)
+                if (hit != null)
                 {
-                    visible = false; //TODO
+                    lifes -= hit.damage;
+                    if (lifes <= 0)
+                    {
+                        visible = false; //TODO
+                    }
                 }
             }
         }

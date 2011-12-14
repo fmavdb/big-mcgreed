@@ -88,7 +88,7 @@ namespace Big_McGreed.content.menu
                 case ButtonState.Pressed:
                     if (buttonNearMouse != null)
                     {
-                        buttonNearMouse.Current = buttonNearMouse.pressed;
+                        buttonNearMouse.Current = buttonNearMouse.Pressed;
                         released = true;
                     }
                     break;

@@ -12,12 +12,16 @@ namespace Big_McGreed.logic.player
         /// Loads the definition.
         /// </summary>
         /// <returns></returns>
-        public static PlayerDefinition loadDefinition() {
-            PlayerDefinition def = new PlayerDefinition();
-            //Laad gegevens.
-            def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("compas");
-            def.personTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
-            def.revolverTexture = Program.INSTANCE.Content.Load<Texture2D>("revolver");
+        public static PlayerDefinition getDefinition() {
+
+            PlayerDefinition def = GameWorld.playerDefinition;
+            if (def == null) {
+                def = new PlayerDefinition();
+                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("compas");
+                def.personTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
+                def.revolverTexture = Program.INSTANCE.Content.Load<Texture2D>("revolver");
+                GameWorld.playerDefinition = def;
+            }
             return def;
         }
 
