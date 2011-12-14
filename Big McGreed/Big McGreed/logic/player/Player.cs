@@ -10,11 +10,17 @@ using Big_McGreed.logic.npc;
 using Big_McGreed.logic.mask;
 using Microsoft.Xna.Framework.Graphics;
 using Big_McGreed.logic.projectile;
+using Big_McGreed.content.upgrades;
 
 namespace Big_McGreed.logic.player
 {
     public class Player : Entity, Destroyable
     {
+
+        private Upgrade wall = null;
+
+        private Upgrade weapon = null;
+
         //De grootte van de 'dot' van de crosshair, stelt dotSize(width) x dotSize(height) pixels voor.
         public const int dotSize = 5;
 

@@ -21,6 +21,12 @@ namespace Big_McGreed.logic
         }
 
 
+        /// <summary>
+        /// Translates the specified x and y.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <returns></returns>
         public Vector2 translate(float x, float y)
         {
             return new Vector2(location.X + x, location.Y + y);

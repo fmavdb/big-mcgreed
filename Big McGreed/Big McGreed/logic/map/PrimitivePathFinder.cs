@@ -94,7 +94,7 @@ namespace Big_McGreed.logic.map
         {
             Collection<NPC> npcsCollided= new Collection<NPC>();
             //TODO fix the projectilesize to include the rotation.
-            Rectangle projectileSize = new Rectangle(x, y, Player.dotSize, Player.dotSize);
+            Rectangle projectileSize = new Rectangle(x, y, projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height);
             lock (Program.INSTANCE.npcs)
             {
                 foreach (NPC npc in Program.INSTANCE.npcs)

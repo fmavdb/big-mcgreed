@@ -25,14 +25,18 @@ namespace Big_McGreed.logic.projectile
 
         public ProjectileDefinition definition { get { return ProjectileDefinition.forType(type); } }
 
-        private Vector2 speed = Vector2.Zero;
+        private static Vector2 speed = new Vector2((float)10, (float)10);
 
         private Vector2 velocity = Vector2.Zero;
 
-        private Vector2 direction = Vector2.Zero;
-
         private Hit hit;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Projectile"/> class.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="hit">The hit.</param>
+        /// <param name="target">The target.</param>
         public Projectile(int type, Hit hit, Vector2 target)
         {
             this.type = type;
@@ -40,20 +44,25 @@ namespace Big_McGreed.logic.projectile
             this.hit = hit;
             setLocation(Program.INSTANCE.player.GeweerLocatie);
             rotation = (float)Math.Atan2(getY() - target.Y, getX() - target.X);
-            direction = target - getLocation();
+            Vector2 direction = target - getLocation();
             direction.Normalize();
-            speed = new Vector2((float)5, (float) 5);
             velocity = Vector2.Multiply(direction, speed);
             //speed = target - getLocation();
             //speed.Normalize();
             //speed = new Vector2(target.X / getX(), target.Y / getY());
         }
 
+        /// <summary>
+        /// Destroys this instance.
+        /// </summary>
         public void destroy()
         {
             destroyed = true;
         }
 
+        /// <summary>
+        /// Updates this instance.
+        /// </summary>
         public void Update()
         {
             setLocation(getLocation() + velocity);
@@ -83,6 +92,9 @@ namespace Big_McGreed.logic.projectile
             }
         }
 
+        /// <summary>
+        /// Draws this instance.
+        /// </summary>
         public void Draw()
         {
             Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, rotation, new Vector2(definition.mainTexture.Width, definition.mainTexture.Height), 0.50f, SpriteEffects.None, 1.0f);
