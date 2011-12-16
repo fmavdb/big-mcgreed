@@ -12,10 +12,13 @@ namespace Big_McGreed.content.menu.buttons
     {
         public Upgrade()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("UpgradeNormal");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("UpgradePressed");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("UpgradeHighlight");
+            normal = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonNormal");
+            pressed = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonPressed");
+            hover = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonHighlight");
             current = normal;
+
+            tinyButton = true;
+            text = "UPGRADE";
 
             Location = new Vector2(10, Program.INSTANCE.Height - (current.Height + 10));
         }

@@ -35,12 +35,12 @@ Content\YesHighlight.xnb
 Content\YesNoKeuze.xnb
 Content\YesNormal.xnb
 Content\YesPressed.xnb
-Content\FPS.xnb
-Content\ButtonFont.xnb
 Content\ButtonHighlight.xnb
 Content\ButtonNormal.xnb
 Content\ButtonPressed.xnb
-Content\TinyButtonFont.xnb
 Content\TinyButtonHighlight.xnb
 Content\TinyButtonNormal.xnb
 Content\TinyButtonPressed.xnb
+Content\FPS.xnb
+Content\ButtonFont.xnb
+Content\TinyButtonFont.xnb

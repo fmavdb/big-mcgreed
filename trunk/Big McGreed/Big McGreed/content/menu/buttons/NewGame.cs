@@ -14,6 +14,8 @@ namespace Big_McGreed.content.menu.buttons
             pressed = Program.INSTANCE.Content.Load<Texture2D>("ButtonPressed");
             hover = Program.INSTANCE.Content.Load<Texture2D>("ButtonHighlight");
             current = normal;
+
+            text = "NEW GAME";
         }
 
         public override void action()
