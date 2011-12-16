@@ -11,10 +11,11 @@ namespace Big_McGreed.content.menu.buttons
     {
         public HighScore()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("HighscoreNormal");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("HighscorePressed");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("HighscoreHighlight");
+            normal = Program.INSTANCE.Content.Load<Texture2D>("ButtonNormal");
+            pressed = Program.INSTANCE.Content.Load<Texture2D>("ButtonPressed");
+            hover = Program.INSTANCE.Content.Load<Texture2D>("ButtonHighlight");
             current = normal;
+
             text = "HIGHSCORE";
         }
 

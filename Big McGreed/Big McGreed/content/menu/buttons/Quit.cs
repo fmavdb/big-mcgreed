@@ -11,10 +11,12 @@ namespace Big_McGreed.content.menu.buttons
     {
         public Quit()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("QuitNormal");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("QuitPressed");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("QuitHighlight");
+            normal = Program.INSTANCE.Content.Load<Texture2D>("ButtonNormal");
+            pressed = Program.INSTANCE.Content.Load<Texture2D>("ButtonPressed");
+            hover = Program.INSTANCE.Content.Load<Texture2D>("ButtonHighlight");
             current = normal;
+
+            text = "QUIT";
         }
 
         public override void action()

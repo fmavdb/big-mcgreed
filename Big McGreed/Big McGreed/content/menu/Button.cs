@@ -9,11 +9,14 @@ namespace Big_McGreed.content.menu
 {
     public abstract class Button
     {
+        protected bool tinyButton;
+
         public abstract void action();
 
         public Button()
         {
             font = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
+            tinyFont = Program.INSTANCE.Content.Load<SpriteFont>("TinyButtonFont");
         }
 
         private Vector2 location;
@@ -27,7 +30,14 @@ namespace Big_McGreed.content.menu
             set 
             { 
                 location = value;
-                middleOfButton = new Vector2(value.X - font.MeasureString(text).X / 2 + current.Width / 2, value.Y - font.LineSpacing / 2 + current.Height / 2);
+                if (!tinyButton)
+                {
+                    middleOfButton = new Vector2(value.X - font.MeasureString(text).X / 2 + current.Width / 2, value.Y - font.LineSpacing / 2 + current.Height / 2);
+                }
+                else
+                {
+                    middleOfButton = new Vector2(value.X - tinyFont.MeasureString(text).X / 2 + current.Width / 2, value.Y - tinyFont.LineSpacing / 2 + current.Height / 2);
+                }
             }
         }
 
@@ -56,6 +66,20 @@ namespace Big_McGreed.content.menu
             set
             {
                 font = value;
+            }
+        }
+
+        protected static SpriteFont tinyFont;
+
+        public SpriteFont TinyFont
+        {
+            get
+            {
+                return tinyFont;
+            }
+            set
+            {
+                tinyFont = value;
             }
         }
 
@@ -123,7 +147,7 @@ namespace Big_McGreed.content.menu
         public void Draw()
         {
             Program.INSTANCE.spriteBatch.Draw(current, location, Color.White);
-            Program.INSTANCE.spriteBatch.DrawString(font, text, middleOfButton, Color.White);
+            Program.INSTANCE.spriteBatch.DrawString(tinyButton ? tinyFont : font, text, middleOfButton, Color.White);
         }
     }
 }

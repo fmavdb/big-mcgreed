@@ -59,7 +59,7 @@ namespace Big_McGreed
 
         private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.Menu;
-        public GameState lastState = GameState.Menu;
+        private GameState lastState = GameState.Menu;
         public Player player { get; private set; }
         private PlayerUpdate playerUpdate;
         public LinkedList<NPC> npcs { get; private set; }
@@ -332,6 +332,17 @@ namespace Big_McGreed
                     menu.getButtons().AddFirst(button);
                 else
                     menu.getButtons().AddLast(button);
+            }
+        }
+
+        public GameState LastGameState
+        {
+            get
+            {
+                return lastState;
+            }
+            private set
+            {
             }
         }
     }

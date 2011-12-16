@@ -11,10 +11,13 @@ namespace Big_McGreed.content.menu.buttons
     {
         public ResumeKlein()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("ResumeNormalKlein");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("ResumePressedKlein");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("ResumeHighlightKlein");
+            normal = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonNormal");
+            pressed = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonPressed");
+            hover = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonHighlight");
             current = normal;
+
+            tinyButton = true;
+            text = "RESUME";
 
             Location = new Vector2(Program.INSTANCE.Width - (current.Width + 10), Program.INSTANCE.Height - (current.Height + 10));
         }
