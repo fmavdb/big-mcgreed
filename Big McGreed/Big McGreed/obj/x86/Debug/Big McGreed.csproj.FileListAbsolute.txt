@@ -15,9 +15,6 @@ C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\FPS.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitHighlight.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitNormal.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitPressed.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\crosshair.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\QuitHighlight.xnb
@@ -39,15 +36,6 @@ C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big Mc
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeNormal.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumePressed.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreNormal.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreHighlight.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreNormal.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscorePressed.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NewGameHighlight.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NewGameNormal.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NewGamePressed.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeHighlight.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeNormal.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumePressed.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\UpgradeHighlight.xnb
@@ -59,15 +47,6 @@ C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big Mc
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeHighlightKlein.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeNormalKlein.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumePressedKlein.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\UpgradeHighlight.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\UpgradeNormal.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\UpgradePressed.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MenuHighlight.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MenuNormal.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MenuPressed.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeHighlightKlein.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumeNormalKlein.xnb
-C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ResumePressedKlein.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje_rood.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\revolver.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\bullet_bill.xnb
@@ -85,16 +64,6 @@ C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big Mc
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NoNormal.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNormal.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonFont.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MainMenu.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MainMenuHighlight.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\MainMenuPressed.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NoHighlight.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NoNormal.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\NoPressed.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesHighlight.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNoKeuze.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNormal.xnb
-C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesPressed.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonFont.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonHighlight.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonNormal.xnb
@@ -110,3 +79,4 @@ C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big Mc
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonNormal.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonPressed.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonFont.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNoKeuze.xnb
