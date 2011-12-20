@@ -10,8 +10,11 @@ Content\ButtonPressed.xnb
 Content\TinyButtonHighlight.xnb
 Content\TinyButtonNormal.xnb
 Content\TinyButtonPressed.xnb
+Content\YesNoKeuze.xnb
+Content\Border.xnb
 Content\FPS.xnb
 Content\ButtonFont.xnb
 Content\TinyButtonFont.xnb
-Content\YesNoKeuze.xnb
-Content\Border.xnb
+Content\Boerderij.xnb
+Content\HPBarGroen.xnb
+Content\HPBarRood.xnb

@@ -17,6 +17,7 @@ namespace Big_McGreed.logic.player
 {
     public class Player : Entity, Destroyable
     {
+        public static int maxhp = 100;
 
         private Upgrade wall = null;
 
@@ -32,6 +33,7 @@ namespace Big_McGreed.logic.player
         public bool leftButtonPressed = false;
 
         private Vector2 boerLocatie = Vector2.Zero;
+        public Vector2 BoerLocatie { get { return boerLocatie; } private set { boerLocatie = value; } }
 
         private Vector2 geweerLocatie = Vector2.Zero;
 
@@ -46,11 +48,12 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
+            lifes = maxhp;
             visible = true;
             setX(Mouse.GetState().X);
             setY(Mouse.GetState().Y);
-            boerLocatie.X = GameFrame.Width - (GameFrame.Width / 4);
-            boerLocatie.Y = GameFrame.Height - (GameFrame.Height / 4);
+            boerLocatie.X = Program.INSTANCE.gameFrame.boerderijPositie.X * 1.115f;
+            boerLocatie.Y = Program.INSTANCE.gameFrame.boerderijPositie.Y * 1.8f;
             geweerLocatie.X = boerLocatie.X;
             geweerLocatie.Y = boerLocatie.Y + definition.personTexture.Height / 2;
         }
@@ -79,6 +82,7 @@ namespace Big_McGreed.logic.player
                     if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.InGame)
                     {
                         Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
+                        hit(new Hit(this, null, 10));
                         leftButtonPressed = true;
                     }
                 }
@@ -116,7 +120,6 @@ namespace Big_McGreed.logic.player
             {
                 case GameWorld.GameState.InGame:
                     rotation = (float)Math.Atan2(geweerLocatie.Y - Mouse.GetState().Y, geweerLocatie.X - Mouse.GetState().X);
-                    Program.INSTANCE.spriteBatch.Draw(definition.personTexture, boerLocatie, Color.Black);
                     Program.INSTANCE.spriteBatch.Draw(definition.revolverTexture, geweerLocatie, new Rectangle(0, 0, definition.revolverTexture.Width, definition.revolverTexture.Height), Color.White, rotation, new Vector2(definition.revolverTexture.Width, definition.revolverTexture.Height), 0.10f, SpriteEffects.None, 1.0f);
                     break;
             }

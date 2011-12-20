@@ -25,6 +25,7 @@ namespace Big_McGreed.content.menu
         public YesButton yesButton { get; private set; }
         public NoButton noButton { get; private set; }
         public YesNoSelect yesNoSelect { get; private set; }
+        public UpgradeAchtergrond upgradeAchtergrond { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu"/> class.
@@ -46,6 +47,7 @@ namespace Big_McGreed.content.menu
             yesButton = new YesButton();
             noButton = new NoButton();
             yesNoSelect = new YesNoSelect();
+            upgradeAchtergrond = new UpgradeAchtergrond();
             updateButtons();
         }
 
