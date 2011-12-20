@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Big_McGreed.logic.player
 {
-    public class PlayerDefinition 
+    public struct PlayerDefinition 
     {
         /// <summary>
         /// Loads the definition.
@@ -15,11 +15,12 @@ namespace Big_McGreed.logic.player
         public static PlayerDefinition getDefinition() {
 
             PlayerDefinition def = GameWorld.playerDefinition;
-            if (def == null) {
+            if (!def.loaded) {
                 def = new PlayerDefinition();
                 def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("compas");
                 def.personTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
                 def.revolverTexture = Program.INSTANCE.Content.Load<Texture2D>("revolver");
+                def.loaded = true;
                 GameWorld.playerDefinition = def;
             }
             return def;
@@ -31,12 +32,6 @@ namespace Big_McGreed.logic.player
 
         public Texture2D revolverTexture { get; private set; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PlayerDefinition"/> class.
-        /// </summary>
-        public PlayerDefinition()
-        {
-            mainTexture = null;
-        }
+        public bool loaded { get; private set; }
     }
 }

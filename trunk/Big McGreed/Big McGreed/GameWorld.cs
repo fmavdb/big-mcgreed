@@ -41,7 +41,7 @@ namespace Big_McGreed
         //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
         public static readonly Hashtable upgradeDefinitions = new Hashtable();
 
-        public static PlayerDefinition playerDefinition = null;
+        public static PlayerDefinition playerDefinition;
 
         public enum GameState
         {
@@ -52,6 +52,36 @@ namespace Big_McGreed
             Highscore,
             Select,
             GameOver
+        }
+
+        //Als dit java was, dan was dit een enum -.- Ccrap enums...
+        public class WaveInformation
+        {
+            public static readonly Dictionary<int, WaveInformation> waves { get; private set; }
+
+            static WaveInformation() {
+                waves.Add(1, new WaveInformation(1, new int[]{1, 2, 3}));
+                waves.Add(2, new WaveInformation(2, new int[] {4, 5, 6}));
+                waves.Add(3, new WaveInformation(3, new int[] {7, 8, 9}));
+            }
+
+            public static WaveInformation forValue(int wave)
+            {
+                WaveInformation waveInformation = null;
+                if (!waves.TryGetValue(wave, out waveInformation)) {
+                    return null;
+                }
+                return waveInformation;
+            }
+
+            private int wave;
+            private int[] npcTypes;
+
+            private WaveInformation(int wave, int[] npcTypes)
+            {
+                this.wave = wave;
+                this.npcTypes = npcTypes;
+            }
         }
 
         public string yesKnopGedrukt = "";
@@ -349,6 +379,12 @@ namespace Big_McGreed
             }
         }
 
+        /// <summary>
+        /// Gets the last state of the game.
+        /// </summary>
+        /// <value>
+        /// The last state of the game.
+        /// </value>
         public GameState LastGameState
         {
             get
