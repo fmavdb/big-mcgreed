@@ -64,7 +64,7 @@ namespace Big_McGreed
         private ProgramInformation info;
         private GameMap gameMap;
         public GameMap GameMap { get { return gameMap; } }
-        private Menu menu;
+        public Menu menu { get; private set; }
         public GameFrame gameFrame { get; set; }
 
         private GraphicsDeviceManager graphics;
