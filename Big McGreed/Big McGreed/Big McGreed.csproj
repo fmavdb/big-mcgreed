@@ -127,6 +127,7 @@
     <Compile Include="content\menu\buttons\YesButton.cs" />
     <Compile Include="content\menu\buttons\YesNoSelect.cs" />
     <Compile Include="content\menu\Menu.cs" />
+    <Compile Include="content\menu\upgradeButtons\UpgradeAchtergrond.cs" />
     <Compile Include="logic\upgrades\Upgrade.cs" />
     <Compile Include="logic\upgrades\UpgradeDefinition.cs" />
     <Compile Include="engine\misc\CleanUp.cs" />

@@ -17,7 +17,7 @@ namespace Big_McGreed.logic
 
         protected Hashtable ticks { get; private set; }
 
-        protected int lifes { get; private set; }
+        protected int lifes { get; set; }
 
         public bool visible { get; set; }
 
@@ -67,9 +67,17 @@ namespace Big_McGreed.logic
                 if (hit != null)
                 {
                     lifes -= hit.damage;
-                    if (lifes <= 0)
+                    if (lifes <= 0 && this is NPC)
                     {
                         visible = false; //TODO
+                    }
+                    if (this is Player)
+                    {
+                        Program.INSTANCE.gameFrame.UpdateHP(lifes);
+                    }
+                    if (lifes <= 0 && this is Player)
+                    {
+                        Program.INSTANCE.CurrentGameState = GameWorld.GameState.GameOver;
                     }
                 }
             }
