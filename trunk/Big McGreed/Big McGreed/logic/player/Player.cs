@@ -48,7 +48,7 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
-            lifes = maxhp;
+            Lifes = maxhp;
             visible = true;
             setX(Mouse.GetState().X);
             setY(Mouse.GetState().Y);

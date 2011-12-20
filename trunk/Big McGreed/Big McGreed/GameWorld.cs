@@ -19,6 +19,7 @@ using Big_McGreed.engine.misc;
 using System.Collections;
 using Big_McGreed.content.menu.buttons;
 using Big_McGreed.content.gameframe;
+using Big_McGreed.content.highscore;
 
 
 namespace Big_McGreed
@@ -48,11 +49,13 @@ namespace Big_McGreed
             Paused,
             InGame,
             Upgrade,
+            Highscore,
             Select,
             GameOver
         }
 
         public string yesKnopGedrukt = "";
+        public string highscoreMenu = "";
 
         private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.Menu;
@@ -128,6 +131,7 @@ namespace Big_McGreed
             lock (npcs)
             {
                 npcs.Clear();
+                player.Lifes = Player.maxhp;
                 int d = 0;
                 for (int i = 0; i < 4; i++)
                 {
@@ -183,6 +187,7 @@ namespace Big_McGreed
         {
             switch (gameState)
             {
+                case GameState.Highscore:
                 case GameState.GameOver:
                 case GameState.Select:
                 case GameState.Paused:
@@ -210,6 +215,12 @@ namespace Big_McGreed
             gameMap.DrawBackground();
             switch (gameState)
             {
+                case GameState.Highscore:
+                    menu.Draw();
+                    highScores.Draw();
+                    if (player != null && player.visible && player.definition.mainTexture != null)
+                        player.Draw();    
+                    break;
                 case GameState.GameOver:
                 case GameState.Select:
                 case GameState.Paused:
@@ -261,32 +272,18 @@ namespace Big_McGreed
                         break;
 
                     case GameState.Paused:
+                        menu.getButtons().Clear();
                         addButton(menu.resume, true);
                         addButton(menu.newGame, false);
                         addButton(menu.highScore, false);
                         addButton(menu.mainMenu, false);
                         addButton(menu.upgrade, false);
-                        removeButton(menu.menuButtonKlein);
-                        removeButton(menu.resumeKlein);
-                        removeButton(menu.quit);
-                        removeButton(menu.yesNoSelect);
-                        removeButton(menu.yesButton);
-                        removeButton(menu.noButton);
-                        removeButton(menu.upgradeAchtergrond);
                         menu.updateButtons();
                         break;
 
                     case GameState.Menu:
-                        removeButton(menu.resume);
-                        removeButton(menu.upgrade);
-                        removeButton(menu.menuButtonKlein);
-                        removeButton(menu.resumeKlein);
-                        removeButton(menu.mainMenu);
-                        removeButton(menu.yesNoSelect);
-                        removeButton(menu.yesButton);
-                        removeButton(menu.noButton);
-                        removeButton(menu.upgradeAchtergrond);
-                         addButton(menu.newGame, true);
+                        menu.getButtons().Clear();
+                        addButton(menu.newGame, true);
                         addButton(menu.highScore, false);
                         addButton(menu.quit, false);
                         menu.updateButtons();
@@ -297,19 +294,18 @@ namespace Big_McGreed
                         addButton(menu.menuButtonKlein, true);
                         addButton(menu.resumeKlein, false);
                         addButton(menu.upgradeAchtergrond, false);
-                        removeButton(menu.yesNoSelect);
-                        removeButton(menu.yesButton);
-                        removeButton(menu.noButton);
                         menu.updateButtons();
                         break;
 
+                    case GameState.Highscore:
+                        menu.getButtons().Clear();
+                        addButton(menu.highscoreDisplay, true);
+                        addButton(menu.menuButtonKlein, false);
+                        addButton(menu.submitHighscore, false);
+                        break;
+
                     case GameState.Select:
-                        removeButton(menu.resume);
-                        removeButton(menu.upgrade);
-                        removeButton(menu.mainMenu);
-                        removeButton(menu.highScore);
-                        removeButton(menu.newGame);
-                        removeButton(menu.upgradeAchtergrond);
+                        menu.getButtons().Clear();
                         addButton(menu.yesNoSelect, false);
                         addButton(menu.noButton, false);
                         addButton(menu.yesButton, false);
@@ -317,8 +313,8 @@ namespace Big_McGreed
 
                     case GameState.GameOver:
                         menu.getButtons().Clear();
-                        addButton(menu.newGame, true);
-                        addButton(menu.quit, false);                        
+                        addButton(menu.menuButtonKlein, true);
+                        addButton(menu.submitHighscore, false);                        
                         menu.updateButtons();
                         break;
                 }

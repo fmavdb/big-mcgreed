@@ -114,8 +114,10 @@
   <ItemGroup>
     <Compile Include="content\fps\FPS.cs" />
     <Compile Include="content\gameframe\GameFrame.cs" />
+    <Compile Include="content\highscore\HighScore.cs" />
     <Compile Include="content\menu\Button.cs" />
-    <Compile Include="content\menu\buttons\HighScore.cs" />
+    <Compile Include="content\menu\buttons\HighScoreButton.cs" />
+    <Compile Include="content\menu\buttons\HighscoreDisplay.cs" />
     <Compile Include="content\menu\buttons\MainMenu.cs" />
     <Compile Include="content\menu\buttons\MenuButtonKlein.cs" />
     <Compile Include="content\menu\buttons\NewGame.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="content\menu\buttons\Quit.cs" />
     <Compile Include="content\menu\buttons\Resume.cs" />
     <Compile Include="content\menu\buttons\ResumeKlein.cs" />
+    <Compile Include="content\menu\buttons\SubmitHighscore.cs" />
     <Compile Include="content\menu\buttons\Upgrade.cs" />
     <Compile Include="content\menu\buttons\YesButton.cs" />
     <Compile Include="content\menu\buttons\YesNoSelect.cs" />
@@ -198,7 +201,6 @@
   <ItemGroup>
     <Folder Include="content\database\" />
     <Folder Include="content\hardware\" />
-    <Folder Include="content\highscore\" />
     <Folder Include="engine\ticks\impl\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
