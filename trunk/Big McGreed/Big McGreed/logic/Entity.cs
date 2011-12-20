@@ -27,7 +27,10 @@ namespace Big_McGreed.logic
             set 
             { 
                 this.lifes = value;
-                Program.INSTANCE.gameFrame.UpdateHP(this.lifes);
+                if (this is Player)
+                {
+                    Program.INSTANCE.gameFrame.UpdateHP(this.lifes);
+                }
             } 
         }
 

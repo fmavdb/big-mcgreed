@@ -19,3 +19,4 @@ Content\HighscoreAchtergrond.xnb
 Content\FPS.xnb
 Content\ButtonFont.xnb
 Content\TinyButtonFont.xnb
+Content\Muzzle Effect.xnb

@@ -43,6 +43,10 @@ namespace Big_McGreed.logic.player
 
         public int gold { get; set; }
 
+        public bool muzzle = false;
+
+        Texture2D muzzleTexture = Program.INSTANCE.Content.Load<Texture2D>("Muzzle Effect");
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
@@ -84,6 +88,7 @@ namespace Big_McGreed.logic.player
                         Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
                         hit(new Hit(this, null, 10));
                         leftButtonPressed = true;
+                        muzzle = true;
                     }
                 }
             }
@@ -119,6 +124,11 @@ namespace Big_McGreed.logic.player
             switch (Program.INSTANCE.CurrentGameState)
             {
                 case GameWorld.GameState.InGame:
+                    if (muzzle)
+                    {
+                        Program.INSTANCE.spriteBatch.Draw(muzzleTexture, geweerLocatie, Color.White);
+                        muzzle = false;
+                    }
                     rotation = (float)Math.Atan2(geweerLocatie.Y - Mouse.GetState().Y, geweerLocatie.X - Mouse.GetState().X);
                     Program.INSTANCE.spriteBatch.Draw(definition.revolverTexture, geweerLocatie, new Rectangle(0, 0, definition.revolverTexture.Width, definition.revolverTexture.Height), Color.White, rotation, new Vector2(definition.revolverTexture.Width, definition.revolverTexture.Height), 0.10f, SpriteEffects.None, 1.0f);
                     break;
