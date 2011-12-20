@@ -66,6 +66,7 @@ namespace Big_McGreed
         public GameMap GameMap { get { return gameMap; } }
         public Menu menu { get; private set; }
         public GameFrame gameFrame { get; set; }
+        public HighScore highScores { get; private set; }
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -109,6 +110,7 @@ namespace Big_McGreed
             npcUpdate = new NPCUpdate();
             info = new ProgramInformation();
             gameMap = new GameMap();
+            highScores = new HighScore();
             newGame();
             playerUpdate.start();
             npcUpdate.start();

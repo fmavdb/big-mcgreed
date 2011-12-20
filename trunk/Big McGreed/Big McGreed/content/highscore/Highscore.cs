@@ -22,6 +22,12 @@ namespace Big_McGreed.content.highscore
             highScores.Add("Wouter", 0);
         }
 
+        public void addToHighScore(string naam, int score)
+        {
+            //Voeg toe aan database.
+            //Laad gegevens... SELECT naam, score FROM highscores ORDER BY score LIMIT 10
+        }
+
         public void Draw()
         {
             int nummer = 1;
