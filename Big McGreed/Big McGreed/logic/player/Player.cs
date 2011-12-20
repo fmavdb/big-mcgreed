@@ -38,6 +38,8 @@ namespace Big_McGreed.logic.player
 
         private float rotation;
 
+        public int gold { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
