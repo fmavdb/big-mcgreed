@@ -190,6 +190,15 @@
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonFont.xnb</Output>
       <Time>2011-12-16T09:29:26.7571657+01:00</Time>
     </Item>
+    <Item>
+      <Source>Muzzle Effect.png</Source>
+      <Name>Muzzle Effect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muzzle Effect.xnb</Output>
+      <Time>2011-12-20T10:56:39.0998654+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

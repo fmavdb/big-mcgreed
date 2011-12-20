@@ -331,7 +331,6 @@ namespace Big_McGreed
                         menu.getButtons().Clear();
                         addButton(menu.highscoreDisplay, true);
                         addButton(menu.menuButtonKlein, false);
-                        addButton(menu.submitHighscore, false);
                         break;
 
                     case GameState.Select:
