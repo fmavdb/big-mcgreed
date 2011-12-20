@@ -15,7 +15,7 @@ namespace Big_McGreed.content.menu
         private LinkedList<Button> buttons;
         private bool released = false;
         public NewGame newGame;
-        public HighScore highScore;
+        public HighScoreButton highScore;
         public Quit quit;
         public Upgrade upgrade { get; private set; }
         public Resume resume { get; private set; }
@@ -26,6 +26,8 @@ namespace Big_McGreed.content.menu
         public NoButton noButton { get; private set; }
         public YesNoSelect yesNoSelect { get; private set; }
         public UpgradeAchtergrond upgradeAchtergrond { get; private set; }
+        public SubmitHighscore submitHighscore { get; private set; }
+        public HighscoreDisplay highscoreDisplay { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Menu"/> class.
@@ -35,7 +37,7 @@ namespace Big_McGreed.content.menu
             buttons = new LinkedList<Button>();
             newGame = new NewGame();
             buttons.AddFirst(newGame);
-            highScore = new HighScore();
+            highScore = new HighScoreButton();
             buttons.AddAfter(buttons.Find(newGame), highScore);
             quit = new Quit();
             buttons.AddLast(quit);
@@ -48,6 +50,8 @@ namespace Big_McGreed.content.menu
             noButton = new NoButton();
             yesNoSelect = new YesNoSelect();
             upgradeAchtergrond = new UpgradeAchtergrond();
+            submitHighscore = new SubmitHighscore();
+            highscoreDisplay = new HighscoreDisplay();
             updateButtons();
         }
 

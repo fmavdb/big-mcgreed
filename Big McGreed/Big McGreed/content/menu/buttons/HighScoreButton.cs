@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace Big_McGreed.content.menu.buttons
 {
-    public class HighScore : Button
+    public class HighScoreButton : Button
     {
-        public HighScore()
+        public HighScoreButton()
         {
             normal = Program.INSTANCE.Content.Load<Texture2D>("ButtonNormal");
             pressed = Program.INSTANCE.Content.Load<Texture2D>("ButtonPressed");
@@ -21,7 +21,15 @@ namespace Big_McGreed.content.menu.buttons
 
         public override void action()
         {
-            Program.INSTANCE.Exit();
+            if (Program.INSTANCE.LastGameState == GameWorld.GameState.Menu)
+            {
+                Program.INSTANCE.highscoreMenu = "HoofdMenu";
+            }
+            if (Program.INSTANCE.LastGameState == GameWorld.GameState.Paused)
+            {
+                Program.INSTANCE.highscoreMenu = "Paused";
+            }
+            Program.INSTANCE.CurrentGameState = GameWorld.GameState.Highscore;
         }
     }
 }

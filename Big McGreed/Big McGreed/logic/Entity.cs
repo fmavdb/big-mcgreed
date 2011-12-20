@@ -17,7 +17,19 @@ namespace Big_McGreed.logic
 
         protected Hashtable ticks { get; private set; }
 
-        protected int lifes { get; set; }
+        private int lifes;
+        public int Lifes {
+            get
+            {
+                return lifes;
+            }
+            
+            set 
+            { 
+                this.lifes = value;
+                Program.INSTANCE.gameFrame.UpdateHP(this.lifes);
+            } 
+        }
 
         public bool visible { get; set; }
 
@@ -66,16 +78,16 @@ namespace Big_McGreed.logic
                 Hit hit = receivedHits.Dequeue();
                 if (hit != null)
                 {
-                    lifes -= hit.damage;
-                    if (lifes <= 0 && this is NPC)
+                    Lifes -= hit.damage;
+                    if (Lifes <= 0 && this is NPC)
                     {
                         visible = false; //TODO
                     }
                     if (this is Player)
                     {
-                        Program.INSTANCE.gameFrame.UpdateHP(lifes);
+                        //Program.INSTANCE.gameFrame.UpdateHP(lifes);
                     }
-                    if (lifes <= 0 && this is Player)
+                    if (Lifes <= 0 && this is Player)
                     {
                         Program.INSTANCE.CurrentGameState = GameWorld.GameState.GameOver;
                     }
