@@ -36,7 +36,7 @@ namespace Big_McGreed.content.upgrades
 
         public void LevelUp()
         {
-            if (level < 3) //Highest level = 3
+            if (level < 2) //Highest level = 2
                 level++;
             fullName = name + level;
         }

@@ -196,7 +196,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="content\database\" />
     <Folder Include="content\hardware\" />
+    <Folder Include="content\highscore\" />
     <Folder Include="engine\ticks\impl\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
