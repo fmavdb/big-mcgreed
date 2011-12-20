@@ -18,6 +18,7 @@ using Big_McGreed.content.menu;
 using Big_McGreed.engine.misc;
 using System.Collections;
 using Big_McGreed.content.menu.buttons;
+using Big_McGreed.content.gameframe;
 
 
 namespace Big_McGreed
@@ -50,11 +51,6 @@ namespace Big_McGreed
             Select
         }
 
-        //Width van de application
-        public int Width;
-        //Hoogte van de application
-        public int Height;
-
         public string yesKnopGedrukt = "";
 
         private Vector2 mousePosition = Vector2.Zero;
@@ -68,6 +64,7 @@ namespace Big_McGreed
         private GameMap gameMap;
         public GameMap GameMap { get { return gameMap; } }
         private Menu menu;
+        private GameFrame gameFrame;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -85,8 +82,11 @@ namespace Big_McGreed
 
             //IsMouseVisible = true;
 
-            graphics.PreferMultiSampling = true;
+            //graphics.PreferMultiSampling = true;
             graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.ApplyChanges();
         }
 
         /// <summary>
@@ -98,8 +98,9 @@ namespace Big_McGreed
         protected override void Initialize()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            Width = Program.INSTANCE.GraphicsDevice.Viewport.Width;
-            Height = Program.INSTANCE.GraphicsDevice.Viewport.Height;
+            GameFrame.Width = graphics.PreferredBackBufferWidth;
+            GameFrame.Height = graphics.PreferredBackBufferHeight;
+            gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
             player = new Player();
             menu = new Menu();
@@ -214,6 +215,7 @@ namespace Big_McGreed
                         player.Draw();
                     break;
                 case GameState.InGame:
+                    gameFrame.Draw();
                     gameMap.DrawObjects();
                     npcUpdate.Draw();
                     gameMap.DrawProjectiles();

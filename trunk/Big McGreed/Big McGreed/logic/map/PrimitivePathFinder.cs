@@ -7,6 +7,7 @@ using Big_McGreed.logic.npc;
 using Big_McGreed.logic.player;
 using System.Collections.ObjectModel;
 using Big_McGreed.logic.projectile;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.logic.map
 {
@@ -28,8 +29,8 @@ namespace Big_McGreed.logic.map
             float yRadius = divider > 0 ? imageHeight / divider : 0;
             curPos.X = curPos.X - xRadius;
             curPos.Y = curPos.Y - yRadius;
-            float maxX = Program.INSTANCE.Width;
-            float maxY = Program.INSTANCE.Height;
+            float maxX = GameFrame.Width;
+            float maxY = GameFrame.Height;
             float minX = 0 - xRadius;
             float minY = 0 - yRadius;
             if (curPos.X < minX)
@@ -172,7 +173,7 @@ namespace Big_McGreed.logic.map
         /// <returns></returns>
         public LinkedList<Vector2> findPath(Vector2 start, Vector2 end)
         {
-            if (start.X < 0 || start.Y < 0 || start.X > Program.INSTANCE.Width || start.Y > Program.INSTANCE.Height || end.X < 0 || end.Y < 0 || end.X > Program.INSTANCE.Width || end.Y > Program.INSTANCE.Height)
+            if (start.X < 0 || start.Y < 0 || start.X > GameFrame.Width || start.Y > GameFrame.Height || end.X < 0 || end.Y < 0 || end.X > GameFrame.Width || end.Y > GameFrame.Height)
             {
                 return null;
             }

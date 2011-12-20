@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.Windows.Forms;
 using Microsoft.Xna.Framework;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.content.menu.buttons
 {
@@ -20,7 +21,7 @@ namespace Big_McGreed.content.menu.buttons
             tinyButton = true;
             text = "UPGRADE";
 
-            Location = new Vector2(10, Program.INSTANCE.Height - (current.Height + 10));
+            Location = new Vector2(10, GameFrame.Height - (current.Height + 10));
         }
 
         public override void action()

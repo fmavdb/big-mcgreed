@@ -6,6 +6,7 @@ using Big_McGreed.content.menu.buttons;
 using Microsoft.Xna.Framework.Input;
 using Big_McGreed.logic.map;
 using Microsoft.Xna.Framework;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.content.menu
 {
@@ -123,14 +124,14 @@ namespace Big_McGreed.content.menu
         /// </summary>
         public void updateButtons()
         {
-            float startY = Program.INSTANCE.Height / 5;
+            float startY = GameFrame.Height / 5;
             lock (buttons)
             {
                 foreach (Button button in buttons)
                 {
                     if (button != upgrade && button != resumeKlein && button != menuButtonKlein)
                     {
-                        button.Location = new Vector2(Program.INSTANCE.Width / 2 - button.Current.Width / 2, startY);
+                        button.Location = new Vector2(GameFrame.Width / 2 - button.Current.Width / 2, startY);
                         startY += button.Normal.Height + 15;
                     }
                  }

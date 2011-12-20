@@ -11,6 +11,7 @@ using Big_McGreed.logic.mask;
 using Microsoft.Xna.Framework.Graphics;
 using Big_McGreed.logic.projectile;
 using Big_McGreed.content.upgrades;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.logic.player
 {
@@ -48,8 +49,8 @@ namespace Big_McGreed.logic.player
             visible = true;
             setX(Mouse.GetState().X);
             setY(Mouse.GetState().Y);
-            boerLocatie.X = Program.INSTANCE.Width - (Program.INSTANCE.Width / 4);
-            boerLocatie.Y = Program.INSTANCE.Height - (Program.INSTANCE.Height / 4);
+            boerLocatie.X = GameFrame.Width - (GameFrame.Width / 4);
+            boerLocatie.Y = GameFrame.Height - (GameFrame.Height / 4);
             geweerLocatie.X = boerLocatie.X;
             geweerLocatie.Y = boerLocatie.Y + definition.personTexture.Height / 2;
         }
