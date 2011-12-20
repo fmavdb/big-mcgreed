@@ -8,6 +8,7 @@ using Big_McGreed.logic.mask;
 using Big_McGreed.logic.map;
 using Big_McGreed.logic.npc;
 using Big_McGreed.utility;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.logic.projectile
 {
@@ -79,11 +80,11 @@ namespace Big_McGreed.logic.projectile
             //setLocation(getLocation() * direction * 1.001f);
             if (getX() <= 0)
                 destroy();
-            else if (getX() >= Program.INSTANCE.Width)
+            else if (getX() >= GameFrame.Width)
                 destroy();
             if (getY() <= 0)
                 destroy();
-            else if (getY() >= Program.INSTANCE.Height)
+            else if (getY() >= GameFrame.Height)
                 destroy();
             foreach(NPC npc in PrimitivePathFinder.collision(this, getX(), getY())) {
                 npc.hit(hit);

@@ -145,6 +145,15 @@
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNoKeuze.xnb</Output>
       <Time>2011-12-16T09:53:06.737182+01:00</Time>
     </Item>
+    <Item>
+      <Source>Border.png</Source>
+      <Name>Border</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Border.xnb</Output>
+      <Time>2011-12-13T10:49:39+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

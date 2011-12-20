@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.content.menu.buttons
 {
@@ -19,7 +20,7 @@ namespace Big_McGreed.content.menu.buttons
             tinyButton = true;
             text = "RESUME";
 
-            Location = new Vector2(Program.INSTANCE.Width - (current.Width + 10), Program.INSTANCE.Height - (current.Height + 10));
+            Location = new Vector2(GameFrame.Width - (current.Width + 10), GameFrame.Height - (current.Height + 10));
         }
 
         public override void action()

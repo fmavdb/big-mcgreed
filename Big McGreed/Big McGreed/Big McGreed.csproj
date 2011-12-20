@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="content\fps\FPS.cs" />
+    <Compile Include="content\gameframe\GameFrame.cs" />
     <Compile Include="content\menu\Button.cs" />
     <Compile Include="content\menu\buttons\HighScore.cs" />
     <Compile Include="content\menu\buttons\MainMenu.cs" />

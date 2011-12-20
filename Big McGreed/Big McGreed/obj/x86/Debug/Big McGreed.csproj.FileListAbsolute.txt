@@ -80,3 +80,4 @@ C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big Mc
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonPressed.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonFont.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNoKeuze.xnb
+C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Border.xnb
