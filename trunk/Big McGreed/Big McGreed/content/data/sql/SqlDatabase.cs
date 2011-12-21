@@ -23,10 +23,10 @@ namespace Big_McGreed.content.data.sql
                 throw new DatabaseException("The program failed to locate the database.");
             }
             string programHost = "Provider=Microsoft.ACE.OLEDB.12.0";
-            string databaseSource = "Data Source=..//..//..//..//Big McGreedContent//" + databaseNaam + ".accdb";
+            string databaseSource = "Data Source=@..\\..\\..\\..\\Big McGreedContent\\" + databaseNaam + ".accdb";
             this.connection = new OleDbConnection(programHost + ";" + databaseSource);
             this.command = connection.CreateCommand();
-            //Connect(); //TODO - Een of andere error fixen.
+            Connect(); //TODO - Een of andere error fixen.
         }
 
         public void Connect()
