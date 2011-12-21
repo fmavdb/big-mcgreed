@@ -18,21 +18,21 @@ namespace Big_McGreed.content.data.sql
         {
             //Hier gaat de code 4 mapjes omhoog, en dan naar de map Big McGreedContent
             //Moet nog veranderd worden....
-            if (!File.Exists(@"..\..\..\..\Big McGreedContent\" + databaseNaam + ".accdb"))
+            if (!File.Exists(@"" + databaseNaam + ".accdb"))
             {
                 throw new DatabaseException("The program failed to locate the database.");
             }
             string programHost = "Provider=Microsoft.ACE.OLEDB.12.0";
-            string databaseSource = "Data Source=@..\\..\\..\\..\\Big McGreedContent\\" + databaseNaam + ".accdb";
+            string databaseSource = "Data Source=" + databaseNaam + ".accdb";
             this.connection = new OleDbConnection(programHost + ";" + databaseSource);
             this.command = connection.CreateCommand();
-            Connect(); //TODO - Een of andere error fixen.
+            Connect(); 
         }
 
         public void Connect()
         {
             // Check for any conditions that could interupt the connection.
-            if (connection == null)
+            if (!checkState())
             {
                 throw new DatabaseException("The program failed to connect to the database.");
             }
@@ -40,9 +40,9 @@ namespace Big_McGreed.content.data.sql
             {
                 connection.Open();
             }
-            catch
+            catch (InvalidOperationException e)
             {
-                throw new DatabaseException("-.- Welke exception kan hier voorkomen? - Print hiervan een message...");
+                throw new DatabaseException(e.Message);
             }
         }
 
@@ -92,6 +92,19 @@ namespace Big_McGreed.content.data.sql
             {
                 //Lees tabellen ofzo
             }
+        }
+
+        //TODO - Reconnect to database when failed.
+        public bool checkState()
+        {
+            switch (connection.State)
+            {
+                case ConnectionState.Broken:
+                    return false;
+                case ConnectionState.Open:
+                    return true;
+            }
+            return true;
         }
     }
 }
