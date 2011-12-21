@@ -112,7 +112,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
     <Compile Include="content\data\DatabaseException.cs" />
     <Compile Include="content\data\sql\SqlDatabase.cs" />
     <Compile Include="content\fps\FPS.cs" />
