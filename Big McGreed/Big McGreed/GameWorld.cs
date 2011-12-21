@@ -20,6 +20,7 @@ using System.Collections;
 using Big_McGreed.content.menu.buttons;
 using Big_McGreed.content.gameframe;
 using Big_McGreed.content.highscore;
+using Big_McGreed.content.data.sql;
 
 
 namespace Big_McGreed
@@ -57,7 +58,7 @@ namespace Big_McGreed
         //Als dit java was, dan was dit een enum -.- Ccrap enums...
         public class WaveInformation
         {
-            public static readonly Dictionary<int, WaveInformation> waves { get; private set; }
+            public static Dictionary<int, WaveInformation> waves { get; private set; }
 
             static WaveInformation() {
                 waves.Add(1, new WaveInformation(1, new int[]{1, 2, 3}));
@@ -100,6 +101,7 @@ namespace Big_McGreed
         public Menu menu { get; private set; }
         public GameFrame gameFrame { get; set; }
         public HighScore highScores { get; private set; }
+        private SqlDatabase dataBase;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -144,6 +146,7 @@ namespace Big_McGreed
             info = new ProgramInformation();
             gameMap = new GameMap();
             highScores = new HighScore();
+            dataBase = new SqlDatabase();
             newGame();
             playerUpdate.start();
             npcUpdate.start();
