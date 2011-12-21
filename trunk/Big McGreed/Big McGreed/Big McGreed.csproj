@@ -112,6 +112,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="content\data\DatabaseException.cs" />
+    <Compile Include="content\data\sql\SqlDatabase.cs" />
     <Compile Include="content\fps\FPS.cs" />
     <Compile Include="content\gameframe\GameFrame.cs" />
     <Compile Include="content\highscore\HighScore.cs" />
@@ -199,7 +202,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\database\" />
     <Folder Include="content\hardware\" />
     <Folder Include="engine\ticks\impl\" />
   </ItemGroup>
