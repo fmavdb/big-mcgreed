@@ -21,6 +21,7 @@ using Big_McGreed.content.menu.buttons;
 using Big_McGreed.content.gameframe;
 using Big_McGreed.content.highscore;
 using Big_McGreed.content.data.sql;
+using Big_McGreed.content.hardware;
 
 
 namespace Big_McGreed
@@ -30,6 +31,11 @@ namespace Big_McGreed
     /// </summary>
     public class GameWorld : Microsoft.Xna.Framework.Game
     {
+
+        //Als er iets niet werkt, deze aanzetten. Zorgt ervoor dat je de console goed kan zien terwijl je het spel speelt.
+        private static bool DEBUG_MODE = true;
+
+
         //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
         public static readonly Hashtable projectileDefinitions = new Hashtable();
 
@@ -102,6 +108,7 @@ namespace Big_McGreed
         public GameFrame gameFrame { get; set; }
         public HighScore highScores { get; private set; }
         private SqlDatabase dataBase;
+        private ArduinoManager arduino;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -120,10 +127,19 @@ namespace Big_McGreed
             //IsMouseVisible = true;
 
             //graphics.PreferMultiSampling = true;
-            graphics.IsFullScreen = true;
-            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-            graphics.ApplyChanges();
+            if (!DEBUG_MODE)
+            {
+                graphics.IsFullScreen = true;
+                graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+                graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                graphics.ApplyChanges();
+            }
+            else
+            {
+                graphics.PreferredBackBufferHeight = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 1.5);
+                graphics.PreferredBackBufferWidth = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.5);
+                graphics.ApplyChanges();
+            }
         }
 
         /// <summary>
@@ -137,6 +153,7 @@ namespace Big_McGreed
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameFrame.Width = graphics.PreferredBackBufferWidth;
             GameFrame.Height = graphics.PreferredBackBufferHeight;
+            arduino = new ArduinoManager();
             gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
             player = new Player();
@@ -147,6 +164,7 @@ namespace Big_McGreed
             gameMap = new GameMap();
             highScores = new HighScore();
             dataBase = new SqlDatabase();
+            arduino.connect();
             newGame();
             playerUpdate.start();
             npcUpdate.start();
@@ -165,12 +183,12 @@ namespace Big_McGreed
             {
                 npcs.Clear();
                 player.Lifes = Player.maxhp;
-                int d = 0;
+                int y = 0;
                 for (int i = 0; i < 4; i++)
                 {
                     NPC npc = new NPC(1);
-                    npc.setLocation(new Vector2(0, d));
-                    d += 150;
+                    npc.setLocation(new Vector2(0, y));
+                    y += 150;
                     npcs.AddFirst(npc);
                 }
             }
@@ -184,8 +202,6 @@ namespace Big_McGreed
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-                    //crosshair.crosshairLoad();
         }
 
         /// <summary>
@@ -207,6 +223,7 @@ namespace Big_McGreed
                 playerUpdate.stop();
             if (player != null)
                 player.destroy();
+            arduino.stop();
             CleanUp.INSTANCE.stop();
             //Engine.getInstance().destroy();
         }

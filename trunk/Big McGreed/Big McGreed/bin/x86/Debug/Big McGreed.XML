@@ -512,5 +512,87 @@
             Draws this instance.
             </summary>
         </member>
+        <member name="T:Big_McGreed.content.hardware.ArduinoConstants">
+            <summary>
+            Simple static class that holds all constant values of the Arduino Hardware.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.content.hardware.ArduinoCom">
+            <summary>
+            Simple class holding any connection information that will get used in the manager.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoCom.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.hardware.ArduinoCom"/> class.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.content.hardware.ArduinoCom.port">
+            <summary>
+            Gets the port.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.content.hardware.ArduinoManager">
+            <summary>
+            Main Arduino Communication Manager class. Handles all in/out communication.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.hardware.ArduinoManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.stop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.connect">
+            <summary>
+            Create a connection with the Arduino.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.sendMessage">
+            <summary>
+            Sends the message.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.receiveMessage(System.String)">
+            <summary>
+            Receives the message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.sendMessage(System.String)">
+            <summary>
+            Sends the message.
+            </summary>
+            <param name="message">The message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.processReceivedMessages">
+            <summary>
+            Processes the received messages.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.run">
+            <summary>
+            This runs every DATA_READING_INTERVAL milliseconds. 
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoException.#ctor(System.String)">
+            <summary>
+            Constructs the exception with a specified message.
+            </summary>
+            <param name="message">A brief message to explain the exception.</param>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs the exception with a specified message and inner exception.
+            </summary>
+            <param name="message">A brief message to explain the exception.</param>
+            <param name="innerException">Exception data that has been caught.</param>
+        </member>
     </members>
 </doc>
