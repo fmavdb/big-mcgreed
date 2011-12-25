@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.IO;
 
 namespace Big_McGreed.content.hardware
 {
@@ -50,11 +51,13 @@ namespace Big_McGreed.content.hardware
                 {
                     com.port.DiscardInBuffer();
                     com.port.DiscardOutBuffer();
+                    Console.WriteLine("Successfully connected to the Arduino.");
+                    sendMessage();
                     return true;
                 }
                 return false;
             } 
-            catch (Exception e) 
+            catch (IOException e) 
             {
                 Console.WriteLine(new ArduinoException(e.Message)); //Prevent the game from crashing while connecting
                 return false;

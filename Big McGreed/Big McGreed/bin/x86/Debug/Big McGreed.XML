@@ -306,6 +306,21 @@
             Draws this instance.
             </summary>
         </member>
+        <member name="T:Big_McGreed.content.hardware.ArduinoCom">
+            <summary>
+            Simple class holding any connection information that will get used in the manager.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoCom.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.hardware.ArduinoCom"/> class.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.content.hardware.ArduinoCom.port">
+            <summary>
+            Gets the port.
+            </summary>
+        </member>
         <member name="T:Big_McGreed.GameWorld">
             <summary>
             This is the main type for your game
@@ -468,6 +483,24 @@
             Updates the buttons.
             </summary>
         </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoException.#ctor(System.String)">
+            <summary>
+            Constructs the exception with a specified message.
+            </summary>
+            <param name="message">A brief message to explain the exception.</param>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs the exception with a specified message and inner exception.
+            </summary>
+            <param name="message">A brief message to explain the exception.</param>
+            <param name="innerException">Exception data that has been caught.</param>
+        </member>
+        <member name="T:Big_McGreed.content.hardware.ArduinoConstants">
+            <summary>
+            Simple static class that holds all constant values of the Arduino Hardware.
+            </summary>
+        </member>
         <member name="M:Big_McGreed.logic.projectile.Projectile.#ctor(System.Int32,Big_McGreed.logic.mask.Hit,Microsoft.Xna.Framework.Vector2)">
             <summary>
             Initializes a new instance of the <see cref="T:Big_McGreed.logic.projectile.Projectile"/> class.
@@ -510,26 +543,6 @@
         <member name="M:Big_McGreed.logic.npc.NPC.Draw">
             <summary>
             Draws this instance.
-            </summary>
-        </member>
-        <member name="T:Big_McGreed.content.hardware.ArduinoConstants">
-            <summary>
-            Simple static class that holds all constant values of the Arduino Hardware.
-            </summary>
-        </member>
-        <member name="T:Big_McGreed.content.hardware.ArduinoCom">
-            <summary>
-            Simple class holding any connection information that will get used in the manager.
-            </summary>
-        </member>
-        <member name="M:Big_McGreed.content.hardware.ArduinoCom.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Big_McGreed.content.hardware.ArduinoCom"/> class.
-            </summary>
-        </member>
-        <member name="P:Big_McGreed.content.hardware.ArduinoCom.port">
-            <summary>
-            Gets the port.
             </summary>
         </member>
         <member name="T:Big_McGreed.content.hardware.ArduinoManager">
@@ -580,19 +593,6 @@
             <summary>
             This runs every DATA_READING_INTERVAL milliseconds. 
             </summary>
-        </member>
-        <member name="M:Big_McGreed.content.hardware.ArduinoException.#ctor(System.String)">
-            <summary>
-            Constructs the exception with a specified message.
-            </summary>
-            <param name="message">A brief message to explain the exception.</param>
-        </member>
-        <member name="M:Big_McGreed.content.hardware.ArduinoException.#ctor(System.String,System.Exception)">
-            <summary>
-            Constructs the exception with a specified message and inner exception.
-            </summary>
-            <param name="message">A brief message to explain the exception.</param>
-            <param name="innerException">Exception data that has been caught.</param>
         </member>
     </members>
 </doc>

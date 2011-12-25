@@ -33,7 +33,7 @@ namespace Big_McGreed
     {
 
         //Als er iets niet werkt, deze aanzetten. Zorgt ervoor dat je de console goed kan zien terwijl je het spel speelt.
-        private static bool DEBUG_MODE = true;
+        private static bool DEBUG_MODE = false;
 
 
         //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
@@ -67,7 +67,7 @@ namespace Big_McGreed
             public static Dictionary<int, WaveInformation> waves { get; private set; }
 
             static WaveInformation() {
-                waves.Add(1, new WaveInformation(1, new int[]{1, 2, 3}));
+                waves.Add(1, new WaveInformation(1, new int[] {1, 2, 3}));
                 waves.Add(2, new WaveInformation(2, new int[] {4, 5, 6}));
                 waves.Add(3, new WaveInformation(3, new int[] {7, 8, 9}));
             }
