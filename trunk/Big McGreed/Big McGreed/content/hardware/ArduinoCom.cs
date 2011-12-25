@@ -16,7 +16,6 @@ namespace Big_McGreed.content.hardware
         /// </summary>
         public SerialPort port { get; private set; }
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ArduinoCom"/> class.
         /// </summary>
