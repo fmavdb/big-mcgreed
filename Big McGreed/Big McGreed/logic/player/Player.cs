@@ -126,7 +126,7 @@ namespace Big_McGreed.logic.player
                 case GameWorld.GameState.InGame:
                     if (muzzle)
                     {
-                        Program.INSTANCE.spriteBatch.Draw(muzzleTexture, geweerLocatie, Color.White);
+                        Program.INSTANCE.spriteBatch.Draw(muzzleTexture, geweerLocatie, new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle = false;
                     }
                     rotation = (float)Math.Atan2(geweerLocatie.Y - Mouse.GetState().Y, geweerLocatie.X - Mouse.GetState().X);
