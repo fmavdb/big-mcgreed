@@ -172,13 +172,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HighscoreAchtergrond.png">
-      <Name>HighscoreAchtergrond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Muzzle Effect.png">
       <Name>Muzzle Effect</Name>
       <Importer>TextureImporter</Importer>

@@ -125,7 +125,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Border.xnb</Output>
-      <Time>2011-12-13T10:49:39+01:00</Time>
+      <Time>2011-12-20T13:27:51+01:00</Time>
     </Item>
     <Item>
       <Source>Boerderij.png</Source>
@@ -143,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HPBarGroen.xnb</Output>
-      <Time>2011-12-20T12:53:14.7992343+01:00</Time>
+      <Time>2011-12-27T13:14:43+01:00</Time>
     </Item>
     <Item>
       <Source>HPBarRood.png</Source>
@@ -152,16 +152,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HPBarRood.xnb</Output>
-      <Time>2011-12-20T12:53:47.5514442+01:00</Time>
-    </Item>
-    <Item>
-      <Source>HighscoreAchtergrond.png</Source>
-      <Name>HighscoreAchtergrond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreAchtergrond.xnb</Output>
-      <Time>2011-12-20T14:59:41.6515971+01:00</Time>
+      <Time>2011-12-27T13:09:35+01:00</Time>
     </Item>
     <Item>
       <Source>Muzzle Effect.png</Source>
@@ -206,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighScoresInterface.xnb</Output>
-      <Time>2011-12-25T12:35:49.7337179+01:00</Time>
+      <Time>2011-12-27T13:14:41.9309475+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
