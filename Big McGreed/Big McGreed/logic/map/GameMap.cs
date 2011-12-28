@@ -10,6 +10,9 @@ using Big_McGreed.logic.projectile;
 
 namespace Big_McGreed.logic.map
 {
+    /// <summary>
+    /// Represents a game map.
+    /// </summary>
     public class GameMap
     {
         private Texture2D mainTexture;
@@ -27,6 +30,10 @@ namespace Big_McGreed.logic.map
             mainTexture = Program.INSTANCE.Content.Load<Texture2D>("Achtergrond");
         }
 
+        /// <summary>
+        /// Adds the projectile.
+        /// </summary>
+        /// <param name="projectile">The projectile.</param>
         public void AddProjectile(Projectile projectile)
         {
             lock (projectiles)
@@ -35,6 +42,10 @@ namespace Big_McGreed.logic.map
             }
         }
 
+        /// <summary>
+        /// Removes the projectile.
+        /// </summary>
+        /// <param name="projectile">The projectile.</param>
         public void RemoveProjectile(Projectile projectile)
         {
             lock (projectiles)
@@ -43,6 +54,9 @@ namespace Big_McGreed.logic.map
             }
         }
 
+        /// <summary>
+        /// Clears the projectiles.
+        /// </summary>
         public void ClearProjectiles()
         {
             lock (projectiles)

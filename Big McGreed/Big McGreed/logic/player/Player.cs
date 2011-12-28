@@ -17,7 +17,7 @@ namespace Big_McGreed.logic.player
 {
     public class Player : Entity, Destroyable
     {
-        public static int maxhp = 100;
+        public static int maxHP = 100;
 
         private Upgrade wall = null;
 
@@ -52,8 +52,9 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
-            Lifes = maxhp;
+            Lifes = maxHP;
             visible = true;
+            currentWave = 1;
             setX(Mouse.GetState().X);
             setY(Mouse.GetState().Y);
             boerLocatie.X = Program.INSTANCE.gameFrame.boerderijPositie.X * 1.115f;
@@ -86,7 +87,7 @@ namespace Big_McGreed.logic.player
                     if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.InGame)
                     {
                         Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
-                        hit(new Hit(this, null, 10));
+                        //hit(new Hit(this, null, 10));
                         leftButtonPressed = true;
                         muzzle = true;
                     }
@@ -111,7 +112,7 @@ namespace Big_McGreed.logic.player
                 //lastMousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
                 //lastMousePosition.Normalize();
                 //setLocation(new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation)));
-                setLocation(PrimitivePathFinder.getPosition(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), definition.mainTexture.Width, definition.mainTexture.Height, 2));
+                setLocation(PrimitivePathFinder.getCrossHairPosition(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), definition.mainTexture.Width, definition.mainTexture.Height));
             //}
         }
 
@@ -124,7 +125,7 @@ namespace Big_McGreed.logic.player
             switch (Program.INSTANCE.CurrentGameState)
             {
                 case GameWorld.GameState.InGame:
-                    if (muzzle)
+                    if (muzzle && leftButtonPressed)
                     {
                         Program.INSTANCE.spriteBatch.Draw(muzzleTexture, geweerLocatie, new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle = false;

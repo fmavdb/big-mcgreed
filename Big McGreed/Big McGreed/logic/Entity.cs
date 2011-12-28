@@ -38,7 +38,7 @@ namespace Big_McGreed.logic
 
         protected bool hitted = false;
 
-        public bool destroyed { get; set; }
+        public bool destroyed { get; protected set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Entity"/> class.
@@ -82,18 +82,18 @@ namespace Big_McGreed.logic
                 if (hit != null)
                 {
                     Lifes -= hit.damage;
-                    if (Lifes <= 0 && this is NPC)
+                    if (Lifes <= 0)
                     {
-                        visible = false; //TODO
-                    }
-                    if (this is Player)
-                    {
-                        //Program.INSTANCE.gameFrame.UpdateHP(lifes);
-                    }
-                    if (Lifes <= 0 && this is Player)
-                    {
-                        Program.INSTANCE.CurrentGameState = GameWorld.GameState.GameOver;
-                    }
+                        if (this is NPC)
+                        {
+                            ((NPC)this).destroy();
+                        }
+                        else if (this is Player)
+                        {
+                            Program.INSTANCE.CurrentGameState = GameWorld.GameState.GameOver;
+
+                        }
+                    } 
                 }
             }
         }

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Big_McGreed.content.data
 {
+    /// <summary>
+    /// Represents a Database Exception.
+    /// </summary>
     public class DatabaseException : Exception
     {
         /// <summary>

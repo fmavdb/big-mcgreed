@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 
-namespace Big_McGreed.content.fps
+namespace Big_McGreed.content.info
 {
     public class ProgramInformation
     {
@@ -15,18 +15,24 @@ namespace Big_McGreed.content.fps
         private int frameCounter = 0;
         private TimeSpan elapsedTime = TimeSpan.Zero;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProgramInformation"/> class.
+        /// </summary>
         public ProgramInformation()
         {
             spriteFont = Program.INSTANCE.Content.Load<SpriteFont>("FPS");
         }
 
-        public void update(GameTime gameTime)
+        /// <summary>
+        /// Updates the specified game time.
+        /// </summary>
+        /// <param name="gameTime">The game time.</param>
+        public void Update(GameTime gameTime)
         {
-            ///////////////FPS/////////////////
             elapsedTime += gameTime.ElapsedGameTime;
 
             if (elapsedTime > TimeSpan.FromSeconds(1))
-            {
+           {
                 elapsedTime -= TimeSpan.FromSeconds(1);
                 frameRate = frameCounter;
                 frameCounter = 0;
@@ -34,7 +40,10 @@ namespace Big_McGreed.content.fps
 
         }
 
-        public void draw()
+        /// <summary>
+        /// Draws this instance.
+        /// </summary>
+        public void Draw()
         {
             frameCounter++;
             Program.INSTANCE.spriteBatch.DrawString(spriteFont, "FPS: " + frameRate.ToString(), Vector2.One, Color.White);

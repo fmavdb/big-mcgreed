@@ -12,8 +12,14 @@ using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.logic.projectile
 {
+    /// <summary>
+    /// Represents a projectile.
+    /// </summary>
     public class Projectile : Locatable, Destroyable
     {
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
         public int type { get; private set; }
 
         public bool visible = true;
@@ -24,9 +30,12 @@ namespace Big_McGreed.logic.projectile
 
         private Vector2 target = Vector2.Zero;
 
+        /// <summary>
+        /// Gets the definition.
+        /// </summary>
         public ProjectileDefinition definition { get { return ProjectileDefinition.forType(type); } }
 
-        private static Vector2 speed = new Vector2((float)10, (float)10);
+        private static Vector2 speed = new Vector2((float)25, (float)25);
 
         private Vector2 velocity = Vector2.Zero;
 

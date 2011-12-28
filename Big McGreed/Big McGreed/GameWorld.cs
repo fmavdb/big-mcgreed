@@ -12,7 +12,7 @@ using Big_McGreed.logic.player;
 using Big_McGreed.logic.npc;
 using Big_McGreed.engine;
 using Big_McGreed.engine.update;
-using Big_McGreed.content.fps;
+using Big_McGreed.content.info;
 using Big_McGreed.logic.map;
 using Big_McGreed.content.menu;
 using Big_McGreed.engine.misc;
@@ -35,19 +35,29 @@ namespace Big_McGreed
         //Als er iets niet werkt, deze aanzetten. Zorgt ervoor dat je de console goed kan zien terwijl je het spel speelt.
         private static bool DEBUG_MODE = false;
 
-
-        //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        /// <summary>
+        /// Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        /// </summary>
         public static readonly Hashtable projectileDefinitions = new Hashtable();
 
-        //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        /// <summary>
+        /// Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        /// </summary>
         public static readonly Hashtable npcDefinitions = new Hashtable();
 
-        //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        /// <summary>
+        /// Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        /// </summary>
         public static readonly Hashtable objectDefinitions = new Hashtable();
 
-        //Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        /// <summary>
+        /// Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+        /// </summary>
         public static readonly Hashtable upgradeDefinitions = new Hashtable();
 
+        /// <summary>
+        /// Word gebruikt om de definitie op te slaan nadat het is geladen.
+        /// </summary>
         public static PlayerDefinition playerDefinition;
 
         public enum GameState
@@ -62,16 +72,31 @@ namespace Big_McGreed
         }
 
         //Als dit java was, dan was dit een enum -.- Ccrap enums...
+        /// <summary>
+        /// Contains all wave info.
+        /// </summary>
         public class WaveInformation
         {
+            /// <summary>
+            /// Gets the waves.
+            /// </summary>
             public static Dictionary<int, WaveInformation> waves { get; private set; }
 
-            static WaveInformation() {
-                waves.Add(1, new WaveInformation(1, new int[] {1, 2, 3}));
-                waves.Add(2, new WaveInformation(2, new int[] {4, 5, 6}));
-                waves.Add(3, new WaveInformation(3, new int[] {7, 8, 9}));
+            /// <summary>
+            /// Loads this instance.
+            /// </summary>
+            public static void load() {
+                waves = new Dictionary<int, WaveInformation>();
+                waves.Add(1, new WaveInformation(1, new int[] {1}, 10, 5000));
+                waves.Add(2, new WaveInformation(2, new int[] {4, 5, 6}, 15, 4000));
+                waves.Add(3, new WaveInformation(3, new int[] {7, 8, 9}, 20, 3000));
             }
 
+            /// <summary>
+            /// Fors the value.
+            /// </summary>
+            /// <param name="wave">The wave.</param>
+            /// <returns></returns>
             public static WaveInformation forValue(int wave)
             {
                 WaveInformation waveInformation = null;
@@ -81,13 +106,36 @@ namespace Big_McGreed
                 return waveInformation;
             }
 
-            private int wave;
-            private int[] npcTypes;
+            /// <summary>
+            /// Gets the amount of enemies.
+            /// </summary>
+            public int amountOfEnemies { get; private set; }
+            /// <summary>
+            /// Gets the wave.
+            /// </summary>
+            public int wave { get; private set; }
+            /// <summary>
+            /// Gets the wave delay.
+            /// </summary>
+            public int waveDelay { get; private set; }
+            /// <summary>
+            /// Gets the NPC types.
+            /// </summary>
+            public int[] npcTypes { get; private set; }
 
-            private WaveInformation(int wave, int[] npcTypes)
+            /// <summary>
+            /// Prevents a default instance of the <see cref="WaveInformation"/> class from being created.
+            /// </summary>
+            /// <param name="wave">The wave.</param>
+            /// <param name="npcTypes">The NPC types.</param>
+            /// <param name="amountOfEnemies">The amount of enemies.</param>
+            /// <param name="waveDelay">The wave delay.</param>
+            private WaveInformation(int wave, int[] npcTypes, int amountOfEnemies, int waveDelay)   //Wavedelay in ms
             {
                 this.wave = wave;
+                this.waveDelay = waveDelay;
                 this.npcTypes = npcTypes;
+                this.amountOfEnemies = amountOfEnemies;
             }
         }
 
@@ -109,6 +157,8 @@ namespace Big_McGreed
         public HighScore highScores { get; private set; }
         private SqlDatabase dataBase;
         private ArduinoManager arduino;
+        private TimeSpan lastWave = TimeSpan.Zero;
+        private Random random;
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -127,6 +177,8 @@ namespace Big_McGreed
             //IsMouseVisible = true;
 
             //graphics.PreferMultiSampling = true;
+            IsFixedTimeStep = false; //This disables the 60 ms interval of the Update method.
+            graphics.SynchronizeWithVerticalRetrace = false; //This disables V-sync. (Lock frames to screen refresh rate)
             if (!DEBUG_MODE)
             {
                 graphics.IsFullScreen = true;
@@ -154,8 +206,10 @@ namespace Big_McGreed
             GameFrame.Width = graphics.PreferredBackBufferWidth;
             GameFrame.Height = graphics.PreferredBackBufferHeight;
             arduino = new ArduinoManager();
+            WaveInformation.load();
             gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
+            random = new Random();
             player = new Player();
             menu = new Menu();
             playerUpdate = new PlayerUpdate();
@@ -182,15 +236,13 @@ namespace Big_McGreed
             lock (npcs)
             {
                 npcs.Clear();
-                player.Lifes = Player.maxhp;
-                int y = 0;
-                for (int i = 0; i < 4; i++)
-                {
-                    NPC npc = new NPC(1);
-                    npc.setLocation(new Vector2(0, y));
-                    y += 150;
-                    npcs.AddFirst(npc);
-                }
+                player.Lifes = Player.maxHP;
+                //int y = 0;
+                //for (int i = 0; i < 4; i++)
+                //{
+                   // NPC npc = new NPC(1, new Vector2(0, y));
+                    //npcs.AddFirst(npc);
+                //}
             }
             gameMap.ClearProjectiles();
             //npc.setLocation(new Vector2(0, 100));
@@ -247,10 +299,30 @@ namespace Big_McGreed
                     break;
                 case GameState.InGame:
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    {
                         CurrentGameState = GameState.Paused;
+                        break;
+                    }
+                    lastWave += gameTime.ElapsedGameTime;
+                    if (lastWave.TotalMilliseconds >= WaveInformation.forValue(player.currentWave).waveDelay)
+                    {
+                        WaveInformation wave = WaveInformation.forValue(player.currentWave);
+                        int typeToSpawn = wave.npcTypes[random.Next(wave.npcTypes.Length)];
+                        NPC npc = new NPC(typeToSpawn);
+                        float maxY = GameFrame.Height - npc.definition.mainTexture.Height;
+                        float y = random.Next(GameFrame.Height);
+                        float minY = 0 - npc.definition.mainTexture.Height;
+                        if (y < minY)
+                            y = minY;
+                        else if (y > maxY)
+                            y = maxY;
+                        npc.setLocation(new Vector2(0, y));
+                        npcs.AddLast(npc);                       
+                        lastWave = TimeSpan.Zero;
+                    }
                     break;
             }
-            info.update(gameTime);
+            info.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -268,7 +340,7 @@ namespace Big_McGreed
                 case GameState.Highscore:
                     menu.Draw();
                     highScores.Draw();
-                    if (player != null && player.visible && player.definition.mainTexture != null)
+                    if (player != null && player.visible)
                         player.Draw();    
                     break;
                 case GameState.GameOver:
@@ -277,7 +349,7 @@ namespace Big_McGreed
                 case GameState.Upgrade:
                 case GameState.Menu:
                     menu.Draw();
-                    if (player != null && player.visible && player.definition.mainTexture != null)
+                    if (player != null && player.visible)
                         player.Draw();
                     break;
                 case GameState.InGame:
@@ -285,12 +357,12 @@ namespace Big_McGreed
                     gameMap.DrawObjects();
                     npcUpdate.Draw();
                     gameMap.DrawProjectiles();
-                    if (player != null && player.visible && player.definition.mainTexture != null)
+                    if (player != null && player.visible)
                         player.Draw();
                     break;
                     
             }
-            info.draw();
+            info.Draw();
             spriteBatch.End();
             base.Draw(gameTime);
         }
