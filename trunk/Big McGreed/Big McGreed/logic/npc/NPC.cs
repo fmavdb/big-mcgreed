@@ -14,11 +14,36 @@ using Big_McGreed.logic.map;
 
 namespace Big_McGreed.logic.npc
 {
+    /// <summary>
+    /// Represents a NPC.
+    /// </summary>
     public class NPC : Entity, Destroyable
     {
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
         public int type { get; private set; }
 
+        private Vector2 velocity = Vector2.Zero;
+
+        /// <summary>
+        /// Gets the definition.
+        /// </summary>
         public NPCDefinition definition { get { return NPCDefinition.forType(type); } }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NPC"/> class.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="location">The location.</param>
+        public NPC(int type, Vector2 location)
+        {
+            this.type = type;
+            setLocation(location);
+            updateLifes(definition.hp);
+            velocity = new Vector2(20f, 0f);
+            visible = true;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NPC"/> class.
@@ -28,8 +53,9 @@ namespace Big_McGreed.logic.npc
         {
             this.type = type;
             updateLifes(definition.hp);
+            velocity = new Vector2(20f, 0f);
             visible = true;
-        }
+        } 
 
         /// <summary>
         /// Destroys this instance.
@@ -44,7 +70,8 @@ namespace Big_McGreed.logic.npc
         /// </summary>
         protected override void run2()
         {
-            setLocation(PrimitivePathFinder.getPosition(translate(1, 0), definition.mainTexture.Width, definition.mainTexture.Height, 0));
+            setLocation(getLocation() + velocity);
+            //setLocation(PrimitivePathFinder.getCrossHairPosition(translate(1, 0), definition.mainTexture.Width, definition.mainTexture.Height, 0));
         }
 
         /// <summary>

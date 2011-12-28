@@ -17,20 +17,18 @@ namespace Big_McGreed.logic.map
         /// <summary>
         /// Gets the position.
         /// </summary>
-        /// <param name="curX">The cur X.</param>
-        /// <param name="curY">The cur Y.</param>
+        /// <param name="curPos">The cur pos.</param>
         /// <param name="imageWidth">Width of the image.</param>
         /// <param name="imageHeight">Height of the image.</param>
-        /// <param name="divider">The divider.</param>
         /// <returns></returns>
-        public static Vector2 getPosition(Vector2 curPos, float imageWidth, float imageHeight, float divider)
+        public static Vector2 getCrossHairPosition(Vector2 curPos, float imageWidth, float imageHeight)
         {
-            float xRadius = divider > 0 ? imageWidth / divider : 0;
-            float yRadius = divider > 0 ? imageHeight / divider : 0;
+            float xRadius = imageWidth / 2;
+            float yRadius = imageHeight / 2;
             curPos.X = curPos.X - xRadius;
             curPos.Y = curPos.Y - yRadius;
-            float maxX = GameFrame.Width;
-            float maxY = GameFrame.Height;
+            float maxX = GameFrame.Width - xRadius;
+            float maxY = GameFrame.Height - yRadius;
             float minX = 0 - xRadius;
             float minY = 0 - yRadius;
             if (curPos.X < minX)

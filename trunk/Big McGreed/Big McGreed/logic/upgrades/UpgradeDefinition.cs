@@ -22,7 +22,7 @@ namespace Big_McGreed.content.upgrades
             UpgradeDefinition def = (UpgradeDefinition)GameWorld.upgradeDefinitions[fullName];
             if (def == null) {
                 def = new UpgradeDefinition();
-                //def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("bullet_bill");
+                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>(fullName);
                 GameWorld.projectileDefinitions.Add(fullName, def);
             }
             return def;

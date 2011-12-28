@@ -52,7 +52,7 @@ namespace Big_McGreed.content.gameframe
 
         public void UpdateHP(int hp)
         {
-            double factor = ((double)hp / (double)Player.maxhp);
+            double factor = ((double)hp / (double)Player.maxHP);
             rectangleHP = new Rectangle(0, 0, (int)(hpBarTextureGroen.Width * factor), hpBarTextureGroen.Height);
         }
     }

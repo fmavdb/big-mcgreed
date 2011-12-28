@@ -52,17 +52,30 @@ namespace Big_McGreed.engine.update
                     case GameWorld.GameState.InGame:
                         lock (Program.INSTANCE.npcs)
                         {
-                            foreach (NPC npc in Program.INSTANCE.npcs)
+                            LinkedList<NPC> npcs = new LinkedList<NPC>(Program.INSTANCE.npcs);
+                            foreach (NPC npc in npcs)
                             {
-                                if (npc.definition.mainTexture != null)
+                                if (!npc.destroyed)
                                 {
                                     npc.run();
+                                }
+                                else
+                                {
+                                    RemoveNPC(npc);
                                 }
                             }
                         }
                     break;
                 }
                 System.Threading.Thread.Sleep(25);
+            }
+        }
+
+        private void RemoveNPC(NPC npc)
+        {
+            lock (Program.INSTANCE.npcs)
+            {
+                Program.INSTANCE.npcs.Remove(npc);
             }
         }
 

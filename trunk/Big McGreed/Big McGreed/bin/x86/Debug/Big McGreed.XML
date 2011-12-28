@@ -129,15 +129,13 @@
             <param name="end">The end.</param>
             <returns></returns>
         </member>
-        <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.getPosition(Microsoft.Xna.Framework.Vector2,System.Single,System.Single,System.Single)">
+        <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.getCrossHairPosition(Microsoft.Xna.Framework.Vector2,System.Single,System.Single)">
             <summary>
             Gets the position.
             </summary>
-            <param name="curX">The cur X.</param>
-            <param name="curY">The cur Y.</param>
+            <param name="curPos">The cur pos.</param>
             <param name="imageWidth">Width of the image.</param>
             <param name="imageHeight">Height of the image.</param>
-            <param name="divider">The divider.</param>
             <returns></returns>
         </member>
         <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.collision(Big_McGreed.logic.Entity,System.Int32,System.Int32,System.Boolean)">
@@ -226,6 +224,11 @@
         <member name="M:Big_McGreed.engine.misc.CleanUp.run">
             <summary>
             Runs this instance.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.content.data.DatabaseException">
+            <summary>
+            Represents a Database Exception.
             </summary>
         </member>
         <member name="M:Big_McGreed.content.data.DatabaseException.#ctor(System.String)">
@@ -326,6 +329,31 @@
             This is the main type for your game
             </summary>
         </member>
+        <member name="F:Big_McGreed.GameWorld.projectileDefinitions">
+            <summary>
+            Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.npcDefinitions">
+            <summary>
+            Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.objectDefinitions">
+            <summary>
+            Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.upgradeDefinitions">
+            <summary>
+            Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.playerDefinition">
+            <summary>
+            Word gebruikt om de definitie op te slaan nadat het is geladen.
+            </summary>
+        </member>
         <member name="M:Big_McGreed.GameWorld.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Big_McGreed.GameWorld"/> class.
@@ -398,6 +426,57 @@
             The last state of the game.
             </value>
         </member>
+        <member name="T:Big_McGreed.GameWorld.WaveInformation">
+            <summary>
+            Contains all wave info.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.WaveInformation.load">
+            <summary>
+            Loads this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.WaveInformation.forValue(System.Int32)">
+            <summary>
+            Fors the value.
+            </summary>
+            <param name="wave">The wave.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.WaveInformation.#ctor(System.Int32,System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Prevents a default instance of the <see cref="T:Big_McGreed.GameWorld.WaveInformation"/> class from being created.
+            </summary>
+            <param name="wave">The wave.</param>
+            <param name="npcTypes">The NPC types.</param>
+            <param name="amountOfEnemies">The amount of enemies.</param>
+            <param name="waveDelay">The wave delay.</param>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.WaveInformation.waves">
+            <summary>
+            Gets the waves.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.WaveInformation.amountOfEnemies">
+            <summary>
+            Gets the amount of enemies.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.WaveInformation.wave">
+            <summary>
+            Gets the wave.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.WaveInformation.waveDelay">
+            <summary>
+            Gets the wave delay.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.WaveInformation.npcTypes">
+            <summary>
+            Gets the NPC types.
+            </summary>
+        </member>
         <member name="M:Big_McGreed.content.upgrades.UpgradeDefinition.forName(System.String)">
             <summary>
             Returns the definition from the cache.
@@ -410,14 +489,36 @@
             Initializes a new instance of the <see cref="T:Big_McGreed.content.upgrades.UpgradeDefinition"/> class.
             </summary>
         </member>
+        <member name="T:Big_McGreed.content.upgrades.Upgrade">
+            <summary>
+            This represents an upgrade.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.upgrades.Upgrade.#ctor(Big_McGreed.logic.player.Player,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.upgrades.Upgrade"/> class.
+            </summary>
+            <param name="player">The player.</param>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Big_McGreed.content.upgrades.Upgrade.LevelUp">
+            <summary>
+            Levels up.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:Big_McGreed.content.upgrades.Upgrade.Name">
             <summary>
             Returns the name of the upgrade.
             
             Sets the name of the upgrade. Definition will get loaded if not present in the cache.
             </summary>
-            <param name="name">The name.</param>
             <returns></returns>
+        </member>
+        <member name="P:Big_McGreed.content.upgrades.Upgrade.definition">
+            <summary>
+            Gets the definition.
+            </summary>
         </member>
         <member name="M:Big_McGreed.logic.player.PlayerDefinition.getDefinition">
             <summary>
@@ -425,9 +526,31 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Big_McGreed.logic.map.GameMap">
+            <summary>
+            Represents a game map.
+            </summary>
+        </member>
         <member name="M:Big_McGreed.logic.map.GameMap.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Big_McGreed.logic.map.GameMap"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.AddProjectile(Big_McGreed.logic.projectile.Projectile)">
+            <summary>
+            Adds the projectile.
+            </summary>
+            <param name="projectile">The projectile.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.RemoveProjectile(Big_McGreed.logic.projectile.Projectile)">
+            <summary>
+            Removes the projectile.
+            </summary>
+            <param name="projectile">The projectile.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.ClearProjectiles">
+            <summary>
+            Clears the projectiles.
             </summary>
         </member>
         <member name="M:Big_McGreed.logic.map.GameMap.DrawBackground">
@@ -501,6 +624,11 @@
             Simple static class that holds all constant values of the Arduino Hardware.
             </summary>
         </member>
+        <member name="T:Big_McGreed.logic.projectile.Projectile">
+            <summary>
+            Represents a projectile.
+            </summary>
+        </member>
         <member name="M:Big_McGreed.logic.projectile.Projectile.#ctor(System.Int32,Big_McGreed.logic.mask.Hit,Microsoft.Xna.Framework.Vector2)">
             <summary>
             Initializes a new instance of the <see cref="T:Big_McGreed.logic.projectile.Projectile"/> class.
@@ -524,6 +652,28 @@
             Draws this instance.
             </summary>
         </member>
+        <member name="P:Big_McGreed.logic.projectile.Projectile.type">
+            <summary>
+            Gets the type.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.projectile.Projectile.definition">
+            <summary>
+            Gets the definition.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.logic.npc.NPC">
+            <summary>
+            Represents a NPC.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.npc.NPC.#ctor(System.Int32,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.npc.NPC"/> class.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="location">The location.</param>
+        </member>
         <member name="M:Big_McGreed.logic.npc.NPC.#ctor(System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:Big_McGreed.logic.npc.NPC"/> class.
@@ -543,6 +693,16 @@
         <member name="M:Big_McGreed.logic.npc.NPC.Draw">
             <summary>
             Draws this instance.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.npc.NPC.type">
+            <summary>
+            Gets the type.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.npc.NPC.definition">
+            <summary>
+            Gets the definition.
             </summary>
         </member>
         <member name="T:Big_McGreed.content.hardware.ArduinoManager">
@@ -592,6 +752,22 @@
         <member name="M:Big_McGreed.content.hardware.ArduinoManager.run">
             <summary>
             This runs every DATA_READING_INTERVAL milliseconds. 
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.info.ProgramInformation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.info.ProgramInformation"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.info.ProgramInformation.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the specified game time.
+            </summary>
+            <param name="gameTime">The game time.</param>
+        </member>
+        <member name="M:Big_McGreed.content.info.ProgramInformation.Draw">
+            <summary>
+            Draws this instance.
             </summary>
         </member>
     </members>
