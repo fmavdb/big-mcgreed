@@ -20,6 +20,14 @@ namespace Big_McGreed.logic.map
         private LinkedList<GameObject> objects;
         private LinkedList<Projectile> projectiles;
 
+        public LinkedList<Projectile> Projectiles
+        {
+            get
+            {
+                return projectiles;
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GameMap"/> class.
         /// </summary>

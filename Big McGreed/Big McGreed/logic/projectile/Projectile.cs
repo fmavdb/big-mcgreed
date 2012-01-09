@@ -95,10 +95,14 @@ namespace Big_McGreed.logic.projectile
                 destroy();
             else if (getY() >= GameFrame.Height)
                 destroy();
-            foreach(NPC npc in PrimitivePathFinder.collision(this, getX(), getY())) {
-                npc.hit(hit);
-                destroy();
-                break;
+            else
+            {
+                foreach (NPC npc in PrimitivePathFinder.collision(this, getX(), getY()))
+                {
+                    npc.hit(hit);
+                    destroy();
+                    break;
+                }
             }
         }
 

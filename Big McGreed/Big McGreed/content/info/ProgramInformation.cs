@@ -21,6 +21,9 @@ namespace Big_McGreed.content.info
         public ProgramInformation()
         {
             spriteFont = Program.INSTANCE.Content.Load<SpriteFont>("FPS");
+            memory = new Vector2(0, spriteFont.LineSpacing);
+            npcs = new Vector2(0, spriteFont.LineSpacing * 2);
+            projectiles = new Vector2(0, spriteFont.LineSpacing * 3);
         }
 
         /// <summary>
@@ -40,6 +43,10 @@ namespace Big_McGreed.content.info
 
         }
 
+        Vector2 memory;
+        Vector2 npcs;
+        Vector2 projectiles;
+
         /// <summary>
         /// Draws this instance.
         /// </summary>
@@ -47,7 +54,9 @@ namespace Big_McGreed.content.info
         {
             frameCounter++;
             Program.INSTANCE.spriteBatch.DrawString(spriteFont, "FPS: " + frameRate.ToString(), Vector2.One, Color.White);
-            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "Memory: " + System.GC.GetTotalMemory(false), new Vector2(0, spriteFont.LineSpacing), Color.White);
+            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "Memory: " + System.GC.GetTotalMemory(false), memory, Color.White);
+            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "NPC's: " + Program.INSTANCE.npcs.Count, npcs, Color.White);
+            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "Projectiles: " + Program.INSTANCE.GameMap.Projectiles.Count, projectiles, Color.White);
         }
     }
 }

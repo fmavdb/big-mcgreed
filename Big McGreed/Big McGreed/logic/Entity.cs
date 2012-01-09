@@ -11,13 +11,28 @@ using Big_McGreed.engine.ticks;
 
 namespace Big_McGreed.logic
 {
+    /// <summary>
+    /// Represents an entity; Player or NPC
+    /// </summary>
     public abstract class Entity : Locatable, Runnable
     {
+        /// <summary>
+        /// Gets the received hits.
+        /// </summary>
         protected Queue<Hit> receivedHits { get; private set; }
 
+        /// <summary>
+        /// Gets the ticks.
+        /// </summary>
         protected Hashtable ticks { get; private set; }
 
         private int lifes;
+        /// <summary>
+        /// Gets or sets the lifes.
+        /// </summary>
+        /// <value>
+        /// The lifes.
+        /// </value>
         public int Lifes {
             get
             {
@@ -34,10 +49,22 @@ namespace Big_McGreed.logic
             } 
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Entity"/> is visible.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if visible; otherwise, <c>false</c>.
+        /// </value>
         public bool visible { get; set; }
 
         protected bool hitted = false;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="Entity"/> is destroyed.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if destroyed; otherwise, <c>false</c>.
+        /// </value>
         public bool destroyed { get; protected set; }
 
         /// <summary>

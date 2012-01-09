@@ -60,36 +60,60 @@ namespace Big_McGreed
         /// </summary>
         public static PlayerDefinition playerDefinition;
 
+        /// <summary>
+        /// The current game state.
+        /// </summary>
         public enum GameState
         {
+            /// <summary>
+            /// Main menu.
+            /// </summary>
             Menu,
+            /// <summary>
+            /// When ingame and you press escape, you will get this state.
+            /// </summary>
             Paused,
-            InGame,
+            /// <summary>
+            /// The player is playing.
+            /// </summary>
+            InGame,  
+            /// <summary>
+            /// The player is in the upgrade menu.
+            /// </summary>
             Upgrade,
+            /// <summary>
+            /// The player is in the highscores menu.
+            /// </summary>
             Highscore,
+            /// <summary>
+            /// The player is in the selection screen.
+            /// </summary>
             Select,
+            /// <summary>
+            ///  The player failed to win the game.
+            /// </summary>
             GameOver
         }
 
         //Als dit java was, dan was dit een enum -.- Ccrap enums...
         /// <summary>
-        /// Contains all wave info.
+        /// Contains all level info.
         /// </summary>
-        public class WaveInformation
+        public class LevelInformation
         {
             /// <summary>
             /// Gets the waves.
             /// </summary>
-            public static Dictionary<int, WaveInformation> waves { get; private set; }
+            public static Dictionary<int, LevelInformation> levels { get; private set; }
 
             /// <summary>
             /// Loads this instance.
             /// </summary>
             public static void load() {
-                waves = new Dictionary<int, WaveInformation>();
-                waves.Add(1, new WaveInformation(1, new int[] {1}, 10, 5000));
-                waves.Add(2, new WaveInformation(2, new int[] {4, 5, 6}, 15, 4000));
-                waves.Add(3, new WaveInformation(3, new int[] {7, 8, 9}, 20, 3000));
+                levels = new Dictionary<int, LevelInformation>();
+                levels.Add(1, new LevelInformation(1, new int[] {1}, 10, 5000));
+                levels.Add(2, new LevelInformation(2, new int[] {4, 5, 6}, 15, 4000));
+                levels.Add(3, new LevelInformation(3, new int[] {7, 8, 9}, 20, 3000));
             }
 
             /// <summary>
@@ -97,13 +121,13 @@ namespace Big_McGreed
             /// </summary>
             /// <param name="wave">The wave.</param>
             /// <returns></returns>
-            public static WaveInformation forValue(int wave)
+            public static LevelInformation forValue(int wave)
             {
-                WaveInformation waveInformation = null;
-                if (!waves.TryGetValue(wave, out waveInformation)) {
+                LevelInformation levelInformation = null;
+                if (!levels.TryGetValue(wave, out levelInformation)) {
                     return null;
                 }
-                return waveInformation;
+                return levelInformation;
             }
 
             /// <summary>
@@ -113,7 +137,7 @@ namespace Big_McGreed
             /// <summary>
             /// Gets the wave.
             /// </summary>
-            public int wave { get; private set; }
+            public int level { get; private set; }
             /// <summary>
             /// Gets the wave delay.
             /// </summary>
@@ -124,15 +148,15 @@ namespace Big_McGreed
             public int[] npcTypes { get; private set; }
 
             /// <summary>
-            /// Prevents a default instance of the <see cref="WaveInformation"/> class from being created.
+            /// Prevents a default instance of the <see cref="LevelInformation"/> class from being created.
             /// </summary>
-            /// <param name="wave">The wave.</param>
+            /// <param name="level">The wave.</param>
             /// <param name="npcTypes">The NPC types.</param>
             /// <param name="amountOfEnemies">The amount of enemies.</param>
             /// <param name="waveDelay">The wave delay.</param>
-            private WaveInformation(int wave, int[] npcTypes, int amountOfEnemies, int waveDelay)   //Wavedelay in ms
+            private LevelInformation(int level, int[] npcTypes, int amountOfEnemies, int waveDelay)   //Wavedelay in ms
             {
-                this.wave = wave;
+                this.level = level;
                 this.waveDelay = waveDelay;
                 this.npcTypes = npcTypes;
                 this.amountOfEnemies = amountOfEnemies;
@@ -207,7 +231,7 @@ namespace Big_McGreed
             GameFrame.Width = graphics.PreferredBackBufferWidth;
             GameFrame.Height = graphics.PreferredBackBufferHeight;
             arduino = new ArduinoManager();
-            WaveInformation.load();
+            LevelInformation.load();
             gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
             random = new Random();
@@ -309,9 +333,9 @@ namespace Big_McGreed
                         break;
                     }
                     lastWave += gameTime.ElapsedGameTime;
-                    if (lastWave.TotalMilliseconds >= WaveInformation.forValue(player.currentWave).waveDelay)
+                    if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentWave).waveDelay)
                     {
-                        WaveInformation wave = WaveInformation.forValue(player.currentWave);
+                        LevelInformation wave = LevelInformation.forValue(player.currentWave);
                         int typeToSpawn = wave.npcTypes[random.Next(wave.npcTypes.Length)];
                         NPC npc = new NPC(typeToSpawn);
                         float maxY = GameFrame.Height - npc.definition.mainTexture.Height;

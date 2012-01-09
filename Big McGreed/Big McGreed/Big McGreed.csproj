@@ -165,6 +165,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="GameWorld.cs" />
     <Compile Include="utility\Destroyable.cs" />
+    <Compile Include="utility\RotatedRectangle.cs" />
     <Compile Include="utility\Runnable.cs">
       <SubType>Code</SubType>
     </Compile>
