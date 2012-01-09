@@ -20,7 +20,7 @@ namespace Big_McGreed.content.highscore
 
         public HighScore() {
             highscoreFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
-            locatieHighscore = new Vector2(GameFrame.Width / 2 - highscoreFont.MeasureString(titelText).X / 2, (GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 2) + 10);
+            locatieHighscore = new Vector2(GameFrame.Width / 2 - highscoreFont.MeasureString(titelText).X / 2, (GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 2) + 40);
 
             highScores = new Dictionary<string, int>();
             //Laad gegevens... SELECT naam, score FROM highscores ORDER BY score LIMIT 10
@@ -54,7 +54,7 @@ namespace Big_McGreed.content.highscore
             {
                 highScores.TryGetValue(naam, out score);
 
-                locatieHighscorePersonen = new Vector2(GameFrame.Width / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Width / 2 + 10, GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 3);
+                locatieHighscorePersonen = new Vector2(GameFrame.Width / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Width / 2 + 50, (GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 3) + 50);
                 locatieHighscoreScore = new Vector2(GameFrame.Width / 2 + Program.INSTANCE.menu.highscoreDisplay.Current.Width / 4 - 10, huidig.Y);
 
                 Program.INSTANCE.spriteBatch.DrawString(highscoreFont, "" + nummer + ".   " + naam, huidig, Color.White);

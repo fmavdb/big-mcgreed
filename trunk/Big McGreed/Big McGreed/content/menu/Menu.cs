@@ -61,6 +61,9 @@ namespace Big_McGreed.content.menu
         public void Update()
         {
             Button buttonNearMouse = null;
+            yesNoSelect.YesNoSelectUpdate();
+            Program.INSTANCE.gameFrame.UpdateGold();
+
             lock (buttons)
             {
                 Rectangle mouse = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 1, 1);

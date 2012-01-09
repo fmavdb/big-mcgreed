@@ -16,12 +16,24 @@ namespace Big_McGreed.content.menu.buttons
             hover = normal;
             pressed = normal;
             current = normal;
-
-            Location = new Vector2(GameFrame.Width / 2 - current.Width / 2, GameFrame.Height / 2 - current.Height / 2);
         }
 
         public override void action()
         {
+        }
+
+        public void YesNoSelectUpdate()
+        {
+            if (Program.INSTANCE.yesKnopGedrukt == "newGame")
+            {
+                text = "Are you sure you wish to start a new game? \n\n NOTE: YOU WILL LOSE ALL YOUR PROGRESS!";
+                Location = new Vector2(GameFrame.Width / 2 - current.Width / 2, GameFrame.Height / 2 - current.Height / 2);
+            }
+            else if (Program.INSTANCE.yesKnopGedrukt == "mainMenu")
+            {
+                text = "Are you sure you wish to go to the main menu? \n\n NOTE: YOU WILL LOSE ALL YOUR PROGRESS!";
+                Location = new Vector2(GameFrame.Width / 2 - current.Width / 2, GameFrame.Height / 2 - current.Height / 2);
+            }
         }
     }
 }

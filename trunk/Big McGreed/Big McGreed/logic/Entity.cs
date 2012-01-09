@@ -87,6 +87,7 @@ namespace Big_McGreed.logic
                         if (this is NPC)
                         {
                             ((NPC)this).destroy();
+                            Program.INSTANCE.player.gold += 100;
                         }
                         else if (this is Player)
                         {

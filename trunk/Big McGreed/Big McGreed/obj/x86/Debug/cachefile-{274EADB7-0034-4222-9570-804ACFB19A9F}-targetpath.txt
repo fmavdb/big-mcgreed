@@ -16,7 +16,8 @@ Content\Boerderij.xnb
 Content\HPBarGroen.xnb
 Content\HPBarRood.xnb
 Content\Muzzle Effect.xnb
+Content\HighScoresInterface.xnb
 Content\FPS.xnb
 Content\ButtonFont.xnb
 Content\TinyButtonFont.xnb
-Content\HighScoresInterface.xnb
+Content\UpgradeAchtergrond.xnb

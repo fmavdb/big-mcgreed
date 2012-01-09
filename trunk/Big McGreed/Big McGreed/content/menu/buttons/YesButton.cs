@@ -22,7 +22,7 @@ namespace Big_McGreed.content.menu.buttons
 
             Texture2D yesnoselect = Program.INSTANCE.Content.Load<Texture2D>("YesNoKeuze");
 
-            Location = new Vector2(GameFrame.Width / 2 - yesnoselect.Width / 2 + 10, GameFrame.Height / 2 + yesnoselect.Height / 2 - current.Height - 10);
+            Location = new Vector2(GameFrame.Width / 2 - yesnoselect.Width / 2 + 50, GameFrame.Height / 2 + yesnoselect.Height / 2 - current.Height - 50);
         }
 
         public override void action()

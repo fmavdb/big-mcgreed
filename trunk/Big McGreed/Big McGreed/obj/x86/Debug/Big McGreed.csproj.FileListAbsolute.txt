@@ -58,8 +58,10 @@ C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big Mc
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Boerderij.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HPBarGroen.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HPBarRood.xnb
-C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreAchtergrond.xnb
 C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muzzle Effect.xnb
 C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muzzle Effect.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighScoresInterface.xnb
 C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Big McGreed.XML
+C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighScoresInterface.xnb
+C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\UpgradeAchtergrond.xnb
+C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Big McGreed.XML

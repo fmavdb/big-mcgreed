@@ -27,8 +27,8 @@ namespace Big_McGreed.content.menu.buttons
             }
             else if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.Paused)
             {
-                Program.INSTANCE.CurrentGameState = GameWorld.GameState.Select;
                 Program.INSTANCE.yesKnopGedrukt = "newGame";
+                Program.INSTANCE.CurrentGameState = GameWorld.GameState.Select;
             }
         }
     }

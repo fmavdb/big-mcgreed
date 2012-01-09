@@ -42,6 +42,7 @@ namespace Big_McGreed.logic.player
         private float rotation;
 
         public int gold { get; set; }
+        public int lastGold { get; set; }
 
         public bool muzzle = false;
 
