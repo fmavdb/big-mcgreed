@@ -1,0 +1,942 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Big McGreed</name>
+    </assembly>
+    <members>
+        <member name="M:Big_McGreed.content.menu.Button.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.Program.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.logic.Entity">
+            <summary>
+            Represents an entity; Player or NPC
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.Locatable.getLocation">
+            <summary>
+            Gets the location.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.Locatable.translate(System.Single,System.Single)">
+            <summary>
+            Translates the specified x and y.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.Locatable.getX">
+            <summary>
+            Gets the X.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.Locatable.getY">
+            <summary>
+            Gets the Y.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.Locatable.setX(System.Single)">
+            <summary>
+            Sets the X.
+            </summary>
+            <param name="x">The x.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.Locatable.setY(System.Single)">
+            <summary>
+            Sets the Y.
+            </summary>
+            <param name="y">The y.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.Locatable.setLocation(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Sets the location.
+            </summary>
+            <param name="newLocation">The new location.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.Entity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.Entity"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.Entity.run">
+            <summary>
+            Runs this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.Entity.processHits">
+            <summary>
+            Processes the hits.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.Entity.hit(Big_McGreed.logic.mask.Hit)">
+            <summary>
+            Hits the specified hit.
+            </summary>
+            <param name="hit">The hit.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.Entity.updateLifes(System.Int32)">
+            <summary>
+            Updates the lifes.
+            </summary>
+            <param name="lifes">The lifes.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.Entity.run2">
+            <summary>
+            Run2s this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.Entity.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.Entity.removeTick(System.String)">
+            <summary>
+            Removes the tick.
+            </summary>
+            <param name="identifier">The identifier.</param>
+        </member>
+        <member name="P:Big_McGreed.logic.Entity.receivedHits">
+            <summary>
+            Gets the received hits.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.Entity.ticks">
+            <summary>
+            Gets the ticks.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.Entity.Lifes">
+            <summary>
+            Gets or sets the lifes.
+            </summary>
+            <value>
+            The lifes.
+            </value>
+        </member>
+        <member name="P:Big_McGreed.logic.Entity.visible">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Big_McGreed.logic.Entity"/> is visible.
+            </summary>
+            <value>
+              <c>true</c> if visible; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Big_McGreed.logic.Entity.destroyed">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Big_McGreed.logic.Entity"/> is destroyed.
+            </summary>
+            <value>
+              <c>true</c> if destroyed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Big_McGreed.logic.mask.Hit.#ctor(Big_McGreed.logic.Entity,Big_McGreed.logic.Entity,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.mask.Hit"/> class.
+            </summary>
+            <param name="to">To.</param>
+            <param name="from">From.</param>
+            <param name="damage">The damage.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.map.objects.ObjectDefinition.forType(System.Int32)">
+            <summary>
+            Initializes a new definition for the given type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.map.objects.ObjectDefinition.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.map.objects.ObjectDefinition"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.map.PathFinding.findPath(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Finds the path.
+            </summary>
+            <param name="start">The start.</param>
+            <param name="end">The end.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.getCrossHairPosition(Microsoft.Xna.Framework.Vector2,System.Single,System.Single)">
+            <summary>
+            Gets the position.
+            </summary>
+            <param name="curPos">The cur pos.</param>
+            <param name="imageWidth">Width of the image.</param>
+            <param name="imageHeight">Height of the image.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.collision(Big_McGreed.logic.Entity,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Collisions the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="checkForNPCCollision">if set to <c>true</c> [check for NPC collision].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.collision(Big_McGreed.logic.projectile.Projectile,System.Int32,System.Int32)">
+            <summary>
+            Collisions the specified projectile.
+            </summary>
+            <param name="projectile">The player.</param>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.colorCollision(Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color[])">
+            <summary>
+            Colors the collision.
+            </summary>
+            <param name="collideColor">Color of the collide.</param>
+            <param name="crossHair">The cross hair.</param>
+            <param name="npc">The NPC.</param>
+            <param name="pixels">The pixels.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.intersects(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            Intersectses the specified object1.
+            </summary>
+            <param name="object1">The object1.</param>
+            <param name="object2">The object2.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.map.PrimitivePathFinder.findPath(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Finds the path.
+            </summary>
+            <param name="start">The start.</param>
+            <param name="end">The end.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Big_McGreed.content.data.sql.SqlDatabase">
+            <summary>
+            Represents the database connection.
+            Makes use of smart pooling, to minimalize the bandwidth.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.data.sql.SqlDatabase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.data.sql.SqlDatabase"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.data.sql.SqlDatabase.Connect">
+            <summary>
+            Connects this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.data.sql.SqlDatabase.Disconnect">
+            <summary>
+            Disconnects this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.data.sql.SqlDatabase.Destroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.data.sql.SqlDatabase.ExecuteQuery(System.String)">
+            <summary>
+            Executes the query.
+            </summary>
+            <param name="query">The query.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.content.data.sql.SqlDatabase.ExecuteUpdate(System.String)">
+            <summary>
+            Executes the update.
+            </summary>
+            <param name="query">The query.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.map.objects.GameObject.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.map.objects.GameObject"/> class.
+            </summary>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.map.objects.GameObject.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.info.ProgramInformation.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.info.ProgramInformation"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.info.ProgramInformation.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Updates the specified game time.
+            </summary>
+            <param name="gameTime">The game time.</param>
+        </member>
+        <member name="M:Big_McGreed.content.info.ProgramInformation.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.projectile.ProjectileDefinition.forType(System.Int32)">
+            <summary>
+            Returns the definition from the cache.
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.logic.projectile.ProjectileDefinition.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.projectile.ProjectileDefinition"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.misc.CleanUp.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.engine.misc.CleanUp"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.misc.CleanUp.start">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.misc.CleanUp.stop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.misc.CleanUp.run">
+            <summary>
+            Runs this instance.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.content.data.DatabaseException">
+            <summary>
+            Represents a Database Exception.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.data.DatabaseException.#ctor(System.String)">
+            <summary>
+            Constructs the exception with a specified message.
+            </summary>
+            <param name="message">A brief message to explain the exception.</param>
+        </member>
+        <member name="M:Big_McGreed.content.data.DatabaseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs the exception with a specified message and inner exception.
+            </summary>
+            <param name="message">A brief message to explain the exception.</param>
+            <param name="innerException">Exception data that has been caught.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.player.Player.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.player.Player"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.player.Player.destroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.player.Player.run2">
+            <summary>
+            Run2s this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.player.Player.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.PlayerUpdate.start">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.PlayerUpdate.stop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.PlayerUpdate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.engine.update.PlayerUpdate"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.PlayerUpdate.run">
+            <summary>
+            Runs this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.NPCUpdate.start">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.NPCUpdate.stop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.NPCUpdate.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.engine.update.NPCUpdate"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.NPCUpdate.run">
+            <summary>
+            Runs this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.engine.update.NPCUpdate.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.content.hardware.ArduinoCom">
+            <summary>
+            Simple class holding any connection information that will get used in the manager.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoCom.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.hardware.ArduinoCom"/> class.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.content.hardware.ArduinoCom.port">
+            <summary>
+            Gets the port.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.GameWorld">
+            <summary>
+            This is the main type for your game
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.projectileDefinitions">
+            <summary>
+            Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.npcDefinitions">
+            <summary>
+            Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.objectDefinitions">
+            <summary>
+            Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.upgradeDefinitions">
+            <summary>
+            Word gebruikt om de definities op te slaan nadat ze zijn geladen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.playerDefinition">
+            <summary>
+            Word gebruikt om de definitie op te slaan nadat het is geladen.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.GameWorld"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.Initialize">
+            <summary>
+            Allows the game to perform any initialization it needs to before starting to run.
+            This is where it can query for any required services and load any non-graphic
+            related content.  Calling base.Initialize will enumerate through any components
+            and initialize them as well.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.newGame">
+            <summary>
+            Creates a new game.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.LoadContent">
+            <summary>
+            LoadContent will be called once per game and is the place to load
+            all of your content.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.UnloadContent">
+            <summary>
+            UnloadContent will be called once per game and is the place to unload
+            all content.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Allows the game to run logic such as updating the world,
+            checking for collisions, gathering input, and playing audio.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            This is called when the game should draw itself.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.removeButton(Big_McGreed.content.menu.Button)">
+            <summary>
+            Removes the button.
+            </summary>
+            <param name="button">The button.</param>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.addButton(Big_McGreed.content.menu.Button,System.Boolean)">
+            <summary>
+            Adds the button.
+            </summary>
+            <param name="button">The button.</param>
+            <param name="first">if set to <c>true</c> [first].</param>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.CurrentGameState">
+            <summary>
+            Gets or sets the state of the current game.
+            </summary>
+            <value>
+            The state of the current game.
+            </value>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.LastGameState">
+            <summary>
+            Gets the last state of the game.
+            </summary>
+            <value>
+            The last state of the game.
+            </value>
+        </member>
+        <member name="T:Big_McGreed.GameWorld.GameState">
+            <summary>
+            The current game state.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.GameState.Menu">
+            <summary>
+            Main menu.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.GameState.Paused">
+            <summary>
+            When ingame and you press escape, you will get this state.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.GameState.InGame">
+            <summary>
+            The player is playing.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.GameState.Upgrade">
+            <summary>
+            The player is in the upgrade menu.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.GameState.Highscore">
+            <summary>
+            The player is in the highscores menu.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.GameState.Select">
+            <summary>
+            The player is in the selection screen.
+            </summary>
+        </member>
+        <member name="F:Big_McGreed.GameWorld.GameState.GameOver">
+            <summary>
+             The player failed to win the game.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.GameWorld.LevelInformation">
+            <summary>
+            Contains all level info.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.LevelInformation.load">
+            <summary>
+            Loads this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.LevelInformation.forValue(System.Int32)">
+            <summary>
+            Fors the value.
+            </summary>
+            <param name="wave">The wave.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.GameWorld.LevelInformation.#ctor(System.Int32,System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Prevents a default instance of the <see cref="T:Big_McGreed.GameWorld.LevelInformation"/> class from being created.
+            </summary>
+            <param name="level">The wave.</param>
+            <param name="npcTypes">The NPC types.</param>
+            <param name="amountOfEnemies">The amount of enemies.</param>
+            <param name="waveDelay">The wave delay.</param>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.LevelInformation.levels">
+            <summary>
+            Gets the waves.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.LevelInformation.amountOfEnemies">
+            <summary>
+            Gets the amount of enemies.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.LevelInformation.level">
+            <summary>
+            Gets the wave.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.LevelInformation.waveDelay">
+            <summary>
+            Gets the wave delay.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.GameWorld.LevelInformation.npcTypes">
+            <summary>
+            Gets the NPC types.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.upgrades.UpgradeDefinition.forName(System.String)">
+            <summary>
+            Returns the definition from the cache.
+            </summary>
+            <param name="fullName">The full name of the upgrade (name + level).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.content.upgrades.UpgradeDefinition.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.upgrades.UpgradeDefinition"/> class.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.content.upgrades.Upgrade">
+            <summary>
+            This represents an upgrade.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.upgrades.Upgrade.#ctor(Big_McGreed.logic.player.Player,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.upgrades.Upgrade"/> class.
+            </summary>
+            <param name="player">The player.</param>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Big_McGreed.content.upgrades.Upgrade.LevelUp">
+            <summary>
+            Levels up.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Big_McGreed.content.upgrades.Upgrade.Name">
+            <summary>
+            Returns the name of the upgrade.
+            
+            Sets the name of the upgrade. Definition will get loaded if not present in the cache.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Big_McGreed.content.upgrades.Upgrade.definition">
+            <summary>
+            Gets the definition.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.player.PlayerDefinition.getDefinition">
+            <summary>
+            Loads the definition.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Big_McGreed.logic.map.GameMap">
+            <summary>
+            Represents a game map.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.map.GameMap"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.AddProjectile(Big_McGreed.logic.projectile.Projectile)">
+            <summary>
+            Adds the projectile.
+            </summary>
+            <param name="projectile">The projectile.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.RemoveProjectile(Big_McGreed.logic.projectile.Projectile)">
+            <summary>
+            Removes the projectile.
+            </summary>
+            <param name="projectile">The projectile.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.ClearProjectiles">
+            <summary>
+            Clears the projectiles.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.DrawBackground">
+            <summary>
+            Draws the background.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.DrawObjects">
+            <summary>
+            Draws objects in this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.UpdateProjectiles">
+            <summary>
+            Updates the projectiles.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.map.GameMap.DrawProjectiles">
+            <summary>
+            Draws projectiles in this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.npc.NPCDefinition.forType(System.Int32)">
+            <summary>
+            Initializes a new instance for the npc type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.content.menu.Menu.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.menu.Menu"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.menu.Menu.Update">
+            <summary>
+            Updates this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.menu.Menu.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.menu.Menu.getButtons">
+            <summary>
+            Gets the buttons.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.content.menu.Menu.updateButtons">
+            <summary>
+            Updates the buttons.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoException.#ctor(System.String)">
+            <summary>
+            Constructs the exception with a specified message.
+            </summary>
+            <param name="message">A brief message to explain the exception.</param>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs the exception with a specified message and inner exception.
+            </summary>
+            <param name="message">A brief message to explain the exception.</param>
+            <param name="innerException">Exception data that has been caught.</param>
+        </member>
+        <member name="T:Big_McGreed.content.hardware.ArduinoConstants">
+            <summary>
+            Simple static class that holds all constant values of the Arduino Hardware.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.logic.projectile.Projectile">
+            <summary>
+            Represents a projectile.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.projectile.Projectile.#ctor(System.Int32,Big_McGreed.logic.mask.Hit,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.projectile.Projectile"/> class.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="hit">The hit.</param>
+            <param name="target">The target.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.projectile.Projectile.destroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.projectile.Projectile.Update">
+            <summary>
+            Updates this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.projectile.Projectile.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.projectile.Projectile.type">
+            <summary>
+            Gets the type.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.projectile.Projectile.definition">
+            <summary>
+            Gets the definition.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.logic.npc.NPC">
+            <summary>
+            Represents a NPC.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.npc.NPC.#ctor(System.Int32,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.npc.NPC"/> class.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="location">The location.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.npc.NPC.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.logic.npc.NPC"/> class.
+            </summary>
+            <param name="type">The type.</param>
+        </member>
+        <member name="M:Big_McGreed.logic.npc.NPC.destroy">
+            <summary>
+            Destroys this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.npc.NPC.run2">
+            <summary>
+            Run2s this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.logic.npc.NPC.Draw">
+            <summary>
+            Draws this instance.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.npc.NPC.type">
+            <summary>
+            Gets the type.
+            </summary>
+        </member>
+        <member name="P:Big_McGreed.logic.npc.NPC.definition">
+            <summary>
+            Gets the definition.
+            </summary>
+        </member>
+        <member name="T:Big_McGreed.content.hardware.ArduinoManager">
+            <summary>
+            Main Arduino Communication Manager class. Handles all in/out communication.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Big_McGreed.content.hardware.ArduinoManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.stop">
+            <summary>
+            Stops this instance.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.connect">
+            <summary>
+            Create a connection with the Arduino.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.sendMessage">
+            <summary>
+            Sends the message.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.receiveMessage(System.String)">
+            <summary>
+            Receives the message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.sendMessage(System.String)">
+            <summary>
+            Sends the message.
+            </summary>
+            <param name="message">The message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.processReceivedMessages">
+            <summary>
+            Processes the received messages.
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.content.hardware.ArduinoManager.run">
+            <summary>
+            This runs every DATA_READING_INTERVAL milliseconds. 
+            </summary>
+        </member>
+        <member name="M:Big_McGreed.utility.RotatedRectangle.ChangePosition(System.Int32,System.Int32)">
+            <summary>
+            Used for changing the X and Y position of the RotatedRectangle
+            </summary>
+            <param name="theXPositionAdjustment"></param>
+            <param name="theYPositionAdjustment"></param>
+        </member>
+        <member name="M:Big_McGreed.utility.RotatedRectangle.Intersects(Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            This intersects method can be used to check a standard XNA framework Rectangle
+            object and see if it collides with a Rotated Rectangle object
+            </summary>
+            <param name="theRectangle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.utility.RotatedRectangle.Intersects(Big_McGreed.utility.RotatedRectangle)">
+            <summary>
+            Check to see if two Rotated Rectangls have collided
+            </summary>
+            <param name="theRectangle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.utility.RotatedRectangle.IsAxisCollision(Big_McGreed.utility.RotatedRectangle,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Determines if a collision has occurred on an Axis of one of the
+            planes parallel to the Rectangle
+            </summary>
+            <param name="theRectangle"></param>
+            <param name="aAxis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.utility.RotatedRectangle.GenerateScalar(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Generates a scalar value that can be used to compare where corners of 
+            a rectangle have been projected onto a particular axis. 
+            </summary>
+            <param name="theRectangleCorner"></param>
+            <param name="theAxis"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Big_McGreed.utility.RotatedRectangle.RotatePoint(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single)">
+            <summary>
+            Rotate a point from a given location and adjust using the Origin we
+            are rotating around
+            </summary>
+            <param name="thePoint"></param>
+            <param name="theOrigin"></param>
+            <param name="theRotation"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
