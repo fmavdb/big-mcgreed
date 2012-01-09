@@ -143,6 +143,7 @@ namespace Big_McGreed
         public string highscoreMenu = "";
 
         private Vector2 mousePosition = Vector2.Zero;
+        private Vector2 goldPositionUpgrade;
         private GameState gameState = GameState.Menu;
         private GameState lastState = GameState.Menu;
         public Player player { get; private set; }
@@ -218,6 +219,7 @@ namespace Big_McGreed
             gameMap = new GameMap();
             highScores = new HighScore();
             dataBase = new SqlDatabase();
+            goldPositionUpgrade = new Vector2(GameFrame.Width - 200, 30);
             arduino.connect();
             newGame();
             playerUpdate.start();
@@ -237,6 +239,7 @@ namespace Big_McGreed
             {
                 npcs.Clear();
                 player.Lifes = Player.maxHP;
+                player.gold = 0;
                 //int y = 0;
                 //for (int i = 0; i < 4; i++)
                 //{
@@ -298,6 +301,8 @@ namespace Big_McGreed
                     menu.Update();
                     break;
                 case GameState.InGame:
+                    gameFrame.UpdateGold();
+
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                     {
                         CurrentGameState = GameState.Paused;
@@ -346,9 +351,14 @@ namespace Big_McGreed
                 case GameState.GameOver:
                 case GameState.Select:
                 case GameState.Paused:
-                case GameState.Upgrade:
                 case GameState.Menu:
                     menu.Draw();
+                    if (player != null && player.visible)
+                        player.Draw();
+                    break;
+                case GameState.Upgrade:
+                    menu.Draw();
+                    gameFrame.DrawGold(goldPositionUpgrade);
                     if (player != null && player.visible)
                         player.Draw();
                     break;
