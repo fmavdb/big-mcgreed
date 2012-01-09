@@ -8,12 +8,19 @@ using System.IO;
 
 namespace Big_McGreed.content.data.sql
 {
+    /// <summary>
+    /// Represents the database connection.
+    /// Makes use of smart pooling, to minimalize the bandwidth.
+    /// </summary>
     public class SqlDatabase
     {
         private static string databaseNaam = "TestDB";
         private OleDbConnection connection;
         private OleDbCommand command;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SqlDatabase"/> class.
+        /// </summary>
         public SqlDatabase()
         {
             //Hier gaat de code 4 mapjes omhoog, en dan naar de map Big McGreedContent
@@ -29,6 +36,9 @@ namespace Big_McGreed.content.data.sql
             Connect(); 
         }
 
+        /// <summary>
+        /// Connects this instance.
+        /// </summary>
         public void Connect()
         {
             // Check for any conditions that could interupt the connection.
@@ -46,6 +56,9 @@ namespace Big_McGreed.content.data.sql
             }
         }
 
+        /// <summary>
+        /// Disconnects this instance.
+        /// </summary>
         public void Disconnect()
         {
             try
@@ -58,6 +71,9 @@ namespace Big_McGreed.content.data.sql
             }
         }
 
+        /// <summary>
+        /// Destroys this instance.
+        /// </summary>
         public void Destroy()
         {
             Disconnect();
@@ -68,6 +84,11 @@ namespace Big_McGreed.content.data.sql
             this.command = null;
         }
 
+        /// <summary>
+        /// Executes the query.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <returns></returns>
         public object ExecuteQuery(string query)
         {
             this.command.CommandText = query;
@@ -76,6 +97,10 @@ namespace Big_McGreed.content.data.sql
             return obj;
         }
 
+        /// <summary>
+        /// Executes the update.
+        /// </summary>
+        /// <param name="query">The query.</param>
         public void ExecuteUpdate(string query)
         {
             this.command.CommandText = query;

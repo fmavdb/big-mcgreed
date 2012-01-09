@@ -44,7 +44,7 @@ namespace Big_McGreed.logic.player
         public int gold { get; set; }
         public int lastGold { get; set; }
 
-        public bool muzzle = false;
+        public int muzzle = 0;
 
         Texture2D muzzleTexture = Program.INSTANCE.Content.Load<Texture2D>("Muzzle Effect");
 
@@ -58,8 +58,8 @@ namespace Big_McGreed.logic.player
             currentWave = 1;
             setX(Mouse.GetState().X);
             setY(Mouse.GetState().Y);
-            boerLocatie.X = Program.INSTANCE.gameFrame.boerderijPositie.X * 1.115f;
-            boerLocatie.Y = Program.INSTANCE.gameFrame.boerderijPositie.Y * 1.8f;
+            boerLocatie.X = Program.INSTANCE.gameFrame.boerderijPositie.X * 1.115f; //TODO dit moet via scherm max x, min x
+            boerLocatie.Y = Program.INSTANCE.gameFrame.boerderijPositie.Y * 1.8f; //TODO dit moet via scherm max y, min y
             geweerLocatie.X = boerLocatie.X;
             geweerLocatie.Y = boerLocatie.Y + definition.personTexture.Height / 2;
         }
@@ -90,7 +90,7 @@ namespace Big_McGreed.logic.player
                         Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
                         //hit(new Hit(this, null, 10));
                         leftButtonPressed = true;
-                        muzzle = true;
+                        muzzle = 12;
                     }
                 }
             }
@@ -98,7 +98,7 @@ namespace Big_McGreed.logic.player
             {
                 leftButtonPressed = false;
             }
-            if (Mouse.GetState().RightButton == ButtonState.Pressed)
+            /*if (Mouse.GetState().RightButton == ButtonState.Pressed)
             {
                 lock (Program.INSTANCE.npcs)
                 {
@@ -107,7 +107,7 @@ namespace Big_McGreed.logic.player
                         npc.visible = true;
                     }
                 }
-            }
+            }*/
             //if (Mouse.GetState().X != lastMousePosition.X || Mouse.GetState().Y != lastMousePosition.Y)
             //{
                 //lastMousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
@@ -126,10 +126,10 @@ namespace Big_McGreed.logic.player
             switch (Program.INSTANCE.CurrentGameState)
             {
                 case GameWorld.GameState.InGame:
-                    if (muzzle && leftButtonPressed)
+                    if (muzzle > 0)
                     {
                         Program.INSTANCE.spriteBatch.Draw(muzzleTexture, geweerLocatie, new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
-                        muzzle = false;
+                        muzzle--;
                     }
                     rotation = (float)Math.Atan2(geweerLocatie.Y - Mouse.GetState().Y, geweerLocatie.X - Mouse.GetState().X);
                     Program.INSTANCE.spriteBatch.Draw(definition.revolverTexture, geweerLocatie, new Rectangle(0, 0, definition.revolverTexture.Width, definition.revolverTexture.Height), Color.White, rotation, new Vector2(definition.revolverTexture.Width, definition.revolverTexture.Height), 0.10f, SpriteEffects.None, 1.0f);
