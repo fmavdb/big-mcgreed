@@ -135,8 +135,8 @@ namespace Big_McGreed.content.data.sql
             OleDbDataReader reader = getReader(query);
             while(reader.Read())
             {
-                foreach(string table in columns) {
-                    data.Add(table, reader.GetValue(reader.GetOrdinal(table)));
+                foreach(string column in columns) {
+                    data.Add(column, reader.GetValue(reader.GetOrdinal(column)));
                 }
             }
             
