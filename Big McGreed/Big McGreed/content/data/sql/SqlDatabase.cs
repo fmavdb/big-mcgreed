@@ -29,6 +29,7 @@ namespace Big_McGreed.content.data.sql
             {
                 throw new DatabaseException("The program failed to locate the database.");
             }
+
             string programHost = "Provider=Microsoft.ACE.OLEDB.12.0";
             string databaseSource = "Data Source=" + databaseNaam + ".accdb";
             this.connection = new OleDbConnection(programHost + ";" + databaseSource);
@@ -110,15 +111,33 @@ namespace Big_McGreed.content.data.sql
             this.command.CommandText = null;
         }
 
-        //Moet nog wat aangepast worden...
-        public void read(string query)
+        /// <summary>
+        /// Gets the reader.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <returns></returns>
+        public OleDbDataReader getReader(string query)
         {
             this.command.CommandText = query;
-            OleDbDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                //Lees tabellen ofzo
-            }
+            return command.ExecuteReader();
+        }
+
+        /// <summary>
+        /// Adds a parameter to the command.
+        /// </summary>
+        /// <param name="param">The name of the parameter.</param>
+        /// <param name="value">The value that corresponds with the parameter.</param>
+        public void AddParameter(string parameter, object value)
+        {
+            this.command.Parameters.AddWithValue(parameter, value);
+        }
+
+        /// <summary>
+        /// Clears the added parameters.
+        /// </summary>
+        public void ClearParameters()
+        {
+            this.command.Parameters.Clear();
         }
 
         //TODO - Reconnect to database when failed.

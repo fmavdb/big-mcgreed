@@ -33,7 +33,7 @@ namespace Big_McGreed
     {
 
         //Als er iets niet werkt, deze aanzetten. Zorgt ervoor dat je de console goed kan zien terwijl je het spel speelt.
-        private static bool DEBUG_MODE = true;
+        private static bool DEBUG_MODE = false;
 
         /// <summary>
         /// Word gebruikt om de definities op te slaan nadat ze zijn geladen.
