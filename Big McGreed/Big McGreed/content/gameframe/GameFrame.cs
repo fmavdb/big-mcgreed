@@ -14,7 +14,7 @@ namespace Big_McGreed.content.gameframe
         public static int Height;
 
         private Texture2D mainTexture = null;
-        private Texture2D boerderijTexture = null;
+        public Texture2D boerderijTexture = null;
         private Texture2D hpBarTextureGroen = null;
         private Texture2D hpBarTextureRood = null;
 

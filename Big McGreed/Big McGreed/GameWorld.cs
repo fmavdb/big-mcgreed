@@ -180,7 +180,7 @@ namespace Big_McGreed
         public Menu menu { get; private set; }
         public GameFrame gameFrame { get; set; }
         public HighScore highScores { get; private set; }
-        private SqlDatabase dataBase;
+        public SqlDatabase dataBase;
         private ArduinoManager arduino;
         private TimeSpan lastWave = TimeSpan.Zero;
         private Random random;
@@ -241,8 +241,8 @@ namespace Big_McGreed
             npcUpdate = new NPCUpdate();
             info = new ProgramInformation();
             gameMap = new GameMap();
+            dataBase = new SqlDatabase();            
             highScores = new HighScore();
-            dataBase = new SqlDatabase();
             goldPositionUpgrade = new Vector2(GameFrame.Width - 200, 30);
             arduino.connect();
             newGame();

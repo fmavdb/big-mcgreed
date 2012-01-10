@@ -23,16 +23,10 @@ namespace Big_McGreed.content.highscore
             locatieHighscore = new Vector2(GameFrame.Width / 2 - highscoreFont.MeasureString(titelText).X / 2, (GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 2) + 40);
 
             highScores = new Dictionary<string, int>();
-            //Laad gegevens... SELECT naam, score FROM highscores ORDER BY score LIMIT 10
-            //Dit is een voorbeeld:
-            highScores.Add("Frank", 1000);
-            highScores.Add("Geert", 10000);
-            highScores.Add("Jelle", -1);
-            highScores.Add("Kevin", 100);
-            highScores.Add("Rick", 500);
-            highScores.Add("Wouter", 0);
-            highScores.Add("Martin", 10);
-            highScores = (from entry in highScores orderby entry.Value descending select entry).ToDictionary(pair => pair.Key, pair => pair.Value);
+
+            string maxNaam = Program.INSTANCE.dataBase.ExecuteQuery("SELECT Naam FROM Highscore WHERE Score = (Select MAX(Score) FROM Highscore);").ToString();
+            int maxGetal = Convert.ToInt32(Program.INSTANCE.dataBase.ExecuteQuery("SELECT MAX(Score) FROM Highscore;"));
+                highScores.Add(maxNaam, maxGetal);
         }
 
         public void addToHighScore(string naam, int score)

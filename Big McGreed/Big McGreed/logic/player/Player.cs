@@ -58,8 +58,8 @@ namespace Big_McGreed.logic.player
             currentWave = 1;
             setX(Mouse.GetState().X);
             setY(Mouse.GetState().Y);
-            boerLocatie.X = Program.INSTANCE.gameFrame.boerderijPositie.X * 1.115f; //TODO dit moet via scherm max x, min x
-            boerLocatie.Y = Program.INSTANCE.gameFrame.boerderijPositie.Y * 1.8f; //TODO dit moet via scherm max y, min y
+            boerLocatie.X = GameFrame.Width - Program.INSTANCE.gameFrame.boerderijTexture.Width / 3.1f;
+            boerLocatie.Y = GameFrame.Height - Program.INSTANCE.gameFrame.boerderijTexture.Height / 1.15f;
             geweerLocatie.X = boerLocatie.X;
             geweerLocatie.Y = boerLocatie.Y + definition.personTexture.Height / 2;
         }

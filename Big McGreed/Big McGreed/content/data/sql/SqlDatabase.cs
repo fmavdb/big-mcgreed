@@ -41,13 +41,15 @@ namespace Big_McGreed.content.data.sql
         /// </summary>
         public void Connect()
         {
+            Console.WriteLine("Connecting...");
             // Check for any conditions that could interupt the connection.
             if (!checkState())
             {
-                throw new DatabaseException("The program failed to connect to the database.");
+                throw new DatabaseException("Failed to connect to the database.");
             }
             try
             {
+                Console.WriteLine("Connected to the database.");
                 connection.Open();
             }
             catch (InvalidOperationException e)
