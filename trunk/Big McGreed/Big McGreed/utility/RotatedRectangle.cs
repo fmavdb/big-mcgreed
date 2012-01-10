@@ -161,6 +161,10 @@ namespace Big_McGreed.utility
             return aTranslatedPoint;
         }
 
+        /// <summary>
+        ///  Calclate the upper left corner.
+        /// </summary>
+        /// <returns>The left corner</returns>
         public Vector2 UpperLeftCorner()
         {
             Vector2 aUpperLeft = new Vector2(CollisionRectangle.Left, CollisionRectangle.Top);
