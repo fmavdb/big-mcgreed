@@ -123,6 +123,28 @@ namespace Big_McGreed.content.data.sql
         }
 
         /// <summary>
+        /// Reads a set of tables from the database.
+        /// </summary>
+        /// <param name="query">The query that is executed to return and fill the data set.</param>
+        /// <returns>Returns the dataset.</returns>
+        public Dictionary<string, object> getTable(string query, string[] columns)
+        {
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            this.command.CommandText = query;
+
+            OleDbDataReader reader = getReader(query);
+            while(reader.Read())
+            {
+                foreach(string table in columns) {
+                    data.Add(table, reader.GetValue(reader.GetOrdinal(table)));
+                }
+            }
+            
+            this.command.CommandText = null;
+            return data;
+        }
+
+        /// <summary>
         /// Adds a parameter to the command.
         /// </summary>
         /// <param name="param">The name of the parameter.</param>
