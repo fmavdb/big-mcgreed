@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Big_McGreed.utility
 {
-    public class StringUtilities
+    public static class StringUtilities
     {
         private static char[] validChars = {
 		    '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 
