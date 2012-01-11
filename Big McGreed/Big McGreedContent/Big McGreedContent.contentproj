@@ -42,6 +42,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bullet_bill.png">
+      <Name>bullet_bill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="crosshair.png">
       <Name>crosshair</Name>
       <Importer>TextureImporter</Importer>
@@ -79,13 +84,6 @@
   <ItemGroup>
     <Compile Include="revolver.png">
       <Name>revolver</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="bullet_bill.png">
-      <Name>bullet_bill</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
