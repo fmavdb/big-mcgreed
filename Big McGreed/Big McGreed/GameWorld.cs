@@ -111,9 +111,9 @@ namespace Big_McGreed
             /// </summary>
             public static void load() {
                 levels = new Dictionary<int, LevelInformation>();
-                levels.Add(1, new LevelInformation(1, new int[] {1}, 10, 5000));
-                levels.Add(2, new LevelInformation(2, new int[] {4, 5, 6}, 15, 4000));
-                levels.Add(3, new LevelInformation(3, new int[] {7, 8, 9}, 20, 3000));
+                levels.Add(1, new LevelInformation(1, new int[] {1}, 10, 1500));
+                levels.Add(2, new LevelInformation(2, new int[] {4, 5, 6}, 15, 1000));
+                levels.Add(3, new LevelInformation(3, new int[] {7, 8, 9}, 20, 500));
             }
 
             /// <summary>
