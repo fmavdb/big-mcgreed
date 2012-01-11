@@ -35,7 +35,7 @@ namespace Big_McGreed.logic.projectile
         /// </summary>
         public ProjectileDefinition definition { get { return ProjectileDefinition.forType(type); } }
 
-        private static Vector2 speed = new Vector2((float)25, (float)25);
+        private static Vector2 speed = new Vector2(40f, 40f);
 
         private Vector2 velocity = Vector2.Zero;
 
@@ -53,6 +53,7 @@ namespace Big_McGreed.logic.projectile
             this.target = target;
             this.hit = hit;
             setLocation(Program.INSTANCE.player.GeweerLocatie);
+            //setLocation(translate(-GameWorld.playerDefinition.revolverTexture.Width, -GameWorld.playerDefinition.revolverTexture.Height)); 
             rotation = (float)Math.Atan2(getY() - target.Y, getX() - target.X);
             Vector2 direction = target - getLocation();
             direction.Normalize();
@@ -111,7 +112,7 @@ namespace Big_McGreed.logic.projectile
         /// </summary>
         public void Draw()
         {
-            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, rotation, new Vector2(definition.mainTexture.Width, definition.mainTexture.Height), 0.50f, SpriteEffects.None, 1.0f);
+            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, rotation, new Vector2(GameWorld.playerDefinition.revolverTexture.Width, GameWorld.playerDefinition.revolverTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
         }
     }
 }
