@@ -22,11 +22,20 @@ namespace Big_McGreed.logic.projectile
         /// </summary>
         public int type { get; private set; }
 
+        /// <summary>
+        /// Wether the projectile is visible or not.
+        /// </summary>
         public bool visible = true;
 
+        /// <summary>
+        /// Wether the projectile is scheduled for removal or not.
+        /// </summary>
         public bool destroyed = false;
 
-        private float rotation;
+        /// <summary>
+        /// Gets the rotation.
+        /// </summary>
+        public float Rotation { get; private set; }
 
         private Vector2 target = Vector2.Zero;
 
@@ -39,7 +48,10 @@ namespace Big_McGreed.logic.projectile
 
         private Vector2 velocity = Vector2.Zero;
 
-        private Hit hit;
+        /// <summary>
+        /// Gets the hit.
+        /// </summary>
+        public Hit Hit { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Projectile"/> class.
@@ -51,10 +63,10 @@ namespace Big_McGreed.logic.projectile
         {
             this.type = type;
             this.target = target;
-            this.hit = hit;
-            setLocation(Program.INSTANCE.player.GeweerLocatie);
+            Hit = hit;
+            setLocation(Program.INSTANCE.player.Weapon.getLocation());
             //setLocation(translate(-GameWorld.playerDefinition.revolverTexture.Width, -GameWorld.playerDefinition.revolverTexture.Height)); 
-            rotation = (float)Math.Atan2(getY() - target.Y, getX() - target.X);
+            Rotation = (float)Math.Atan2(getY() - target.Y, getX() - target.X);
             Vector2 direction = target - getLocation();
             direction.Normalize();
             velocity = Vector2.Multiply(direction, speed);
@@ -98,12 +110,7 @@ namespace Big_McGreed.logic.projectile
                 destroy();
             else
             {
-                foreach (NPC npc in PrimitivePathFinder.collision(this, getX(), getY()))
-                {
-                    npc.hit(hit);
-                    destroy();
-                    break;
-                }
+                PrimitivePathFinder.collision(this, getX(), getY());
             }
         }
 
@@ -112,7 +119,7 @@ namespace Big_McGreed.logic.projectile
         /// </summary>
         public void Draw()
         {
-            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, rotation, new Vector2(GameWorld.playerDefinition.revolverTexture.Width, GameWorld.playerDefinition.revolverTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, Rotation, new Vector2(Program.INSTANCE.player.Weapon.definition.mainTexture.Width, Program.INSTANCE.player.Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
         }
     }
 }

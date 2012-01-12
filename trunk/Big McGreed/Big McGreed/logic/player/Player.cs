@@ -24,23 +24,19 @@ namespace Big_McGreed.logic.player
 
         private Upgrade wall = null;
 
-        private Upgrade weapon = null;
+        public Upgrade Weapon { get; private set; }
 
         //De grootte van de 'dot' van de crosshair, stelt dotSize(width) x dotSize(height) pixels voor.
         public const int dotSize = 5;
 
         public PlayerDefinition definition { get { return PlayerDefinition.getDefinition(); } }
 
-        public int currentWave { get; set; }
+        public int currentLevel { get; set; }
 
         public bool leftButtonPressed = false;
 
         private Vector2 boerLocatie = Vector2.Zero;
         public Vector2 BoerLocatie { get { return boerLocatie; } private set { boerLocatie = value; } }
-
-        private Vector2 geweerLocatie = Vector2.Zero;
-
-        public Vector2 GeweerLocatie { get { return geweerLocatie; } }
 
         private float rotation;
 
@@ -58,13 +54,12 @@ namespace Big_McGreed.logic.player
         {
             Lifes = maxHP;
             visible = true;
-            currentWave = 1;
+            currentLevel = 1;
             setX(Mouse.GetState().X);
             setY(Mouse.GetState().Y);
             boerLocatie.X = GameFrame.Width - Program.INSTANCE.gameFrame.boerderijTexture.Width / 3.1f;
             boerLocatie.Y = GameFrame.Height - Program.INSTANCE.gameFrame.boerderijTexture.Height / 1.15f;
-            geweerLocatie.X = boerLocatie.X;
-            geweerLocatie.Y = boerLocatie.Y + definition.personTexture.Height / 2;
+            Weapon = new Upgrade(this, new Vector2(boerLocatie.X, boerLocatie.Y + definition.personTexture.Height / 2), "weapon"); //1ste wapen is revolver: naam + level dus: weapon0.png
         }
 
         /// <summary>
@@ -101,23 +96,7 @@ namespace Big_McGreed.logic.player
             {
                 leftButtonPressed = false;
             }
-            /*if (Mouse.GetState().RightButton == ButtonState.Pressed)
-            {
-                lock (Program.INSTANCE.npcs)
-                {
-                    foreach (NPC npc in Program.INSTANCE.npcs)
-                    {
-                        npc.visible = true;
-                    }
-                }
-            }*/
-            //if (Mouse.GetState().X != lastMousePosition.X || Mouse.GetState().Y != lastMousePosition.Y)
-            //{
-                //lastMousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
-                //lastMousePosition.Normalize();
-                //setLocation(new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation)));
-                setLocation(PrimitivePathFinder.getCrossHairPosition(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), definition.mainTexture.Width, definition.mainTexture.Height));
-            //}
+            setLocation(PrimitivePathFinder.getCrossHairPosition(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), definition.mainTexture.Width, definition.mainTexture.Height));
         }
 
         /// <summary>
@@ -131,11 +110,11 @@ namespace Big_McGreed.logic.player
                 case GameWorld.GameState.InGame:
                     if (muzzle > 0)
                     {
-                        Program.INSTANCE.spriteBatch.Draw(muzzleTexture, geweerLocatie, new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+                        Program.INSTANCE.spriteBatch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle--;
                     }
-                    rotation = (float)Math.Atan2(geweerLocatie.Y - Mouse.GetState().Y, geweerLocatie.X - Mouse.GetState().X);
-                    Program.INSTANCE.spriteBatch.Draw(definition.revolverTexture, geweerLocatie, new Rectangle(0, 0, definition.revolverTexture.Width, definition.revolverTexture.Height), Color.White, rotation, new Vector2(definition.revolverTexture.Width, definition.revolverTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+                    rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y, Weapon.getX() - Mouse.GetState().X);
+                    Program.INSTANCE.spriteBatch.Draw(Weapon.definition.mainTexture, Weapon.getLocation(), new Rectangle(0, 0, Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), Color.White, rotation, new Vector2(Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                     break;
             }
         }

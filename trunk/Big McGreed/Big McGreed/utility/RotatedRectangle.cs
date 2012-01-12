@@ -6,38 +6,46 @@ using Microsoft.Xna.Framework;
 
 namespace Big_McGreed.utility
 {
+    /// <summary>
+    /// Represents a rotated rectangle.
+    /// </summary>
     public class RotatedRectangle
     {
-        public Rectangle CollisionRectangle;
-        public float Rotation;
-        public Vector2 Origin;
+        private Rectangle collisionRectangle;
+        private float rotation;
+        private Vector2 origin;
 
-        public RotatedRectangle(Rectangle theRectangle, float theInitialRotation)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RotatedRectangle"/> class.
+        /// </summary>
+        /// <param name="rectangle">The rectangle.</param>
+        /// <param name="rotation">The rotation.</param>
+        public RotatedRectangle(Rectangle rectangle, float rotation)
         {
-            CollisionRectangle = theRectangle;
-            Rotation = theInitialRotation;
+            collisionRectangle = rectangle;
+            this.rotation = rotation;
 
             //Calculate the Rectangles origin. We assume the center of the Rectangle will
             //be the point that we will be rotating around and we use that for the origin
-            Origin = new Vector2((int)theRectangle.Width / 2, (int)theRectangle.Height / 2);
+            origin = new Vector2(0f, 0f);
         }
 
         /// <summary>
         /// Used for changing the X and Y position of the RotatedRectangle
         /// </summary>
-        /// <param name="theXPositionAdjustment"></param>
-        /// <param name="theYPositionAdjustment"></param>
+        /// <param name="theXPositionAdjustment">The X position adjustment.</param>
+        /// <param name="theYPositionAdjustment">The Y position adjustment.</param>
         public void ChangePosition(int theXPositionAdjustment, int theYPositionAdjustment)
         {
-            CollisionRectangle.X += theXPositionAdjustment;
-            CollisionRectangle.Y += theYPositionAdjustment;
+            collisionRectangle.X += theXPositionAdjustment;
+            collisionRectangle.Y += theYPositionAdjustment;
         }
 
         /// <summary>
         /// This intersects method can be used to check a standard XNA framework Rectangle
         /// object and see if it collides with a Rotated Rectangle object
         /// </summary>
-        /// <param name="theRectangle"></param>
+        /// <param name="theRectangle">The rectangle.</param>
         /// <returns></returns>
         public bool Intersects(Rectangle theRectangle)
         {
@@ -47,7 +55,7 @@ namespace Big_McGreed.utility
         /// <summary>
         /// Check to see if two Rotated Rectangls have collided
         /// </summary>
-        /// <param name="theRectangle"></param>
+        /// <param name="theRectangle">The rectangle.</param>
         /// <returns></returns>
         public bool Intersects(RotatedRectangle theRectangle)
         {
@@ -80,9 +88,11 @@ namespace Big_McGreed.utility
         /// Determines if a collision has occurred on an Axis of one of the
         /// planes parallel to the Rectangle
         /// </summary>
-        /// <param name="theRectangle"></param>
-        /// <param name="aAxis"></param>
-        /// <returns></returns>
+        /// <param name="theRectangle">The rectangle.</param>
+        /// <param name="aAxis">A axis.</param>
+        /// <returns>
+        ///   <c>true</c> if [is axis collision] [the specified the rectangle]; otherwise, <c>false</c>.
+        /// </returns>
         private bool IsAxisCollision(RotatedRectangle theRectangle, Vector2 aAxis)
         {
             //Project the corners of the Rectangle we are checking on to the Axis and
@@ -122,11 +132,11 @@ namespace Big_McGreed.utility
         }
 
         /// <summary>
-        /// Generates a scalar value that can be used to compare where corners of 
-        /// a rectangle have been projected onto a particular axis. 
+        /// Generates a scalar value that can be used to compare where corners of
+        /// a rectangle have been projected onto a particular axis.
         /// </summary>
-        /// <param name="theRectangleCorner"></param>
-        /// <param name="theAxis"></param>
+        /// <param name="theRectangleCorner">The rectangle corner.</param>
+        /// <param name="theAxis">The axis.</param>
         /// <returns></returns>
         private int GenerateScalar(Vector2 theRectangleCorner, Vector2 theAxis)
         {
@@ -147,9 +157,9 @@ namespace Big_McGreed.utility
         /// Rotate a point from a given location and adjust using the Origin we
         /// are rotating around
         /// </summary>
-        /// <param name="thePoint"></param>
-        /// <param name="theOrigin"></param>
-        /// <param name="theRotation"></param>
+        /// <param name="thePoint">The point.</param>
+        /// <param name="theOrigin">The origin.</param>
+        /// <param name="theRotation">The rotation.</param>
         /// <returns></returns>
         private Vector2 RotatePoint(Vector2 thePoint, Vector2 theOrigin, float theRotation)
         {
@@ -161,57 +171,107 @@ namespace Big_McGreed.utility
             return aTranslatedPoint;
         }
 
+        public List<Vector2> RectanglePoints
+        {
+            get
+            {
+                return new List<Vector2>()
+                {
+                     LowerRightCorner(),
+                     UpperLeftCorner(),
+                     UpperRightCorner(),
+                     LowerLeftCorner()
+                };
+            }
+        }
+
         /// <summary>
-        ///  Calclate the upper left corner.
+        /// Calclate the upper left corner.
         /// </summary>
-        /// <returns>The left corner</returns>
+        /// <returns>
+        /// The upper left corner
+        /// </returns>
         public Vector2 UpperLeftCorner()
         {
-            Vector2 aUpperLeft = new Vector2(CollisionRectangle.Left, CollisionRectangle.Top);
-            aUpperLeft = RotatePoint(aUpperLeft, aUpperLeft + Origin, Rotation);
+            Vector2 aUpperLeft = new Vector2(collisionRectangle.Left, collisionRectangle.Top);
+            aUpperLeft = RotatePoint(aUpperLeft, aUpperLeft + origin, rotation);
             return aUpperLeft;
         }
 
+        /// <summary>
+        /// Calclate the upper right corner.
+        /// </summary>
+        /// <returns>
+        /// The upper right corner
+        /// </returns>
         public Vector2 UpperRightCorner()
         {
-            Vector2 aUpperRight = new Vector2(CollisionRectangle.Right, CollisionRectangle.Top);
-            aUpperRight = RotatePoint(aUpperRight, aUpperRight + new Vector2(-Origin.X, Origin.Y), Rotation);
+            Vector2 aUpperRight = new Vector2(collisionRectangle.Right, collisionRectangle.Top);
+            aUpperRight = RotatePoint(aUpperRight, aUpperRight + new Vector2(-origin.X, origin.Y), rotation);
             return aUpperRight;
         }
 
+        /// <summary>
+        /// Calclate the lower left corner.
+        /// </summary>
+        /// <returns>
+        /// The lower left corner
+        /// </returns>
         public Vector2 LowerLeftCorner()
         {
-            Vector2 aLowerLeft = new Vector2(CollisionRectangle.Left, CollisionRectangle.Bottom);
-            aLowerLeft = RotatePoint(aLowerLeft, aLowerLeft + new Vector2(Origin.X, -Origin.Y), Rotation);
+            Vector2 aLowerLeft = new Vector2(collisionRectangle.Left, collisionRectangle.Bottom);
+            aLowerLeft = RotatePoint(aLowerLeft, aLowerLeft + new Vector2(origin.X, -origin.Y), rotation);
             return aLowerLeft;
         }
 
+        /// <summary>
+        /// Calclate the lower right corner.
+        /// </summary>
+        /// <returns>
+        /// The lower right corner
+        /// </returns>
         public Vector2 LowerRightCorner()
         {
-            Vector2 aLowerRight = new Vector2(CollisionRectangle.Right, CollisionRectangle.Bottom);
-            aLowerRight = RotatePoint(aLowerRight, aLowerRight + new Vector2(-Origin.X, -Origin.Y), Rotation);
+            Vector2 aLowerRight = new Vector2(collisionRectangle.Right, collisionRectangle.Bottom);
+            aLowerRight = RotatePoint(aLowerRight, aLowerRight + new Vector2(-origin.X, -origin.Y), rotation);
             return aLowerRight;
         }
 
+        /// <summary>
+        /// Gets the X.
+        /// </summary>
         public int X
         {
-            get { return CollisionRectangle.X; }
+            get { return collisionRectangle.X; }
         }
 
+        /// <summary>
+        /// Gets the Y.
+        /// </summary>
         public int Y
         {
-            get { return CollisionRectangle.Y; }
+            get { return collisionRectangle.Y; }
         }
 
+        /// <summary>
+        /// Gets the width.
+        /// </summary>
         public int Width
         {
-            get { return CollisionRectangle.Width; }
+            get { return collisionRectangle.Width; }
         }
 
+        /// <summary>
+        /// Gets the height.
+        /// </summary>
         public int Height
         {
-            get { return CollisionRectangle.Height; }
+            get { return collisionRectangle.Height; }
         }
 
+        public Rectangle CollisionRetangle
+        {
+            get { return collisionRectangle; }
+        } 
     }
 }

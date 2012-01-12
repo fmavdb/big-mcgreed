@@ -57,6 +57,9 @@ namespace Big_McGreed.logic
         /// </value>
         public bool visible { get; set; }
 
+        /// <summary>
+        /// Wether the entity is hitted or not.
+        /// </summary>
         protected bool hitted = false;
 
         /// <summary>
@@ -136,6 +139,10 @@ namespace Big_McGreed.logic
             {
                 receivedHits.Enqueue(hit);
                 hitted = true;
+                if (this is NPC)
+                {
+                    setX(getX() * 0.98f);
+                }
             }
         }
 

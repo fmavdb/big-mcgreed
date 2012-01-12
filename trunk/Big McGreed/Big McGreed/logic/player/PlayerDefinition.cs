@@ -15,11 +15,11 @@ namespace Big_McGreed.logic.player
         public static PlayerDefinition getDefinition() {
 
             PlayerDefinition def = GameWorld.playerDefinition;
-            if (!def.loaded) {
+            if (!def.loaded) 
+            {
                 def = new PlayerDefinition();
                 def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("compas");
                 def.personTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
-                def.revolverTexture = Program.INSTANCE.Content.Load<Texture2D>("revolver");
                 def.loaded = true;
                 GameWorld.playerDefinition = def;
             }
@@ -29,8 +29,6 @@ namespace Big_McGreed.logic.player
         public Texture2D mainTexture { get; private set; }
 
         public Texture2D personTexture { get; private set; }
-
-        public Texture2D revolverTexture { get; private set; }
 
         public bool loaded { get; private set; }
     }

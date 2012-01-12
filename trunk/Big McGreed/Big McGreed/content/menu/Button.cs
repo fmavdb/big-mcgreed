@@ -9,7 +9,9 @@ namespace Big_McGreed.content.menu
 {
     public abstract class Button
     {
-        protected bool tinyButton;
+        protected bool tinyButton = false;
+
+        protected bool isInterface = false;
 
         public abstract void action();
 
@@ -32,11 +34,14 @@ namespace Big_McGreed.content.menu
                 location = value;
                 if (!tinyButton)
                 {
-                    middleOfButton = new Vector2(value.X - font.MeasureString(text).X / 2 + current.Width / 2, value.Y - font.LineSpacing / 2 + current.Height / 2);
+                    if (!isInterface)
+                    {
+                        textLocation = new Vector2(value.X - font.MeasureString(text).X / 2 + current.Width / 2, value.Y - font.LineSpacing / 2 + current.Height / 2);
+                    }
                 }
                 else
                 {
-                    middleOfButton = new Vector2(value.X - tinyFont.MeasureString(text).X / 2 + current.Width / 2, value.Y - tinyFont.LineSpacing / 2 + current.Height / 2);
+                    textLocation = new Vector2(value.X - tinyFont.MeasureString(text).X / 2 + current.Width / 2, value.Y - tinyFont.LineSpacing / 2 + current.Height / 2);
                 }
             }
         }
@@ -139,7 +144,7 @@ namespace Big_McGreed.content.menu
             }
         }
 
-        private Vector2 middleOfButton = Vector2.Zero;
+        private Vector2 textLocation = Vector2.Zero;
 
         /// <summary>
         /// Draws this instance.
@@ -147,7 +152,7 @@ namespace Big_McGreed.content.menu
         public void Draw()
         {
             Program.INSTANCE.spriteBatch.Draw(current, location, Color.White);
-            Program.INSTANCE.spriteBatch.DrawString(tinyButton ? tinyFont : font, text, middleOfButton, Color.White);
+            Program.INSTANCE.spriteBatch.DrawString(tinyButton ? tinyFont : font, text, textLocation, Color.White);
         }
     }
 }

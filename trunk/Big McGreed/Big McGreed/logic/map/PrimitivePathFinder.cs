@@ -8,6 +8,7 @@ using Big_McGreed.logic.player;
 using System.Collections.ObjectModel;
 using Big_McGreed.logic.projectile;
 using Big_McGreed.content.gameframe;
+using Big_McGreed.utility;
 
 namespace Big_McGreed.logic.map
 {
@@ -85,70 +86,91 @@ namespace Big_McGreed.logic.map
         /// <summary>
         /// Collisions the specified projectile.
         /// </summary>
-        /// <param name="projectile">The player.</param>
+        /// <param name="projectile">The projectile.</param>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
         /// <returns></returns>
-        public static Collection<NPC> collision(Projectile projectile, int x, int y)
+        public static void collision(Projectile projectile, int x, int y)
         {
-            Collection<NPC> npcsCollided= new Collection<NPC>();
-            //TODO fix the projectilesize to include the rotation.
-            Rectangle projectileSize = new Rectangle(x, y, projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height);
+            //TODO fix color collision xD
+            RotatedRectangle projectileRectangle = new RotatedRectangle(new Rectangle(x, y, projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height), projectile.Rotation);
+            //Rectangle projectileSize = new Rectangle(x, y, projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height);
             lock (Program.INSTANCE.npcs)
             {
-                foreach (NPC npc in Program.INSTANCE.npcs)
+                LinkedList<NPC> currentNPCs = new LinkedList<NPC>(Program.INSTANCE.npcs);
+                foreach (NPC npc in currentNPCs)
                 {
                     if (npc.visible && npc.definition.mainTexture != null)
                     {
-                        Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height);
-                        if (intersects(projectileSize, npcRectangle))
+                        RotatedRectangle npcRectangle = new RotatedRectangle(new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height), 0.0f);
+                        if (projectileRectangle.Intersects(npcRectangle))
                         {
-                            //Color[] pixels = new Color[npc.definition.mainTexture.Width * npc.definition.mainTexture.Height];
-                            //npc.definition.mainTexture.GetData<Color>(pixels);
-                            if (colorCollision(Color.Transparent, projectileSize, npcRectangle, npc.definition.pixels))
-                            {
-                                npcsCollided.Add(npc);
-                            }
+                            //Color[] pixels = new Color[projectile.definition.mainTexture.Width * npc.definition.mainTexture.Height];
+                            //projectile.definition.mainTexture.GetData<Color>(pixels);
+                            //if (colorCollision(Color.Transparent, projectileRectangle, npcRectangle, projectile.definition.pixels, npc.definition.pixels))
+                           // {
+                                npc.hit(projectile.Hit);
+                                projectile.destroy();
+                            //}
                         }
                     }
                 }
             }
-            return npcsCollided;
         }
 
         /// <summary>
         /// Colors the collision.
         /// </summary>
         /// <param name="collideColor">Color of the collide.</param>
-        /// <param name="crossHair">The cross hair.</param>
+        /// <param name="projectile">The cross hair.</param>
         /// <param name="npc">The NPC.</param>
         /// <param name="pixels">The pixels.</param>
         /// <returns></returns>
-        public static bool colorCollision(Color collideColor, Rectangle crossHair, Rectangle npc, Color[] pixels)
+        public static bool colorCollision(Color collideColor, RotatedRectangle projectile, RotatedRectangle npc, Color[] projectilePixels, Color[] npcPixels)
         {
-            // Find the bounds of the rectangle intersection
-            int top = Math.Max(crossHair.Top, npc.Top);
-            int bottom = Math.Min(crossHair.Bottom, npc.Bottom);
-            int left = Math.Max(crossHair.Left, npc.Left);
-            int right = Math.Min(crossHair.Right, npc.Right);
+            Rectangle Rectangle1 = _getBoundingRectangleOfRotatedRectangle(projectile.RectanglePoints);
+            Rectangle Rectangle2 = _getBoundingRectangleOfRotatedRectangle(npc.RectanglePoints);
 
-            // Check every point within the intersection bounds
+            int top = Math.Max(Rectangle1.Top, Rectangle2.Top);
+            int bottom = Math.Min(Rectangle1.Bottom, Rectangle2.Bottom);
+            int left = Math.Max(Rectangle1.Left, Rectangle2.Left);
+            int right = Math.Min(Rectangle1.Right, Rectangle2.Right);
+
             for (int y = top; y < bottom; y++)
             {
                 for (int x = left; x < right; x++)
                 {
-                    Color color = pixels[(x - npc.Left) + (y - npc.Top) * npc.Width];
-                    // Transparency is color.A == 0
-                    if (color != collideColor)
-                    {
-                        // then an intersection has been found
+                    Color colorA = projectilePixels[(x - Rectangle1.Left) + (y - Rectangle1.Top) * Rectangle1.Width];
+                    Color colorB = npcPixels[(x - Rectangle2.Left) + (y - Rectangle2.Top) * Rectangle2.Width];
+                    if (colorA != collideColor && colorB != collideColor)
                         return true;
-                    }
                 }
             }
-
-            // No intersection found
             return false;
+        }
+
+        private static Rectangle _getBoundingRectangleOfRotatedRectangle(List<Vector2> RectanglePoints)
+        {
+            Vector2 BoundingRectangleStart = new Vector2()
+            {
+                X = _getMinimumOf(RectanglePoints[0].X, RectanglePoints[1].X, RectanglePoints[2].X, RectanglePoints[3].X),
+                Y = _getMinimumOf(RectanglePoints[0].Y, RectanglePoints[1].Y, RectanglePoints[2].Y, RectanglePoints[3].Y)
+            };
+
+            int BoundingRectangleWidth = -(int)BoundingRectangleStart.X + _getMaximumOf(RectanglePoints[0].X, RectanglePoints[1].X, RectanglePoints[2].X, RectanglePoints[3].X);
+            int BoundingRectangleHeight = -(int)BoundingRectangleStart.Y + _getMaximumOf(RectanglePoints[0].Y, RectanglePoints[1].Y, RectanglePoints[2].Y, RectanglePoints[3].Y);
+
+            return new Rectangle((int)BoundingRectangleStart.X, (int)BoundingRectangleStart.Y, BoundingRectangleWidth, BoundingRectangleHeight);
+
+        }
+
+        private static int _getMinimumOf(float a1, float a2, float a3, float a4)
+        {
+            return (int)MathHelper.Min(MathHelper.Min(MathHelper.Min(a1, a2), a3), a4);
+        }
+        private static int _getMaximumOf(float a1, float a2, float a3, float a4)
+        {
+            return (int)MathHelper.Max(MathHelper.Max(MathHelper.Max(a1, a2), a3), a4);
         }
 
 

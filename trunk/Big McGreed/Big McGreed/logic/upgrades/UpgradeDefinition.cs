@@ -16,14 +16,15 @@ namespace Big_McGreed.content.upgrades
         /// Returns the definition from the cache.
         /// </summary>
         /// <param name="fullName">The full name of the upgrade (name + level).</param>
-        /// <returns></returns>
+        /// <returns>The definition.</returns>
         public static UpgradeDefinition forName(string fullName)
         {
             UpgradeDefinition def = (UpgradeDefinition)GameWorld.upgradeDefinitions[fullName];
-            if (def == null) {
+            if (def == null)
+            {
                 def = new UpgradeDefinition();
                 def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>(fullName);
-                GameWorld.projectileDefinitions.Add(fullName, def);
+                GameWorld.upgradeDefinitions.Add(fullName, def);
             }
             return def;
         }
