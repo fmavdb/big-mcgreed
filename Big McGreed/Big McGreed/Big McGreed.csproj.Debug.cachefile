@@ -9,6 +9,7 @@ Content\ButtonPressed.xnb
 Content\TinyButtonHighlight.xnb
 Content\TinyButtonNormal.xnb
 Content\TinyButtonPressed.xnb
+Content\weapon0.xnb
 Content\YesNoKeuze.xnb
 Content\Border.xnb
 Content\Boerderij.xnb
@@ -19,10 +20,9 @@ Content\HighScoresInterface.xnb
 Content\UpgradeAchtergrond.xnb
 Content\compas.xnb
 Content\Muur1.xnb
-Content\FPS.xnb
-Content\ButtonFont.xnb
-Content\TinyButtonFont.xnb
 Content\OilEmpty.xnb
 Content\OilFull.xnb
 Content\wolk.xnb
-Content\weapon0.xnb
+Content\FPS.xnb
+Content\ButtonFont.xnb
+Content\TinyButtonFont.xnb

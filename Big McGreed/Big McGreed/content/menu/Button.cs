@@ -144,7 +144,7 @@ namespace Big_McGreed.content.menu
             }
         }
 
-        private Vector2 textLocation = Vector2.Zero;
+        protected Vector2 textLocation = Vector2.Zero;
 
         /// <summary>
         /// Draws this instance.
