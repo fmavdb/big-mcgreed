@@ -109,7 +109,7 @@ namespace Big_McGreed
             /// <summary>
             /// Loads this instance.
             /// </summary>
-            public static void load() {
+            public static void Load() {
                 levels = new Dictionary<int, LevelInformation>();
                 levels.Add(1, new LevelInformation(1, new int[] {1}, 10, 1500));
                 levels.Add(2, new LevelInformation(2, new int[] {4, 5, 6}, 15, 1000));
@@ -184,7 +184,7 @@ namespace Big_McGreed
         public SqlDatabase dataBase;
         private ArduinoManager arduino;
         private TimeSpan lastWave = TimeSpan.Zero;
-        private Random random;
+        public static Random random = new Random();
 
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
@@ -233,16 +233,16 @@ namespace Big_McGreed
             GameFrame.Width = graphics.PreferredBackBufferWidth;
             GameFrame.Height = graphics.PreferredBackBufferHeight;
             arduino = new ArduinoManager();
-            LevelInformation.load();
+            LevelInformation.Load();
             gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
-            random = new Random();
             menu = new Menu();
             player = new Player();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
             info = new ProgramInformation();
             gameMap = new GameMap();
+            gameMap.LoadGameObjects();
             dataBase = new SqlDatabase();            
             highScores = new HighScore();
             goldPositionUpgrade = new Vector2(GameFrame.Width - 200, 30);
@@ -274,6 +274,7 @@ namespace Big_McGreed
                 //}
             }
             gameMap.ClearProjectiles();
+            gameMap.LoadGameObjects();
             //npc.setLocation(new Vector2(0, 100));
             //npcs.AddFirst(npc);
         }
@@ -389,8 +390,8 @@ namespace Big_McGreed
                         player.Draw();
                     break;
                 case GameState.InGame:
-                    gameFrame.Draw();
                     gameMap.DrawObjects();
+                    gameFrame.Draw();
                     npcUpdate.Draw();
                     gameMap.DrawProjectiles();
                     if (player != null && player.visible)
