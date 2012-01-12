@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Big_McGreed.content.gameframe;
+using System.Data.OleDb;
 
 namespace Big_McGreed.content.highscore
 {
@@ -24,9 +25,15 @@ namespace Big_McGreed.content.highscore
 
             highScores = new Dictionary<string, int>();
 
-            string maxNaam = Program.INSTANCE.dataBase.ExecuteQuery("SELECT Naam FROM Highscore WHERE Score = (Select MAX(Score) FROM Highscore);").ToString();
-            int maxGetal = Convert.ToInt32(Program.INSTANCE.dataBase.ExecuteQuery("SELECT MAX(Score) FROM Highscore;"));
-                highScores.Add(maxNaam, maxGetal);
+            OleDbDataReader reader = Program.INSTANCE.dataBase.getReader("SELECT Naam, Score FROM Highscore ORDER BY Score DESC");
+            string naam;
+            int punten;
+            for (int i = 0; reader.Read() && i < 10; i++)
+            {
+                naam = reader.GetString(reader.GetOrdinal("Naam"));
+                punten = reader.GetInt32(reader.GetOrdinal("Score"));
+                highScores.Add(naam, punten);
+            }
         }
 
         public void addToHighScore(string naam, int score)
@@ -48,10 +55,17 @@ namespace Big_McGreed.content.highscore
             {
                 highScores.TryGetValue(naam, out score);
 
-                locatieHighscorePersonen = new Vector2(GameFrame.Width / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Width / 2 + 50, (GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 3) + 50);
+                locatieHighscorePersonen = new Vector2(GameFrame.Width / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Width / 2 + 50, (GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 3) + 40);
                 locatieHighscoreScore = new Vector2(GameFrame.Width / 2 + Program.INSTANCE.menu.highscoreDisplay.Current.Width / 4 - 10, huidig.Y);
 
-                Program.INSTANCE.spriteBatch.DrawString(highscoreFont, "" + nummer + ".   " + naam, huidig, Color.White);
+                if (nummer != 10)
+                {
+                    Program.INSTANCE.spriteBatch.DrawString(highscoreFont, "  " + nummer + ".   " + naam, huidig, Color.White);
+                }
+                else
+                {
+                    Program.INSTANCE.spriteBatch.DrawString(highscoreFont, "" + nummer + ".   " + naam, huidig, Color.White);
+                }
                 Program.INSTANCE.spriteBatch.DrawString(highscoreFont, "" + score, locatieHighscoreScore, Color.Red);
 
                 huidig.Y += 50;

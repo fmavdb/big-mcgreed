@@ -32,7 +32,7 @@ namespace Big_McGreed.logic.npc
                 def.hittedTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje_rood");
                 def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
                 def.mainTexture.GetData<Color>(def.pixels);
-                def.hp = 100;
+                def.hp = 20;
                 GameWorld.npcDefinitions.Add(type, def);
             }
             return def;

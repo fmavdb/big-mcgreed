@@ -18,7 +18,7 @@ namespace Big_McGreed.content.menu.buttons
             current = normal;
 
             text = "UPGRADES";
-            Location = new Vector2(GameFrame.Width / 2 - Button.font.MeasureString(text).X / 2, (GameFrame.Height / 2 - current.Height / 2));
+            Location = new Vector2(GameFrame.Width / 2 - Button.font.MeasureString(text).X / 2, 0); //(GameFrame.Height / 2 - current.Height / 2));
 
             //Location = new Vector2(GameFrame.Width / 2 - current.Width / 2, GameFrame.Height / 2 - current.Height / 2);
         }

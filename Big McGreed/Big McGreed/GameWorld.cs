@@ -160,6 +160,7 @@ namespace Big_McGreed
                 this.waveDelay = waveDelay;
                 this.npcTypes = npcTypes;
                 this.amountOfEnemies = amountOfEnemies;
+                
             }
         }
 
