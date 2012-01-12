@@ -174,5 +174,11 @@ namespace Big_McGreed.content.data.sql
             }
             return true;
         }
+
+        public void getTable(string table)
+        {
+            this.command.CommandText = "SELECT * FROM " + table;
+            OleDbDataReader reader = command.ExecuteReader();
+        }
     }
 }

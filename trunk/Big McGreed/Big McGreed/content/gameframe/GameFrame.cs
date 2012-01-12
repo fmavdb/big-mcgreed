@@ -29,6 +29,8 @@ namespace Big_McGreed.content.gameframe
         private string currency = "$";
         private string cash = "";
 
+        private Texture2D muur;
+
         public GameFrame()
         {
             mainTexture = Program.INSTANCE.Content.Load<Texture2D>("Border");
@@ -44,6 +46,8 @@ namespace Big_McGreed.content.gameframe
 
             gameFrameFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
             gameFrameFontPositie = new Vector2((Width - hpBarTextureGroen.Width) / 1.025f, hpBarTextureGroen.Height * 2.5f);
+
+            muur = Program.INSTANCE.Content.Load<Texture2D>("Muur1");
         }
 
         public void Draw()
@@ -55,9 +59,12 @@ namespace Big_McGreed.content.gameframe
                 Program.INSTANCE.spriteBatch.Draw(boerderijTexture, boerderijPositie, Color.White);
                 Program.INSTANCE.spriteBatch.Draw(hpBarTextureRood, hpBarPositie, Color.White);
                 Program.INSTANCE.spriteBatch.Draw(hpBarTextureGroen, hpBarPositie, rectangleHP, Color.White);
+                Program.INSTANCE.spriteBatch.Draw(hpBarTextureRood, hpBarPositie, Color.White);
 
                 cash = currency + Program.INSTANCE.player.gold.ToString();
                 Program.INSTANCE.spriteBatch.DrawString(gameFrameFont, cash, gameFrameFontPositie, Color.White);
+
+                //Program.INSTANCE.spriteBatch.Draw(muur, Vector2.Zero, Color.White);
             }
         }
 
