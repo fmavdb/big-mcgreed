@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Threading.Tasks;
 using Big_McGreed.logic.projectile;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.logic.map
 {
@@ -20,6 +21,9 @@ namespace Big_McGreed.logic.map
         private LinkedList<GameObject> objects;
         private LinkedList<Projectile> projectiles;
 
+        /// <summary>
+        /// Gets the projectiles.
+        /// </summary>
         public LinkedList<Projectile> Projectiles
         {
             get
@@ -36,6 +40,15 @@ namespace Big_McGreed.logic.map
             objects = new LinkedList<GameObject>();
             projectiles = new LinkedList<Projectile>();
             mainTexture = Program.INSTANCE.Content.Load<Texture2D>("Achtergrond");
+        }
+
+        /// <summary>
+        /// Loads the game objects.
+        /// </summary>
+        public void LoadGameObjects()
+        {
+            objects.Clear();
+            objects.AddFirst(new GameObject(1, new Vector2(GameWorld.random.Next(-ObjectDefinition.forType(1).mainTexture.Width - GameWorld.random.Next(0, 500), GameFrame.Width), 0)));
         }
 
         /// <summary>
@@ -91,7 +104,10 @@ namespace Big_McGreed.logic.map
             lock(objects) {
                 foreach (GameObject gameObject in objects)
                 {
-                    gameObject.Draw();
+                    if (gameObject.visible)
+                    {
+                        gameObject.Draw();
+                    }
                 }
             }
         }

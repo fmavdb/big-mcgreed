@@ -11,7 +11,7 @@ namespace Big_McGreed.logic.map.objects
 	{
         public Texture2D mainTexture { get; set; }
 
-        public Color[] pixels { get; set; }
+        //public Color[] pixels { get; set; }
 
         /// <summary>
         /// Initializes a new definition for the given type.
@@ -23,9 +23,8 @@ namespace Big_McGreed.logic.map.objects
             ObjectDefinition def = (ObjectDefinition)GameWorld.objectDefinitions[type];
             if (def == null)
             {
-                //def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
-                //def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
-                //def.mainTexture.GetData<Color>(def.pixels);
+                def = new ObjectDefinition();
+                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("wolk");
                 GameWorld.objectDefinitions.Add(type, def);
             }
             return def;
