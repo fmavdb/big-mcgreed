@@ -128,7 +128,7 @@ namespace Big_McGreed.logic.map
             {
                 foreach (Projectile projectile in projectiles)
                 {
-                    if (projectile.visible)
+                    if (projectile.visible && !projectile.destroyed)
                     {
                         projectile.Draw();
                     }

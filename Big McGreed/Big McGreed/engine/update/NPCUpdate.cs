@@ -88,7 +88,7 @@ namespace Big_McGreed.engine.update
             {
                 foreach (NPC npc in Program.INSTANCE.npcs)
                 {
-                    if (npc.visible && npc.definition.mainTexture != null)
+                    if (npc.visible && npc.definition.mainTexture != null && !npc.destroyed)
                     {
                         npc.Draw();
                     }

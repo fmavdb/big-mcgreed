@@ -235,8 +235,8 @@ namespace Big_McGreed
             gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
             random = new Random();
-            player = new Player();
             menu = new Menu();
+            player = new Player();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
             info = new ProgramInformation();
@@ -333,9 +333,9 @@ namespace Big_McGreed
                         break;
                     }
                     lastWave += gameTime.ElapsedGameTime;
-                    if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentWave).waveDelay)
+                    if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
                     {
-                        LevelInformation wave = LevelInformation.forValue(player.currentWave);
+                        LevelInformation wave = LevelInformation.forValue(player.currentLevel);
                         int typeToSpawn = wave.npcTypes[random.Next(wave.npcTypes.Length)];
                         NPC npc = new NPC(typeToSpawn);
                         float maxY = GameFrame.Height - npc.definition.mainTexture.Height;

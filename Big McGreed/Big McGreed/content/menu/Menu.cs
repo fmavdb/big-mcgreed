@@ -138,7 +138,7 @@ namespace Big_McGreed.content.menu
             {
                 foreach (Button button in buttons)
                 {
-                    if (button != upgrade && button != resumeKlein && button != menuButtonKlein)
+                    if (button != upgrade && button != resumeKlein && button != menuButtonKlein )
                     {
                         button.Location = new Vector2(GameFrame.Width / 2 - button.Current.Width / 2, startY);
                         startY += button.Normal.Height + 15;

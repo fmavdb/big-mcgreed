@@ -2,7 +2,6 @@ Content\crosshair.xnb
 Content\poppetje.xnb
 Content\Achtergrond.xnb
 Content\poppetje_rood.xnb
-Content\revolver.xnb
 Content\bullet_bill.xnb
 Content\ButtonHighlight.xnb
 Content\ButtonNormal.xnb
@@ -23,3 +22,7 @@ Content\Muur1.xnb
 Content\FPS.xnb
 Content\ButtonFont.xnb
 Content\TinyButtonFont.xnb
+Content\OilEmpty.xnb
+Content\OilFull.xnb
+Content\wolk.xnb
+Content\weapon0.xnb

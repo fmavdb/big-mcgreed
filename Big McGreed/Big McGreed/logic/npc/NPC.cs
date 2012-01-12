@@ -41,7 +41,7 @@ namespace Big_McGreed.logic.npc
             this.type = type;
             setLocation(location);
             updateLifes(definition.hp);
-            velocity = new Vector2(20f, 0f);
+            velocity = new Vector2(10f, 0f);
             visible = true;
         }
 
@@ -53,7 +53,7 @@ namespace Big_McGreed.logic.npc
         {
             this.type = type;
             updateLifes(definition.hp);
-            velocity = new Vector2(20f, 0f);
+            velocity = new Vector2(10f, 0f);
             visible = true;
         } 
 

@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Big_McGreed.logic.player;
+using Big_McGreed.logic;
+using Microsoft.Xna.Framework;
 
 namespace Big_McGreed.content.upgrades
 {
     /// <summary>
     /// This represents an upgrade.
     /// </summary>
-    public class Upgrade
+    public class Upgrade : Locatable
     {
         private Player player;
 
@@ -25,9 +27,10 @@ namespace Big_McGreed.content.upgrades
         /// </summary>
         /// <param name="player">The player.</param>
         /// <param name="name">The name.</param>
-        public Upgrade(Player player, string name)
+        public Upgrade(Player player, Vector2 location, string name)
         {
             this.player = player;
+            setLocation(location);
             Name = name;
         }
 

@@ -82,13 +82,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="revolver.png">
-      <Name>revolver</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="ButtonFont.spritefont">
       <Name>ButtonFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -137,6 +130,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="weapon0.png">
+      <Name>weapon0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="YesNoKeuze.png">
       <Name>YesNoKeuze</Name>
       <Importer>TextureImporter</Importer>
@@ -200,6 +198,27 @@
   <ItemGroup>
     <Compile Include="Muur1.png">
       <Name>Muur1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OilEmpty.png">
+      <Name>OilEmpty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OilFull.png">
+      <Name>OilFull</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="wolk.png">
+      <Name>wolk</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
