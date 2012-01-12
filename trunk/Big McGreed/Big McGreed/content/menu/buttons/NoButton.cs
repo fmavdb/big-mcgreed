@@ -12,12 +12,12 @@ namespace Big_McGreed.content.menu.buttons
     {
         public NoButton()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonNormal");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonPressed");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonHighlight");
+            normal = Program.INSTANCE.Content.Load<Texture2D>("ButtonNormal");
+            pressed = Program.INSTANCE.Content.Load<Texture2D>("ButtonPressed");
+            hover = Program.INSTANCE.Content.Load<Texture2D>("ButtonHighlight");
             current = normal;
 
-            tinyButton = true;
+            //tinyButton = true;
             text = "NO";
 
             Texture2D yesnoselect = Program.INSTANCE.Content.Load<Texture2D>("YesNoKeuze");

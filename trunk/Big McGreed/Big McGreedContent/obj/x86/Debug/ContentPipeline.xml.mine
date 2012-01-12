@@ -47,6 +47,15 @@
       <Time>2011-12-13T10:39:14.4746592+01:00</Time>
     </Item>
     <Item>
+      <Source>revolver.png</Source>
+      <Name>revolver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\revolver.xnb</Output>
+      <Time>2012-01-12T10:50:58.7177654+01:00</Time>
+    </Item>
+    <Item>
       <Source>ButtonHighlight.png</Source>
       <Name>ButtonHighlight</Name>
       <Importer>TextureImporter</Importer>
@@ -101,22 +110,13 @@
       <Time>2011-12-16T09:21:09.5522667+01:00</Time>
     </Item>
     <Item>
-      <Source>weapon0.png</Source>
-      <Name>weapon0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\weapon0.xnb</Output>
-      <Time>2012-01-12T15:03:35.3004172+01:00</Time>
-    </Item>
-    <Item>
       <Source>YesNoKeuze.png</Source>
       <Name>YesNoKeuze</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNoKeuze.xnb</Output>
-      <Time>2012-01-12T15:26:51.0242481+01:00</Time>
+      <Time>2012-01-03T12:38:48+01:00</Time>
     </Item>
     <Item>
       <Source>Border.png</Source>
@@ -198,33 +198,6 @@
       <Options>None</Options>
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur1.xnb</Output>
       <Time>2011-12-20T12:24:47+01:00</Time>
-    </Item>
-    <Item>
-      <Source>OilEmpty.png</Source>
-      <Name>OilEmpty</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\OilEmpty.xnb</Output>
-      <Time>2012-01-12T15:03:35.3104178+01:00</Time>
-    </Item>
-    <Item>
-      <Source>OilFull.png</Source>
-      <Name>OilFull</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\OilFull.xnb</Output>
-      <Time>2012-01-12T15:03:35.2904167+01:00</Time>
-    </Item>
-    <Item>
-      <Source>wolk.png</Source>
-      <Name>wolk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\wolk.xnb</Output>
-      <Time>2011-12-20T10:56:39.0842654+01:00</Time>
     </Item>
     <Item>
       <Source>FPS.spritefont</Source>

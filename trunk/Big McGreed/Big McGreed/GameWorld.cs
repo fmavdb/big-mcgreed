@@ -214,6 +214,7 @@ namespace Big_McGreed
             }
             else
             {
+                this.IsMouseVisible = true;
                 graphics.PreferredBackBufferHeight = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / 1.5);
                 graphics.PreferredBackBufferWidth = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.5);
                 graphics.ApplyChanges();

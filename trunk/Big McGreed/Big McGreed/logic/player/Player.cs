@@ -85,7 +85,7 @@ namespace Big_McGreed.logic.player
                     //}
                     if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.InGame)
                     {
-                        Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y)));
+                        Program.INSTANCE.GameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 3)));
                         //hit(new Hit(this, null, 10));
                         leftButtonPressed = true;
                         muzzle = 12;
