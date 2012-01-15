@@ -11,7 +11,7 @@ namespace Big_McGreed.engine.update
     {
         private Thread main;
 
-        protected bool running = false;
+        private bool running = false;
 
         /// <summary>
         /// Starts this instance.

@@ -11,9 +11,9 @@ namespace Big_McGreed.content.menu.buttons
     {
         public Quit()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("ButtonNormal");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("ButtonPressed");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("ButtonHighlight");
+            normal = Program.INSTANCE.loadTexture("ButtonNormal");
+            pressed = Program.INSTANCE.loadTexture("ButtonPressed");
+            hover = Program.INSTANCE.loadTexture("ButtonHighlight");
             current = normal;
 
             text = "QUIT";

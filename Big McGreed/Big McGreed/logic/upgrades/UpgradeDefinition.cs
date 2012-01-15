@@ -23,7 +23,7 @@ namespace Big_McGreed.content.upgrades
             if (def == null)
             {
                 def = new UpgradeDefinition();
-                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>(fullName);
+                def.mainTexture = Program.INSTANCE.loadTexture(fullName);
                 GameWorld.upgradeDefinitions.Add(fullName, def);
             }
             return def;

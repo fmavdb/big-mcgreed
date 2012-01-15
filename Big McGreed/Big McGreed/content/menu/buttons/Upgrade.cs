@@ -13,9 +13,9 @@ namespace Big_McGreed.content.menu.buttons
     {
         public Upgrade()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonNormal");
-            pressed = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonPressed");
-            hover = Program.INSTANCE.Content.Load<Texture2D>("TinyButtonHighlight");
+            normal = Program.INSTANCE.loadTexture("TinyButtonNormal");
+            pressed = Program.INSTANCE.loadTexture("TinyButtonPressed");
+            hover = Program.INSTANCE.loadTexture("TinyButtonHighlight");
             current = normal;
 
             tinyButton = true;

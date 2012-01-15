@@ -2,40 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>bullet_bill.png</Source>
-      <Name>bullet_bill</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\bullet_bill.xnb</Output>
-      <Time>2012-01-12T10:50:58.7527674+01:00</Time>
-    </Item>
-    <Item>
-      <Source>crosshair.png</Source>
-      <Name>crosshair</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\crosshair.xnb</Output>
-      <Time>2011-11-29T09:01:11.1811257+01:00</Time>
-    </Item>
-    <Item>
       <Source>poppetje.png</Source>
       <Name>poppetje</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje.xnb</Output>
-      <Time>2011-11-29T12:07:31.278333+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Achtergrond.jpg</Source>
-      <Name>Achtergrond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb</Output>
-      <Time>2011-12-08T15:31:10.2491114+01:00</Time>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje.xnb</Output>
+      <Time>2011-11-29T12:25:26.8109274+01:00</Time>
     </Item>
     <Item>
       <Source>poppetje_rood.png</Source>
@@ -43,188 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje_rood.xnb</Output>
-      <Time>2011-12-13T10:39:14.4746592+01:00</Time>
-    </Item>
-    <Item>
-      <Source>ButtonHighlight.png</Source>
-      <Name>ButtonHighlight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonHighlight.xnb</Output>
-      <Time>2011-12-16T09:21:09.5834667+01:00</Time>
-    </Item>
-    <Item>
-      <Source>ButtonNormal.png</Source>
-      <Name>ButtonNormal</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonNormal.xnb</Output>
-      <Time>2011-12-16T09:21:09.5834667+01:00</Time>
-    </Item>
-    <Item>
-      <Source>ButtonPressed.png</Source>
-      <Name>ButtonPressed</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonPressed.xnb</Output>
-      <Time>2011-12-16T09:21:09.5834667+01:00</Time>
-    </Item>
-    <Item>
-      <Source>TinyButtonHighlight.png</Source>
-      <Name>TinyButtonHighlight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonHighlight.xnb</Output>
-      <Time>2011-12-16T09:21:09.5522667+01:00</Time>
-    </Item>
-    <Item>
-      <Source>TinyButtonNormal.png</Source>
-      <Name>TinyButtonNormal</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonNormal.xnb</Output>
-      <Time>2011-12-16T09:21:09.5990668+01:00</Time>
-    </Item>
-    <Item>
-      <Source>TinyButtonPressed.png</Source>
-      <Name>TinyButtonPressed</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonPressed.xnb</Output>
-      <Time>2011-12-16T09:21:09.5522667+01:00</Time>
-    </Item>
-    <Item>
-      <Source>weapon0.png</Source>
-      <Name>weapon0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\weapon0.xnb</Output>
-      <Time>2012-01-12T15:03:35.3004172+01:00</Time>
-    </Item>
-    <Item>
-      <Source>YesNoKeuze.png</Source>
-      <Name>YesNoKeuze</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNoKeuze.xnb</Output>
-      <Time>2012-01-12T15:26:51.0242481+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Border.png</Source>
-      <Name>Border</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Border.xnb</Output>
-      <Time>2012-01-02T11:56:59.6480735+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Boerderij.png</Source>
-      <Name>Boerderij</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Boerderij.xnb</Output>
-      <Time>2011-12-20T11:23:09+01:00</Time>
-    </Item>
-    <Item>
-      <Source>HPBarGroen.png</Source>
-      <Name>HPBarGroen</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HPBarGroen.xnb</Output>
-      <Time>2012-01-02T11:56:59.6636735+01:00</Time>
-    </Item>
-    <Item>
-      <Source>HPBarRood.png</Source>
-      <Name>HPBarRood</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HPBarRood.xnb</Output>
-      <Time>2012-01-02T11:56:59.6480735+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Muzzle Effect.png</Source>
-      <Name>Muzzle Effect</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muzzle Effect.xnb</Output>
-      <Time>2012-01-12T10:50:58.7597678+01:00</Time>
-    </Item>
-    <Item>
-      <Source>HighScoresInterface.png</Source>
-      <Name>HighScoresInterface</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighScoresInterface.xnb</Output>
-      <Time>2012-01-02T11:56:59.6324734+01:00</Time>
-    </Item>
-    <Item>
-      <Source>UpgradeAchtergrond.png</Source>
-      <Name>UpgradeAchtergrond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\UpgradeAchtergrond.xnb</Output>
-      <Time>2012-01-03T12:55:09+01:00</Time>
-    </Item>
-    <Item>
-      <Source>compas.png</Source>
-      <Name>compas</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\compas.xnb</Output>
-      <Time>2011-12-09T12:30:57.2802284+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Muur1.png</Source>
-      <Name>Muur1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur1.xnb</Output>
-      <Time>2011-12-20T12:24:47+01:00</Time>
-    </Item>
-    <Item>
-      <Source>OilEmpty.png</Source>
-      <Name>OilEmpty</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\OilEmpty.xnb</Output>
-      <Time>2012-01-12T15:03:35.3104178+01:00</Time>
-    </Item>
-    <Item>
-      <Source>OilFull.png</Source>
-      <Name>OilFull</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\OilFull.xnb</Output>
-      <Time>2012-01-12T15:03:35.2904167+01:00</Time>
-    </Item>
-    <Item>
-      <Source>wolk.png</Source>
-      <Name>wolk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\wolk.xnb</Output>
-      <Time>2011-12-20T10:56:39.0842654+01:00</Time>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\poppetje_rood.xnb</Output>
+      <Time>2011-12-09T19:17:58.7426288+01:00</Time>
     </Item>
     <Item>
       <Source>FPS.spritefont</Source>
@@ -232,8 +25,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\FPS.xnb</Output>
-      <Time>2011-11-30T14:28:43.7097744+01:00</Time>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\FPS.xnb</Output>
+      <Time>2011-11-30T09:11:14.4170599+01:00</Time>
     </Item>
     <Item>
       <Source>ButtonFont.spritefont</Source>
@@ -241,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonFont.xnb</Output>
-      <Time>2011-12-13T14:48:31.0501263+01:00</Time>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonFont.xnb</Output>
+      <Time>2011-12-14T08:57:48.1670177+01:00</Time>
     </Item>
     <Item>
       <Source>TinyButtonFont.spritefont</Source>
@@ -250,8 +43,215 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonFont.xnb</Output>
-      <Time>2011-12-16T09:29:26.7571657+01:00</Time>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonFont.xnb</Output>
+      <Time>2011-12-16T09:46:41.7557872+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Achtergrond.jpg</Source>
+      <Name>Achtergrond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb</Output>
+      <Time>2011-12-08T10:45:45.196442+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Boerderij.png</Source>
+      <Name>Boerderij</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Boerderij.xnb</Output>
+      <Time>2011-12-20T12:49:30.7459609+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Border.png</Source>
+      <Name>Border</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Border.xnb</Output>
+      <Time>2011-12-20T13:27:51+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bullet_bill.png</Source>
+      <Name>bullet_bill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\bullet_bill.xnb</Output>
+      <Time>2012-01-11T19:50:25.5421545+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ButtonHighlight.png</Source>
+      <Name>ButtonHighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonHighlight.xnb</Output>
+      <Time>2011-12-15T12:37:32+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ButtonNormal.png</Source>
+      <Name>ButtonNormal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonNormal.xnb</Output>
+      <Time>2011-12-15T12:36:51+01:00</Time>
+    </Item>
+    <Item>
+      <Source>compas.png</Source>
+      <Name>compas</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\compas.xnb</Output>
+      <Time>2011-12-08T22:29:14.4580963+01:00</Time>
+    </Item>
+    <Item>
+      <Source>crosshair.png</Source>
+      <Name>crosshair</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\crosshair.xnb</Output>
+      <Time>2011-11-29T09:00:53.1697049+01:00</Time>
+    </Item>
+    <Item>
+      <Source>HighScoresInterface.png</Source>
+      <Name>HighScoresInterface</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighScoresInterface.xnb</Output>
+      <Time>2011-12-27T13:14:41.9309475+01:00</Time>
+    </Item>
+    <Item>
+      <Source>HPBarGroen.png</Source>
+      <Name>HPBarGroen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HPBarGroen.xnb</Output>
+      <Time>2012-01-11T20:05:47.7108995+01:00</Time>
+    </Item>
+    <Item>
+      <Source>HPBarRood.png</Source>
+      <Name>HPBarRood</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HPBarRood.xnb</Output>
+      <Time>2012-01-11T20:05:47.6928985+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Muur1.png</Source>
+      <Name>Muur1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur1.xnb</Output>
+      <Time>2012-01-11T13:45:37.5380587+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Muzzle Effect.png</Source>
+      <Name>Muzzle Effect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muzzle Effect.xnb</Output>
+      <Time>2012-01-11T19:25:53.4729569+01:00</Time>
+    </Item>
+    <Item>
+      <Source>OilEmpty.png</Source>
+      <Name>OilEmpty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\OilEmpty.xnb</Output>
+      <Time>2011-12-27T14:49:54+01:00</Time>
+    </Item>
+    <Item>
+      <Source>OilFull.png</Source>
+      <Name>OilFull</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\OilFull.xnb</Output>
+      <Time>2011-12-27T14:52:25+01:00</Time>
+    </Item>
+    <Item>
+      <Source>TinyButtonHighlight.png</Source>
+      <Name>TinyButtonHighlight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonHighlight.xnb</Output>
+      <Time>2011-12-15T12:39:52+01:00</Time>
+    </Item>
+    <Item>
+      <Source>TinyButtonNormal.png</Source>
+      <Name>TinyButtonNormal</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonNormal.xnb</Output>
+      <Time>2011-12-15T12:40:22+01:00</Time>
+    </Item>
+    <Item>
+      <Source>TinyButtonPressed.png</Source>
+      <Name>TinyButtonPressed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonPressed.xnb</Output>
+      <Time>2011-12-15T12:39:29+01:00</Time>
+    </Item>
+    <Item>
+      <Source>UpgradeAchtergrond.png</Source>
+      <Name>UpgradeAchtergrond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\UpgradeAchtergrond.xnb</Output>
+      <Time>2012-01-09T22:08:38.6747375+01:00</Time>
+    </Item>
+    <Item>
+      <Source>weapon0.png</Source>
+      <Name>weapon0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\weapon0.xnb</Output>
+      <Time>2012-01-11T15:03:13.1231076+01:00</Time>
+    </Item>
+    <Item>
+      <Source>wolk.png</Source>
+      <Name>wolk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\wolk.xnb</Output>
+      <Time>2011-12-13T09:13:48+01:00</Time>
+    </Item>
+    <Item>
+      <Source>YesNoKeuze.png</Source>
+      <Name>YesNoKeuze</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\YesNoKeuze.xnb</Output>
+      <Time>2012-01-12T16:53:15.7899113+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ButtonPressed.png</Source>
+      <Name>ButtonPressed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonPressed.xnb</Output>
+      <Time>2011-12-15T12:37:59+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -259,10 +259,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreedContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreedContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreedContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -291,7 +291,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-08-30T11:34:46.691725+02:00</Value>
+        <Value>2011-08-30T11:53:52.644391+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

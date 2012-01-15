@@ -24,7 +24,7 @@ namespace Big_McGreed.logic.projectile
             if (def == null) 
             {
                 def = new ProjectileDefinition();
-                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("bullet_bill");
+                def.mainTexture = Program.INSTANCE.loadTexture("bullet_bill");
                 def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
                 def.mainTexture.GetData<Color>(def.pixels);
                 GameWorld.projectileDefinitions.Add(type, def);

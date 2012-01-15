@@ -8,6 +8,7 @@ using Big_McGreed.utility;
 using Big_McGreed.logic.npc;
 using Big_McGreed.logic.mask;
 using Big_McGreed.engine.ticks;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Big_McGreed.logic
 {
@@ -163,7 +164,7 @@ namespace Big_McGreed.logic
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public abstract void Draw();
+        public abstract void Draw(SpriteBatch batch);
 
         public void registerTick(Tick tick, string identifier)
         {

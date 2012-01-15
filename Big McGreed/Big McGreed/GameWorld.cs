@@ -187,7 +187,7 @@ namespace Big_McGreed
         public static Random random = new Random();
 
         private GraphicsDeviceManager graphics;
-        public SpriteBatch spriteBatch;
+        private SpriteBatch spriteBatch;
         //public MouseState lastMouseState { get; private set; }
 
         //private Crosshair crosshair;
@@ -266,18 +266,11 @@ namespace Big_McGreed
                 npcs.Clear();
                 player.Lifes = Player.maxHP;
                 player.gold = 0;
-                //int y = 0;
-                //for (int i = 0; i < 4; i++)
-                //{
-                   // NPC npc = new NPC(1, new Vector2(0, y));
-                    //npcs.AddFirst(npc);
-                //}
             }
-            gameMap.ClearProjectiles();
-            gameMap.LoadGameObjects();
-            //npc.setLocation(new Vector2(0, 100));
-            //npcs.AddFirst(npc);
+            gameMap.ClearProjectiles(); //Remove existing projectiles.
+            gameMap.LoadGameObjects(); //Reload game objects.
         }
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -328,8 +321,6 @@ namespace Big_McGreed
                     menu.Update();
                     break;
                 case GameState.InGame:
-                    gameFrame.UpdateGold();
-
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                     {
                         CurrentGameState = GameState.Paused;
@@ -366,40 +357,39 @@ namespace Big_McGreed
         {
             //LET OP! - De volgorde bepaalt de layer op het scherm. (Dus door een plaatje als eerste te drawen, krijg je een background)
             spriteBatch.Begin();
-            gameMap.DrawBackground();
+            gameMap.DrawBackground(spriteBatch);
             switch (gameState)
             {
                 case GameState.Highscore:
-                    menu.Draw();
-                    highScores.Draw();
+                    menu.Draw(spriteBatch);
+                    highScores.Draw(spriteBatch);
                     if (player != null && player.visible)
-                        player.Draw();    
+                        player.Draw(spriteBatch);    
                     break;
                 case GameState.GameOver:
                 case GameState.Select:
                 case GameState.Paused:
                 case GameState.Menu:
-                    menu.Draw();
+                    menu.Draw(spriteBatch);
                     if (player != null && player.visible)
-                        player.Draw();
+                        player.Draw(spriteBatch);
                     break;
                 case GameState.Upgrade:
-                    menu.Draw();
-                    gameFrame.DrawGold(goldPositionUpgrade);
+                    menu.Draw(spriteBatch);
                     if (player != null && player.visible)
-                        player.Draw();
+                        player.Draw(spriteBatch);
                     break;
                 case GameState.InGame:
-                    gameMap.DrawObjects();
-                    gameFrame.Draw();
-                    npcUpdate.Draw();
-                    gameMap.DrawProjectiles();
+                    gameMap.DrawObjects(spriteBatch);
+                    gameFrame.Draw(spriteBatch);
+                    npcUpdate.Draw(spriteBatch);
+                    gameMap.DrawProjectiles(spriteBatch);
                     if (player != null && player.visible)
-                        player.Draw();
+                        player.Draw(spriteBatch);
                     break;
                     
             }
-            info.Draw();
+            info.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
@@ -522,6 +512,27 @@ namespace Big_McGreed
             private set
             {
             }
+        }
+
+        /// <summary>
+        /// Loads the texture.
+        /// </summary>
+        /// <param name="location">The location.</param>
+        /// <returns>The loaded texture</returns>
+        public Texture2D loadTexture(string location)
+        {
+            Texture2D texture = null;
+            try
+            {
+                texture = Content.Load<Texture2D>(location);
+            } 
+            catch (Exception e) 
+            {
+                Console.Error.WriteLine("Can not load the image. Please make sure the input path is correct and that the image exists.");  
+            }
+            if (texture != null)
+                Console.WriteLine("Loaded image: " + location);
+            return texture;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Big_McGreed.content.menu.buttons
     {
         public UpgradeAchtergrond()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("UpgradeAchtergrond");
+            normal = Program.INSTANCE.loadTexture("UpgradeAchtergrond");
             pressed = normal;
             hover = normal;
             current = normal;

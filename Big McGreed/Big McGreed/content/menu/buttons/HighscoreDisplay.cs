@@ -12,7 +12,7 @@ namespace Big_McGreed.content.menu.buttons
     {
         public HighscoreDisplay()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("HighScoresInterface");
+            normal = Program.INSTANCE.loadTexture("HighScoresInterface");
             hover = normal;
             pressed = normal;
             current = normal;
