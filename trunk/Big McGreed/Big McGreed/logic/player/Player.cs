@@ -22,7 +22,7 @@ namespace Big_McGreed.logic.player
     {
         public static int maxHP = 100;
 
-        private Upgrade wall = null;
+        public Upgrade Wall { get; private set; }
 
         public Upgrade Weapon { get; private set; }
 
@@ -103,8 +103,8 @@ namespace Big_McGreed.logic.player
         /// <param name="batch">The batch</param>
         public override void Draw(SpriteBatch batch)
         {
-            batch.Draw(definition.mainTexture, getLocation(), Color.Black);
-            switch (Program.INSTANCE.CurrentGameState)
+            batch.Draw(definition.mainTexture, getLocation(), Color.White);
+            switch(Program.INSTANCE.CurrentGameState)
             {
                 case GameWorld.GameState.InGame:
                     if (muzzle > 0)
@@ -112,7 +112,7 @@ namespace Big_McGreed.logic.player
                         batch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle--;
                     }
-                    rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y, Weapon.getX() - Mouse.GetState().X);
+                    rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y - 50, Weapon.getX() - Mouse.GetState().X);
                     batch.Draw(Weapon.definition.mainTexture, Weapon.getLocation(), new Rectangle(0, 0, Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), Color.White, rotation, new Vector2(Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                     break;
             }

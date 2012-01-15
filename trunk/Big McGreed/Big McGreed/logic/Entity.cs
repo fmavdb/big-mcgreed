@@ -112,13 +112,14 @@ namespace Big_McGreed.logic
                 Hit hit = receivedHits.Dequeue();
                 if (hit != null)
                 {
-                    Lifes -= hit.damage;
+                    Lifes -= hit.Damage;
                     if (Lifes <= 0)
                     {
                         if (this is NPC)
                         {
                             ((NPC)this).destroy();
-                            Program.INSTANCE.player.gold += 100;
+                            if (hit.From is Player)
+                                ((Player)hit.From).gold += 100;
                         }
                         else if (this is Player)
                         {

@@ -123,22 +123,22 @@
     <Compile Include="content\hardware\ArduinoManager.cs" />
     <Compile Include="content\hardware\MessageBuilder.cs" />
     <Compile Include="content\highscore\HighScore.cs" />
-    <Compile Include="content\menu\Button.cs" />
-    <Compile Include="content\menu\buttons\HighScoreButton.cs" />
-    <Compile Include="content\menu\buttons\HighscoreDisplay.cs" />
-    <Compile Include="content\menu\buttons\MainMenu.cs" />
-    <Compile Include="content\menu\buttons\MenuButtonKlein.cs" />
-    <Compile Include="content\menu\buttons\NewGame.cs" />
-    <Compile Include="content\menu\buttons\NoButton.cs" />
-    <Compile Include="content\menu\buttons\Quit.cs" />
-    <Compile Include="content\menu\buttons\Resume.cs" />
-    <Compile Include="content\menu\buttons\ResumeKlein.cs" />
-    <Compile Include="content\menu\buttons\SubmitHighscore.cs" />
-    <Compile Include="content\menu\buttons\Upgrade.cs" />
-    <Compile Include="content\menu\buttons\YesButton.cs" />
-    <Compile Include="content\menu\buttons\YesNoSelect.cs" />
-    <Compile Include="content\menu\Menu.cs" />
-    <Compile Include="content\menu\upgradeButtons\UpgradeAchtergrond.cs" />
+    <Compile Include="content\gameinterface\InterfaceComponent.cs" />
+    <Compile Include="content\gameinterface\buttons\HighScoreButton.cs" />
+    <Compile Include="content\gameinterface\interfaces\HighscoreDisplay.cs" />
+    <Compile Include="content\gameinterface\buttons\MainMenu.cs" />
+    <Compile Include="content\gameinterface\buttons\MenuButtonKlein.cs" />
+    <Compile Include="content\gameinterface\buttons\NewGame.cs" />
+    <Compile Include="content\gameinterface\buttons\NoButton.cs" />
+    <Compile Include="content\gameinterface\buttons\Quit.cs" />
+    <Compile Include="content\gameinterface\buttons\Resume.cs" />
+    <Compile Include="content\gameinterface\buttons\ResumeKlein.cs" />
+    <Compile Include="content\gameinterface\buttons\SubmitHighscore.cs" />
+    <Compile Include="content\gameinterface\buttons\Upgrade.cs" />
+    <Compile Include="content\gameinterface\buttons\YesButton.cs" />
+    <Compile Include="content\gameinterface\buttons\YesNoSelect.cs" />
+    <Compile Include="content\gameinterface\InterfaceManager.cs" />
+    <Compile Include="content\gameinterface\upgradeButtons\UpgradeAchtergrond.cs" />
     <Compile Include="logic\upgrades\Upgrade.cs" />
     <Compile Include="logic\upgrades\UpgradeDefinition.cs" />
     <Compile Include="engine\misc\CleanUp.cs" />
@@ -209,6 +209,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="content\input\" />
     <Folder Include="engine\ticks\impl\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -59,7 +59,7 @@ namespace Big_McGreed.content.hardware
             } 
             catch (IOException e) 
             {
-                Console.WriteLine(new ArduinoException(e.Message)); //Prevent the game from crashing while connecting
+                Console.Error.WriteLine(new ArduinoException(e.Message)); //Prevent the game from crashing while connecting
                 return false;
             }
         }
@@ -89,7 +89,7 @@ namespace Big_McGreed.content.hardware
                     //Doe iets...
                     break;
                 default:
-                    Console.WriteLine(new ArduinoException("Arduino message: " + message + " is unhandled."));
+                    Console.Error.WriteLine(new ArduinoException("Arduino message: " + message + " is unhandled."));
                     break;
             }
         }
@@ -111,7 +111,7 @@ namespace Big_McGreed.content.hardware
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine(new ArduinoException(exception.Message)); //Prevent the game from crashing while writing
+                    Console.Error.WriteLine(new ArduinoException(exception.Message)); //Prevent the game from crashing while writing
                     return false;
                 }
             }
@@ -148,7 +148,7 @@ namespace Big_McGreed.content.hardware
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(new ArduinoException(e.Message));
+                        Console.Error.WriteLine(new ArduinoException(e.Message));
                     }
                 }
                 System.Threading.Thread.Sleep(ArduinoConstants.DATA_READING_INTERVAL);

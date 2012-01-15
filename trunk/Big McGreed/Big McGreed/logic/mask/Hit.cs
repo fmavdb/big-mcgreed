@@ -7,11 +7,11 @@ namespace Big_McGreed.logic.mask
 {
     public class Hit
     {
-        public int damage { get; private set; }
+        public int Damage { get; private set; }
 
-        public Entity to { get; private set; }
+        public Entity To { get; set; }
 
-        public Entity from { get; private set; }
+        public Entity From { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Hit"/> class.
@@ -21,9 +21,9 @@ namespace Big_McGreed.logic.mask
         /// <param name="damage">The damage.</param>
         public Hit(Entity to, Entity from, int damage)
         {
-            this.to = to;
-            this.from = from;
-            this.damage = damage;
+            this.To = to;
+            this.From = from;
+            this.Damage = damage;
         }
     }
 }

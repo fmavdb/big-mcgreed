@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Big_McGreed.content.menu.buttons
+namespace Big_McGreed.content.gameinterface.buttons
 {
-    public class NewGame : Button
+    public class NewGame : InterfaceComponent
     {
         public NewGame()
         {

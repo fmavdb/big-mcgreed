@@ -18,7 +18,7 @@ namespace Big_McGreed.logic.player
             if (!def.loaded) 
             {
                 def = new PlayerDefinition();
-                def.mainTexture = Program.INSTANCE.loadTexture("compas");
+                def.mainTexture = Program.INSTANCE.loadTexture("crosshair");
                 def.personTexture = Program.INSTANCE.loadTexture("poppetje");
                 def.loaded = true;
                 GameWorld.playerDefinition = def;

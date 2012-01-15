@@ -5,13 +5,12 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Big_McGreed.content.menu
+namespace Big_McGreed.content.gameinterface
 {
     /// <summary>
     /// Represents a button or an interface. 
-    /// Als je een betere naam weet zeg ut dan :P
     /// </summary>
-    public abstract class Button
+    public abstract class InterfaceComponent
     {
         /// <summary>
         /// Wether the button is tiny or not.
@@ -29,9 +28,9 @@ namespace Big_McGreed.content.menu
         public abstract void action();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Button"/> class.
+        /// Initializes a new instance of the <see cref="InterfaceComponent"/> class.
         /// </summary>
-        public Button()
+        public InterfaceComponent()
         {
             font = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
             tinyFont = Program.INSTANCE.Content.Load<SpriteFont>("TinyButtonFont");

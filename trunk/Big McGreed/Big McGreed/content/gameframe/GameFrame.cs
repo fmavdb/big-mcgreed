@@ -88,6 +88,7 @@ namespace Big_McGreed.content.gameframe
         /// Draws this instance.
         /// Be sure to watch the order when you draw something! Placing something first, will draw it first, antyhing that comes after it, will be drawn over the first texture.
         /// </summary>
+        /// <param name="batch">The batch.</param>
         public void Draw(SpriteBatch batch)
         {
             if (mainTexture != null)
@@ -109,6 +110,10 @@ namespace Big_McGreed.content.gameframe
             batch.DrawString(gameFrameFont, oilText, oilBaroilLevelPositie, Color.White);
         }
 
+        /// <summary>
+        /// Updates the HP.
+        /// </summary>
+        /// <param name="hp">The hp.</param>
         public void UpdateHP(int hp)
         {
             double factor = ((double)hp / (double)Player.maxHP);

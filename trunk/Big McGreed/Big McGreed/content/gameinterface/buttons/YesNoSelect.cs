@@ -6,9 +6,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Big_McGreed.content.gameframe;
 
-namespace Big_McGreed.content.menu.buttons
+namespace Big_McGreed.content.gameinterface.buttons
 {
-    public class YesNoSelect : Button
+    public class YesNoSelect : InterfaceComponent
     {
         string newGameText = " Are you sure you wish to start a new game?     \n\n NOTE: YOU WILL LOSE ALL YOUR PROGRESS!";
         string mainMenuText = " Are you sure you wish to go to the main menu? \n\n NOTE: YOU WILL LOSE ALL YOUR PROGRESS!";
@@ -22,7 +22,7 @@ namespace Big_McGreed.content.menu.buttons
 
             isInterface = true;
 
-            textLocation = new Vector2(GameFrame.Width / 2 - Button.font.MeasureString(newGameText).X / 2, GameFrame.Height / 2.2f - Button.font.MeasureString(newGameText).Y / 2);
+            textLocation = new Vector2(GameFrame.Width / 2 - InterfaceComponent.font.MeasureString(newGameText).X / 2, GameFrame.Height / 2.2f - InterfaceComponent.font.MeasureString(newGameText).Y / 2);
         }
 
         public override void action()
