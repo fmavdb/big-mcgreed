@@ -42,9 +42,9 @@ namespace Big_McGreed.content.highscore
             //Laad gegevens... SELECT naam, score FROM highscores ORDER BY score LIMIT 10
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch batch)
         {
-            Program.INSTANCE.spriteBatch.DrawString(highscoreFont, titelText, locatieHighscore, Color.White);
+            batch.DrawString(highscoreFont, titelText, locatieHighscore, Color.White);
 
             int nummer = 1;
             Vector2 huidig = locatieHighscorePersonen;
@@ -60,13 +60,13 @@ namespace Big_McGreed.content.highscore
 
                 if (nummer != 10)
                 {
-                    Program.INSTANCE.spriteBatch.DrawString(highscoreFont, "  " + nummer + ".   " + naam, huidig, Color.White);
+                    batch.DrawString(highscoreFont, "  " + nummer + ".   " + naam, huidig, Color.White);
                 }
                 else
                 {
-                    Program.INSTANCE.spriteBatch.DrawString(highscoreFont, "" + nummer + ".   " + naam, huidig, Color.White);
+                    batch.DrawString(highscoreFont, "" + nummer + ".   " + naam, huidig, Color.White);
                 }
-                Program.INSTANCE.spriteBatch.DrawString(highscoreFont, "" + score, locatieHighscoreScore, Color.Red);
+                batch.DrawString(highscoreFont, "" + score, locatieHighscoreScore, Color.Red);
 
                 huidig.Y += 50;
                 nummer++;

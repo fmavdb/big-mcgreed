@@ -53,11 +53,11 @@ namespace Big_McGreed.logic.map
         /// <returns></returns>
         public static bool collision(Entity entity, int x, int y, bool checkForNPCCollision)
         {
-            if (checkForNPCCollision)
+            /*if (checkForNPCCollision)
             {
                 lock (Program.INSTANCE.npcs)
                 {
-                    Rectangle crossHair = new Rectangle(x, y, Player.dotSize, Player.dotSize);
+                    Rectangle crossHair = new Rectangle(x, y, 5, 5);
                     foreach (NPC npc in Program.INSTANCE.npcs)
                     {
                         if (npc.visible && npc.definition.mainTexture != null)
@@ -79,7 +79,7 @@ namespace Big_McGreed.logic.map
                         }
                     }
                 }
-            }
+            }  */
             return false;
         }
 

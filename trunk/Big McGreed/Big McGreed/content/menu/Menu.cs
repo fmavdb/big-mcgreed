@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input;
 using Big_McGreed.logic.map;
 using Microsoft.Xna.Framework;
 using Big_McGreed.content.gameframe;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Big_McGreed.content.menu
 {
@@ -62,7 +63,6 @@ namespace Big_McGreed.content.menu
         {
             Button buttonNearMouse = null;
             yesNoSelect.YesNoSelectUpdate();
-            Program.INSTANCE.gameFrame.UpdateGold();
 
             lock (buttons)
             {
@@ -108,13 +108,13 @@ namespace Big_McGreed.content.menu
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public void Draw()
+        public void Draw(SpriteBatch batch)
         {
             lock (buttons)
             {
                 foreach (Button button in buttons)
                 {
-                    button.Draw();
+                    button.Draw(batch);
                 }
             }
         }

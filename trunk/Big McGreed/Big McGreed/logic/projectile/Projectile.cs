@@ -117,9 +117,9 @@ namespace Big_McGreed.logic.projectile
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public void Draw()
+        public void Draw(SpriteBatch batch)
         {
-            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, Rotation, new Vector2(Program.INSTANCE.player.Weapon.definition.mainTexture.Width, Program.INSTANCE.player.Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+            batch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, Rotation, new Vector2(Program.INSTANCE.player.Weapon.definition.mainTexture.Width, Program.INSTANCE.player.Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
         }
     }
 }

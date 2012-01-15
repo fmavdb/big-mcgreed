@@ -18,8 +18,8 @@ namespace Big_McGreed.logic.player
             if (!def.loaded) 
             {
                 def = new PlayerDefinition();
-                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("compas");
-                def.personTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
+                def.mainTexture = Program.INSTANCE.loadTexture("compas");
+                def.personTexture = Program.INSTANCE.loadTexture("poppetje");
                 def.loaded = true;
                 GameWorld.playerDefinition = def;
             }

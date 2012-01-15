@@ -77,7 +77,8 @@ namespace Big_McGreed.logic.npc
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public override void Draw() 
+        /// <param name="batch">The batch.</param>
+        public override void Draw(SpriteBatch batch) 
         {
             Texture2D toDraw = definition.mainTexture;
             if (hitted)
@@ -85,7 +86,7 @@ namespace Big_McGreed.logic.npc
                 toDraw = definition.hittedTexture;
                 hitted = false;
             }
-            Program.INSTANCE.spriteBatch.Draw(toDraw, getLocation(), Color.White);
+            batch.Draw(toDraw, getLocation(), Color.White);
         }
     }
 }

@@ -28,8 +28,8 @@ namespace Big_McGreed.logic.npc
             if (def == null)
             {
                 def = new NPCDefinition();
-                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje");
-                def.hittedTexture = Program.INSTANCE.Content.Load<Texture2D>("poppetje_rood");
+                def.mainTexture = Program.INSTANCE.loadTexture("poppetje");
+                def.hittedTexture = Program.INSTANCE.loadTexture("poppetje_rood");
                 def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
                 def.mainTexture.GetData<Color>(def.pixels);
                 def.hp = 20;

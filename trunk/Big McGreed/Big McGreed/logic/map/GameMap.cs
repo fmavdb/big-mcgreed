@@ -39,7 +39,7 @@ namespace Big_McGreed.logic.map
         {
             objects = new LinkedList<GameObject>();
             projectiles = new LinkedList<Projectile>();
-            mainTexture = Program.INSTANCE.Content.Load<Texture2D>("Achtergrond");
+            mainTexture = Program.INSTANCE.loadTexture("Achtergrond");
         }
 
         /// <summary>
@@ -89,24 +89,24 @@ namespace Big_McGreed.logic.map
         /// <summary>
         /// Draws the background.
         /// </summary>
-        public void DrawBackground()
+        public void DrawBackground(SpriteBatch batch)
         {
             float scale = 1.0f;
             //Console.WriteLine(scale);
-            Program.INSTANCE.spriteBatch.Draw(mainTexture, Vector2.Zero, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
+            batch.Draw(mainTexture, Vector2.Zero, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
         }
 
         /// <summary>
         /// Draws objects in this instance.
         /// </summary>
-        public void DrawObjects()
+        public void DrawObjects(SpriteBatch batch)
         {
             lock(objects) {
                 foreach (GameObject gameObject in objects)
                 {
                     if (gameObject.visible)
                     {
-                        gameObject.Draw();
+                        gameObject.Draw(batch);
                     }
                 }
             }
@@ -138,7 +138,7 @@ namespace Big_McGreed.logic.map
         /// <summary>
         /// Draws projectiles in this instance.
         /// </summary>
-        public void DrawProjectiles()
+        public void DrawProjectiles(SpriteBatch batch)
         {
             lock (projectiles)
             {
@@ -146,7 +146,7 @@ namespace Big_McGreed.logic.map
                 {
                     if (projectile.visible && !projectile.destroyed)
                     {
-                        projectile.Draw();
+                        projectile.Draw(batch);
                     }
                 }
             }

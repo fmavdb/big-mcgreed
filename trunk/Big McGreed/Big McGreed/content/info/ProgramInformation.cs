@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.content.info
 {
@@ -24,6 +25,8 @@ namespace Big_McGreed.content.info
             memory = new Vector2(0, spriteFont.LineSpacing);
             npcs = new Vector2(0, spriteFont.LineSpacing * 2);
             projectiles = new Vector2(0, spriteFont.LineSpacing * 3);
+            arduino = new Vector2(GameFrame.Width - spriteFont.MeasureString("Arduino Connection: TODO").X, 0);
+            database = new Vector2(GameFrame.Width - spriteFont.MeasureString("Database Connection: TODO").X, spriteFont.LineSpacing);
         }
 
         /// <summary>
@@ -46,17 +49,21 @@ namespace Big_McGreed.content.info
         Vector2 memory;
         Vector2 npcs;
         Vector2 projectiles;
+        Vector2 arduino;
+        Vector2 database;
 
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public void Draw()
+        public void Draw(SpriteBatch batch)
         {
             frameCounter++;
-            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "FPS: " + frameRate.ToString(), Vector2.One, Color.White);
-            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "Memory: " + System.GC.GetTotalMemory(false), memory, Color.White);
-            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "NPC's: " + Program.INSTANCE.npcs.Count, npcs, Color.White);
-            Program.INSTANCE.spriteBatch.DrawString(spriteFont, "Projectiles: " + Program.INSTANCE.GameMap.Projectiles.Count, projectiles, Color.White);
+            batch.DrawString(spriteFont, "FPS: " + frameRate.ToString(), Vector2.Zero, Color.White);
+            batch.DrawString(spriteFont, "Memory: " + System.GC.GetTotalMemory(false), memory, Color.White);
+            batch.DrawString(spriteFont, "NPC's: " + Program.INSTANCE.npcs.Count, npcs, Color.White);
+            batch.DrawString(spriteFont, "Projectiles: " + Program.INSTANCE.GameMap.Projectiles.Count, projectiles, Color.White);
+            batch.DrawString(spriteFont, "Arduino Connection: TODO", arduino, Color.White);
+            batch.DrawString(spriteFont, "Database Connection: TODO", database, Color.White);
         }
     }
 }

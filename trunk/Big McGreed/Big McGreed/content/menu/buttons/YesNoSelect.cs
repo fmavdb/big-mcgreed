@@ -15,7 +15,7 @@ namespace Big_McGreed.content.menu.buttons
 
         public YesNoSelect()
         {
-            normal = Program.INSTANCE.Content.Load<Texture2D>("YesNoKeuze");
+            normal = Program.INSTANCE.loadTexture("YesNoKeuze");
             hover = normal;
             pressed = normal;
             current = normal;

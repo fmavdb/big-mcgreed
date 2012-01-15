@@ -24,7 +24,7 @@ namespace Big_McGreed.logic.map.objects
             if (def == null)
             {
                 def = new ObjectDefinition();
-                def.mainTexture = Program.INSTANCE.Content.Load<Texture2D>("wolk");
+                def.mainTexture = Program.INSTANCE.loadTexture("wolk");
                 GameWorld.objectDefinitions.Add(type, def);
             }
             return def;

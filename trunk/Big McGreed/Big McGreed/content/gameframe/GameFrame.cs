@@ -8,9 +8,19 @@ using Big_McGreed.logic.player;
 
 namespace Big_McGreed.content.gameframe
 {
+    /// <summary>
+    /// Represents the game frame and its contents.
+    /// </summary>
     public class GameFrame
     {
+        /// <summary>
+        /// The Width of the application.
+        /// </summary>
         public static int Width;
+
+        /// <summary>
+        /// The Height of the application.
+        /// </summary>
         public static int Height;
 
         private Texture2D mainTexture = null;
@@ -23,73 +33,56 @@ namespace Big_McGreed.content.gameframe
 
         private Rectangle rectangleHP;
 
-        public SpriteFont gameFrameFont;
+        private SpriteFont gameFrameFont;
         private Vector2 gameFrameFontPositie;
 
         private string currency = "$";
-        private string cash = "";
 
         private Texture2D muur;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameFrame"/> class.
+        /// </summary>
         public GameFrame()
         {
-            mainTexture = Program.INSTANCE.Content.Load<Texture2D>("Border");
+            mainTexture = Program.INSTANCE.loadTexture("Border");
 
-            boerderijTexture = Program.INSTANCE.Content.Load<Texture2D>("Boerderij");
+            boerderijTexture = Program.INSTANCE.loadTexture("Boerderij");
             boerderijPositie = new Vector2(Width - boerderijTexture.Width / 2, Height - boerderijTexture.Height * 1.2f);
 
-            hpBarTextureRood = Program.INSTANCE.Content.Load<Texture2D>("HPBarRood");
-            hpBarTextureGroen = Program.INSTANCE.Content.Load<Texture2D>("HPBarGroen");
+            hpBarTextureRood = Program.INSTANCE.loadTexture("HPBarRood");
+            hpBarTextureGroen = Program.INSTANCE.loadTexture("HPBarGroen");
             hpBarPositie = new Vector2((Width - hpBarTextureGroen.Width) / 1.025f , 0 + hpBarTextureGroen.Height);
 
             rectangleHP = new Rectangle(0, 0, hpBarTextureGroen.Width, hpBarTextureGroen.Height);
 
-            gameFrameFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
+            gameFrameFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont"); //dit is een font geen image
             gameFrameFontPositie = new Vector2((Width - hpBarTextureGroen.Width) / 1.025f, hpBarTextureGroen.Height * 2.5f);
 
-            muur = Program.INSTANCE.Content.Load<Texture2D>("Muur1");
+            //muur = Program.INSTANCE.loadTexture("Muur1");
         }
 
-        public void Draw()
+        /// <summary>
+        /// Draws this instance.
+        /// Be sure to watch the order when you draw something! Placing something first, will draw it first, antyhing that comes after it, will be drawn over the first texture.
+        /// </summary>
+        public void Draw(SpriteBatch batch)
         {
             if (mainTexture != null)
             {
-                Program.INSTANCE.spriteBatch.Draw(mainTexture, Vector2.Zero, Color.White);
-                Program.INSTANCE.spriteBatch.Draw(Program.INSTANCE.player.definition.personTexture, Program.INSTANCE.player.BoerLocatie, Color.Black);
-                Program.INSTANCE.spriteBatch.Draw(boerderijTexture, boerderijPositie, Color.White);
-                Program.INSTANCE.spriteBatch.Draw(hpBarTextureRood, hpBarPositie, Color.White);
-                Program.INSTANCE.spriteBatch.Draw(hpBarTextureGroen, hpBarPositie, rectangleHP, Color.White);
-                Program.INSTANCE.spriteBatch.Draw(hpBarTextureRood, hpBarPositie, Color.White);
-
-                cash = currency + Program.INSTANCE.player.gold.ToString();
-                Program.INSTANCE.spriteBatch.DrawString(gameFrameFont, cash, gameFrameFontPositie, Color.White);
-
-                //Program.INSTANCE.spriteBatch.Draw(muur, Vector2.Zero, Color.White);
+                batch.Draw(mainTexture, Vector2.Zero, Color.White);
             }
-        }
-
-        public void DrawGold(Vector2 positie)
-        {
-                Program.INSTANCE.spriteBatch.DrawString(gameFrameFont, cash, positie, Color.White);
+            batch.Draw(Program.INSTANCE.player.definition.personTexture, Program.INSTANCE.player.BoerLocatie, Color.Black);
+            batch.Draw(boerderijTexture, boerderijPositie, Color.White);
+            batch.Draw(hpBarTextureRood, hpBarPositie, Color.White);
+            batch.Draw(hpBarTextureGroen, hpBarPositie, rectangleHP, Color.White); 
+            batch.DrawString(gameFrameFont, currency + Program.INSTANCE.player.gold, gameFrameFontPositie, Color.White);
         }
 
         public void UpdateHP(int hp)
         {
             double factor = ((double)hp / (double)Player.maxHP);
             rectangleHP = new Rectangle(0, 0, (int)(hpBarTextureGroen.Width * factor), hpBarTextureGroen.Height);
-        }
-
-        public void UpdateGold()
-        {
-            if (Program.INSTANCE.player.lastGold != Program.INSTANCE.player.gold)
-            {
-                Program.INSTANCE.player.lastGold = Program.INSTANCE.player.gold;
-                cash = currency + Program.INSTANCE.player.gold.ToString();
-
-                Program.INSTANCE.spriteBatch.Begin();
-                Program.INSTANCE.spriteBatch.DrawString(gameFrameFont, cash, gameFrameFontPositie, Color.White);
-                Program.INSTANCE.spriteBatch.End();
-            }
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using Big_McGreed.logic.npc;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Big_McGreed.engine.update
 {
@@ -82,7 +83,7 @@ namespace Big_McGreed.engine.update
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public void Draw()
+        public void Draw(SpriteBatch batch)
         {
             lock (Program.INSTANCE.npcs)
             {
@@ -90,7 +91,7 @@ namespace Big_McGreed.engine.update
                 {
                     if (npc.visible && npc.definition.mainTexture != null && !npc.destroyed)
                     {
-                        npc.Draw();
+                        npc.Draw(batch);
                     }
                 }
             }

@@ -31,7 +31,7 @@ namespace Big_McGreed.logic.sprite
                 currentFrame = 0;
         }
 
-        public void Draw(Vector2 location)
+        public void Draw(SpriteBatch batch, Vector2 location)
         {
             int width = Texture.Width / Columns;
             int height = Texture.Height / Rows;
@@ -40,7 +40,7 @@ namespace Big_McGreed.logic.sprite
 
             Rectangle src = new Rectangle(width * column, height * row, width, height);
             Rectangle dest = new Rectangle((int)location.X, (int)location.Y, width, height);
-            Program.INSTANCE.spriteBatch.Draw(Texture, dest, src, Color.White);
+            batch.Draw(Texture, dest, src, Color.White);
         }
     }
 }

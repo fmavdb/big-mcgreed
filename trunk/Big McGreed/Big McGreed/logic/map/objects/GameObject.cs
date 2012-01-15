@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Big_McGreed.content.gameframe;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Big_McGreed.logic.map.objects
 {
@@ -48,7 +49,7 @@ namespace Big_McGreed.logic.map.objects
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public void Draw()
+        public void Draw(SpriteBatch batch)
         {
             if (velocity != Vector2.Zero)
             {
@@ -61,7 +62,7 @@ namespace Big_McGreed.logic.map.objects
                     setX(GameWorld.random.Next(-ObjectDefinition.forType(1).mainTexture.Width - GameWorld.random.Next(0, 800), -ObjectDefinition.forType(1).mainTexture.Width));
                 }
             }
-            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.White);
+            batch.Draw(definition.mainTexture, getLocation(), Color.White);
         }
     }
 }

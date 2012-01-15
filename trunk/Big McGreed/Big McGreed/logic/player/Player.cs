@@ -26,9 +26,6 @@ namespace Big_McGreed.logic.player
 
         public Upgrade Weapon { get; private set; }
 
-        //De grootte van de 'dot' van de crosshair, stelt dotSize(width) x dotSize(height) pixels voor.
-        public const int dotSize = 5;
-
         public PlayerDefinition definition { get { return PlayerDefinition.getDefinition(); } }
 
         public int currentLevel { get; set; }
@@ -41,11 +38,10 @@ namespace Big_McGreed.logic.player
         private float rotation;
 
         public int gold { get; set; }
-        public int lastGold { get; set; }
 
         public int muzzle = 0;
 
-        Texture2D muzzleTexture = Program.INSTANCE.Content.Load<Texture2D>("Muzzle Effect");
+        Texture2D muzzleTexture = Program.INSTANCE.loadTexture("Muzzle Effect");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
@@ -102,19 +98,20 @@ namespace Big_McGreed.logic.player
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public override void Draw()
+        /// <param name="batch">The batch</param>
+        public override void Draw(SpriteBatch batch)
         {
-            Program.INSTANCE.spriteBatch.Draw(definition.mainTexture, getLocation(), Color.Black);
+            batch.Draw(definition.mainTexture, getLocation(), Color.Black);
             switch (Program.INSTANCE.CurrentGameState)
             {
                 case GameWorld.GameState.InGame:
                     if (muzzle > 0)
                     {
-                        Program.INSTANCE.spriteBatch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+                        batch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle--;
                     }
                     rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y, Weapon.getX() - Mouse.GetState().X);
-                    Program.INSTANCE.spriteBatch.Draw(Weapon.definition.mainTexture, Weapon.getLocation(), new Rectangle(0, 0, Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), Color.White, rotation, new Vector2(Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+                    batch.Draw(Weapon.definition.mainTexture, Weapon.getLocation(), new Rectangle(0, 0, Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), Color.White, rotation, new Vector2(Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                     break;
             }
         }

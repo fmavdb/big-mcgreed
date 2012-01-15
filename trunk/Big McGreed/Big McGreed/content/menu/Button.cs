@@ -7,14 +7,30 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Big_McGreed.content.menu
 {
+    /// <summary>
+    /// Represents a button or an interface. 
+    /// Als je een betere naam weet zeg ut dan :P
+    /// </summary>
     public abstract class Button
     {
+        /// <summary>
+        /// Wether the button is tiny or not.
+        /// </summary>
         protected bool tinyButton = false;
 
+        /// <summary>
+        /// Wether this instance is an interface or not.
+        /// </summary>
         protected bool isInterface = false;
 
+        /// <summary>
+        /// Executes the action.
+        /// </summary>
         public abstract void action();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Button"/> class.
+        /// </summary>
         public Button()
         {
             font = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
@@ -23,6 +39,12 @@ namespace Big_McGreed.content.menu
 
         private Vector2 location;
 
+        /// <summary>
+        /// Gets or sets the location.
+        /// </summary>
+        /// <value>
+        /// The location.
+        /// </value>
         public Vector2 Location
         {
             get 
@@ -48,6 +70,12 @@ namespace Big_McGreed.content.menu
 
         protected string text = "";
 
+        /// <summary>
+        /// Gets or sets the text.
+        /// </summary>
+        /// <value>
+        /// The text.
+        /// </value>
         public string Text
         {
             get
@@ -62,6 +90,12 @@ namespace Big_McGreed.content.menu
 
         protected static SpriteFont font;
 
+        /// <summary>
+        /// Gets or sets the font.
+        /// </summary>
+        /// <value>
+        /// The font.
+        /// </value>
         public SpriteFont Font
         {
             get
@@ -76,6 +110,12 @@ namespace Big_McGreed.content.menu
 
         protected static SpriteFont tinyFont;
 
+        /// <summary>
+        /// Gets or sets the tiny font.
+        /// </summary>
+        /// <value>
+        /// The tiny font.
+        /// </value>
         public SpriteFont TinyFont
         {
             get
@@ -90,6 +130,12 @@ namespace Big_McGreed.content.menu
 
         protected Texture2D current;
 
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
         public Texture2D Current
         {
             get
@@ -104,6 +150,12 @@ namespace Big_McGreed.content.menu
 
         protected Texture2D normal;
 
+        /// <summary>
+        /// Gets or sets the normal.
+        /// </summary>
+        /// <value>
+        /// The normal.
+        /// </value>
         public Texture2D Normal
         {
             get
@@ -118,6 +170,12 @@ namespace Big_McGreed.content.menu
 
         protected Texture2D pressed;
 
+        /// <summary>
+        /// Gets or sets the pressed.
+        /// </summary>
+        /// <value>
+        /// The pressed.
+        /// </value>
         public Texture2D Pressed
         {
             get
@@ -132,6 +190,12 @@ namespace Big_McGreed.content.menu
 
         protected Texture2D hover;
 
+        /// <summary>
+        /// Gets or sets the hover.
+        /// </summary>
+        /// <value>
+        /// The hover.
+        /// </value>
         public Texture2D Hover
         {
             get
@@ -149,10 +213,10 @@ namespace Big_McGreed.content.menu
         /// <summary>
         /// Draws this instance.
         /// </summary>
-        public void Draw()
+        public void Draw(SpriteBatch batch)
         {
-            Program.INSTANCE.spriteBatch.Draw(current, location, Color.White);
-            Program.INSTANCE.spriteBatch.DrawString(tinyButton ? tinyFont : font, text, textLocation, Color.White);
+            batch.Draw(current, location, Color.White);
+            batch.DrawString(tinyButton ? tinyFont : font, text, textLocation, Color.White);
         }
     }
 }
