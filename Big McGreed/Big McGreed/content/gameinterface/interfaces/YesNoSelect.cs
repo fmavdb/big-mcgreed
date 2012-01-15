@@ -15,7 +15,7 @@ namespace Big_McGreed.content.gameinterface.interfaces
 
         public YesNoSelect()
         {
-            mainTexture = Program.INSTANCE.loadTexture("YesNoKeuze");
+            mainTexture = Program.INSTANCE.loadTexture("TinyInterface");
             YesNoSelectUpdate();
             centerInterface();
         }
