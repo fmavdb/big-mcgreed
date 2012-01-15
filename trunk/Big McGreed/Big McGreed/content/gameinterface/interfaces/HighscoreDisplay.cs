@@ -14,7 +14,7 @@ namespace Big_McGreed.content.gameinterface.interfaces
 
         public HighscoreDisplay()
         {
-            mainTexture = Program.INSTANCE.loadTexture("HighScoresInterface");
+            mainTexture = Program.INSTANCE.loadTexture("NormalInterface");
 
             title = "HIGHSCORES";
 
