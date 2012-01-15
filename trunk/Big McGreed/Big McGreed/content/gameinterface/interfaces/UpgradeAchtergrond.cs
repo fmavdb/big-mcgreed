@@ -5,18 +5,16 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Big_McGreed.content.gameframe;
-using Big_McGreed.content.gameinterface;
 
 namespace Big_McGreed.content.gameinterface.interfaces
 {
-    public class HighscoreDisplay : GameInterface
+    public class UpgradeAchtergrond : GameInterface
     {
-
-        public HighscoreDisplay()
+        public UpgradeAchtergrond()
         {
-            mainTexture = Program.INSTANCE.loadTexture("HighScoresInterface");
+            mainTexture = Program.INSTANCE.loadTexture("UpgradeAchtergrond");
 
-            title = "HIGHSCORES";
+            title = "UPGRADES";
 
             centerInterface();
         }

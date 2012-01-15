@@ -15,13 +15,13 @@ namespace Big_McGreed.content.highscore
         protected static SpriteFont highscoreFont;
         string titelText = "HIGHSCORE";
 
-        Vector2 locatieHighscore = Vector2.Zero;
+        Vector2 locatieHighscore = Vector2.Zero; //TODO - dit kan via Program.INSTANCE.IManager.highscoredisplay.getLocation()
         Vector2 locatieHighscorePersonen = Vector2.Zero;
         Vector2 locatieHighscoreScore = Vector2.Zero;
 
         public HighScore() {
             highscoreFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
-            locatieHighscore = new Vector2(GameFrame.Width / 2 - highscoreFont.MeasureString(titelText).X / 2, (GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 2) + 40);
+            locatieHighscore = new Vector2(GameFrame.Width / 2 - highscoreFont.MeasureString(titelText).X / 2, (GameFrame.Height / 2 - Program.INSTANCE.IManager.highscoreDisplay.mainTexture.Height / 2) + 40);
 
             highScores = new Dictionary<string, int>();
 
@@ -44,7 +44,7 @@ namespace Big_McGreed.content.highscore
 
         public void Draw(SpriteBatch batch)
         {
-            batch.DrawString(highscoreFont, titelText, locatieHighscore, Color.White);
+            //batch.DrawString(highscoreFont, titelText, locatieHighscore, Color.White);
 
             int nummer = 1;
             Vector2 huidig = locatieHighscorePersonen;
@@ -55,8 +55,8 @@ namespace Big_McGreed.content.highscore
             {
                 highScores.TryGetValue(naam, out score);
 
-                locatieHighscorePersonen = new Vector2(GameFrame.Width / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Width / 2 + 50, (GameFrame.Height / 2 - Program.INSTANCE.menu.highscoreDisplay.Current.Height / 3) + 40);
-                locatieHighscoreScore = new Vector2(GameFrame.Width / 2 + Program.INSTANCE.menu.highscoreDisplay.Current.Width / 4 - 10, huidig.Y);
+                locatieHighscorePersonen = new Vector2(GameFrame.Width / 2 - Program.INSTANCE.IManager.highscoreDisplay.mainTexture.Width / 2 + 50, (GameFrame.Height / 2 - Program.INSTANCE.IManager.highscoreDisplay.mainTexture.Height / 3) + 40);
+                locatieHighscoreScore = new Vector2(GameFrame.Width / 2 + Program.INSTANCE.IManager.highscoreDisplay.mainTexture.Width / 4 - 10, huidig.Y);
 
                 if (nummer != 10)
                 {

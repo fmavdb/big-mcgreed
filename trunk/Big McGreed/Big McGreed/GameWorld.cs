@@ -33,7 +33,7 @@ namespace Big_McGreed
     {
 
         //Als er iets niet werkt, deze aanzetten. Zorgt ervoor dat je de console goed kan zien terwijl je het spel speelt.
-        private static bool DEBUG_MODE = true;
+        private static bool DEBUG_MODE = false;
 
         /// <summary>
         /// Word gebruikt om de definities op te slaan nadat ze zijn geladen.
@@ -78,11 +78,11 @@ namespace Big_McGreed
             /// </summary>
             InGame,  
             /// <summary>
-            /// The player is in the upgrade menu.
+            /// The player is in the upgrade interface.
             /// </summary>
             Upgrade,
             /// <summary>
-            /// The player is in the highscores menu.
+            /// The player is in the highscores interface.
             /// </summary>
             Highscore,
             /// <summary>
@@ -178,7 +178,7 @@ namespace Big_McGreed
         private ProgramInformation info;
         private GameMap gameMap;
         public GameMap GameMap { get { return gameMap; } }
-        public InterfaceManager menu { get; private set; }
+        public InterfaceManager IManager { get; private set; }
         public GameFrame gameFrame { get; set; }
         public HighScore highScores { get; private set; }
         public SqlDatabase dataBase;
@@ -203,8 +203,8 @@ namespace Big_McGreed
             //IsMouseVisible = true;
 
             //graphics.PreferMultiSampling = true;
-            IsFixedTimeStep = false; //This disables the 60 ms interval of the Update method.
-            graphics.SynchronizeWithVerticalRetrace = false; //This disables V-sync. (Lock frames to screen refresh rate)
+            //IsFixedTimeStep = false; //This disables the 60 ms interval of the Update method.
+            //graphics.SynchronizeWithVerticalRetrace = false; //This disables V-sync. (Lock frames to screen refresh rate)
             if (!DEBUG_MODE)
             {
                 graphics.IsFullScreen = true;
@@ -236,7 +236,8 @@ namespace Big_McGreed
             LevelInformation.Load();
             gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
-            menu = new InterfaceManager();
+            IManager = new InterfaceManager();
+            IManager.Initialize();
             player = new Player();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
@@ -246,13 +247,6 @@ namespace Big_McGreed
             dataBase = new SqlDatabase();            
             highScores = new HighScore();
             goldPositionUpgrade = new Vector2(GameFrame.Width - 200, 30);
-            arduino.connect();
-            newGame();
-            playerUpdate.start();
-            npcUpdate.start();
-            //Engine.getInstance().start();
-            CleanUp.INSTANCE.start();
-            //Engine.getInstance().submitEvent(new Cleanup());
             base.Initialize();
         }
 
@@ -277,6 +271,11 @@ namespace Big_McGreed
         /// </summary>
         protected override void LoadContent()
         {
+            arduino.connect();
+            newGame();
+            playerUpdate.start();
+            npcUpdate.start();
+            CleanUp.INSTANCE.start();
         }
 
         /// <summary>
@@ -318,7 +317,7 @@ namespace Big_McGreed
                 case GameState.Paused:
                 case GameState.Upgrade:
                 case GameState.Menu:
-                    menu.Update();
+                    IManager.Update();
                     break;
                 case GameState.InGame:
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -361,7 +360,7 @@ namespace Big_McGreed
             switch (gameState)
             {
                 case GameState.Highscore:
-                    menu.Draw(spriteBatch);
+                    IManager.Draw(spriteBatch);
                     highScores.Draw(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);    
@@ -370,12 +369,12 @@ namespace Big_McGreed
                 case GameState.Select:
                 case GameState.Paused:
                 case GameState.Menu:
-                    menu.Draw(spriteBatch);
+                    IManager.Draw(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
                     break;
                 case GameState.Upgrade:
-                    menu.Draw(spriteBatch);
+                    IManager.Draw(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
                     break;
@@ -415,55 +414,58 @@ namespace Big_McGreed
                     case GameState.InGame:
                         if (lastState == GameState.Paused)
                         {
-                            removeButton(menu.upgrade);
-                            removeButton(menu.resume);
+                            removeInterfaceComponent(IManager.upgrade);
+                            removeInterfaceComponent(IManager.resume);
                         }
                         break;
 
                     case GameState.Paused:
-                        menu.getButtons().Clear();
-                        addButton(menu.resume, true);
-                        addButton(menu.newGame, false);
-                        addButton(menu.highScore, false);
-                        addButton(menu.mainMenu, false);
-                        addButton(menu.upgrade, false);
-                        menu.updateButtons();
+                        IManager.getActiveComponents().Clear();
+                        IManager.activeInterface = null;
+                        addInterfaceComponent(IManager.resume, true);
+                        addInterfaceComponent(IManager.newGame, false);
+                        addInterfaceComponent(IManager.highScore, false);
+                        addInterfaceComponent(IManager.mainMenu, false);
+                        addInterfaceComponent(IManager.upgrade, false);
+                        IManager.updateButtons();
                         break;
 
                     case GameState.Menu:
-                        menu.getButtons().Clear();
-                        addButton(menu.newGame, true);
-                        addButton(menu.highScore, false);
-                        addButton(menu.quit, false);
-                        menu.updateButtons();
+                        IManager.getActiveComponents().Clear();
+                        IManager.activeInterface = null;
+                        addInterfaceComponent(IManager.newGame, true);
+                        addInterfaceComponent(IManager.highScore, false);
+                        addInterfaceComponent(IManager.quit, false);
+                        IManager.updateButtons();
                         break;
 
                     case GameState.Upgrade:
-                        menu.getButtons().Clear();
-                        addButton(menu.menuButtonKlein, true);
-                        addButton(menu.resumeKlein, false);
-                        addButton(menu.upgradeAchtergrond, false);
-                        menu.updateButtons();
+                        IManager.getActiveComponents().Clear();
+                        IManager.activeInterface = IManager.upgradeAchtergrond;
+                        addInterfaceComponent(IManager.menuButtonKlein, true);
+                        addInterfaceComponent(IManager.resumeKlein, false);
+                        IManager.updateButtons();
                         break;
 
                     case GameState.Highscore:
-                        menu.getButtons().Clear();
-                        addButton(menu.highscoreDisplay, true);
-                        addButton(menu.menuButtonKlein, false);
+                        IManager.getActiveComponents().Clear();
+                        IManager.activeInterface = IManager.highscoreDisplay;
+                        addInterfaceComponent(IManager.menuButtonKlein, false);
                         break;
 
                     case GameState.Select:
-                        menu.getButtons().Clear();
-                        addButton(menu.yesNoSelect, false);
-                        addButton(menu.noButton, false);
-                        addButton(menu.yesButton, false);
+                        IManager.getActiveComponents().Clear();
+                        IManager.activeInterface = IManager.yesNoSelect;
+                        addInterfaceComponent(IManager.noButton, false);
+                        addInterfaceComponent(IManager.yesButton, false);
                         break;
 
                     case GameState.GameOver:
-                        menu.getButtons().Clear();
-                        addButton(menu.menuButtonKlein, true);
-                        addButton(menu.submitHighscore, false);                        
-                        menu.updateButtons();
+                        IManager.getActiveComponents().Clear();
+                        IManager.activeInterface = null;
+                        addInterfaceComponent(IManager.menuButtonKlein, true);
+                        addInterfaceComponent(IManager.submitHighscore, false);                        
+                        IManager.updateButtons();
                         break;
                 }
             }
@@ -473,11 +475,11 @@ namespace Big_McGreed
         /// Removes the button.
         /// </summary>
         /// <param name="button">The button.</param>
-        private void removeButton(InterfaceComponent button)
+        private void removeInterfaceComponent(InterfaceComponent button)
         {
-            if (menu.getButtons().Find(button) != null)
+            if (IManager.getActiveComponents().Find(button) != null)
             {
-                menu.getButtons().Remove(button);
+                IManager.getActiveComponents().Remove(button);
             }
         }
 
@@ -486,14 +488,14 @@ namespace Big_McGreed
         /// </summary>
         /// <param name="button">The button.</param>
         /// <param name="first">if set to <c>true</c> [first].</param>
-        private void addButton(InterfaceComponent button, bool first)
+        private void addInterfaceComponent(InterfaceComponent button, bool first)
         {
-            if (menu.getButtons().Find(button) == null)
+            if (IManager.getActiveComponents().Find(button) == null)
             {
                 if (first)
-                    menu.getButtons().AddFirst(button);
+                    IManager.getActiveComponents().AddFirst(button);
                 else
-                    menu.getButtons().AddLast(button);
+                    IManager.getActiveComponents().AddLast(button);
             }
         }
 
@@ -528,7 +530,7 @@ namespace Big_McGreed
             } 
             catch (Exception e) 
             {
-                Console.Error.WriteLine("Can not load the image. Please make sure the input path is correct and that the image exists.");  
+                Console.Error.WriteLine("Can not load " + location + ". Please make sure the input path is correct and that the image exists.");  
             }
             if (texture != null)
                 Console.WriteLine("Loaded image: " + location);

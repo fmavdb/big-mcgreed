@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="content\data\DatabaseException.cs" />
     <Compile Include="content\data\sql\SqlDatabase.cs" />
+    <Compile Include="content\gameinterface\GameInterface.cs" />
     <Compile Include="content\info\ProgramInformation.cs" />
     <Compile Include="content\gameframe\GameFrame.cs" />
     <Compile Include="content\hardware\ArduinoCom.cs" />
@@ -136,9 +137,9 @@
     <Compile Include="content\gameinterface\buttons\SubmitHighscore.cs" />
     <Compile Include="content\gameinterface\buttons\Upgrade.cs" />
     <Compile Include="content\gameinterface\buttons\YesButton.cs" />
-    <Compile Include="content\gameinterface\buttons\YesNoSelect.cs" />
+    <Compile Include="content\gameinterface\interfaces\YesNoSelect.cs" />
     <Compile Include="content\gameinterface\InterfaceManager.cs" />
-    <Compile Include="content\gameinterface\upgradeButtons\UpgradeAchtergrond.cs" />
+    <Compile Include="content\gameinterface\interfaces\UpgradeAchtergrond.cs" />
     <Compile Include="logic\upgrades\Upgrade.cs" />
     <Compile Include="logic\upgrades\UpgradeDefinition.cs" />
     <Compile Include="engine\misc\CleanUp.cs" />

@@ -11,6 +11,9 @@ namespace Big_McGreed.content.gameinterface.buttons
 {
     public class Upgrade : InterfaceComponent
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Upgrade"/> class.
+        /// </summary>
         public Upgrade()
         {
             normal = Program.INSTANCE.loadTexture("TinyButtonNormal");
@@ -24,6 +27,9 @@ namespace Big_McGreed.content.gameinterface.buttons
             Location = new Vector2(10, GameFrame.Height - (current.Height + 10));
         }
 
+        /// <summary>
+        /// Executes the action.
+        /// </summary>
         public override void action()
         {
             Program.INSTANCE.CurrentGameState = GameWorld.GameState.Upgrade;
