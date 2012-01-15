@@ -14,14 +14,25 @@ namespace Big_McGreed.content.gameinterface
 {
     public class InterfaceManager
     {
-        private LinkedList<InterfaceComponent> buttons;
+        private LinkedList<InterfaceComponent> activeComponents;
+
+        public GameInterface activeInterface { get; set; }
+
         private bool released = false;
-        public NewGame newGame;
-        public HighScoreButton highScore;
+
+        public SpriteFont font { get; private set; }
+
+        public SpriteFont tinyFont { get; private set; }
+
         /// <summary>
-        /// 
+        /// Gets the new game.
         /// </summary>
-        public Quit quit;
+        public NewGame newGame { get; private set; }
+        /// <summary>
+        /// Gets the high score.
+        /// </summary>
+        public HighScoreButton highScore { get; private set; }
+        public Quit quit { get; private set; }
         /// <summary>
         /// Gets the upgrade.
         /// </summary>
@@ -72,13 +83,37 @@ namespace Big_McGreed.content.gameinterface
         /// </summary>
         public InterfaceManager()
         {
-            buttons = new LinkedList<InterfaceComponent>();
+            activeComponents = new LinkedList<InterfaceComponent>();
+            font = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
+            tinyFont = Program.INSTANCE.Content.Load<SpriteFont>("TinyButtonFont");
+        }
+
+        public void Initialize()
+        {
+            InitializeInterfaces(); //First all the interfaces.
+            InitializeButtons(); //Second all buttons.
+            updateButtons();
+        }
+
+        /// <summary>
+        /// Initializes the interfaces.
+        /// </summary>
+        private void InitializeInterfaces() {
+            yesNoSelect = new YesNoSelect();
+            upgradeAchtergrond = new UpgradeAchtergrond();
+            highscoreDisplay = new HighscoreDisplay();
+        }
+
+        /// <summary>
+        /// Initializes the buttons.
+        /// </summary>
+        private void InitializeButtons() {
             newGame = new NewGame();
-            buttons.AddFirst(newGame);
+            activeComponents.AddFirst(newGame);
             highScore = new HighScoreButton();
-            buttons.AddAfter(buttons.Find(newGame), highScore);
+            activeComponents.AddAfter(activeComponents.Find(newGame), highScore);
             quit = new Quit();
-            buttons.AddLast(quit);
+            activeComponents.AddLast(quit);
             resume = new Resume();
             upgrade = new Upgrade();
             menuButtonKlein = new MenuButtonKlein();
@@ -86,12 +121,9 @@ namespace Big_McGreed.content.gameinterface
             mainMenu = new MainMenu();
             yesButton = new YesButton();
             noButton = new NoButton();
-            yesNoSelect = new YesNoSelect();
-            upgradeAchtergrond = new UpgradeAchtergrond();
             submitHighscore = new SubmitHighscore();
-            highscoreDisplay = new HighscoreDisplay();
-            updateButtons();
         }
+
 
         /// <summary>
         /// Updates this instance.
@@ -101,10 +133,10 @@ namespace Big_McGreed.content.gameinterface
             InterfaceComponent buttonNearMouse = null;
             yesNoSelect.YesNoSelectUpdate();
 
-            lock (buttons)
+            lock (activeComponents)
             {
                 Rectangle mouse = new Rectangle(Mouse.GetState().X, Mouse.GetState().Y, 1, 1);
-                foreach (InterfaceComponent button in buttons)
+                foreach (InterfaceComponent button in activeComponents)
                 {
                     Rectangle rectangleButton = new Rectangle((int)button.Location.X, (int)button.Location.Y, button.Normal.Width, button.Normal.Height);
                     if (PrimitivePathFinder.intersects(mouse, rectangleButton))
@@ -147,9 +179,13 @@ namespace Big_McGreed.content.gameinterface
         /// </summary>
         public void Draw(SpriteBatch batch)
         {
-            lock (buttons)
+            if (activeInterface != null)
             {
-                foreach (InterfaceComponent button in buttons)
+                activeInterface.Draw(batch);
+            }
+            lock (activeComponents)
+            {
+                foreach (InterfaceComponent button in activeComponents)
                 {
                     button.Draw(batch);
                 }
@@ -157,12 +193,12 @@ namespace Big_McGreed.content.gameinterface
         }
 
         /// <summary>
-        /// Gets the buttons.
+        /// Gets the active components.
         /// </summary>
         /// <returns></returns>
-        public LinkedList<InterfaceComponent> getButtons()
+        public LinkedList<InterfaceComponent> getActiveComponents()
         {
-            return buttons;
+            return activeComponents;
         }
 
         /// <summary>
@@ -171,9 +207,9 @@ namespace Big_McGreed.content.gameinterface
         public void updateButtons()
         {
             float startY = GameFrame.Height / 5;
-            lock (buttons)
+            lock (activeComponents)
             {
-                foreach (InterfaceComponent button in buttons)
+                foreach (InterfaceComponent button in activeComponents)
                 {
                     if (button != upgrade && button != resumeKlein && button != menuButtonKlein )
                     {

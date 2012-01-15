@@ -162,7 +162,10 @@ namespace Big_McGreed.content.data.sql
             this.command.Parameters.Clear();
         }
 
-        //TODO - Reconnect to database when failed.
+        /// <summary>
+        /// Checks the state.
+        /// </summary>
+        /// <returns></returns>
         public bool checkState()
         {
             switch (connection.State)
@@ -175,6 +178,10 @@ namespace Big_McGreed.content.data.sql
             return true;
         }
 
+        /// <summary>
+        /// Gets the table.
+        /// </summary>
+        /// <param name="table">The table.</param>
         public void getTable(string table)
         {
             this.command.CommandText = "SELECT * FROM " + table;

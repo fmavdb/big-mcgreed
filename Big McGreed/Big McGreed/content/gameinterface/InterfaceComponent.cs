@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Big_McGreed.content.gameinterface
 {
     /// <summary>
-    /// Represents a button or an interface. 
+    /// Represents a component on an interface.
     /// </summary>
     public abstract class InterfaceComponent
     {
@@ -18,23 +18,9 @@ namespace Big_McGreed.content.gameinterface
         protected bool tinyButton = false;
 
         /// <summary>
-        /// Wether this instance is an interface or not.
-        /// </summary>
-        protected bool isInterface = false;
-
-        /// <summary>
         /// Executes the action.
         /// </summary>
         public abstract void action();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InterfaceComponent"/> class.
-        /// </summary>
-        public InterfaceComponent()
-        {
-            font = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
-            tinyFont = Program.INSTANCE.Content.Load<SpriteFont>("TinyButtonFont");
-        }
 
         private Vector2 location;
 
@@ -55,14 +41,11 @@ namespace Big_McGreed.content.gameinterface
                 location = value;
                 if (!tinyButton)
                 {
-                    if (!isInterface)
-                    {
-                        textLocation = new Vector2(value.X - font.MeasureString(text).X / 2 + current.Width / 2, value.Y - font.LineSpacing / 2 + current.Height / 2);
-                    }
+                    textLocation = new Vector2(value.X - Program.INSTANCE.IManager.font.MeasureString(text).X / 2 + current.Width / 2, value.Y - Program.INSTANCE.IManager.font.LineSpacing / 2 + current.Height / 2);
                 }
                 else
                 {
-                    textLocation = new Vector2(value.X - tinyFont.MeasureString(text).X / 2 + current.Width / 2, value.Y - tinyFont.LineSpacing / 2 + current.Height / 2);
+                    textLocation = new Vector2(value.X - Program.INSTANCE.IManager.tinyFont.MeasureString(text).X / 2 + current.Width / 2, value.Y - Program.INSTANCE.IManager.tinyFont.LineSpacing / 2 + current.Height / 2);
                 }
             }
         }
@@ -84,46 +67,6 @@ namespace Big_McGreed.content.gameinterface
             set
             {
                 text = value;
-            }
-        }
-
-        protected static SpriteFont font;
-
-        /// <summary>
-        /// Gets or sets the font.
-        /// </summary>
-        /// <value>
-        /// The font.
-        /// </value>
-        public SpriteFont Font
-        {
-            get
-            {
-                return font;
-            }
-            set
-            {
-                font = value;
-            }
-        }
-
-        protected static SpriteFont tinyFont;
-
-        /// <summary>
-        /// Gets or sets the tiny font.
-        /// </summary>
-        /// <value>
-        /// The tiny font.
-        /// </value>
-        public SpriteFont TinyFont
-        {
-            get
-            {
-                return tinyFont;
-            }
-            set
-            {
-                tinyFont = value;
             }
         }
 
@@ -215,7 +158,7 @@ namespace Big_McGreed.content.gameinterface
         public void Draw(SpriteBatch batch)
         {
             batch.Draw(current, location, Color.White);
-            batch.DrawString(tinyButton ? tinyFont : font, text, textLocation, Color.White);
+            batch.DrawString(tinyButton ? Program.INSTANCE.IManager.tinyFont : Program.INSTANCE.IManager.font, text, textLocation, Color.White);
         }
     }
 }
