@@ -6,6 +6,7 @@ using Big_McGreed.logic;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Big_McGreed.content.gameframe;
+using Big_McGreed.content.gameinterface.interfaces;
 
 namespace Big_McGreed.content.gameinterface
 {
@@ -40,7 +41,7 @@ namespace Big_McGreed.content.gameinterface
         /// </summary>
         public void centerTitle()
         {
-            titleLocation = new Vector2(getX() + mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(title).X / 2, getY() +  Program.INSTANCE.IManager.font.MeasureString(title).Y);
+            titleLocation = new Vector2(getX() + mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(title).X / 2, getY() + Program.INSTANCE.IManager.font.MeasureString(title).Y);
         }
 
         /// <summary>
@@ -53,6 +54,10 @@ namespace Big_McGreed.content.gameinterface
             if (title != null)
             {
                 batch.DrawString(Program.INSTANCE.IManager.font, title, titleLocation, Color.White);
+            }
+            if (this is UpgradeAchtergrond)
+            {
+                ((UpgradeAchtergrond)this).Draw(batch);
             }
         }
     }

@@ -12,6 +12,9 @@ using Big_McGreed.content.gameinterface.interfaces;
 
 namespace Big_McGreed.content.gameinterface
 {
+    /// <summary>
+    /// Menu v2 ^^
+    /// </summary>
     public class InterfaceManager
     {
         private LinkedList<InterfaceComponent> activeComponents;
@@ -88,6 +91,9 @@ namespace Big_McGreed.content.gameinterface
             tinyFont = Program.INSTANCE.Content.Load<SpriteFont>("TinyButtonFont");
         }
 
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         public void Initialize()
         {
             InitializeInterfaces(); //First all the interfaces.

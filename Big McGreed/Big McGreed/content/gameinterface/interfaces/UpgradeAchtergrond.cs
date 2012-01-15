@@ -10,6 +10,11 @@ namespace Big_McGreed.content.gameinterface.interfaces
 {
     public class UpgradeAchtergrond : GameInterface
     {
+        private string tekst1 = "Industrie Upgrades";
+
+        private string tekst2 = "Ecologie Upgrades";
+
+
         public UpgradeAchtergrond()
         {
             mainTexture = Program.INSTANCE.loadTexture("UpgradeAchtergrond");
@@ -17,6 +22,11 @@ namespace Big_McGreed.content.gameinterface.interfaces
             title = "UPGRADES";
 
             centerInterface();
+        }
+
+        public void Draw(SpriteBatch batch)
+        {
+
         }
     }
 }
