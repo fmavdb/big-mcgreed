@@ -1,8 +1,6 @@
 Content\poppetje.xnb
 Content\poppetje_rood.xnb
-Content\FPS.xnb
-Content\ButtonFont.xnb
-Content\TinyButtonFont.xnb
+Content\ButtonPressed.xnb
 Content\Achtergrond.xnb
 Content\Boerderij.xnb
 Content\Border.xnb
@@ -25,4 +23,6 @@ Content\UpgradeAchtergrond.xnb
 Content\weapon0.xnb
 Content\wolk.xnb
 Content\YesNoKeuze.xnb
-Content\ButtonPressed.xnb
+Content\FPS.xnb
+Content\ButtonFont.xnb
+Content\TinyButtonFont.xnb

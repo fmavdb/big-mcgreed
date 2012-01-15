@@ -39,6 +39,8 @@ namespace Big_McGreed.logic.player
 
         public int gold { get; set; }
 
+        public int oil { get; set; }
+
         public int muzzle = 0;
 
         Texture2D muzzleTexture = Program.INSTANCE.loadTexture("Muzzle Effect");
