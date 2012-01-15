@@ -11,7 +11,7 @@ namespace Big_McGreed.logic.projectile
     {
         public Texture2D mainTexture { get; set; }
 
-        public Color[] pixels { get; set; }
+        public Color[,] pixels { get; set; }
 
         /// <summary>
         /// Returns the definition from the cache.
@@ -25,8 +25,12 @@ namespace Big_McGreed.logic.projectile
             {
                 def = new ProjectileDefinition();
                 def.mainTexture = Program.INSTANCE.loadTexture("bullet_bill");
-                def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
-                def.mainTexture.GetData<Color>(def.pixels);
+                Color[] colors1D = new Color[def.mainTexture.Width * def.mainTexture.Height];
+                def.mainTexture.GetData<Color>(colors1D);
+                def.pixels = new Color[def.mainTexture.Width, def.mainTexture.Height];
+                for (int x = 0; x < def.mainTexture.Width; x++)
+                    for (int y = 0; y < def.mainTexture.Height; y++)
+                        def.pixels[x, y] = colors1D[x + y * def.mainTexture.Width];
                 GameWorld.projectileDefinitions.Add(type, def);
             }
             return def;

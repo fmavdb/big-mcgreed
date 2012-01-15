@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using System.Windows.Forms;
+using Microsoft.Xna.Framework;
 
-namespace Big_McGreed.content.menu.buttons
+namespace Big_McGreed.content.gameinterface.buttons
 {
-    public class Resume : Button
+    public class MainMenu : InterfaceComponent
     {
-        public Resume()
+        public MainMenu()
         {
             normal = Program.INSTANCE.loadTexture("ButtonNormal");
             pressed = Program.INSTANCE.loadTexture("ButtonPressed");
             hover = Program.INSTANCE.loadTexture("ButtonHighlight");
             current = normal;
 
-            text = "RESUME";
+            text = "MAIN MENU";
         }
 
         public override void action()
         {
-            Program.INSTANCE.CurrentGameState = GameWorld.GameState.InGame;
+            Program.INSTANCE.yesKnopGedrukt = "mainMenu";
+            Program.INSTANCE.CurrentGameState = GameWorld.GameState.Select;
         }
     }
 }

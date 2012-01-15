@@ -14,10 +14,10 @@ using Big_McGreed.engine;
 using Big_McGreed.engine.update;
 using Big_McGreed.content.info;
 using Big_McGreed.logic.map;
-using Big_McGreed.content.menu;
+using Big_McGreed.content.gameinterface;
 using Big_McGreed.engine.misc;
 using System.Collections;
-using Big_McGreed.content.menu.buttons;
+using Big_McGreed.content.gameinterface.buttons;
 using Big_McGreed.content.gameframe;
 using Big_McGreed.content.highscore;
 using Big_McGreed.content.data.sql;
@@ -33,7 +33,7 @@ namespace Big_McGreed
     {
 
         //Als er iets niet werkt, deze aanzetten. Zorgt ervoor dat je de console goed kan zien terwijl je het spel speelt.
-        private static bool DEBUG_MODE = false;
+        private static bool DEBUG_MODE = true;
 
         /// <summary>
         /// Word gebruikt om de definities op te slaan nadat ze zijn geladen.
@@ -178,7 +178,7 @@ namespace Big_McGreed
         private ProgramInformation info;
         private GameMap gameMap;
         public GameMap GameMap { get { return gameMap; } }
-        public Menu menu { get; private set; }
+        public InterfaceManager menu { get; private set; }
         public GameFrame gameFrame { get; set; }
         public HighScore highScores { get; private set; }
         public SqlDatabase dataBase;
@@ -236,7 +236,7 @@ namespace Big_McGreed
             LevelInformation.Load();
             gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
-            menu = new Menu();
+            menu = new InterfaceManager();
             player = new Player();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
@@ -473,7 +473,7 @@ namespace Big_McGreed
         /// Removes the button.
         /// </summary>
         /// <param name="button">The button.</param>
-        private void removeButton(Button button)
+        private void removeButton(InterfaceComponent button)
         {
             if (menu.getButtons().Find(button) != null)
             {
@@ -486,7 +486,7 @@ namespace Big_McGreed
         /// </summary>
         /// <param name="button">The button.</param>
         /// <param name="first">if set to <c>true</c> [first].</param>
-        private void addButton(Button button, bool first)
+        private void addButton(InterfaceComponent button, bool first)
         {
             if (menu.getButtons().Find(button) == null)
             {

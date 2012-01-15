@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Big_McGreed.content.gameframe;
 
-namespace Big_McGreed.content.menu.buttons
+namespace Big_McGreed.content.gameinterface.buttons
 {
-    public class ResumeKlein : Button
+    public class Upgrade : InterfaceComponent
     {
-        public ResumeKlein()
+        public Upgrade()
         {
             normal = Program.INSTANCE.loadTexture("TinyButtonNormal");
             pressed = Program.INSTANCE.loadTexture("TinyButtonPressed");
@@ -18,14 +19,14 @@ namespace Big_McGreed.content.menu.buttons
             current = normal;
 
             tinyButton = true;
-            text = "RESUME";
+            text = "UPGRADE";
 
-            Location = new Vector2(GameFrame.Width - (current.Width + 10), GameFrame.Height - (current.Height + 10));
+            Location = new Vector2(10, GameFrame.Height - (current.Height + 10));
         }
 
         public override void action()
         {
-            Program.INSTANCE.CurrentGameState = GameWorld.GameState.InGame;
+            Program.INSTANCE.CurrentGameState = GameWorld.GameState.Upgrade;
         }
     }
 }

@@ -110,7 +110,7 @@ namespace Big_McGreed.logic.projectile
                 destroy();
             else
             {
-                PrimitivePathFinder.collision(this, getX(), getY());
+                PrimitivePathFinder.collision(this);
             }
         }
 

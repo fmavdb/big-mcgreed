@@ -5,9 +5,9 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.Windows.Forms;
 
-namespace Big_McGreed.content.menu.buttons
+namespace Big_McGreed.content.gameinterface.buttons
 {
-    public class Quit : Button
+    public class Quit : InterfaceComponent
     {
         public Quit()
         {

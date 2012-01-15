@@ -11,7 +11,7 @@ namespace Big_McGreed.logic.npc
     {
         public Texture2D mainTexture { get; set; }
 
-        public Color[] pixels { get; private set; }
+        public Color[,] pixels { get; private set; }
 
         public Texture2D hittedTexture { get; private set; }
 
@@ -30,8 +30,12 @@ namespace Big_McGreed.logic.npc
                 def = new NPCDefinition();
                 def.mainTexture = Program.INSTANCE.loadTexture("poppetje");
                 def.hittedTexture = Program.INSTANCE.loadTexture("poppetje_rood");
-                def.pixels = new Color[def.mainTexture.Width * def.mainTexture.Height];
-                def.mainTexture.GetData<Color>(def.pixels);
+                Color[] colors1D = new Color[def.mainTexture.Width * def.mainTexture.Height];
+                def.mainTexture.GetData<Color>(colors1D);
+                def.pixels = new Color[def.mainTexture.Width, def.mainTexture.Height];
+                for (int x = 0; x < def.mainTexture.Width; x++)
+                    for (int y = 0; y < def.mainTexture.Height; y++)
+                        def.pixels[x, y] = colors1D[x + y * def.mainTexture.Width];
                 def.hp = 20;
                 GameWorld.npcDefinitions.Add(type, def);
             }

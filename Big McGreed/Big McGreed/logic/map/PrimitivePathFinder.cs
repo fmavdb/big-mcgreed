@@ -90,9 +90,9 @@ namespace Big_McGreed.logic.map
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
         /// <returns></returns>
-        public static void collision(Projectile projectile, int x, int y)
+        public static void collision(Projectile projectile)
         {
-            //TODO fix color collision xD
+            /*//TODO fix color collision xD
             RotatedRectangle projectileRectangle = new RotatedRectangle(new Rectangle(x, y, projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height), projectile.Rotation);
             //Rectangle projectileSize = new Rectangle(x, y, projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height);
             lock (Program.INSTANCE.npcs)
@@ -109,13 +109,70 @@ namespace Big_McGreed.logic.map
                             //projectile.definition.mainTexture.GetData<Color>(pixels);
                             //if (colorCollision(Color.Transparent, projectileRectangle, npcRectangle, projectile.definition.pixels, npc.definition.pixels))
                            // {
+                                projectile.Hit.To = npc;
                                 npc.hit(projectile.Hit);
                                 projectile.destroy();
+                                break;
                             //}
                         }
                     }
                 }
+            }*/
+            //Eerst maken we een matrix aan, die passen we aan op de positie, origine en de rotatie van het projectiel.
+            Matrix projectileMatrix = Matrix.CreateTranslation(projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height, 0) * Matrix.CreateRotationZ(projectile.Rotation) * Matrix.CreateTranslation(projectile.getX(), projectile.getY(), 0);
+            foreach (NPC npc in new LinkedList<NPC>(Program.INSTANCE.npcs))
+            {
+                if (npc.visible && npc.definition.mainTexture != null)
+                {
+                    //Nu maken we de NPC matrix aan. (Die heeft de standaard origine en geen rotatie)
+                    Matrix npcMatrix = Matrix.Identity * Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
+                    Vector2 collision = texturesCollide(npc.definition.pixels, npcMatrix, projectile.definition.pixels, projectileMatrix);
+                    if (collision.X != -1 && collision.Y != -1)
+                    {
+                        projectile.Hit.To = npc;
+                        npc.hit(projectile.Hit);
+                        projectile.destroy();
+                        break; //Dit voegen we toe zodat de loop stopt, we hoeven immers niet meer te kijken op collisions, want het projectiel is gebotst. Voorkomt dus ook een paar bugs.
+                    }
+                }
             }
+        }
+
+        private static Vector2 texturesCollide(Color[,] tex1, Matrix mat1, Color[,] tex2, Matrix mat2)
+        {
+            Matrix mat1to2 = mat1 * Matrix.Invert(mat2);
+            int width1 = tex1.GetLength(0); 
+            int height1 = tex1.GetLength(1);
+            int width2 = tex2.GetLength(0);
+            int height2 = tex2.GetLength(1);
+
+            for (int x1 = 0; x1 < width1; x1++)
+            {
+                for (int y1 = 0; y1 < height1; y1++)
+                {
+                    Vector2 pos1 = new Vector2(x1, y1);
+                    Vector2 pos2 = Vector2.Transform(pos1, mat1to2);
+
+                    int x2 = (int)pos2.X; //pixel x locatie
+                    int y2 = (int)pos2.Y; //pixel y locatie
+                    if ((x2 >= 0) && (x2 < width2)) //collision op x-as
+                    {
+                        if ((y2 >= 0) && (y2 < height2)) //collision op y-as
+                        {
+                            if (tex1[x1, y1].A > 0) //pixels van texture1 niet transparant
+                            {
+                                if (tex2[x2, y2].A > 0) //pixels van texture2 niet transparant
+                                {
+                                    Vector2 screenPos = Vector2.Transform(pos1, mat1); //Pixel positie op het scherm.
+                                    return screenPos;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return new Vector2(-1, -1);
         }
 
         /// <summary>
