@@ -128,11 +128,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="HighScoresInterface.png">
-      <Name>HighScoresInterface</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="HPBarGroen.png">
       <Name>HPBarGroen</Name>
       <Importer>TextureImporter</Importer>
@@ -178,11 +173,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="UpgradeAchtergrond.png">
-      <Name>UpgradeAchtergrond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="weapon0.png">
       <Name>weapon0</Name>
       <Importer>TextureImporter</Importer>
@@ -190,11 +180,6 @@
     </Compile>
     <Compile Include="wolk.png">
       <Name>wolk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="YesNoKeuze.png">
-      <Name>YesNoKeuze</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
