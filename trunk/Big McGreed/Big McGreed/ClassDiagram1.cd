@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Big_McGreed.content.data.DatabaseException" Collapsed="true">
+    <Position X="25.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\data\DatabaseException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.data.sql.SqlDatabase" Collapsed="true">
+    <Position X="25.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAABAAAAAAAAQAAABEMACCARAAgAAAAAQAAAAAAA=</HashCode>
+      <FileName>content\data\sql\SqlDatabase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameframe.GameFrame" Collapsed="true">
+    <Position X="27.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAQARAACGgAAAJoMAkABAADAABAAAACAAAAFCCA=</HashCode>
+      <FileName>content\gameframe\GameFrame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.HighScoreButton" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\HighScoreButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.MainMenu" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.MenuButtonKlein" Collapsed="true">
+    <Position X="16.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\MenuButtonKlein.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.NewGame" Collapsed="true">
+    <Position X="21" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\NewGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.NoButton" Collapsed="true">
+    <Position X="23.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\NoButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.Quit" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\Quit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.Resume" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\Resume.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.ResumeKlein" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\ResumeKlein.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.SubmitHighscore" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\SubmitHighscore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.Upgrade" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\Upgrade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.buttons.YesButton" Collapsed="true">
+    <Position X="18.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\buttons\YesButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.GameInterface" Collapsed="true">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAQAACAgAAAIIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\GameInterface.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.InterfaceComponent" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAAAAAAgAAAAKAAAgSgAAJAAAIAQAACIAEAAA=</HashCode>
+      <FileName>content\gameinterface\InterfaceComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.InterfaceManager" Collapsed="true">
+    <Position X="25.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAYCAIAAAAAAA0AUAAAiAAAQIQQAEAAABAABCAAAhIA=</HashCode>
+      <FileName>content\gameinterface\InterfaceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.interfaces.HighscoreDisplay" Collapsed="true">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\interfaces\HighscoreDisplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.interfaces.UpgradeAchtergrond" Collapsed="true">
+    <Position X="11.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAADAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\gameinterface\interfaces\UpgradeAchtergrond.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.gameinterface.interfaces.YesNoSelect" Collapsed="true">
+    <Position X="14" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>content\gameinterface\interfaces\YesNoSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.hardware.ArduinoCom" Collapsed="true">
+    <Position X="27.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>content\hardware\ArduinoCom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.hardware.ArduinoConstants" Collapsed="true">
+    <Position X="29.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAARAAAAAAAAAAAAAAAAABAQAAAAAAoAAAQAAAAg=</HashCode>
+      <FileName>content\hardware\ArduinoConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.hardware.ArduinoException" Collapsed="true">
+    <Position X="31" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>content\hardware\ArduinoException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.hardware.ArduinoManager" Collapsed="true">
+    <Position X="32.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQgAAAAAAAAAAgAAAIwAgAAAgAAAACAAAAAAAAAA=</HashCode>
+      <FileName>content\hardware\ArduinoManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.hardware.MessageBuilder" Collapsed="true">
+    <Position X="27.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAQAAAAAQAAAABAAAAAAAA=</HashCode>
+      <FileName>content\hardware\MessageBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.highscore.HighScore" Collapsed="true">
+    <Position X="32.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAABAAAAAAAAgCAAAAAAAAAAGAAAAAAAACAAAAgAAA=</HashCode>
+      <FileName>content\highscore\HighScore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.info.ProgramInformation" Collapsed="true">
+    <Position X="29.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAQAAAgBAAiAAAAAAAAACIAAAAABQAAIAAAA=</HashCode>
+      <FileName>content\info\ProgramInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.engine.misc.CleanUp" Collapsed="true">
+    <Position X="34.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAEgAAAAAAAAAAwgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>engine\misc\CleanUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.engine.ticks.Tick" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="29.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAABAAAAAAAgAAAgAAABAAAAAgAAEAIA=</HashCode>
+      <FileName>engine\ticks\Tick.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Big_McGreed.engine.update.NPCUpdate" Collapsed="true">
+    <Position X="31" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAgAgAAAAAAAAAAggAAAAAAAAAAAAEAQ=</HashCode>
+      <FileName>engine\update\NPCUpdate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.engine.update.PlayerUpdate" Collapsed="true">
+    <Position X="34.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAgAAAAAAAAAAggAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>engine\update\PlayerUpdate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.GameWorld" Collapsed="true">
+    <Position X="31" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Big_McGreed.GameWorld.GameState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameWorld.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="Big_McGreed.GameWorld.LevelInformation" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameWorld.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gA4AlEKQBBAEgwAAAgQBAABAAABAIEgBQQQwAEAABAQ=</HashCode>
+      <FileName>GameWorld.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.Program" Collapsed="true">
+    <Position X="27.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.Entity" Collapsed="true">
+    <Position X="1.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAgAgAAAAgAAAAIAIIUAAAGAAAAiAQAAAA=</HashCode>
+      <FileName>logic\Entity.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Big_McGreed.logic.Locatable" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAGAAACACAAAAAAAAAAAGAABAA=</HashCode>
+      <FileName>logic\Locatable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.map.GameMap" Collapsed="true">
+    <Position X="29.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAEAgAAAAAAAMAAAAAAAQAAAEAAAABEACAAAgA=</HashCode>
+      <FileName>logic\map\GameMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.map.PrimitivePathFinder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIgAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAAgAAAUBA=</HashCode>
+      <FileName>logic\map\PrimitivePathFinder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Big_McGreed.logic.map.objects.GameObject" Collapsed="true">
+    <Position X="16.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAgAAAAAAAAAAAAABAAAAAAQACAAAAAA=</HashCode>
+      <FileName>logic\map\objects\GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.map.objects.ObjectDefinition" Collapsed="true">
+    <Position X="32.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>logic\map\objects\ObjectDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.mask.Hit" Collapsed="true">
+    <Position X="34.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>logic\mask\Hit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.npc.NPC" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAgAAAAgAAEAAAAABAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>logic\npc\NPC.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Big_McGreed.logic.npc.NPCDefinition" Collapsed="true">
+    <Position X="29.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAgIAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>logic\npc\NPCDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.player.Player" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAQAIAABAAgAAEAiAAEAAABAAAAwABACAQAAAgAA=</HashCode>
+      <FileName>logic\player\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Big_McGreed.logic.projectile.Projectile" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAAAoAAIAIAAEAAAAABAQAAAAQAiAAAAAA=</HashCode>
+      <FileName>logic\projectile\Projectile.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Big_McGreed.logic.projectile.ProjectileDefinition" Collapsed="true">
+    <Position X="31" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>logic\projectile\ProjectileDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.sound.Sound" Collapsed="true">
+    <Position X="34.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>logic\sound\Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.logic.sprite.AnimatedSprite" Collapsed="true">
+    <Position X="25.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgAAAAkAAAAgAAAAAAAAAAAAAAAIAAAgAAAA=</HashCode>
+      <FileName>logic\sprite\AnimatedSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.upgrades.Upgrade" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAACAAAQBAAEEAAABAAAAAAAAAAA=</HashCode>
+      <FileName>logic\upgrades\Upgrade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.content.upgrades.UpgradeDefinition" Collapsed="true">
+    <Position X="31" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAoAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>logic\upgrades\UpgradeDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.utility.RotatedRectangle" Collapsed="true">
+    <Position X="32.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAIAABAAAAAAAAAiAAEMAAAgAAAABAAJQAAAAYIE=</HashCode>
+      <FileName>utility\RotatedRectangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Big_McGreed.utility.StringUtilities" Collapsed="true">
+    <Position X="27.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAAA=</HashCode>
+      <FileName>utility\StringUtilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Big_McGreed.logic.player.PlayerDefinition" Collapsed="true">
+    <Position X="25.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAIAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>logic\player\PlayerDefinition.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Big_McGreed.logic.map.PathFinding" Collapsed="true">
+    <Position X="27.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>logic\map\PathFinding.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Big_McGreed.utility.Destroyable" Collapsed="true">
+    <Position X="25.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>utility\Destroyable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Big_McGreed.utility.Runnable" Collapsed="true">
+    <Position X="29.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>utility\Runnable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

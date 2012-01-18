@@ -20,7 +20,7 @@ namespace Big_McGreed.content.gameinterface.buttons
             //tinyButton = true;
             text = "NO";
 
-            Texture2D yesnoselect = Program.INSTANCE.loadTexture("YesNoKeuze");
+            Texture2D yesnoselect = Program.INSTANCE.loadTexture("TinyInterface");
 
             Location = new Vector2(GameFrame.Width / 2 + yesnoselect.Width / 2 - current.Width - 50, GameFrame.Height / 2 + yesnoselect.Height / 2 - current.Height - 50);
         }

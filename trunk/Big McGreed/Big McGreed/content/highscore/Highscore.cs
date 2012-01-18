@@ -28,7 +28,7 @@ namespace Big_McGreed.content.highscore
             OleDbDataReader reader = Program.INSTANCE.dataBase.getReader("SELECT Naam, Score FROM Highscore ORDER BY Score DESC");
             string naam;
             int punten;
-            for (int i = 0; reader.Read() && i < 10; i++)
+            for (int i = 1; reader.Read() && i < 10; i++)
             {
                 naam = reader.GetString(reader.GetOrdinal("Naam"));
                 punten = reader.GetInt32(reader.GetOrdinal("Score"));
