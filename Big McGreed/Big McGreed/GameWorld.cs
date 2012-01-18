@@ -203,8 +203,8 @@ namespace Big_McGreed
             //IsMouseVisible = true;
 
             //graphics.PreferMultiSampling = true;
-            //IsFixedTimeStep = false; //This disables the 60 ms interval of the Update method.
-            //graphics.SynchronizeWithVerticalRetrace = false; //This disables V-sync. (Lock frames to screen refresh rate)
+            IsFixedTimeStep = false; //This disables the 60 ms interval of the Update method.
+            graphics.SynchronizeWithVerticalRetrace = false; //This disables V-sync. (Lock frames to screen refresh rate)
             if (!DEBUG_MODE)
             {
                 graphics.IsFullScreen = true;
