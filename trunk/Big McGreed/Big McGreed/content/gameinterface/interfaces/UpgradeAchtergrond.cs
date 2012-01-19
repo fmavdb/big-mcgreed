@@ -10,13 +10,13 @@ namespace Big_McGreed.content.gameinterface.interfaces
 {
     public class UpgradeAchtergrond : GameInterface
     {
-        private const string tekst1 = "Industrie Upgrades";
+        public const string tekst1 = "Industrie Upgrades";
 
-        private const string tekst2 = "Ecologie Upgrades";
+        public const string tekst2 = "Ecologie Upgrades";
 
-        private Vector2 tekst1Location;
+        public Vector2 tekst1Location;
 
-        private Vector2 tekst2Location;
+        public Vector2 tekst2Location;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UpgradeAchtergrond"/> class.

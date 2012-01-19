@@ -234,10 +234,10 @@ namespace Big_McGreed
             GameFrame.Height = graphics.PreferredBackBufferHeight;
             arduino = new ArduinoManager();
             LevelInformation.Load();
-            gameFrame = new GameFrame();
             npcs = new LinkedList<NPC>();
             IManager = new InterfaceManager();
             IManager.Initialize();
+            gameFrame = new GameFrame();
             player = new Player();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
@@ -255,6 +255,7 @@ namespace Big_McGreed
         /// </summary>
         public void newGame()
         {
+            player = new Player();
             lock (npcs)
             {
                 npcs.Clear();
@@ -375,6 +376,7 @@ namespace Big_McGreed
                     break;
                 case GameState.Upgrade:
                     IManager.Draw(spriteBatch);
+                    gameFrame.DrawGold(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
                     break;
@@ -444,7 +446,8 @@ namespace Big_McGreed
                         IManager.activeInterface = IManager.upgradeAchtergrond;
                         addInterfaceComponent(IManager.menuButtonKlein, true);
                         addInterfaceComponent(IManager.resumeKlein, false);
-                        IManager.updateButtons();
+                        addInterfaceComponent(IManager.upgradeEcoWall, false);
+                        //IManager.updateButtons();
                         break;
 
                     case GameState.Highscore:

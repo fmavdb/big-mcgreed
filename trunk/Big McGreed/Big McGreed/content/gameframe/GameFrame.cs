@@ -34,6 +34,7 @@ namespace Big_McGreed.content.gameframe
         private Vector2 hpBarPositie = Vector2.Zero;
         private Vector2 oilBarPositie = Vector2.Zero;
         private Vector2 goldPositie = Vector2.Zero;
+        private Vector2 goldTextUpgradePositie = Vector2.Zero;
         private Vector2 goldTextPositie = Vector2.Zero;
         private Vector2 hpBarTextPositie = Vector2.Zero;
         private Vector2 hpBarHpLeftPositie = Vector2.Zero;
@@ -76,6 +77,7 @@ namespace Big_McGreed.content.gameframe
             gameFrameFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont"); //dit is een font geen image
             goldPositie = new Vector2((Width - hpBarTextureGroen.Width) + 5, hpBarTextureGroen.Height * 4);
             goldTextPositie = new Vector2(goldPositie.X - gameFrameFont.MeasureString("Gold:").X - 20, goldPositie.Y);
+            goldTextUpgradePositie = new Vector2(Program.INSTANCE.IManager.upgradeAchtergrond.getX() + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Width, Program.INSTANCE.IManager.upgradeAchtergrond.getY() / 1.25f);
             hpBarTextPositie = new Vector2(hpBarPositie.X - gameFrameFont.MeasureString("HP:").X - 30, hpBarPositie.Y);
             oilBarTextPositie = new Vector2(oilBarPositie.X - gameFrameFont.MeasureString("Oil:").X - 20, oilBarPositie.Y);
             hpBarHpLeftPositie = new Vector2(hpBarPositie.X + hpBarTextureGroen.Width /2 - gameFrameFont.MeasureString(hpText).X / 2, hpBarPositie.Y);
@@ -119,6 +121,12 @@ namespace Big_McGreed.content.gameframe
             double factor = ((double)hp / (double)Player.maxHP);
             rectangleHP = new Rectangle(0, 0, (int)(hpBarTextureGroen.Width * factor), hpBarTextureGroen.Height);
             hpText = hp + "/" + Player.maxHP;
+        }
+
+        public void DrawGold(SpriteBatch batch)
+        {
+            batch.DrawString(gameFrameFont, "Gold:", goldTextUpgradePositie, Color.White);
+            batch.DrawString(gameFrameFont, currency + Program.INSTANCE.player.gold, goldPositie, Color.White);
         }
     }
 }
