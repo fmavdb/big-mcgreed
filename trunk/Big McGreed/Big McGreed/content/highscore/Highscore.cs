@@ -19,6 +19,9 @@ namespace Big_McGreed.content.highscore
         Vector2 locatieHighscorePersonen = Vector2.Zero;
         Vector2 locatieHighscoreScore = Vector2.Zero;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HighScore"/> class.
+        /// </summary>
         public HighScore() {
             highscoreFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
             locatieHighscore = new Vector2(GameFrame.Width / 2 - highscoreFont.MeasureString(titelText).X / 2, (GameFrame.Height / 2 - Program.INSTANCE.IManager.highscoreDisplay.mainTexture.Height / 2) + 40);
@@ -43,6 +46,10 @@ namespace Big_McGreed.content.highscore
             //Laad gegevens... SELECT naam, score FROM highscores ORDER BY score LIMIT 10
         }
 
+        /// <summary>
+        /// Draws the specified batch.
+        /// </summary>
+        /// <param name="batch">The batch.</param>
         public void Draw(SpriteBatch batch)
         {
             //batch.DrawString(highscoreFont, titelText, locatieHighscore, Color.White);
