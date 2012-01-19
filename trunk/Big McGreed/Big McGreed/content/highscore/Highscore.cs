@@ -34,6 +34,7 @@ namespace Big_McGreed.content.highscore
                 punten = reader.GetInt32(reader.GetOrdinal("Score"));
                 highScores.Add(naam, punten);
             }
+            reader.Close(); //ERG BELANGRIJK! DIT MAAKT een TWEEDE query mogelijk!
         }
 
         public void addToHighScore(string naam, int score)
