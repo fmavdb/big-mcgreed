@@ -14,7 +14,7 @@ namespace Big_McGreed.content.data.sql
     /// </summary>
     public class SqlDatabase
     {
-        private static string databaseNaam = "TestDB";
+        private static string databaseNaam = "Proftaak";
         private OleDbConnection connection;
         private OleDbCommand command;
 
