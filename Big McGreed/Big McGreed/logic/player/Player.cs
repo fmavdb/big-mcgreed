@@ -22,9 +22,11 @@ namespace Big_McGreed.logic.player
     {
         public static int maxHP = 100;
 
-        public Upgrade Wall { get; private set; }
+        public static int maxOil = 100;
 
-        public Upgrade Weapon { get; private set; }
+        public Upgrade Wall { get; set; }
+
+        public Upgrade Weapon { get; set; }
 
         public PlayerDefinition definition { get { return PlayerDefinition.getDefinition(); } }
 
@@ -41,6 +43,8 @@ namespace Big_McGreed.logic.player
 
         public int oil { get; set; }
 
+        public int Score { get; set; }
+
         public int muzzle = 0;
 
         Texture2D muzzleTexture = Program.INSTANCE.loadTexture("Muzzle Effect");
@@ -51,6 +55,7 @@ namespace Big_McGreed.logic.player
         public Player()
         {
             Lifes = maxHP;
+            oil = maxOil;
             visible = true;
             currentLevel = 1;
             setX(Mouse.GetState().X);
@@ -58,6 +63,7 @@ namespace Big_McGreed.logic.player
             boerLocatie.X = GameFrame.Width - Program.INSTANCE.gameFrame.boerderijTexture.Width / 3.1f;
             boerLocatie.Y = GameFrame.Height - Program.INSTANCE.gameFrame.boerderijTexture.Height / 1.15f;
             Weapon = new Upgrade(this, new Vector2(boerLocatie.X, boerLocatie.Y + definition.personTexture.Height / 2), "weapon"); //1ste wapen is revolver: naam + level dus: weapon0.png
+            Wall = new Upgrade(Program.INSTANCE.player, new Vector2(Program.INSTANCE.gameFrame.boerderijPositie.X - UpgradeDefinition.forName("Muur0").mainTexture.Width / 2 , GameFrame.Height - UpgradeDefinition.forName("Muur0").mainTexture.Height), "Muur");
         }
 
         /// <summary>
@@ -114,6 +120,7 @@ namespace Big_McGreed.logic.player
                     }
                     rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y - 50, Weapon.getX() - Mouse.GetState().X);
                     batch.Draw(Weapon.definition.mainTexture, Weapon.getLocation(), new Rectangle(0, 0, Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), Color.White, rotation, new Vector2(Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+                    batch.Draw(Wall.definition.mainTexture, Wall.getLocation(), Color.White);
                     break;
             }
         }

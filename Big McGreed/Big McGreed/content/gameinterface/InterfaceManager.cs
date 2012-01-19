@@ -39,7 +39,7 @@ namespace Big_McGreed.content.gameinterface
         /// <summary>
         /// Gets the upgrade.
         /// </summary>
-        public Upgrade upgrade { get; private set; }
+        public UpgradeButton upgrade { get; private set; }
         /// <summary>
         /// Gets the resume.
         /// </summary>
@@ -64,6 +64,10 @@ namespace Big_McGreed.content.gameinterface
         /// Gets the no button.
         /// </summary>
         public NoButton noButton { get; private set; }
+        /// <summary>
+        /// Gets the upgrade Eco Wall.
+        /// </summary>
+        public UpgradeEcoWall upgradeEcoWall { get; private set; }
         /// <summary>
         /// Gets the yes no select.
         /// </summary>
@@ -121,12 +125,13 @@ namespace Big_McGreed.content.gameinterface
             quit = new Quit();
             activeComponents.AddLast(quit);
             resume = new Resume();
-            upgrade = new Upgrade();
+            upgrade = new UpgradeButton();
             menuButtonKlein = new MenuButtonKlein();
             resumeKlein = new ResumeKlein();
             mainMenu = new MainMenu();
             yesButton = new YesButton();
             noButton = new NoButton();
+            upgradeEcoWall = new UpgradeEcoWall();
             submitHighscore = new SubmitHighscore();
         }
 

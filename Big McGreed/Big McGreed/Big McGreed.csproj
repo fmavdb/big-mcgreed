@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="content\data\DatabaseException.cs" />
     <Compile Include="content\data\sql\SqlDatabase.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeEcoWall.cs" />
     <Compile Include="content\gameinterface\GameInterface.cs" />
     <Compile Include="content\info\ProgramInformation.cs" />
     <Compile Include="content\gameframe\GameFrame.cs" />
@@ -135,7 +136,7 @@
     <Compile Include="content\gameinterface\buttons\Resume.cs" />
     <Compile Include="content\gameinterface\buttons\ResumeKlein.cs" />
     <Compile Include="content\gameinterface\buttons\SubmitHighscore.cs" />
-    <Compile Include="content\gameinterface\buttons\Upgrade.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeButton.cs" />
     <Compile Include="content\gameinterface\buttons\YesButton.cs" />
     <Compile Include="content\gameinterface\interfaces\YesNoSelect.cs" />
     <Compile Include="content\gameinterface\InterfaceManager.cs" />
