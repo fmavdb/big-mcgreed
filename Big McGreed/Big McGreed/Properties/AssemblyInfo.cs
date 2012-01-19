@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("Big McGreed")]
 [assembly: AssemblyDescription("The innovative game.")]
 [assembly: AssemblyCompany("Reality Check")]
-[assembly: AssemblyCopyright("Copyright ©  2011")]
+[assembly: AssemblyCopyright("Copyright ©  2011-2012")]
 [assembly: AssemblyTrademark("Reality Check")]
 [assembly: AssemblyCulture("")]
 
