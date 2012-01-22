@@ -6,10 +6,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Big_McGreed.content.gameframe;
 using System.Data.OleDb;
+using Big_McGreed.utility;
 
 namespace Big_McGreed.content.highscore
 {
-    public class HighScore
+    public class HighScore : IDraw
     {
         public Dictionary<string, int> highScores;
         protected static SpriteFont highscoreFont;
@@ -23,9 +24,6 @@ namespace Big_McGreed.content.highscore
         /// Initializes a new instance of the <see cref="HighScore"/> class.
         /// </summary>
         public HighScore() {
-            highscoreFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
-            locatieHighscore = new Vector2(GameFrame.Width / 2 - highscoreFont.MeasureString(titelText).X / 2, (GameFrame.Height / 2 - Program.INSTANCE.IManager.highscoreDisplay.mainTexture.Height / 2) + 40);
-
             highScores = new Dictionary<string, int>();
 
             OleDbDataReader reader = Program.INSTANCE.dataBase.getReader("SELECT Naam, Score FROM Highscore ORDER BY Score DESC");
@@ -44,6 +42,12 @@ namespace Big_McGreed.content.highscore
         {
             //Voeg toe aan database.
             //Laad gegevens... SELECT naam, score FROM highscores ORDER BY score LIMIT 10
+        }
+
+        public void LoadContent()
+        {
+            highscoreFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont");
+            locatieHighscore = new Vector2(GameFrame.Width / 2 - highscoreFont.MeasureString(titelText).X / 2, (GameFrame.Height / 2 - Program.INSTANCE.IManager.highscoreDisplay.mainTexture.Height / 2) + 40);
         }
 
         /// <summary>

@@ -61,7 +61,7 @@ namespace Big_McGreed.content.info
             batch.DrawString(spriteFont, "FPS: " + frameRate.ToString(), Vector2.Zero, Color.White);
             batch.DrawString(spriteFont, "Memory: " + System.GC.GetTotalMemory(false), memory, Color.White);
             batch.DrawString(spriteFont, "NPC's: " + Program.INSTANCE.npcs.Count, npcs, Color.White);
-            batch.DrawString(spriteFont, "Projectiles: " + Program.INSTANCE.GameMap.Projectiles.Count, projectiles, Color.White);
+            batch.DrawString(spriteFont, "Projectiles: " + Program.INSTANCE.gameMap.Projectiles.Count, projectiles, Color.White);
             batch.DrawString(spriteFont, "Arduino Connection: TODO", arduino, Color.White);
             batch.DrawString(spriteFont, "Database Connection: TODO", database, Color.White);
         }

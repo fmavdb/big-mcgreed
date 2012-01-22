@@ -53,7 +53,7 @@ namespace Big_McGreed.engine.update
                 }
                 if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.InGame)
                 {
-                    Program.INSTANCE.GameMap.UpdateProjectiles();
+                    Program.INSTANCE.gameMap.UpdateProjectiles();
                 }
                 System.Threading.Thread.Sleep(15);
             }

@@ -9,9 +9,8 @@ namespace Big_McGreed.content.input
     /// <summary>
     /// Contains key events.
     /// </summary>
-    public class KeyEvents
-    {
-
+    public class InputEvents
+    { 
         /// <summary>
         /// Handles the pressed key.
         /// </summary>

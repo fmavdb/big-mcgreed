@@ -171,27 +171,48 @@ namespace Big_McGreed
         private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.Menu;
         private GameState lastState = GameState.Menu;
+        /// <summary>
+        /// Gets the player.
+        /// </summary>
         public Player player { get; private set; }
         private PlayerUpdate playerUpdate;
+        /// <summary>
+        /// Gets the NPCS.
+        /// </summary>
         public LinkedList<NPC> npcs { get; private set; }
         private NPCUpdate npcUpdate;
         private ProgramInformation info;
-        private GameMap gameMap;
-        public GameMap GameMap { get { return gameMap; } }
+        /// <summary>
+        /// Gets the game map.
+        /// </summary>
+        public GameMap gameMap { get; private set; }
+        /// <summary>
+        /// Gets the Interface manager.
+        /// </summary>
         public InterfaceManager IManager { get; private set; }
-        public GameFrame gameFrame { get; set; }
+        /// <summary>
+        /// Gets the game frame.
+        /// </summary>
+        public GameFrame gameFrame { get; private set; }
+        /// <summary>
+        /// Gets the high scores.
+        /// </summary>
         public HighScore highScores { get; private set; }
-        public SqlDatabase dataBase;
-        private ArduinoManager arduino;
+        /// <summary>
+        /// Gets the data base.
+        /// </summary>
+        public SqlDatabase dataBase { get; private set; }
+        /// <summary>
+        /// Gets the arduino.
+        /// </summary>
+        public ArduinoManager arduino { get; private set; }
         private TimeSpan lastWave = TimeSpan.Zero;
         public static Random random = new Random();
-        private KeyboardHandler keyboardHandler;
+        private InputHandler inputHandler;
 
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
-        //public MouseState lastMouseState { get; private set; }
 
-        //private Crosshair crosshair;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GameWorld"/> class.
@@ -233,8 +254,8 @@ namespace Big_McGreed
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameFrame.Width = graphics.PreferredBackBufferWidth;
             GameFrame.Height = graphics.PreferredBackBufferHeight;
-            keyboardHandler = new KeyboardHandler(Window.Handle);
-            keyboardHandler.Initialize();
+            //inputHandler = new InputHandler(Window.Handle);
+            //inputHandler.Initialize();
             arduino = new ArduinoManager();
             LevelInformation.Load();
             npcs = new LinkedList<NPC>();
@@ -274,6 +295,7 @@ namespace Big_McGreed
         /// </summary>
         protected override void LoadContent()
         {
+            highScores.LoadContent();
             arduino.connect();
             newGame();
             playerUpdate.start();
