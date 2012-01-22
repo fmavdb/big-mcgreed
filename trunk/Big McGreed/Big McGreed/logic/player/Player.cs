@@ -18,7 +18,7 @@ namespace Big_McGreed.logic.player
     /// <summary>
     /// This class represents a player, which is also an entity.
     /// </summary>
-    public class Player : Entity, Destroyable
+    public class Player : Entity, IDisposable
     {
         public static int maxHP = 100;
 
@@ -69,9 +69,9 @@ namespace Big_McGreed.logic.player
         /// <summary>
         /// Destroys this instance.
         /// </summary>
-        public void destroy()
+        public void Dispose()
         {
-            destroyed = true;
+            disposed = true;
         }
 
         /// <summary>

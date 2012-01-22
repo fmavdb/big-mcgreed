@@ -7,6 +7,9 @@ namespace Big_McGreed.utility
 {
     public static class StringUtilities
     {
+        /// <summary>
+        /// This static array contains valid characters.
+        /// </summary>
         private static char[] validChars = {
 		    '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 
 		    'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 

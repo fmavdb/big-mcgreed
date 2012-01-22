@@ -6,7 +6,7 @@ using Big_McGreed.utility;
 
 namespace Big_McGreed.engine.ticks
 {
-    public abstract class Tick : Runnable
+    public abstract class Tick : IRunnable
     {
         public int delay { get; set; }
         private DateTime lastRun { get; set; }
