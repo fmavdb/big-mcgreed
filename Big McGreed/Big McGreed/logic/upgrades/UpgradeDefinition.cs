@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using System.Data.OleDb;
 
 namespace Big_McGreed.content.upgrades
 {
@@ -24,6 +25,11 @@ namespace Big_McGreed.content.upgrades
             {
                 def = new UpgradeDefinition();
                 def.mainTexture = Program.INSTANCE.loadTexture(fullName);
+                object cost = Program.INSTANCE.dataBase.ExecuteQuery("SELECT UpgradeCost FROM Upgrade WHERE UpgradeFullName = '" + fullName + "'");
+                if (cost != null)
+                    def.cost = Convert.ToInt32(cost);
+                else
+                    Console.Error.WriteLine(fullName + " does not have a definition in the database.");
                 GameWorld.upgradeDefinitions.Add(fullName, def);
             }
             return def;
