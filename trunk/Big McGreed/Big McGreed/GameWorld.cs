@@ -256,6 +256,7 @@ namespace Big_McGreed
             GameFrame.Height = graphics.PreferredBackBufferHeight;
             //inputHandler = new InputHandler(Window.Handle);
             //inputHandler.Initialize();
+            dataBase = new SqlDatabase();   
             arduino = new ArduinoManager();
             LevelInformation.Load();
             npcs = new LinkedList<NPC>();
@@ -267,8 +268,7 @@ namespace Big_McGreed
             npcUpdate = new NPCUpdate();
             info = new ProgramInformation();
             gameMap = new GameMap();
-            gameMap.LoadGameObjects();
-            dataBase = new SqlDatabase();            
+            gameMap.LoadGameObjects();         
             highScores = new HighScore();
             base.Initialize();
         }

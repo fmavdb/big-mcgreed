@@ -19,12 +19,24 @@ namespace Big_McGreed.content.gameinterface
     {
         private LinkedList<InterfaceComponent> activeComponents;
 
+        /// <summary>
+        /// Gets or sets the active interface.
+        /// </summary>
+        /// <value>
+        /// The active interface.
+        /// </value>
         public GameInterface activeInterface { get; set; }
 
         private bool released = false;
 
+        /// <summary>
+        /// Gets the font.
+        /// </summary>
         public SpriteFont font { get; private set; }
 
+        /// <summary>
+        /// Gets the tiny font.
+        /// </summary>
         public SpriteFont tinyFont { get; private set; }
 
         /// <summary>
@@ -35,6 +47,9 @@ namespace Big_McGreed.content.gameinterface
         /// Gets the high score.
         /// </summary>
         public HighScoreButton highScore { get; private set; }
+        /// <summary>
+        /// Gets the quit.
+        /// </summary>
         public Quit quit { get; private set; }
         /// <summary>
         /// Gets the upgrade.
@@ -156,7 +171,8 @@ namespace Big_McGreed.content.gameinterface
                     }
                     else
                     {
-                        button.Current = button.Normal;
+                        if (button.Current != button.Normal)
+                            button.Current = button.Normal;
                     }
                 }
             }
@@ -171,14 +187,16 @@ namespace Big_McGreed.content.gameinterface
                         }
                         else
                         {
-                            buttonNearMouse.Current = buttonNearMouse.Hover;
+                            if (buttonNearMouse.Current != buttonNearMouse.Hover)
+                                buttonNearMouse.Current = buttonNearMouse.Hover;
                         }
                     }
                     break;
                 case ButtonState.Pressed:
                     if (buttonNearMouse != null)
                     {
-                        buttonNearMouse.Current = buttonNearMouse.Pressed;
+                        if (buttonNearMouse.Current != buttonNearMouse.Pressed)
+                            buttonNearMouse.Current = buttonNearMouse.Pressed;
                         released = true;
                     }
                     break;
