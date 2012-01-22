@@ -131,7 +131,7 @@ namespace Big_McGreed.logic.map
                     {
                         projectile.Hit.To = npc;
                         npc.hit(projectile.Hit);
-                        projectile.destroy();
+                        projectile.Dispose();
                         break; //Dit voegen we toe zodat de loop stopt, we hoeven immers niet meer te kijken op collisions, want het projectiel is gebotst. Voorkomt dus ook een paar bugs.
                     }
                 }

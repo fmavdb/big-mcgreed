@@ -15,7 +15,7 @@ namespace Big_McGreed.logic.projectile
     /// <summary>
     /// Represents a projectile.
     /// </summary>
-    public class Projectile : Locatable, Destroyable
+    public class Projectile : Locatable, IDisposable
     {
         /// <summary>
         /// Gets the type.
@@ -30,7 +30,7 @@ namespace Big_McGreed.logic.projectile
         /// <summary>
         /// Wether the projectile is scheduled for removal or not.
         /// </summary>
-        public bool destroyed = false;
+        public bool disposed = false;
 
         /// <summary>
         /// Gets the rotation.
@@ -76,11 +76,11 @@ namespace Big_McGreed.logic.projectile
         }
 
         /// <summary>
-        /// Destroys this instance.
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void destroy()
+        public void Dispose()
         {
-            destroyed = true;
+            disposed = true;
         }
 
         /// <summary>
@@ -101,13 +101,13 @@ namespace Big_McGreed.logic.projectile
                 setY(getY() + speedVal);*/
             //setLocation(getLocation() * direction * 1.001f);
             if (getX() <= 0)
-                destroy();
+                Dispose();
             else if (getX() >= GameFrame.Width)
-                destroy();
+                Dispose();
             if (getY() <= 0)
-                destroy();
+                Dispose();
             else if (getY() >= GameFrame.Height)
-                destroy();
+                Dispose();
             else
             {
                 PrimitivePathFinder.collision(this);

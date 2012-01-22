@@ -56,7 +56,7 @@ namespace Big_McGreed.engine.update
                             LinkedList<NPC> npcs = new LinkedList<NPC>(Program.INSTANCE.npcs);
                             foreach (NPC npc in npcs)
                             {
-                                if (!npc.destroyed)
+                                if (!npc.disposed)
                                 {
                                     npc.run();
                                 }
@@ -89,7 +89,7 @@ namespace Big_McGreed.engine.update
             {
                 foreach (NPC npc in Program.INSTANCE.npcs)
                 {
-                    if (npc.visible && npc.definition.mainTexture != null && !npc.destroyed)
+                    if (npc.visible && npc.definition.mainTexture != null && !npc.disposed)
                     {
                         npc.Draw(batch);
                     }

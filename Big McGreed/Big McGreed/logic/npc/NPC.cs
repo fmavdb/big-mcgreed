@@ -11,13 +11,14 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Big_McGreed.utility;
 using Big_McGreed.logic.map;
+using Big_McGreed.content.gameframe;
 
 namespace Big_McGreed.logic.npc
 {
     /// <summary>
     /// Represents a NPC.
     /// </summary>
-    public class NPC : Entity, Destroyable
+    public class NPC : Entity, IDisposable
     {
         /// <summary>
         /// Gets the type.
@@ -41,7 +42,7 @@ namespace Big_McGreed.logic.npc
             this.type = type;
             setLocation(location);
             updateLifes(definition.hp);
-            velocity = new Vector2(10f, 0f);
+            velocity = new Vector2(5f, 0f);
             visible = true;
         }
 
@@ -55,14 +56,14 @@ namespace Big_McGreed.logic.npc
             updateLifes(definition.hp);
             velocity = new Vector2(10f, 0f);
             visible = true;
-        } 
+        }
 
         /// <summary>
-        /// Destroys this instance.
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void destroy()
+        public void Dispose()
         {
-            destroyed = true;
+            disposed = true;
         }
 
         /// <summary>
@@ -80,6 +81,9 @@ namespace Big_McGreed.logic.npc
         /// <param name="batch">The batch.</param>
         public override void Draw(SpriteBatch batch) 
         {
+            //Only draw the npc when its coordinates are on the screen.
+            if (getX() + definition.mainTexture.Width < 0 || getX() + definition.mainTexture.Width > GameFrame.Width)
+                return;
             Texture2D toDraw = definition.mainTexture;
             if (hitted)
             {

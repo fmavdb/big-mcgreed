@@ -22,6 +22,7 @@ using Big_McGreed.content.gameframe;
 using Big_McGreed.content.highscore;
 using Big_McGreed.content.data.sql;
 using Big_McGreed.content.hardware;
+using Big_McGreed.content.input;
 
 
 namespace Big_McGreed
@@ -168,7 +169,6 @@ namespace Big_McGreed
         public string highscoreMenu = "";
 
         private Vector2 mousePosition = Vector2.Zero;
-        private Vector2 goldPositionUpgrade;
         private GameState gameState = GameState.Menu;
         private GameState lastState = GameState.Menu;
         public Player player { get; private set; }
@@ -185,6 +185,7 @@ namespace Big_McGreed
         private ArduinoManager arduino;
         private TimeSpan lastWave = TimeSpan.Zero;
         public static Random random = new Random();
+        private KeyboardHandler keyboardHandler;
 
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
@@ -232,6 +233,8 @@ namespace Big_McGreed
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameFrame.Width = graphics.PreferredBackBufferWidth;
             GameFrame.Height = graphics.PreferredBackBufferHeight;
+            keyboardHandler = new KeyboardHandler(Window.Handle);
+            keyboardHandler.Initialize();
             arduino = new ArduinoManager();
             LevelInformation.Load();
             npcs = new LinkedList<NPC>();
@@ -246,7 +249,6 @@ namespace Big_McGreed
             gameMap.LoadGameObjects();
             dataBase = new SqlDatabase();            
             highScores = new HighScore();
-            goldPositionUpgrade = new Vector2(GameFrame.Width - 200, 30);
             base.Initialize();
         }
 
@@ -290,14 +292,14 @@ namespace Big_McGreed
             lock (npcs)
             {
                 foreach(NPC npc in npcs) {
-                    npc.destroy();
+                    npc.Dispose();
                 }
             }
             gameMap.ClearProjectiles();
             if (playerUpdate != null)
                 playerUpdate.stop();
             if (player != null)
-                player.destroy();
+                player.Dispose();
             arduino.stop();
             CleanUp.INSTANCE.stop();
             //Engine.getInstance().destroy();
@@ -339,7 +341,7 @@ namespace Big_McGreed
                             y = minY;
                         else if (y > maxY)
                             y = maxY;
-                        npc.setLocation(new Vector2(0, y));
+                        npc.setLocation(new Vector2(-npc.definition.mainTexture.Width, y));
                         npcs.AddLast(npc);                       
                         lastWave = TimeSpan.Zero;
                     }

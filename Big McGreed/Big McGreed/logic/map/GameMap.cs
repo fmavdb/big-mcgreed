@@ -48,7 +48,7 @@ namespace Big_McGreed.logic.map
         public void LoadGameObjects()
         {
             objects.Clear();
-            objects.AddFirst(new GameObject(1, new Vector2(GameWorld.random.Next(-ObjectDefinition.forType(1).mainTexture.Width - GameWorld.random.Next(0, 500), GameFrame.Width), 0)));
+            objects.AddFirst(new GameObject(1, new Vector2(GameWorld.random.Next(-ObjectDefinition.forType(1).mainTexture.Width - GameWorld.random.Next(0, 750), GameFrame.Width), 0)));
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Big_McGreed.logic.map
                 LinkedList<Projectile> currentProjectiles = new LinkedList<Projectile>(projectiles);
                 foreach (Projectile projectile in currentProjectiles)
                 {
-                    if (!projectile.destroyed)
+                    if (!projectile.disposed)
                     {
                         projectile.Update();
                     }
@@ -144,7 +144,7 @@ namespace Big_McGreed.logic.map
             {
                 foreach (Projectile projectile in projectiles)
                 {
-                    if (projectile.visible && !projectile.destroyed)
+                    if (projectile.visible && !projectile.disposed)
                     {
                         projectile.Draw(batch);
                     }

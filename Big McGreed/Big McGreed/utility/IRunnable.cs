@@ -5,8 +5,11 @@ using System.Text;
 
 namespace Big_McGreed.utility
 {
-    public interface Runnable
+    public interface IRunnable
     {
+        /// <summary>
+        /// Runs this instance.
+        /// </summary>
         void run();
 
     }

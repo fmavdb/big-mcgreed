@@ -15,7 +15,7 @@ namespace Big_McGreed.logic
     /// <summary>
     /// Represents an entity; Player or NPC
     /// </summary>
-    public abstract class Entity : Locatable, Runnable
+    public abstract class Entity : Locatable, IRunnable
     {
         /// <summary>
         /// Gets the received hits.
@@ -69,7 +69,7 @@ namespace Big_McGreed.logic
         /// <value>
         ///   <c>true</c> if destroyed; otherwise, <c>false</c>.
         /// </value>
-        public bool destroyed { get; protected set; }
+        public bool disposed { get; protected set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Entity"/> class.
@@ -117,7 +117,7 @@ namespace Big_McGreed.logic
                     {
                         if (this is NPC)
                         {
-                            ((NPC)this).destroy();
+                            ((NPC)this).Dispose();
                             if (hit.From is Player)
                                 ((Player)hit.From).gold += 100;
                         }

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Big_McGreed.logic.map.objects
 {
-    public class GameObject : Locatable
+    public class GameObject : Locatable, IDisposable
     {
         /// <summary>
         /// Gets the type.
@@ -22,6 +22,8 @@ namespace Big_McGreed.logic.map.objects
         ///   <c>true</c> if visible; otherwise, <c>false</c>.
         /// </value>
         public bool visible { get; private set; }
+
+        public bool disposed { get; private set; }
 
         private Vector2 velocity = Vector2.Zero;
 
@@ -44,6 +46,14 @@ namespace Big_McGreed.logic.map.objects
             {
                 velocity = new Vector2(2f, 0f);
             }
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            disposed = true;
         }
 
         /// <summary>
