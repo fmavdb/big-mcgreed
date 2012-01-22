@@ -63,7 +63,7 @@ namespace Big_McGreed.logic.player
             boerLocatie.X = GameFrame.Width - Program.INSTANCE.gameFrame.boerderijTexture.Width / 3.1f;
             boerLocatie.Y = GameFrame.Height - Program.INSTANCE.gameFrame.boerderijTexture.Height / 1.15f;
             Weapon = new Upgrade(this, new Vector2(boerLocatie.X, boerLocatie.Y + definition.personTexture.Height / 2), "weapon"); //1ste wapen is revolver: naam + level dus: weapon0.png
-            Wall = new Upgrade(Program.INSTANCE.player, new Vector2(Program.INSTANCE.gameFrame.boerderijPositie.X - UpgradeDefinition.forName("Muur0").mainTexture.Width / 2 , GameFrame.Height - UpgradeDefinition.forName("Muur0").mainTexture.Height), "Muur");
+            Wall = new Upgrade(Program.INSTANCE.player, new Vector2(Program.INSTANCE.gameFrame.boerderijPositie.X - UpgradeDefinition.forName("muur0").mainTexture.Width / 2 , GameFrame.Height - UpgradeDefinition.forName("muur0").mainTexture.Height), "muur");
         }
 
         /// <summary>

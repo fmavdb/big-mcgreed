@@ -263,7 +263,6 @@ namespace Big_McGreed
             IManager = new InterfaceManager();
             IManager.Initialize();
             gameFrame = new GameFrame();
-            player = new Player();
             playerUpdate = new PlayerUpdate();
             npcUpdate = new NPCUpdate();
             info = new ProgramInformation();
@@ -322,6 +321,7 @@ namespace Big_McGreed
                 playerUpdate.stop();
             if (player != null)
                 player.Dispose();
+            dataBase.Dispose();
             arduino.stop();
             CleanUp.INSTANCE.stop();
             //Engine.getInstance().destroy();
