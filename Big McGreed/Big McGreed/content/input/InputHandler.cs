@@ -7,43 +7,8 @@ using System.Runtime.InteropServices;
 
 namespace Big_McGreed.content.input
 {
-    public class KeyboardHandler : IDisposable
+    public class InputHandler : IDisposable
     {
-		/// <summary>
-		/// Types of hook that can be installed using the SetWindwsHookEx function.
-		/// </summary>
-		public enum HookId {
-			WH_CALLWNDPROC = 4,
-			WH_CALLWNDPROCRET = 12,
-			WH_CBT = 5,
-			WH_DEBUG = 9,
-			WH_FOREGROUNDIDLE = 11,
-			WH_GETMESSAGE = 3,
-			WH_HARDWARE = 8,
-			WH_JOURNALPLAYBACK = 1,
-			WH_JOURNALRECORD = 0,
-			WH_KEYBOARD = 2,
-			WH_KEYBOARD_LL = 13,
-			WH_MAX = 11,
-			WH_MAXHOOK = WH_MAX,
-			WH_MIN = -1,
-			WH_MINHOOK = WH_MIN,
-			WH_MOUSE_LL = 14,
-			WH_MSGFILTER = -1,
-			WH_SHELL = 10,
-			WH_SYSMSGFILTER = 6,
-		};
-
-		/// <summary>
-		/// Window message types.
-		/// </summary>
-		/// <remarks>Heavily abridged, naturally.</remarks>
-		public enum WindowMessage {
-			WM_KEYDOWN = 0x100,
-			WM_KEYUP = 0x101,
-			WM_CHAR = 0x102,
-		};
-
 		/// <summary>
 		/// A delegate used to create a hook callback.
 		/// </summary>
@@ -60,7 +25,7 @@ namespace Big_McGreed.content.input
         /// If the function succeeds, the return value is the handle to the hook procedure. Otherwise returns 0.
         /// </returns>
 		[DllImport("user32.dll", EntryPoint = "SetWindowsHookExA")]
-		public static extern IntPtr SetWindowsHookEx(HookId idHook, GetMsgProc lpfn, IntPtr hmod, int dwThreadId);
+		public static extern IntPtr SetWindowsHookEx(HookType idHook, GetMsgProc lpfn, IntPtr hmod, int dwThreadId);
 
         /// <summary>
         /// Removes a hook procedure installed in a hook chain by the SetWindowsHookEx function.
@@ -110,18 +75,19 @@ namespace Big_McGreed.content.input
 
 		private readonly GetMsgProc ProcessMessagesCallback;
 
-        private readonly KeyEvents events;
+        private readonly InputEvents events;
 
         /// <summary>
         /// Create an instance of the TextInputHandler.
         /// </summary>
         /// <param name="whnd">Handle of the window you wish to receive messages (and thus keyboard input) from.</param>
-		public KeyboardHandler(IntPtr whnd) {
+		public InputHandler(IntPtr whnd) {
 			// Create the delegate callback:
 			this.ProcessMessagesCallback = new GetMsgProc(ProcessMessages);
 			// Create the keyboard hook:
-			this.HookHandle = SetWindowsHookEx(HookId.WH_GETMESSAGE, this.ProcessMessagesCallback, IntPtr.Zero, GetCurrentThreadId());
-            this.events = new KeyEvents();
+			this.HookHandle = SetWindowsHookEx(HookType.WH_GETMESSAGE, this.ProcessMessagesCallback, IntPtr.Zero, GetCurrentThreadId());
+            // Create a new key event holder.
+            this.events = new InputEvents();
 		}
 
         /// <summary>
@@ -147,8 +113,8 @@ namespace Big_McGreed.content.input
 					TranslateMessage(ref msg);
 
 					// If it's one of the keyboard-related messages, raise an event for it:
-					switch ((WindowMessage)msg.Msg) {
-						case WindowMessage.WM_CHAR:
+					switch ((MessageType)msg.Msg) {
+						case MessageType.WM_CHAR:
 							this.OnKeyPress(new KeyPressEventArgs((char)msg.WParam));
 							break;
 						/* Nu niet nodig.
@@ -159,7 +125,6 @@ namespace Big_McGreed.content.input
 							this.OnKeyUp(new KeyEventArgs((Keys)msg.WParam));
 							break;*/
 					}
-
 			}
 
 			// Call next hook in chain:
@@ -170,7 +135,7 @@ namespace Big_McGreed.content.input
         /// <summary>
         /// Occurs when [key up].
         /// </summary>
-		public event KeyEventHandler KeyUp;
+		private event KeyEventHandler KeyUp;
 
         /// <summary>
         /// Raises the <see cref="E:KeyUp"/> event.
@@ -183,7 +148,7 @@ namespace Big_McGreed.content.input
         /// <summary>
         /// Occurs when [key down].
         /// </summary>
-		public event KeyEventHandler KeyDown;
+		private event KeyEventHandler KeyDown;
 
         /// <summary>
         /// Raises the <see cref="E:KeyDown"/> event.
@@ -196,7 +161,7 @@ namespace Big_McGreed.content.input
         /// <summary>
         /// Occurs when [key press].
         /// </summary>
-		public event KeyPressEventHandler KeyPress;
+		private event KeyPressEventHandler KeyPress;
 
         /// <summary>
         /// Raises the <see cref="E:KeyPress"/> event.
@@ -205,5 +170,27 @@ namespace Big_McGreed.content.input
 		protected virtual void OnKeyPress(KeyPressEventArgs e) {
 			if (this.KeyPress != null) this.KeyPress(this, e);
 		}
+
+        private event MouseEventHandler LeftMouseDown;
+
+        /// <summary>
+        /// Raises the <see cref="E:LeftMouseDown"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
+        protected virtual void OnLeftMouseDown(MouseEventArgs e)
+        {
+            if (this.LeftMouseDown != null) this.LeftMouseDown(this, e);
+        }
+
+        private event MouseEventHandler LeftMouseUp;
+
+        /// <summary>
+        /// Raises the <see cref="E:LeftMouseUp"/> event.
+        /// </summary>
+        /// <param name="e">The <see cref="System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
+        protected virtual void OnLeftMouseUp(MouseEventArgs e)
+        {
+            if (this.LeftMouseUp != null) this.LeftMouseUp(this, e);
+        }
     }
 }

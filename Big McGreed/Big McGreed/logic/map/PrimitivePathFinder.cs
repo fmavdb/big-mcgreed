@@ -181,7 +181,8 @@ namespace Big_McGreed.logic.map
         /// <param name="collideColor">Color of the collide.</param>
         /// <param name="projectile">The cross hair.</param>
         /// <param name="npc">The NPC.</param>
-        /// <param name="pixels">The pixels.</param>
+        /// <param name="projectilePixels">The projectile pixels.</param>
+        /// <param name="npcPixels">The NPC pixels.</param>
         /// <returns></returns>
         public static bool colorCollision(Color collideColor, RotatedRectangle projectile, RotatedRectangle npc, Color[] projectilePixels, Color[] npcPixels)
         {
