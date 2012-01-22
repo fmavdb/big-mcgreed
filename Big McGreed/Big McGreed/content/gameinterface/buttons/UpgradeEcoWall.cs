@@ -24,7 +24,6 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            Program.INSTANCE.player.Wall = new Upgrade(Program.INSTANCE.player, Program.INSTANCE.player.Wall.getLocation(), "Muur");
             Program.INSTANCE.player.Wall.LevelUp();
         }
     }

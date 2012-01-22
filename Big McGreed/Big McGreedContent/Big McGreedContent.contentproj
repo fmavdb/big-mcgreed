@@ -42,6 +42,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Muur0.png">
+      <Name>Muur0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="muur1.png">
+      <Name>muur1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="poppetje.png">
       <Name>poppetje</Name>
       <Importer>TextureImporter</Importer>
@@ -138,11 +148,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Muur1.png">
-      <Name>Muur1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Muzzle Effect.png">
       <Name>Muzzle Effect</Name>
       <Importer>TextureImporter</Importer>
@@ -201,13 +206,6 @@
   <ItemGroup>
     <Compile Include="EcoWall.png">
       <Name>EcoWall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Muur0.png">
-      <Name>Muur0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

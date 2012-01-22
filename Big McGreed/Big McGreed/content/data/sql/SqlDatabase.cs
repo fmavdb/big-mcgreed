@@ -12,7 +12,7 @@ namespace Big_McGreed.content.data.sql
     /// Represents the database connection.
     /// Makes use of smart pooling, to minimalize the bandwidth.
     /// </summary>
-    public class SqlDatabase
+    public class SqlDatabase : IDisposable
     {
         private static string databaseNaam = "Proftaak";
         private OleDbConnection connection;
@@ -77,7 +77,7 @@ namespace Big_McGreed.content.data.sql
         /// <summary>
         /// Destroys this instance.
         /// </summary>
-        public void Destroy()
+        public void Dispose()
         {
             Disconnect();
 
@@ -119,7 +119,9 @@ namespace Big_McGreed.content.data.sql
         public OleDbDataReader getReader(string query)
         {
             this.command.CommandText = query;
-            return command.ExecuteReader();
+            OleDbDataReader reader = command.ExecuteReader();
+            this.command.CommandText = null;
+            return reader;
         }
 
         /// <summary>
@@ -130,7 +132,6 @@ namespace Big_McGreed.content.data.sql
         public Dictionary<string, object> getTable(string query, string[] columns)
         {
             Dictionary<string, object> data = new Dictionary<string, object>();
-            this.command.CommandText = query;
 
             OleDbDataReader reader = getReader(query);
             while(reader.Read())
@@ -139,15 +140,14 @@ namespace Big_McGreed.content.data.sql
                     data.Add(column, reader.GetValue(reader.GetOrdinal(column)));
                 }
             }
-            
-            this.command.CommandText = null;
+            reader.Close();
             return data;
         }
 
         /// <summary>
         /// Adds a parameter to the command.
         /// </summary>
-        /// <param name="param">The name of the parameter.</param>
+        /// <param name="parameter">The parameter.</param>
         /// <param name="value">The value that corresponds with the parameter.</param>
         public void AddParameter(string parameter, object value)
         {
@@ -176,16 +176,6 @@ namespace Big_McGreed.content.data.sql
                     return true;
             }
             return true;
-        }
-
-        /// <summary>
-        /// Gets the table.
-        /// </summary>
-        /// <param name="table">The table.</param>
-        public void getTable(string table)
-        {
-            this.command.CommandText = "SELECT * FROM " + table;
-            OleDbDataReader reader = command.ExecuteReader();
         }
     }
 }

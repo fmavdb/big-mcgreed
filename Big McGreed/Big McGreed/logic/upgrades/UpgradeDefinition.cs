@@ -9,8 +9,14 @@ namespace Big_McGreed.content.upgrades
 {
     public class UpgradeDefinition
     {
+        /// <summary>
+        /// Gets the main texture.
+        /// </summary>
         public Texture2D mainTexture { get; private set; }
 
+        /// <summary>
+        /// The upgrades cost.
+        /// </summary>
         public int cost = 0;
 
         /// <summary>
@@ -25,11 +31,14 @@ namespace Big_McGreed.content.upgrades
             {
                 def = new UpgradeDefinition();
                 def.mainTexture = Program.INSTANCE.loadTexture(fullName);
-                object cost = Program.INSTANCE.dataBase.ExecuteQuery("SELECT UpgradeCost FROM Upgrade WHERE UpgradeFullName = '" + fullName + "'");
+                OleDbDataReader reader = Program.INSTANCE.dataBase.getReader("SELECT * FROM Upgrade WHERE UpgradeFullName = '" + fullName + "'");
+                reader.Read();
+                object cost = reader["UpgradeCost"];
                 if (cost != null)
                     def.cost = Convert.ToInt32(cost);
                 else
                     Console.Error.WriteLine(fullName + " does not have a definition in the database.");
+                reader.Close();
                 GameWorld.upgradeDefinitions.Add(fullName, def);
             }
             return def;
