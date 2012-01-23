@@ -22,7 +22,7 @@ namespace Big_McGreed.utility
         /// </summary>
         /// <param name="name">The name to format.</param>
         /// <returns>Returns a formatted string.</returns>
-        public static string FormatForDisplay(this string name)
+        public static string FormatForDisplay(string name)
         {
             return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name).Replace('_', ' ');
         }

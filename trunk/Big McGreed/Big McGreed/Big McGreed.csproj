@@ -145,6 +145,7 @@
     <Compile Include="content\input\InputHandler.cs" />
     <Compile Include="content\input\InputEvents.cs" />
     <Compile Include="content\input\MessageType.cs" />
+    <Compile Include="content\level\LevelInformation.cs" />
     <Compile Include="logic\upgrades\Upgrade.cs" />
     <Compile Include="logic\upgrades\UpgradeDefinition.cs" />
     <Compile Include="engine\misc\CleanUp.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="GameWorld.cs" />
+    <Compile Include="utility\ArrayUtilities.cs" />
     <Compile Include="utility\IDraw.cs" />
     <Compile Include="utility\RotatedRectangle.cs" />
     <Compile Include="utility\IRunnable.cs">

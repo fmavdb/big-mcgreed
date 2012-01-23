@@ -23,6 +23,12 @@ namespace Big_McGreed.logic.map.objects
         /// </value>
         public bool visible { get; private set; }
 
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="GameObject"/> is disposed.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if disposed; otherwise, <c>false</c>.
+        /// </value>
         public bool disposed { get; private set; }
 
         private Vector2 velocity = Vector2.Zero;
@@ -44,7 +50,7 @@ namespace Big_McGreed.logic.map.objects
             visible = true;
             if (type == 1)
             {
-                velocity = new Vector2(2f, 0f);
+                velocity = new Vector2(1f, 0f);
             }
         }
 
@@ -63,16 +69,19 @@ namespace Big_McGreed.logic.map.objects
         {
             if (velocity != Vector2.Zero)
             {
-                if (getLocation().X < GameFrame.Width)
+                if (getLocation().X - definition.mainTexture.Width <= GameFrame.Width)
                 {
                     setLocation(getLocation() + velocity);
                 }
                 else
                 {
-                    setX(GameWorld.random.Next(-ObjectDefinition.forType(1).mainTexture.Width - GameWorld.random.Next(0, 800), -ObjectDefinition.forType(1).mainTexture.Width));
+                    setX(-GameWorld.random.Next(definition.mainTexture.Width, GameWorld.random.Next(0, GameFrame.Width)));
                 }
             }
-            batch.Draw(definition.mainTexture, getLocation(), Color.White);
+            if ((getX() + definition.mainTexture.Width) > 0 && getX() <= GameFrame.Width)
+            {
+                batch.Draw(definition.mainTexture, getLocation(), Color.White);
+            }
         }
     }
 }

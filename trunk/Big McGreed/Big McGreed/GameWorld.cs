@@ -23,6 +23,7 @@ using Big_McGreed.content.highscore;
 using Big_McGreed.content.data.sql;
 using Big_McGreed.content.hardware;
 using Big_McGreed.content.input;
+using Big_McGreed.content.level;
 
 
 namespace Big_McGreed
@@ -94,75 +95,6 @@ namespace Big_McGreed
             ///  The player failed to win the game.
             /// </summary>
             GameOver
-        }
-
-        //Als dit java was, dan was dit een enum -.- Ccrap enums...
-        /// <summary>
-        /// Contains all level info.
-        /// </summary>
-        public class LevelInformation
-        {
-            /// <summary>
-            /// Gets the waves.
-            /// </summary>
-            public static Dictionary<int, LevelInformation> levels { get; private set; }
-
-            /// <summary>
-            /// Loads this instance.
-            /// </summary>
-            public static void Load() {
-                levels = new Dictionary<int, LevelInformation>();
-                levels.Add(1, new LevelInformation(1, new int[] {1}, 10, 1500));
-                levels.Add(2, new LevelInformation(2, new int[] {4, 5, 6}, 15, 1000));
-                levels.Add(3, new LevelInformation(3, new int[] {7, 8, 9}, 20, 500));
-            }
-
-            /// <summary>
-            /// Fors the value.
-            /// </summary>
-            /// <param name="wave">The wave.</param>
-            /// <returns></returns>
-            public static LevelInformation forValue(int wave)
-            {
-                LevelInformation levelInformation = null;
-                if (!levels.TryGetValue(wave, out levelInformation)) {
-                    return null;
-                }
-                return levelInformation;
-            }
-
-            /// <summary>
-            /// Gets the amount of enemies.
-            /// </summary>
-            public int amountOfEnemies { get; private set; }
-            /// <summary>
-            /// Gets the wave.
-            /// </summary>
-            public int level { get; private set; }
-            /// <summary>
-            /// Gets the wave delay.
-            /// </summary>
-            public int waveDelay { get; private set; }
-            /// <summary>
-            /// Gets the NPC types.
-            /// </summary>
-            public int[] npcTypes { get; private set; }
-
-            /// <summary>
-            /// Prevents a default instance of the <see cref="LevelInformation"/> class from being created.
-            /// </summary>
-            /// <param name="level">The wave.</param>
-            /// <param name="npcTypes">The NPC types.</param>
-            /// <param name="amountOfEnemies">The amount of enemies.</param>
-            /// <param name="waveDelay">The wave delay.</param>
-            private LevelInformation(int level, int[] npcTypes, int amountOfEnemies, int waveDelay)   //Wavedelay in ms
-            {
-                this.level = level;
-                this.waveDelay = waveDelay;
-                this.npcTypes = npcTypes;
-                this.amountOfEnemies = amountOfEnemies;
-                
-            }
         }
 
         public string yesKnopGedrukt = "";
@@ -258,7 +190,6 @@ namespace Big_McGreed
             //inputHandler.Initialize();
             dataBase = new SqlDatabase();   
             arduino = new ArduinoManager();
-            LevelInformation.Load();
             npcs = new LinkedList<NPC>();
             IManager = new InterfaceManager();
             IManager.Initialize();
@@ -269,6 +200,7 @@ namespace Big_McGreed
             gameMap = new GameMap();
             gameMap.LoadGameObjects();         
             highScores = new HighScore();
+            LevelInformation.Load();
             base.Initialize();
         }
 
@@ -351,7 +283,7 @@ namespace Big_McGreed
                         break;
                     }
                     lastWave += gameTime.ElapsedGameTime;
-                    if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
+                    if (LevelInformation.forValue(player.currentLevel) != null && lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
                     {
                         LevelInformation wave = LevelInformation.forValue(player.currentLevel);
                         int typeToSpawn = wave.npcTypes[random.Next(wave.npcTypes.Length)];
