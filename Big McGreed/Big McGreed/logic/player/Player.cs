@@ -30,7 +30,7 @@ namespace Big_McGreed.logic.player
 
         public PlayerDefinition definition { get { return PlayerDefinition.getDefinition(); } }
 
-        public int currentLevel { get; set; }
+        public int currentLevel { get; private set; }
 
         public bool leftButtonPressed = false;
 

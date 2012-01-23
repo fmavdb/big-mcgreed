@@ -82,7 +82,7 @@ namespace Big_McGreed.logic.npc
         public override void Draw(SpriteBatch batch) 
         {
             //Only draw the npc when its coordinates are on the screen.
-            if (getX() + definition.mainTexture.Width < 0 || getX() + definition.mainTexture.Width > GameFrame.Width)
+            if (getX() + definition.mainTexture.Width < 0 || getX() > GameFrame.Width)
                 return;
             Texture2D toDraw = definition.mainTexture;
             if (hitted)
