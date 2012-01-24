@@ -237,6 +237,23 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GifAnimation.Pipeline\XNAGifAnimation.Pipeline.csproj">
+      <Project>{9C683759-D9CF-423E-87B1-153097BE2820}</Project>
+      <Name>XNAGifAnimation.Pipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GifAnimation\XNAGifAnimation.csproj">
+      <Project>{76B7215D-8172-4FF9-A1A9-4989B0D4C15B}</Project>
+      <Name>XNAGifAnimation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="wolfanim.gif">
+      <Name>wolfanim</Name>
+      <Importer>GifAminationImporter</Importer>
+      <Processor>GifAnimationProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

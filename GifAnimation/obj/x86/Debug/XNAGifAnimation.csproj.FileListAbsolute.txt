@@ -1,0 +1,6 @@
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation\bin\x86\Debug\GifAnimation.dll
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation\bin\x86\Debug\GifAnimation.pdb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation\obj\x86\Debug\GifAnimation.dll
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation\obj\x86\Debug\GifAnimation.pdb

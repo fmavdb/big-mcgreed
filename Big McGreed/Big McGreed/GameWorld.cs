@@ -24,7 +24,7 @@ using Big_McGreed.content.data.sql;
 using Big_McGreed.content.hardware;
 using Big_McGreed.content.input;
 using Big_McGreed.content.level;
-
+using XNAGifAnimation;
 
 namespace Big_McGreed
 {
@@ -145,6 +145,7 @@ namespace Big_McGreed
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
 
+        private GifAnimation animation; 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GameWorld"/> class.
@@ -226,6 +227,7 @@ namespace Big_McGreed
         /// </summary>
         protected override void LoadContent()
         {
+            animation = Content.Load<GifAnimation>("wolfanim");
             highScores.LoadContent();
             arduino.connect();
             newGame();
@@ -266,6 +268,7 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            animation.Update(gameTime.ElapsedGameTime.Ticks);
             switch (gameState)
             {
                 case GameState.Highscore:
@@ -314,6 +317,7 @@ namespace Big_McGreed
             //LET OP! - De volgorde bepaalt de layer op het scherm. (Dus door een plaatje als eerste te drawen, krijg je een background)
             spriteBatch.Begin();
             gameMap.DrawBackground(spriteBatch);
+            spriteBatch.Draw(this.animation.GetTexture(), new Vector2(GameFrame.Width / 2, 0), Color.White);
             switch (gameState)
             {
                 case GameState.Highscore:
