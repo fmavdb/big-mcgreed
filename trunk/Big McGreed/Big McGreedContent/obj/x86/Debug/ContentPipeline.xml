@@ -2,6 +2,24 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
+      <Source>Muur0.png</Source>
+      <Name>Muur0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur0.xnb</Output>
+      <Time>2012-01-19T13:08:02.3701348+01:00</Time>
+    </Item>
+    <Item>
+      <Source>muur1.png</Source>
+      <Name>muur1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\muur1.xnb</Output>
+      <Time>2012-01-19T13:08:00.3491319+01:00</Time>
+    </Item>
+    <Item>
       <Source>poppetje.png</Source>
       <Name>poppetje</Name>
       <Importer>TextureImporter</Importer>
@@ -119,15 +137,6 @@
       <Time>2012-01-11T20:05:47.6928985+01:00</Time>
     </Item>
     <Item>
-      <Source>Muur1.png</Source>
-      <Name>Muur1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur1.xnb</Output>
-      <Time>2012-01-19T13:08:00.3491319+01:00</Time>
-    </Item>
-    <Item>
       <Source>Muzzle Effect.png</Source>
       <Name>Muzzle Effect</Name>
       <Importer>TextureImporter</Importer>
@@ -227,15 +236,6 @@
       <Time>2012-01-19T13:08:02.3501348+01:00</Time>
     </Item>
     <Item>
-      <Source>Muur0.png</Source>
-      <Name>Muur0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur0.xnb</Output>
-      <Time>2012-01-19T13:08:02.3701348+01:00</Time>
-    </Item>
-    <Item>
       <Source>EcoWallClicked.png</Source>
       <Name>EcoWallClicked</Name>
       <Importer>TextureImporter</Importer>
@@ -307,6 +307,15 @@
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\TinyButtonFont.xnb</Output>
       <Time>2011-12-16T09:46:41.7557872+01:00</Time>
     </Item>
+    <Item>
+      <Source>wolfanim.gif</Source>
+      <Name>wolfanim</Name>
+      <Importer>GifAminationImporter</Importer>
+      <Processor>GifAnimationProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\wolfanim.xnb</Output>
+      <Time>2012-01-24T11:36:10.1603645+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
@@ -342,6 +351,14 @@
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\bin\x86\Debug\GifAnimation.Pipeline.dll</Key>
+        <Value>2012-01-24T12:06:46.7996842+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation\bin\x86\Debug\GifAnimation.dll</Key>
+        <Value>2012-01-24T12:06:46.4906666+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>

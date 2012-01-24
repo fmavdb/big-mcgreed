@@ -184,9 +184,18 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\GifAnimation.Pipeline\XNAGifAnimation.Pipeline.csproj">
+      <Project>{9C683759-D9CF-423E-87B1-153097BE2820}</Project>
+      <Name>XNAGifAnimation.Pipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GifAnimation\XNAGifAnimation.csproj">
+      <Project>{76B7215D-8172-4FF9-A1A9-4989B0D4C15B}</Project>
+      <Name>XNAGifAnimation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Big McGreedContent\Big McGreedContent.contentproj">
-      <Name>Big_McGreedContent</Name>
+      <Name>Big McGreedContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{274EADB7-0034-4222-9570-804ACFB19A9F}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

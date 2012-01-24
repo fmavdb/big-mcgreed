@@ -1,0 +1,7 @@
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\bin\x86\Debug\GifAnimation.Pipeline.dll
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\bin\x86\Debug\GifAnimation.Pipeline.pdb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\bin\x86\Debug\GifAnimation.dll
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\bin\x86\Debug\GifAnimation.pdb
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\obj\x86\Debug\GifAnimation.Pipeline.dll
+C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\obj\x86\Debug\GifAnimation.Pipeline.pdb
