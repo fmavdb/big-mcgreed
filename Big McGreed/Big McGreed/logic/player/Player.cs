@@ -24,17 +24,53 @@ namespace Big_McGreed.logic.player
 
         public static int maxOil = 100;
 
+        /// <summary>
+        /// Gets or sets the wall.
+        /// </summary>
+        /// <value>
+        /// The wall.
+        /// </value>
         public Upgrade Wall { get; set; }
 
-        public Upgrade Weapon { get; set; }
+        private Upgrade weapon;
 
+        /// <summary>
+        /// Gets or sets the weapon.
+        /// </summary>
+        /// <value>
+        /// The weapon.
+        /// </value>
+        public Upgrade Weapon 
+        {
+            get { return weapon; }
+
+            set
+            {
+                this.weapon = value;
+                this.damage = Weapon.definition.damage;
+            }
+        }
+
+        /// <summary>
+        /// Gets the definition.
+        /// </summary>
         public PlayerDefinition definition { get { return PlayerDefinition.getDefinition(); } }
 
+        /// <summary>
+        /// Gets the current level.
+        /// </summary>
         public int currentLevel { get; private set; }
 
+        /// <summary>
+        /// Wether the left mouse button has been pressed.
+        /// </summary>
         public bool leftButtonPressed = false;
 
         private Vector2 boerLocatie = Vector2.Zero;
+
+        /// <summary>
+        /// Gets the boer locatie.
+        /// </summary>
         public Vector2 BoerLocatie { get { return boerLocatie; } private set { boerLocatie = value; } }
 
         private float rotation;
@@ -89,7 +125,7 @@ namespace Big_McGreed.logic.player
                     //}
                     if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.InGame)
                     {
-                        Program.INSTANCE.gameMap.AddProjectile(new Projectile(1, new Hit(null, this, 10), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 3)));
+                        Program.INSTANCE.gameMap.AddProjectile(new Projectile(1, new Hit(null, this, damage), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 3)));
                         //hit(new Hit(this, null, 10));
                         leftButtonPressed = true;
                         muzzle = 12;

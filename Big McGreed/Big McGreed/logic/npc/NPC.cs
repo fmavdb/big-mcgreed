@@ -41,9 +41,9 @@ namespace Big_McGreed.logic.npc
         {
             this.type = type;
             setLocation(location);
-            updateLifes(definition.hp);
             velocity = new Vector2(5f, 0f);
             visible = true;
+            Initialize();
         }
 
         /// <summary>
@@ -53,9 +53,15 @@ namespace Big_McGreed.logic.npc
         public NPC(int type)
         {
             this.type = type;
-            updateLifes(definition.hp);
             velocity = new Vector2(5f, 0f);
             visible = true;
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            updateLifes(definition.hp);
+            damage = definition.damage;
         }
 
         /// <summary>
