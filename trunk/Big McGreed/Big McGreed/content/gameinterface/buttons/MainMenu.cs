@@ -22,8 +22,12 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            Program.INSTANCE.yesKnopGedrukt = "mainMenu";
+            Program.INSTANCE.buttonClickedState = "mainMenu";
             Program.INSTANCE.CurrentGameState = GameWorld.GameState.Select;
+        }
+
+        public override void drawInfo()
+        {
         }
     }
 }

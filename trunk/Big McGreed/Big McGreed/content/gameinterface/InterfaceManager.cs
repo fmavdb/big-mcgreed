@@ -86,6 +86,18 @@ namespace Big_McGreed.content.gameinterface
         /// <summary>
         /// Gets the yes no select.
         /// </summary>
+        public UpgradeEcoHelp upgradeEcoHelp { get; private set; }
+        
+        public UpgradeOilWall upgradeOilWall { get; private set; }
+
+        public UpgradeOilHelp upgradeOilHelp { get; private set; }
+
+        public UpgradeWeaponMagnum upgradeWeaponMagnum { get; private set; }
+
+        public UpgradeWeaponRifle upgradeWeaponRifle { get; private set; }
+
+        public UpgradeWeaponShotgun upgradeWeaponShotgun { get; private set; }
+
         public YesNoSelect yesNoSelect { get; private set; }
         /// <summary>
         /// Gets the upgrade achtergrond.
@@ -99,6 +111,8 @@ namespace Big_McGreed.content.gameinterface
         /// Gets the highscore display.
         /// </summary>
         public HighscoreDisplay highscoreDisplay { get; private set; }
+
+        public UpgradeButtonInGame upgradeButtonIG { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InterfaceManager"/> class.
@@ -147,7 +161,14 @@ namespace Big_McGreed.content.gameinterface
             yesButton = new YesButton();
             noButton = new NoButton();
             upgradeEcoWall = new UpgradeEcoWall();
+            upgradeEcoHelp = new UpgradeEcoHelp();
+            upgradeOilWall = new UpgradeOilWall();
+            upgradeOilHelp = new UpgradeOilHelp();
+            upgradeWeaponMagnum = new UpgradeWeaponMagnum();
+            upgradeWeaponRifle = new UpgradeWeaponRifle();
+            upgradeWeaponShotgun = new UpgradeWeaponShotgun();
             submitHighscore = new SubmitHighscore();
+            upgradeButtonIG = new UpgradeButtonInGame();
         }
 
 
@@ -188,7 +209,12 @@ namespace Big_McGreed.content.gameinterface
                         else
                         {
                             if (buttonNearMouse.Current != buttonNearMouse.Hover)
+                            {
                                 buttonNearMouse.Current = buttonNearMouse.Hover;
+                            }
+                            Program.INSTANCE.spriteBatch.Begin();
+                                buttonNearMouse.drawInfo();
+                            Program.INSTANCE.spriteBatch.End();
                         }
                     }
                     break;

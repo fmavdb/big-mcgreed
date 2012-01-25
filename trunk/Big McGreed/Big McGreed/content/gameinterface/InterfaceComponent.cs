@@ -22,6 +22,11 @@ namespace Big_McGreed.content.gameinterface
         /// </summary>
         public abstract void action();
 
+        /// <summary>
+        /// Show info about upgrade.
+        /// </summary>
+        public abstract void drawInfo();
+
         private Vector2 location;
 
         /// <summary>

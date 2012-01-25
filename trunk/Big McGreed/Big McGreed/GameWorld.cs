@@ -97,7 +97,7 @@ namespace Big_McGreed
             GameOver
         }
 
-        public string yesKnopGedrukt = "";
+        public string buttonClickedState = "";
         public string highscoreMenu = "";
 
         private Vector2 mousePosition = Vector2.Zero;
@@ -143,7 +143,7 @@ namespace Big_McGreed
         private InputHandler inputHandler;
 
         private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
 
         private GifAnimation animation; 
 
@@ -280,6 +280,7 @@ namespace Big_McGreed
                     IManager.Update();
                     break;
                 case GameState.InGame:
+                    IManager.Update();
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                     {
                         CurrentGameState = GameState.Paused;
@@ -343,6 +344,7 @@ namespace Big_McGreed
                 case GameState.InGame:
                     gameMap.DrawObjects(spriteBatch);
                     gameFrame.Draw(spriteBatch);
+                    IManager.Draw(spriteBatch);
                     npcUpdate.Draw(spriteBatch);
                     gameMap.DrawProjectiles(spriteBatch);
                     if (player != null && player.visible)
@@ -374,11 +376,9 @@ namespace Big_McGreed
                 switch (gameState)
                 {
                     case GameState.InGame:
-                        if (lastState == GameState.Paused)
-                        {
-                            removeInterfaceComponent(IManager.upgrade);
-                            removeInterfaceComponent(IManager.resume);
-                        }
+                        IManager.getActiveComponents().Clear();
+                        IManager.activeInterface = null;
+                        addInterfaceComponent(IManager.upgradeButtonIG, true);
                         break;
 
                     case GameState.Paused:
@@ -407,7 +407,12 @@ namespace Big_McGreed
                         addInterfaceComponent(IManager.menuButtonKlein, true);
                         addInterfaceComponent(IManager.resumeKlein, false);
                         addInterfaceComponent(IManager.upgradeEcoWall, false);
-                        //IManager.updateButtons();
+                        addInterfaceComponent(IManager.upgradeEcoHelp, false);
+                        addInterfaceComponent(IManager.upgradeOilWall, false);
+                        addInterfaceComponent(IManager.upgradeOilHelp, false);
+                        addInterfaceComponent(IManager.upgradeWeaponMagnum, false);
+                        addInterfaceComponent(IManager.upgradeWeaponRifle, false);
+                        addInterfaceComponent(IManager.upgradeWeaponShotgun, false);
                         break;
 
                     case GameState.Highscore:

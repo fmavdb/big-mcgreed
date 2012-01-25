@@ -22,12 +22,12 @@ namespace Big_McGreed.content.gameinterface.interfaces
 
         public void YesNoSelectUpdate()
         {
-            if (Program.INSTANCE.yesKnopGedrukt == "newGame")
+            if (Program.INSTANCE.buttonClickedState == "newGame")
             {
                 title = newGameText;
                 centerTitle();
             }
-            else if (Program.INSTANCE.yesKnopGedrukt == "mainMenu")
+            else if (Program.INSTANCE.buttonClickedState == "mainMenu")
             {
                 title = mainMenuText;
                 centerTitle();
