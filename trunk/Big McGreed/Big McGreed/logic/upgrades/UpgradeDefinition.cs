@@ -19,6 +19,8 @@ namespace Big_McGreed.content.upgrades
         /// </summary>
         public int cost = 0;
 
+        public int damage = -1;
+
         /// <summary>
         /// Returns the definition from the cache.
         /// </summary>
@@ -39,6 +41,14 @@ namespace Big_McGreed.content.upgrades
                 else
                     Console.Error.WriteLine(fullName + " does not have a definition in the database.");
                 reader.Close();
+                if (fullName.Contains("weapon")) 
+                {
+                    reader = Program.INSTANCE.dataBase.getReader("SELECT * FROM Weapon WHERE WeaponFullName = '" + fullName + "'");
+                    reader.Read();
+                    def.damage = Convert.ToInt32(reader["WeaponDamage"]);
+                    //TODO - Projectile Type
+                    reader.Close();
+                }
                 GameWorld.upgradeDefinitions.Add(fullName, def);
             }
             return def;

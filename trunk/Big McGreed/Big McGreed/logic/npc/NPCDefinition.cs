@@ -36,6 +36,11 @@ namespace Big_McGreed.logic.npc
         public int speed = 0;
 
         /// <summary>
+        /// The NPC's damage.
+        /// </summary>
+        public int damage = -1;
+
+        /// <summary>
         /// Initializes a new instance for the npc type.
         /// </summary>
         /// <param name="type">The type.</param>
@@ -78,6 +83,14 @@ namespace Big_McGreed.logic.npc
                 {
                     Console.Error.WriteLine("NPC type: " + type + " speed has not been added.");
                     def.speed = 5;
+                }
+                object damage = reader["NPCDamage"];
+                if (damage != null)
+                    def.damage = Convert.ToInt32(damage);
+                else
+                {
+                    Console.Error.WriteLine("NPC type: " + type + " damage has not been added.");
+                    def.damage = -1;
                 }
                 reader.Close();
                 GameWorld.npcDefinitions.Add(type, def);

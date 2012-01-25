@@ -27,6 +27,14 @@ namespace Big_McGreed.logic
         /// </summary>
         protected Hashtable ticks { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the damage.
+        /// </summary>
+        /// <value>
+        /// The damage.
+        /// </value>
+        public int damage { get; protected set; }
+
         private int lifes;
         /// <summary>
         /// Gets or sets the lifes.
@@ -56,7 +64,7 @@ namespace Big_McGreed.logic
         /// <value>
         ///   <c>true</c> if visible; otherwise, <c>false</c>.
         /// </value>
-        public bool visible { get; set; }
+        public bool visible { get; protected set; }
 
         /// <summary>
         /// Wether the entity is hitted or not.
