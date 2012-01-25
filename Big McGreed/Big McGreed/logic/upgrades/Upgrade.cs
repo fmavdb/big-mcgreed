@@ -72,6 +72,5 @@ namespace Big_McGreed.content.upgrades
         /// Gets the definition.
         /// </summary>
         public UpgradeDefinition definition { get { return UpgradeDefinition.forName(fullName); } }
-
     }
 }

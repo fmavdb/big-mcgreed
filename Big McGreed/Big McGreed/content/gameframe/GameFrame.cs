@@ -33,7 +33,8 @@ namespace Big_McGreed.content.gameframe
         public Vector2 boerderijPositie { get; private set; }
         private Vector2 hpBarPositie = Vector2.Zero;
         private Vector2 oilBarPositie = Vector2.Zero;
-        private Vector2 goldPositie = Vector2.Zero;
+        public Vector2 goldPositie = Vector2.Zero;
+        public Vector2 goldUpgradePositie = Vector2.Zero;
         private Vector2 goldTextUpgradePositie = Vector2.Zero;
         private Vector2 goldTextPositie = Vector2.Zero;
         private Vector2 hpBarTextPositie = Vector2.Zero;
@@ -47,7 +48,7 @@ namespace Big_McGreed.content.gameframe
         private SpriteFont gameFrameFont;
 
         private string currency = "$";
-        private string hpText = "100/100";
+        public string hpText = "100/100";
         private string oilText = "100/100";
 
         private Texture2D muur;
@@ -77,7 +78,8 @@ namespace Big_McGreed.content.gameframe
             gameFrameFont = Program.INSTANCE.Content.Load<SpriteFont>("ButtonFont"); //dit is een font geen image
             goldPositie = new Vector2((Width - hpBarTextureGroen.Width) + 5, hpBarTextureGroen.Height * 4);
             goldTextPositie = new Vector2(goldPositie.X - gameFrameFont.MeasureString("Gold:").X - 20, goldPositie.Y);
-            goldTextUpgradePositie = new Vector2(Program.INSTANCE.IManager.upgradeAchtergrond.getX() + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Width, Program.INSTANCE.IManager.upgradeAchtergrond.getY() / 1.25f);
+            goldTextUpgradePositie = new Vector2(Program.INSTANCE.IManager.upgradeAchtergrond.getX() + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Width, Program.INSTANCE.IManager.upgradeAchtergrond.getY() / 2);
+            goldUpgradePositie = new Vector2(goldTextUpgradePositie.X + gameFrameFont.MeasureString("Gold:").X + 10, goldTextUpgradePositie.Y);
             hpBarTextPositie = new Vector2(hpBarPositie.X - gameFrameFont.MeasureString("HP:").X - 30, hpBarPositie.Y);
             oilBarTextPositie = new Vector2(oilBarPositie.X - gameFrameFont.MeasureString("Oil:").X - 20, oilBarPositie.Y);
             hpBarHpLeftPositie = new Vector2(hpBarPositie.X + hpBarTextureGroen.Width /2 - gameFrameFont.MeasureString(hpText).X / 2, hpBarPositie.Y);
@@ -126,7 +128,7 @@ namespace Big_McGreed.content.gameframe
         public void DrawGold(SpriteBatch batch)
         {
             batch.DrawString(gameFrameFont, "Gold:", goldTextUpgradePositie, Color.White);
-            batch.DrawString(gameFrameFont, currency + Program.INSTANCE.player.gold, goldPositie, Color.White);
+            batch.DrawString(gameFrameFont, currency + Program.INSTANCE.player.gold, goldUpgradePositie, Color.White);
         }
     }
 }

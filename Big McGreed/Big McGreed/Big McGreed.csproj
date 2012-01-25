@@ -115,7 +115,14 @@
   <ItemGroup>
     <Compile Include="content\data\DatabaseException.cs" />
     <Compile Include="content\data\sql\SqlDatabase.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeButtonInGame.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeEcoHelp.cs" />
     <Compile Include="content\gameinterface\buttons\UpgradeEcoWall.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeOilHelp.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeOilWall.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeWeaponMagnum.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeWeaponRifle.cs" />
+    <Compile Include="content\gameinterface\buttons\UpgradeWeaponShotgun.cs" />
     <Compile Include="content\gameinterface\GameInterface.cs" />
     <Compile Include="content\info\ProgramInformation.cs" />
     <Compile Include="content\gameframe\GameFrame.cs" />

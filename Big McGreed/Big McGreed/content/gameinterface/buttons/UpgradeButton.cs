@@ -34,5 +34,9 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             Program.INSTANCE.CurrentGameState = GameWorld.GameState.Upgrade;
         }
+
+        public override void drawInfo()
+        {
+        }
     }
 }

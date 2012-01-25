@@ -27,17 +27,21 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            if (Program.INSTANCE.yesKnopGedrukt == "newGame")
+            if (Program.INSTANCE.buttonClickedState == "newGame")
             {
                 Program.INSTANCE.CurrentGameState = GameWorld.GameState.InGame;
                 Program.INSTANCE.newGame();
-                Program.INSTANCE.yesKnopGedrukt = "";
+                Program.INSTANCE.buttonClickedState = "";
             }
-            else if (Program.INSTANCE.yesKnopGedrukt == "mainMenu")
+            else if (Program.INSTANCE.buttonClickedState == "mainMenu")
             {
                 Program.INSTANCE.CurrentGameState = GameWorld.GameState.Menu;
-                Program.INSTANCE.yesKnopGedrukt = "";
+                Program.INSTANCE.buttonClickedState = "";
             }
+        }
+
+        public override void drawInfo()
+        {
         }
     }
 }

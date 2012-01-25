@@ -75,7 +75,14 @@ namespace Big_McGreed.logic.map.objects
                 }
                 else
                 {
-                    setX(-GameWorld.random.Next(definition.mainTexture.Width, GameWorld.random.Next(0, GameFrame.Width)));
+                    try
+                    {
+                        setX(-GameWorld.random.Next(definition.mainTexture.Width, GameWorld.random.Next(1, GameFrame.Width)));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("ERROR:" + ex);
+                    }
                 }
             }
             if ((getX() + definition.mainTexture.Width) > 0 && getX() <= GameFrame.Width)

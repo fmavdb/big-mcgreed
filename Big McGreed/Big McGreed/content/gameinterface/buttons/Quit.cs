@@ -23,5 +23,9 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             Program.INSTANCE.Exit();
         }
+
+        public override void drawInfo()
+        {
+        }
     }
 }
