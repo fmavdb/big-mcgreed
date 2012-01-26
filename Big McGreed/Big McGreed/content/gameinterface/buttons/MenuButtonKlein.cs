@@ -43,9 +43,5 @@ namespace Big_McGreed.content.gameinterface.buttons
                 Program.INSTANCE.highscoreMenu = "";
             }
         }
-
-        public override void drawInfo()
-        {
-        }
     }
 }

@@ -12,7 +12,6 @@ namespace Big_McGreed.content.gameinterface.buttons
 {
     public class UpgradeEcoWall : InterfaceComponent
     {
-        private string infoText = "test1234";
         public UpgradeEcoWall()
         {
             normal = Program.INSTANCE.loadTexture("EcoWall");
@@ -26,12 +25,6 @@ namespace Big_McGreed.content.gameinterface.buttons
         public override void action()
         {
             Program.INSTANCE.player.Wall.LevelUp();
-        }
-
-        public override void drawInfo()
-        {
-            Vector2 infoPositie = new Vector2(gameframe.GameFrame.Width /2, gameframe.GameFrame.Height / 2);
-            Program.INSTANCE.spriteBatch.DrawString(Program.INSTANCE.IManager.font, infoText, infoPositie, Color.White);
         }
     }
 }
