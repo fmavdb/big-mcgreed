@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Big_McGreed.content.gameinterface
 {
@@ -22,10 +23,7 @@ namespace Big_McGreed.content.gameinterface
         /// </summary>
         public abstract void action();
 
-        /// <summary>
-        /// Show info about upgrade.
-        /// </summary>
-        public abstract void drawInfo();
+        protected string hoverText = null;
 
         private Vector2 location;
 
@@ -164,6 +162,13 @@ namespace Big_McGreed.content.gameinterface
         {
             batch.Draw(current, location, Color.White);
             batch.DrawString(tinyButton ? Program.INSTANCE.IManager.tinyFont : Program.INSTANCE.IManager.font, text, textLocation, Color.White);
+            if (current == hover)
+            {
+                if (hoverText != null)
+                {
+                    batch.DrawString(Program.INSTANCE.IManager.tinyFont, hoverText, new Vector2(Mouse.GetState().X, Mouse.GetState().Y - Program.INSTANCE.IManager.tinyFont.MeasureString(hoverText).Y), Color.White);
+                }
+            }
         }
     }
 }

@@ -26,9 +26,5 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             //Program.INSTANCE.player.Wall.LevelUp();
         }
-
-        public override void drawInfo()
-        {
-        }
     }
 }

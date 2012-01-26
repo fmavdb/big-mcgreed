@@ -212,9 +212,6 @@ namespace Big_McGreed.content.gameinterface
                             {
                                 buttonNearMouse.Current = buttonNearMouse.Hover;
                             }
-                            Program.INSTANCE.spriteBatch.Begin();
-                                buttonNearMouse.drawInfo();
-                            Program.INSTANCE.spriteBatch.End();
                         }
                     }
                     break;

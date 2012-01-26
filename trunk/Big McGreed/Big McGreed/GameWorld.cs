@@ -174,6 +174,7 @@ namespace Big_McGreed
                 graphics.PreferredBackBufferWidth = (int)(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / 1.5);
                 graphics.ApplyChanges();
             }
+           //Components.Add(new GamerServicesComponent(this)); //Games for windows live ^^
         }
 
         /// <summary>

@@ -31,9 +31,5 @@ namespace Big_McGreed.content.gameinterface.buttons
                 Program.INSTANCE.CurrentGameState = GameWorld.GameState.Select;
             }
         }
-
-        public override void drawInfo()
-        {
-        }
     }
 }

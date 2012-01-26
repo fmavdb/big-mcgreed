@@ -39,9 +39,5 @@ namespace Big_McGreed.content.gameinterface.buttons
                 Program.INSTANCE.buttonClickedState = "";
             }
         }
-
-        public override void drawInfo()
-        {
-        }
     }
 }
