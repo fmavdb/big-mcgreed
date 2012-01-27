@@ -9,6 +9,8 @@ using System.Collections.ObjectModel;
 using Big_McGreed.logic.projectile;
 using Big_McGreed.content.gameframe;
 using Big_McGreed.utility;
+using Microsoft.Xna.Framework.Graphics;
+using Big_McGreed.logic.mask;
 
 namespace Big_McGreed.logic.map
 {
@@ -46,40 +48,21 @@ namespace Big_McGreed.logic.map
         /// <summary>
         /// Collisions the specified entity.
         /// </summary>
-        /// <param name="entity">The entity.</param>
-        /// <param name="x">The x.</param>
-        /// <param name="y">The y.</param>
-        /// <param name="checkForNPCCollision">if set to <c>true</c> [check for NPC collision].</param>
+        /// <param name="player">The player.</param>
+        /// <param name="npc">The NPC.</param>
         /// <returns></returns>
-        public static bool collision(Entity entity, int x, int y, bool checkForNPCCollision)
+        public static bool collision(Player player, NPC npc)
         {
-            /*if (checkForNPCCollision)
-            {
-                lock (Program.INSTANCE.npcs)
+            if (npc.visible) {
+                Texture2D mainTexture = npc.definition.mainTexture;
+                Matrix npcMatrix = Matrix.CreateTranslation(mainTexture.Width, mainTexture.Height, 0) * Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
+                Matrix wallMatrix = Matrix.CreateTranslation(player.Wall.definition.mainTexture.Width, player.Wall.definition.mainTexture.Height, 0) * Matrix.CreateTranslation(player.Wall.getX(), player.Wall.getY(), 0);
+                Vector2 collision = texturesCollide(player.Wall.definition.pixels, wallMatrix, npc.definition.pixels, npcMatrix);
+                if (collision.X != -1 && collision.Y != -1)
                 {
-                    Rectangle crossHair = new Rectangle(x, y, 5, 5);
-                    foreach (NPC npc in Program.INSTANCE.npcs)
-                    {
-                        if (npc.visible && npc.definition.mainTexture != null)
-                        {
-                            if (entity is Player) //crosshair
-                            {
-                                if (intersects(crossHair, new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
-                                {
-                                    return true;
-                                }
-                            }
-                            else if (entity is NPC)
-                            {
-                                if (intersects(new Rectangle(x, y, ((NPC)entity).definition.mainTexture.Width, ((NPC)entity).definition.mainTexture.Height), new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)))
-                                {
-                                    return true;
-                                }
-                            }
-                        }
-                    }
+                    player.hit(new Hit(player, npc, npc.damage)); 
                 }
-            }  */
+            }
             return false;
         }
 
@@ -87,9 +70,6 @@ namespace Big_McGreed.logic.map
         /// Collisions the specified projectile.
         /// </summary>
         /// <param name="projectile">The projectile.</param>
-        /// <param name="x">The x.</param>
-        /// <param name="y">The y.</param>
-        /// <returns></returns>
         public static void collision(Projectile projectile)
         {
             /*//TODO fix color collision xD
@@ -124,20 +104,75 @@ namespace Big_McGreed.logic.map
             {
                 if (npc.visible && npc.definition.mainTexture != null)
                 {
-                    //Nu maken we de NPC matrix aan. (Die heeft de standaard origine en geen rotatie)
-                    Matrix npcMatrix = Matrix.Identity * Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
-                    Vector2 collision = texturesCollide(npc.definition.pixels, npcMatrix, projectile.definition.pixels, projectileMatrix);
-                    if (collision.X != -1 && collision.Y != -1)
+                    if (distance(projectile.getX(), projectile.getY(), npc.getX(), npc.getY()) <= npc.definition.mainTexture.Height * 1.5) //Performance ++
                     {
-                        projectile.Hit.To = npc;
-                        npc.hit(projectile.Hit);
-                        projectile.Dispose();
-                        break; //Dit voegen we toe zodat de loop stopt, we hoeven immers niet meer te kijken op collisions, want het projectiel is gebotst. Voorkomt dus ook een paar bugs.
+                        if (OnScreen(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)) //Performance ++
+                        {
+                            //Nu maken we de NPC matrix aan. (Die heeft de standaard origine en geen rotatie)
+                            Matrix npcMatrix = Matrix.Identity * Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
+                            Vector2 collision = texturesCollide(npc.definition.pixels, npcMatrix, projectile.definition.pixels, projectileMatrix);
+                            if (collision.X != -1 && collision.Y != -1)
+                            {
+                                projectile.Hit.To = npc;
+                                npc.hit(projectile.Hit);
+                                projectile.Dispose();
+                                break; //Dit voegen we toe zodat de loop stopt, we hoeven immers niet meer te kijken op collisions, want het projectiel is gebotst. Voorkomt dus ook een paar bugs.
+                            }
+                        }
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Calculates if x and y coord are on the screen.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
+        /// <returns></returns>
+        public static bool OnScreen(int x, int y, int width, int height) {
+            if ((x + width) < 0)
+            {
+                return false;
+            }
+            else if (x > GameFrame.Width)
+            {
+                return false;
+            }
+            if ((y + height) < 0)
+            {
+                return false;
+            }
+            else if (y > GameFrame.Height)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Distances the specified x and y.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="x2">The x2.</param>
+        /// <param name="y2">The y2.</param>
+        /// <returns></returns>
+        public static double distance(int x, int y, int x2, int y2)
+        {
+            return Math.Sqrt(Math.Pow(x2 - x, 2) + Math.Pow(y2 - y, 2));
+        }
+
+        /// <summary>
+        /// Textureses the collide.
+        /// </summary>
+        /// <param name="tex1">The tex1.</param>
+        /// <param name="mat1">The mat1.</param>
+        /// <param name="tex2">The tex2.</param>
+        /// <param name="mat2">The mat2.</param>
+        /// <returns></returns>
         private static Vector2 texturesCollide(Color[,] tex1, Matrix mat1, Color[,] tex2, Matrix mat2)
         {
             Matrix mat1to2 = mat1 * Matrix.Invert(mat2);

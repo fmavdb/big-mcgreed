@@ -42,8 +42,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Muur0.png">
-      <Name>Muur0</Name>
+    <Compile Include="muur0.png">
+      <Name>muur0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using System.Data.OleDb;
+using Microsoft.Xna.Framework;
 
 namespace Big_McGreed.content.upgrades
 {
@@ -20,6 +21,11 @@ namespace Big_McGreed.content.upgrades
         public int cost = 0;
 
         public int damage = -1;
+
+        /// <summary>
+        /// Gets the pixels.
+        /// </summary>
+        public Color[,] pixels { get; private set; }
 
         /// <summary>
         /// Returns the definition from the cache.
@@ -48,6 +54,15 @@ namespace Big_McGreed.content.upgrades
                     def.damage = Convert.ToInt32(reader["WeaponDamage"]);
                     //TODO - Projectile Type
                     reader.Close();
+                }
+                if (fullName.Contains("muur"))
+                {
+                    Color[] colors1D = new Color[def.mainTexture.Width * def.mainTexture.Height];
+                    def.mainTexture.GetData<Color>(colors1D);
+                    def.pixels = new Color[def.mainTexture.Width, def.mainTexture.Height];
+                    for (int x = 0; x < def.mainTexture.Width; x++)
+                        for (int y = 0; y < def.mainTexture.Height; y++)
+                            def.pixels[x, y] = colors1D[x + y * def.mainTexture.Width];
                 }
                 GameWorld.upgradeDefinitions.Add(fullName, def);
             }
