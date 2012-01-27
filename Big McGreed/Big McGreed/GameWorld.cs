@@ -303,7 +303,7 @@ namespace Big_McGreed
                         npc.setLocation(new Vector2(-npc.definition.mainTexture.Width, y));
                         npcs.AddLast(npc);                       
                         lastWave = TimeSpan.Zero;
-                    }
+                    } 
                     break;
             }
             info.Update(gameTime);

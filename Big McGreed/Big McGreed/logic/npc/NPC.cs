@@ -78,7 +78,7 @@ namespace Big_McGreed.logic.npc
         protected override void run2()
         {
             setLocation(getLocation() + velocity);
-            //setLocation(PrimitivePathFinder.getCrossHairPosition(translate(1, 0), definition.mainTexture.Width, definition.mainTexture.Height, 0));
+            
         }
 
         /// <summary>
@@ -87,9 +87,6 @@ namespace Big_McGreed.logic.npc
         /// <param name="batch">The batch.</param>
         public override void Draw(SpriteBatch batch) 
         {
-            //Only draw the npc when its coordinates are on the screen.
-            if (getX() + definition.mainTexture.Width < 0 || getX() > GameFrame.Width)
-                return;
             Texture2D toDraw = definition.mainTexture;
             if (hitted)
             {
