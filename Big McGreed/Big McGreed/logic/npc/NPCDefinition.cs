@@ -52,7 +52,11 @@ namespace Big_McGreed.logic.npc
             {
                 def = new NPCDefinition();
                 OleDbDataReader reader = Program.INSTANCE.dataBase.getReader("SELECT * FROM NPC WHERE NPCType = " + type);
-                reader.Read();
+                if (!reader.Read())
+                {
+                    Console.WriteLine("NPC type: " + type + " bestaat niet in de database.");
+                    return null;
+                }
                 object texture = reader["NPCTextureName"];
                 if (texture != null)
                     def.mainTexture = Program.INSTANCE.loadTexture(Convert.ToString(texture));
