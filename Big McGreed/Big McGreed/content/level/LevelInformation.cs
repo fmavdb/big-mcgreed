@@ -7,6 +7,9 @@ using Big_McGreed.utility;
 
 namespace Big_McGreed.content.level
 {
+    /// <summary>
+    /// Contains all level information.
+    /// </summary>
     public class LevelInformation
     {
         /// <summary>
@@ -108,6 +111,7 @@ namespace Big_McGreed.content.level
         /// <param name="npcTypes">The NPC types.</param>
         /// <param name="amountOfEnemies">The amount of enemies.</param>
         /// <param name="waveDelay">The wave delay.</param>
+        /// <param name="bossType">Type of the boss.</param>
         private LevelInformation(int level, int[] npcTypes, int amountOfEnemies, int waveDelay, int bossType)   //Wavedelay in ms
         {
             this.level = level;
