@@ -31,6 +31,9 @@ namespace Big_McGreed.logic.map.objects
         /// </value>
         public bool disposed { get; private set; }
 
+
+        private float scale;
+
         private Vector2 velocity = Vector2.Zero;
 
         /// <summary>
@@ -47,11 +50,23 @@ namespace Big_McGreed.logic.map.objects
         {
             this.type = type;
             setLocation(location);
+            scale = (float)(0.35 + GameWorld.random.NextDouble() * 0.75);
             visible = true;
             if (type == 1)
             {
-                velocity = new Vector2(1f, 0f);
+                velocity = new Vector2(0.20f + (float)(GameWorld.random.NextDouble() * 0.20), 0f);
             }
+        }
+
+        /// <summary>
+        /// Randomizes this instance.
+        /// </summary>
+        public void Randomize()
+        {
+            setX(GameWorld.random.Next(-definition.mainTexture.Width * GameWorld.random.Next(2, 5), 0 - definition.mainTexture.Width));
+            setY(GameWorld.random.Next(0, 5));
+            scale = (float)(0.35 + GameWorld.random.NextDouble() * 0.75);
+            velocity = new Vector2(0.20f + (float)(GameWorld.random.NextDouble() * 0.20), 0f);
         }
 
         /// <summary>
@@ -75,19 +90,12 @@ namespace Big_McGreed.logic.map.objects
                 }
                 else
                 {
-                    try
-                    {
-                        setX(-GameWorld.random.Next(definition.mainTexture.Width, GameWorld.random.Next(1, GameFrame.Width)));
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("ERROR:" + ex);
-                    }
+                    Randomize();
                 }
             }
             if ((getX() + definition.mainTexture.Width) > 0 && getX() <= GameFrame.Width)
             {
-                batch.Draw(definition.mainTexture, getLocation(), Color.White);
+                batch.Draw(definition.mainTexture, getLocation(), null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0f);
             }
         }
     }

@@ -48,7 +48,10 @@ namespace Big_McGreed.logic.map
         public void LoadGameObjects()
         {
             objects.Clear();
-            objects.AddFirst(new GameObject(1, new Vector2(GameWorld.random.Next(-ObjectDefinition.forType(1).mainTexture.Width - GameWorld.random.Next(0, 750), GameFrame.Width), 0)));
+            for (int i = 0; i < 5; i++)
+            {
+                objects.AddFirst(new GameObject(1, new Vector2((float)(GameWorld.random.Next(-GameFrame.Width, GameFrame.Width)), (float)(GameWorld.random.Next(0, 5)))));
+            }
         }
 
         /// <summary>
