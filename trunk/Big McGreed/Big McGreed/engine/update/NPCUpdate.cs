@@ -68,7 +68,7 @@ namespace Big_McGreed.engine.update
                         }
                     break;
                 }
-                System.Threading.Thread.Sleep(25);
+                System.Threading.Thread.Sleep(50);
             }
         }
 

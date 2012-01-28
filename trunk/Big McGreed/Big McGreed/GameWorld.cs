@@ -215,8 +215,15 @@ namespace Big_McGreed
             lock (npcs)
             {
                 npcs.Clear();
-                player.Lifes = Player.maxHP;
-                player.gold = 0;
+            }
+            //Reset all levels.
+            int level = 1;
+            LevelInformation levelInfo = LevelInformation.forValue(level);
+            while (levelInfo != null)
+            {
+                levelInfo.Reset();
+                level++;
+                levelInfo = LevelInformation.forValue(level);
             }
             gameMap.ClearProjectiles(); //Remove existing projectiles.
             gameMap.LoadGameObjects(); //Reload game objects.
@@ -288,20 +295,27 @@ namespace Big_McGreed
                         break;
                     }
                     lastWave += gameTime.ElapsedGameTime;
-                    if (LevelInformation.forValue(player.currentLevel) != null && lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
+                    if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
                     {
                         LevelInformation wave = LevelInformation.forValue(player.currentLevel);
-                        int typeToSpawn = wave.npcTypes[random.Next(wave.npcTypes.Length)];
-                        NPC npc = new NPC(typeToSpawn);
-                        float maxY = GameFrame.Height - npc.definition.mainTexture.Height;
-                        float y = random.Next(GameFrame.Height);
-                        float minY = 0 - npc.definition.mainTexture.Height;
-                        if (y < minY)
-                            y = minY;
-                        else if (y > maxY)
-                            y = maxY;
-                        npc.setLocation(new Vector2(-npc.definition.mainTexture.Width, y));
-                        npcs.AddLast(npc);                       
+                        if (!wave.bossSpawned)
+                        {
+                            bool spawnBoss = wave.currentSpawnedEnemiesAmount >= wave.amountOfEnemies && !wave.bossSpawned;
+                            if (spawnBoss)
+                                wave.bossSpawned = spawnBoss;
+                            int typeToSpawn = spawnBoss ? wave.bossType : wave.npcTypes[random.Next(wave.npcTypes.Length)];
+                            NPC npc = new NPC(typeToSpawn);
+                            float maxY = GameFrame.Height - npc.definition.mainTexture.Height;
+                            float y = random.Next(GameFrame.Height);
+                            float minY = 0 - npc.definition.mainTexture.Height;
+                            if (y < minY)
+                                y = minY;
+                            else if (y > maxY)
+                                y = maxY;
+                            npc.setLocation(new Vector2(-npc.definition.mainTexture.Width, y));
+                            npcs.AddLast(npc);
+                            wave.currentSpawnedEnemiesAmount++;
+                        }
                         lastWave = TimeSpan.Zero;
                     } 
                     break;

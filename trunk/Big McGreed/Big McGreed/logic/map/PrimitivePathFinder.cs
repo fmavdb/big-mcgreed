@@ -98,26 +98,24 @@ namespace Big_McGreed.logic.map
                     }
                 }
             }*/
+            Rectangle projectileRectangle = new Rectangle(projectile.getX(), projectile.getY(), projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height);
             //Eerst maken we een matrix aan, die passen we aan op de positie, origine en de rotatie van het projectiel.
             Matrix projectileMatrix = Matrix.CreateTranslation(projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height, 0) * Matrix.CreateRotationZ(projectile.Rotation) * Matrix.CreateTranslation(projectile.getX(), projectile.getY(), 0);
             foreach (NPC npc in new LinkedList<NPC>(Program.INSTANCE.npcs))
             {
-                if (npc.visible && npc.definition.mainTexture != null)
+                if (npc.visible && npc.definition.mainTexture != null && !npc.disposed)
                 {
-                    if (distance(projectile.getX(), projectile.getY(), npc.getX(), npc.getY()) <= npc.definition.mainTexture.Height * 1.5) //Performance ++
-                    {
-                        if (OnScreen(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height)) //Performance ++
+                    Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height);
+                    if (intersects(projectileRectangle, npcRectangle)) {
+                        //Nu maken we de NPC matrix aan. (Die heeft de standaard origine en geen rotatie)
+                        Matrix npcMatrix = Matrix.Identity * Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
+                        Vector2 collision = texturesCollide(npc.definition.pixels, npcMatrix, projectile.definition.pixels, projectileMatrix);
+                        if (collision.X != -1 && collision.Y != -1)
                         {
-                            //Nu maken we de NPC matrix aan. (Die heeft de standaard origine en geen rotatie)
-                            Matrix npcMatrix = Matrix.Identity * Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
-                            Vector2 collision = texturesCollide(npc.definition.pixels, npcMatrix, projectile.definition.pixels, projectileMatrix);
-                            if (collision.X != -1 && collision.Y != -1)
-                            {
-                                projectile.Hit.To = npc;
-                                npc.hit(projectile.Hit);
-                                projectile.Dispose();
-                                break; //Dit voegen we toe zodat de loop stopt, we hoeven immers niet meer te kijken op collisions, want het projectiel is gebotst. Voorkomt dus ook een paar bugs.
-                            }
+                            projectile.Hit.To = npc;
+                            npc.hit(projectile.Hit);
+                            projectile.Dispose();
+                            break; //Dit voegen we toe zodat de loop stopt, we hoeven immers niet meer te kijken op collisions, want het projectiel is gebotst. Voorkomt dus ook een paar bugs.
                         }
                     }
                 }

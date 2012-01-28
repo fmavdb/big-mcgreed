@@ -65,14 +65,10 @@ namespace Big_McGreed.logic.projectile
             this.target = target;
             Hit = hit;
             setLocation(Program.INSTANCE.player.Weapon.getLocation());
-            //setLocation(translate(-GameWorld.playerDefinition.revolverTexture.Width, -GameWorld.playerDefinition.revolverTexture.Height)); 
             Rotation = (float)Math.Atan2(getY() - target.Y, getX() - target.X);
             Vector2 direction = target - getLocation();
             direction.Normalize();
             velocity = Vector2.Multiply(direction, speed);
-            //speed = target - getLocation();
-            //speed.Normalize();
-            //speed = new Vector2(target.X / getX(), target.Y / getY());
         }
 
         /// <summary>
@@ -89,17 +85,6 @@ namespace Big_McGreed.logic.projectile
         public void Update()
         {
             setLocation(getLocation() + velocity);
-            /*float speedVal = Math.Max(Math.Abs(speed.X), Math.Abs(speed.Y));
-            Console.WriteLine(speedVal);
-            if (target.X < getX())
-                setX(getX() - speedVal);
-            else if (target.X > getX())
-                setX(getX() + speedVal);
-            if (target.Y < getY())
-                setY(getY() - speedVal);
-            else if (target.Y > getY())
-                setY(getY() + speedVal);*/
-            //setLocation(getLocation() * direction * 1.001f);
             if (getX() <= 0)
                 Dispose();
             else if (getX() >= GameFrame.Width)

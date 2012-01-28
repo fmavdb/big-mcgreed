@@ -2,12 +2,12 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Muur0.png</Source>
-      <Name>Muur0</Name>
+      <Source>muur0.png</Source>
+      <Name>muur0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur0.xnb</Output>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\muur0.xnb</Output>
       <Time>2012-01-19T13:08:02.3701348+01:00</Time>
     </Item>
     <Item>
@@ -408,11 +408,11 @@
       </Assembly>
       <Assembly>
         <Key>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\bin\x86\Debug\GifAnimation.Pipeline.dll</Key>
-        <Value>2012-01-25T17:30:52.5261598+01:00</Value>
+        <Value>2012-01-28T21:40:26.4744554+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\GifAnimation\bin\x86\Debug\GifAnimation.dll</Key>
-        <Value>2012-01-25T17:30:51.7093243+01:00</Value>
+        <Value>2012-01-28T21:40:25.7504139+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>

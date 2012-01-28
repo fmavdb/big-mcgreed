@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Media;
 using Big_McGreed.utility;
 using Big_McGreed.logic.map;
 using Big_McGreed.content.gameframe;
+using Big_McGreed.content.level;
 
 namespace Big_McGreed.logic.npc
 {
@@ -69,6 +70,10 @@ namespace Big_McGreed.logic.npc
         /// </summary>
         public void Dispose()
         {
+            if (type == LevelInformation.forValue(Program.INSTANCE.player.currentLevel).bossType)
+            {
+                //TODO - Boss is dead, proceed to next level? Player has won the game?
+            }
             disposed = true;
         }
 
