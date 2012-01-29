@@ -84,7 +84,6 @@ namespace Big_McGreed.logic.projectile
         /// </summary>
         public void Update()
         {
-            setLocation(getLocation() + velocity);
             if (getX() <= 0)
                 Dispose();
             else if (getX() >= GameFrame.Width)
@@ -95,7 +94,10 @@ namespace Big_McGreed.logic.projectile
                 Dispose();
             else
             {
-                PrimitivePathFinder.collision(this);
+                if (!PrimitivePathFinder.collision(this))
+                {
+                    setLocation(getLocation() + velocity);
+                }
             }
         }
 
@@ -104,7 +106,7 @@ namespace Big_McGreed.logic.projectile
         /// </summary>
         public void Draw(SpriteBatch batch)
         {
-            batch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, Rotation, new Vector2(Program.INSTANCE.player.Weapon.definition.mainTexture.Width, Program.INSTANCE.player.Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+            batch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, Rotation, new Vector2(0, Program.INSTANCE.player.Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
         }
     }
 }
