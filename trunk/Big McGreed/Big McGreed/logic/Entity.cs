@@ -9,6 +9,7 @@ using Big_McGreed.logic.npc;
 using Big_McGreed.logic.mask;
 using Big_McGreed.engine.ticks;
 using Microsoft.Xna.Framework.Graphics;
+using System.Threading;
 
 namespace Big_McGreed.logic
 {
@@ -132,6 +133,8 @@ namespace Big_McGreed.logic
                         else if (this is Player)
                         {
                             Program.INSTANCE.CurrentGameState = GameWorld.GameState.GameOver;
+                            Thread thread = new Thread(new ThreadStart(run2));
+                            thread.Start();
 
                         }
                     } 
@@ -151,7 +154,7 @@ namespace Big_McGreed.logic
                 hitted = true;
                 if (this is NPC)
                 {
-                    setX(getX() * 0.98f);
+                    setX(getX() * 0.97f);
                 }
             }
         }

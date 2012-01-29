@@ -29,6 +29,14 @@ namespace Big_McGreed.logic.npc
         private Vector2 velocity = Vector2.Zero;
 
         /// <summary>
+        /// Gets or sets the last hit.
+        /// </summary>
+        /// <value>
+        /// The last hit.
+        /// </value>
+        public DateTime lastHit { get; set; }
+
+        /// <summary>
         /// Gets the definition.
         /// </summary>
         public NPCDefinition definition { get { return NPCDefinition.forType(type); } }
@@ -63,6 +71,7 @@ namespace Big_McGreed.logic.npc
         {
             updateLifes(definition.hp);
             damage = definition.damage;
+            lastHit = DateTime.Now;
         }
 
         /// <summary>
@@ -82,8 +91,10 @@ namespace Big_McGreed.logic.npc
         /// </summary>
         protected override void run2()
         {
-            setLocation(getLocation() + velocity);
-            
+            if (!PrimitivePathFinder.collision(Program.INSTANCE.player, this))
+            {
+                setLocation(getLocation() + velocity);
+            }            
         }
 
         /// <summary>
