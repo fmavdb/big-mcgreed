@@ -81,7 +81,7 @@ namespace Big_McGreed.logic.map
         /// Collisions the specified projectile.
         /// </summary>
         /// <param name="projectile">The projectile.</param>
-        public static void collision(Projectile projectile)
+        public static bool collision(Projectile projectile)
         {
             /*//TODO fix color collision xD
             RotatedRectangle projectileRectangle = new RotatedRectangle(new Rectangle(x, y, projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height), projectile.Rotation);
@@ -111,26 +111,27 @@ namespace Big_McGreed.logic.map
             }*/
             Rectangle projectileRectangle = new Rectangle(projectile.getX(), projectile.getY(), projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height);
             //Eerst maken we een matrix aan, die passen we aan op de positie, origine en de rotatie van het projectiel.
-            Matrix projectileMatrix = Matrix.CreateTranslation(projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height, 0) * Matrix.CreateRotationZ(projectile.Rotation) * Matrix.CreateTranslation(projectile.getX(), projectile.getY(), 0);
+            Matrix projectileMatrix = Matrix.CreateRotationZ(projectile.Rotation) * Matrix.CreateTranslation(projectile.getX(), projectile.getY(), 0) * Matrix.Identity;
             foreach (NPC npc in new LinkedList<NPC>(Program.INSTANCE.npcs))
             {
-                if (npc.visible && npc.definition.mainTexture != null && !npc.disposed)
+                if (npc.visible && !npc.disposed)
                 {
                     Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height);
                     if (intersects(projectileRectangle, npcRectangle)) {
                         //Nu maken we de NPC matrix aan. (Die heeft de standaard origine en geen rotatie)
-                        Matrix npcMatrix = Matrix.Identity * Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
+                        Matrix npcMatrix = Matrix.CreateTranslation(npc.getX(), npc.getY(), 0) * Matrix.Identity;
                         Vector2 collision = texturesCollide(npc.definition.pixels, npcMatrix, projectile.definition.pixels, projectileMatrix);
                         if (collision.X != -1 && collision.Y != -1)
                         {
                             projectile.Hit.To = npc;
                             npc.hit(projectile.Hit);
                             projectile.Dispose();
-                            break; //Dit voegen we toe zodat de loop stopt, we hoeven immers niet meer te kijken op collisions, want het projectiel is gebotst. Voorkomt dus ook een paar bugs.
+                            return true;
                         }
                     }
                 }
             }
+            return false;
         }
 
         /// <summary>
