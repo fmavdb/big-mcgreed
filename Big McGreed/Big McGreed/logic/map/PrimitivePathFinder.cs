@@ -55,12 +55,23 @@ namespace Big_McGreed.logic.map
         {
             if (npc.visible) {
                 Texture2D mainTexture = npc.definition.mainTexture;
-                Matrix npcMatrix = Matrix.CreateTranslation(mainTexture.Width, mainTexture.Height, 0) * Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
-                Matrix wallMatrix = Matrix.CreateTranslation(player.Wall.definition.mainTexture.Width, player.Wall.definition.mainTexture.Height, 0) * Matrix.CreateTranslation(player.Wall.getX(), player.Wall.getY(), 0);
-                Vector2 collision = texturesCollide(player.Wall.definition.pixels, wallMatrix, npc.definition.pixels, npcMatrix);
-                if (collision.X != -1 && collision.Y != -1)
+                Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), mainTexture.Width, mainTexture.Height);
+                Rectangle wallRectangle = new Rectangle(player.Wall.getX(), player.Wall.getY(), player.Wall.definition.mainTexture.Width, player.Wall.definition.mainTexture.Height);
+                if (intersects(npcRectangle, wallRectangle))
                 {
-                    player.hit(new Hit(player, npc, npc.damage)); 
+                    Matrix npcMatrix = Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
+                    Matrix wallMatrix = Matrix.CreateTranslation(player.Wall.getX(), player.Wall.getY(), 0);
+                    Vector2 collision = texturesCollide(player.Wall.definition.pixels, wallMatrix, npc.definition.pixels, npcMatrix);
+                    if (collision.X != -1 && collision.Y != -1)
+                    {
+                        TimeSpan hitTimePassed = DateTime.Now - npc.lastHit;
+                        if (hitTimePassed.TotalMilliseconds >= 5000) //TODO - NPC Attack speed
+                        {
+                            player.hit(new Hit(player, npc, npc.damage));
+                            npc.lastHit = DateTime.Now;
+                        }
+                        return true;
+                    }
                 }
             }
             return false;
