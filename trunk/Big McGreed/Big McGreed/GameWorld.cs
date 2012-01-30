@@ -25,6 +25,7 @@ using Big_McGreed.content.hardware;
 using Big_McGreed.content.input;
 using Big_McGreed.content.level;
 using XNAGifAnimation;
+using System.IO;
 
 namespace Big_McGreed
 {
@@ -293,6 +294,10 @@ namespace Big_McGreed
                     {
                         CurrentGameState = GameState.Paused;
                         break;
+                    } 
+                    else if (Keyboard.GetState().IsKeyDown(Keys.PrintScreen))
+                    {
+                        ScreenShot(DateTime.Now.ToString("yyyyMMdd_HHmmss"));
                     }
                     lastWave += gameTime.ElapsedGameTime;
                     if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
@@ -518,6 +523,30 @@ namespace Big_McGreed
             if (texture != null)
                 Console.WriteLine("Loaded image: " + location);
             return texture;
+        }
+
+        public void ScreenShot(string prefix)
+        {
+            int w = GraphicsDevice.PresentationParameters.BackBufferWidth;
+            int h = GraphicsDevice.PresentationParameters.BackBufferHeight;
+
+            //force a frame to be drawn (otherwise back buffer is empty) 
+            Draw(new GameTime());
+
+            //pull the picture from the buffer 
+            int[] backBuffer = new int[w * h];
+            GraphicsDevice.GetBackBufferData(backBuffer);
+
+            //copy into a texture 
+            Texture2D texture = new Texture2D(GraphicsDevice, w, h, false, GraphicsDevice.PresentationParameters.BackBufferFormat);
+            texture.SetData(backBuffer);
+
+            //save to disk 
+            Stream stream = File.OpenWrite(prefix + ".png");
+            texture.SaveAsPng(stream, w, h);
+            texture.Dispose();
+            stream.Close();
+            Console.WriteLine("Screenshot saved in the root directory.");
         }
     }
 }

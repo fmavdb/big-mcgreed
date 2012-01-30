@@ -54,7 +54,7 @@ namespace Big_McGreed.logic.map.objects
             visible = true;
             if (type == 1)
             {
-                velocity = new Vector2(0.20f + (float)(GameWorld.random.NextDouble() * 0.30), 0f);
+                velocity = new Vector2(0.20f + (float)(GameWorld.random.NextDouble() * 0.35), 0f);
             }
         }
 
@@ -66,7 +66,7 @@ namespace Big_McGreed.logic.map.objects
             setX(GameWorld.random.Next(-definition.mainTexture.Width * GameWorld.random.Next(2, 5), 0 - definition.mainTexture.Width));
             setY(GameWorld.random.Next(0, 75));
             scale = (float)(0.25 + GameWorld.random.NextDouble() * 0.75);
-            velocity = new Vector2(0.20f + (float)(GameWorld.random.NextDouble() * 0.30), 0f);
+            velocity = new Vector2(0.20f + (float)(GameWorld.random.NextDouble() * 0.35), 0f);
         }
 
         /// <summary>
