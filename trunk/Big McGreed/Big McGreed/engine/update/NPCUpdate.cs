@@ -63,6 +63,8 @@ namespace Big_McGreed.engine.update
                                 else
                                 {
                                     RemoveNPC(npc);
+                                    Program.INSTANCE.player.kills++;
+                                    Program.INSTANCE.arduino.sendMessage();
                                 }
                             }
                         }

@@ -74,6 +74,7 @@ namespace Big_McGreed.content.hardware
             {
                 sendMessage(MessageBuilder.AppendCommand(ArduinoConstants.BOTTOM_LED_AAN));
             }
+            sendMessage("#AMOUNT_KILLS:" + Program.INSTANCE.player.kills + "%");
         }
 
         /// <summary>
