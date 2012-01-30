@@ -19,6 +19,8 @@ namespace Big_McGreed.content.gameinterface.buttons
             hover = Program.INSTANCE.loadTexture("OilWallHighlight");
             current = normal;
 
+            hoverText = "Get an electric fence which you can use LIMITED \n times before your oil runs out";
+
             Location = new Vector2(Program.INSTANCE.IManager.upgradeAchtergrond.tekst1Location.X + Program.INSTANCE.IManager.font.MeasureString(UpgradeAchtergrond.tekst1).X / 2 - current.Width / 2, Program.INSTANCE.IManager.upgradeAchtergrond.tekst1Location.Y + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Height / 5);
         }
 

@@ -19,6 +19,8 @@ namespace Big_McGreed.content.gameinterface.buttons
             hover = Program.INSTANCE.loadTexture("EcoWallHighlight");
             current = normal;
 
+            hoverText = "Get an electric fence which you can use UNLIMITED \n times, it has a delay of 1 min.";
+
             Location = new Vector2(Program.INSTANCE.IManager.upgradeAchtergrond.tekst2Location.X + Program.INSTANCE.IManager.font.MeasureString(UpgradeAchtergrond.tekst2).X / 2 - current.Width / 2, Program.INSTANCE.IManager.upgradeAchtergrond.tekst2Location.Y + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Height / 5);
         }
 

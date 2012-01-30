@@ -99,7 +99,7 @@ namespace Big_McGreed.content.gameframe
             {
                 batch.Draw(mainTexture, Vector2.Zero, Color.White);
             }
-            batch.Draw(Program.INSTANCE.player.definition.personTexture, Program.INSTANCE.player.BoerLocatie, Color.Black);
+            batch.Draw(Program.INSTANCE.player.definition.personTexture, Program.INSTANCE.player.BoerLocatie, Color.White);
             batch.Draw(boerderijTexture, boerderijPositie, Color.White);
             batch.Draw(hpBarTextureRood, hpBarPositie, Color.White);
             batch.Draw(hpBarTextureGroen, hpBarPositie, rectangleHP, Color.White);

@@ -19,7 +19,7 @@ namespace Big_McGreed.logic.player
             {
                 def = new PlayerDefinition();
                 def.mainTexture = Program.INSTANCE.loadTexture("crosshair");
-                def.personTexture = Program.INSTANCE.loadTexture("poppetje");
+                def.personTexture = Program.INSTANCE.loadTexture("boer");
                 def.loaded = true;
                 GameWorld.playerDefinition = def;
             }

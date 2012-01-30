@@ -35,7 +35,7 @@ namespace Big_McGreed
     {
 
         //Als er iets niet werkt, deze aanzetten. Zorgt ervoor dat je de console goed kan zien terwijl je het spel speelt.
-        private static bool DEBUG_MODE = false;
+        private static bool DEBUG_MODE = true;
 
         /// <summary>
         /// Word gebruikt om de definities op te slaan nadat ze zijn geladen.
@@ -276,7 +276,7 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            animation.Update(gameTime.ElapsedGameTime.Ticks);
+            //animation.Update(gameTime.ElapsedGameTime.Ticks);
             switch (gameState)
             {
                 case GameState.Highscore:
@@ -333,7 +333,7 @@ namespace Big_McGreed
             //LET OP! - De volgorde bepaalt de layer op het scherm. (Dus door een plaatje als eerste te drawen, krijg je een background)
             spriteBatch.Begin();
             gameMap.DrawBackground(spriteBatch);
-            spriteBatch.Draw(this.animation.GetTexture(), new Vector2(GameFrame.Width / 2, 0), Color.White);
+            //spriteBatch.Draw(this.animation.GetTexture(), new Vector2(GameFrame.Width / 2, 0), Color.White);
             switch (gameState)
             {
                 case GameState.Highscore:

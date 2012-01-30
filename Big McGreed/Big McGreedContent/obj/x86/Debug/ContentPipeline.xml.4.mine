@@ -2,13 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>muur0.png</Source>
-      <Name>muur0</Name>
+      <Source>Muur0.png</Source>
+      <Name>Muur0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\muur0.xnb</Output>
-      <Time>2012-01-30T12:40:35.8233082+01:00</Time>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur0.xnb</Output>
+      <Time>2012-01-15T15:28:47+01:00</Time>
     </Item>
     <Item>
       <Source>muur1.png</Source>
@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\weapon0.xnb</Output>
-      <Time>2012-01-30T12:58:46.5023656+01:00</Time>
+      <Time>2012-01-12T15:03:35.3004172+01:00</Time>
     </Item>
     <Item>
       <Source>wolk.png</Source>
@@ -206,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\wolk.xnb</Output>
-      <Time>2012-01-30T12:14:29.3005777+01:00</Time>
+      <Time>2011-12-20T10:56:39.0842654+01:00</Time>
     </Item>
     <Item>
       <Source>NormalInterface.png</Source>
@@ -370,24 +370,6 @@
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\wolfanim.xnb</Output>
       <Time>2012-01-25T10:20:57.6052808+01:00</Time>
     </Item>
-    <Item>
-      <Source>boer.png</Source>
-      <Name>boer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\boer.xnb</Output>
-      <Time>2012-01-30T12:51:21.2038931+01:00</Time>
-    </Item>
-    <Item>
-      <Source>weapon1.png</Source>
-      <Name>weapon1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\weapon1.xnb</Output>
-      <Time>2012-01-12T15:03:35.3004172+01:00</Time>
-    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
@@ -426,11 +408,11 @@
       </Assembly>
       <Assembly>
         <Key>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\GifAnimation.Pipeline\bin\x86\Debug\GifAnimation.Pipeline.dll</Key>
-        <Value>2012-01-30T12:39:27.1335249+01:00</Value>
+        <Value>2012-01-26T10:35:09.038151+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\GifAnimation\bin\x86\Debug\GifAnimation.dll</Key>
-        <Value>2012-01-30T12:39:26.7737112+01:00</Value>
+        <Value>2012-01-26T10:35:07.4937483+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
