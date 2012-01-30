@@ -36,6 +36,8 @@ namespace Big_McGreed.logic.npc
         /// </value>
         public DateTime lastHit { get; set; }
 
+        public bool attacking { get; set; }
+
         /// <summary>
         /// Gets the definition.
         /// </summary>

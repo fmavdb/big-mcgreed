@@ -54,6 +54,16 @@ namespace Big_McGreed.logic.map
         public static bool collision(Player player, NPC npc)
         {
             if (npc.visible) {
+                if (npc.attacking) //Waarom controleren op collision als ie toch stilstaat...
+                {
+                    TimeSpan hitTimePassed = DateTime.Now - npc.lastHit;
+                    if (hitTimePassed.TotalMilliseconds >= 5000) //TODO - NPC Attack speed
+                    {
+                        player.hit(new Hit(player, npc, npc.damage));
+                        npc.lastHit = DateTime.Now;
+                    }
+                    return true;
+                }
                 Texture2D mainTexture = npc.definition.mainTexture;
                 Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), mainTexture.Width, mainTexture.Height);
                 Rectangle wallRectangle = new Rectangle(player.Wall.getX(), player.Wall.getY(), player.Wall.definition.mainTexture.Width, player.Wall.definition.mainTexture.Height);
@@ -68,6 +78,7 @@ namespace Big_McGreed.logic.map
                         if (hitTimePassed.TotalMilliseconds >= 5000) //TODO - NPC Attack speed
                         {
                             player.hit(new Hit(player, npc, npc.damage));
+                            npc.attacking = true;
                             npc.lastHit = DateTime.Now;
                         }
                         return true;

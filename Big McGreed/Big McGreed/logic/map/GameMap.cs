@@ -50,7 +50,7 @@ namespace Big_McGreed.logic.map
             objects.Clear();
             for (int i = 0; i < 5; i++)
             {
-                objects.AddFirst(new GameObject(1, new Vector2((float)(GameWorld.random.Next(-GameFrame.Width, GameFrame.Width)), (float)(GameWorld.random.Next(0, 5)))));
+                objects.AddFirst(new GameObject(1, new Vector2((float)(GameWorld.random.Next(-GameFrame.Width, GameFrame.Width)), (float)(GameWorld.random.Next(0, 50)))));
             }
         }
 
