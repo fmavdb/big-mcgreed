@@ -368,7 +368,8 @@ namespace Big_McGreed
                         player.Draw(spriteBatch);
                     if (highscoreNameInUse)
                         highScores.NameInUse(spriteBatch);
-                    spriteBatch.DrawString(IManager.font, player.naam, new Vector2(GameFrame.Width / 2 - IManager.font.MeasureString(player.naam).X / 2, IManager.gameOverInterface.tekstLocation.Y * 1.15f), Color.White);
+                    if (player.naam != null || player.naam != null && player.naam != "")
+                        spriteBatch.DrawString(IManager.font, player.naam, new Vector2(GameFrame.Width / 2 - IManager.font.MeasureString(player.naam).X / 2, IManager.gameOverInterface.tekstLocation.Y * 1.15f), Color.White);
                     break;
                 case GameState.Select:
                 case GameState.Paused:

@@ -21,5 +21,13 @@ namespace Big_McGreed.content.input
             //Character that was typed = e.KeyChar
             Program.INSTANCE.player.naam += e.KeyChar;
         }
+
+        /// <summary>
+        /// Handles the pressed backspace.
+        /// </summary>
+        public void OnBackSpacePress()
+        {
+            //TODO
+        }
     }
 }

@@ -94,7 +94,6 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
-            boughtUpgrades = new List<Upgrade>();
             Lifes = maxHP;
             oil = maxOil;
             naam = "";
@@ -156,7 +155,7 @@ namespace Big_McGreed.logic.player
                 case GameWorld.GameState.InGame:
                     if (muzzle > 0)
                     {
-                        batch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(weapon.definition.mainTexture.Width * 2, Weapon.definition.mainTexture.Height / 0.8f), 1.0f, SpriteEffects.None, 1.0f);
+                        batch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(weapon.definition.mainTexture.Width * 2.05f, Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle--;
                     }
                     rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y * 0.96, Weapon.getX() - Mouse.GetState().X);

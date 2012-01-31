@@ -114,9 +114,16 @@ namespace Big_McGreed.content.input
 
 					// If it's one of the keyboard-related messages, raise an event for it:
 					switch ((MessageType)msg.Msg) {
-                        case MessageType.WM_SYSCHAR:
 						case MessageType.WM_CHAR:
-							this.OnKeyPress(new KeyPressEventArgs((char)msg.WParam));
+                            switch ((int)msg.WParam)
+                            {
+                                case 8: //Backspace
+                                    this.events.OnBackSpacePress();
+                                    break;
+                                default: //Alle andere normale buttons.
+                                    this.OnKeyPress(new KeyPressEventArgs((char)msg.WParam));
+                                    break;
+                            }
 							break;
 						/* Nu niet nodig.
                          * case WindowMessage.WM_KEYDOWN:
