@@ -68,11 +68,32 @@ namespace Big_McGreed.content.upgrades
             return true;
         }
 
+        /// <summary>
+        /// Sets the level.
+        /// </summary>
+        /// <param name="level">The level.</param>
+        /// <returns></returns>
         public bool setLevel(int level)
         {
             this.level = level;
             fullName = name + level;
             return true;
+        }
+
+        /// <summary>
+        /// Gets the previous upgrades.
+        /// </summary>
+        /// <returns></returns>
+        public string[] getPreviousUpgrades()
+        {
+            if (level <= 0)
+                return null;
+            string[] upgrades = new string[level];
+            for (int i = 1; i <= level; i++)
+            {
+                upgrades[i] = name + i;
+            }
+            return upgrades;
         }
 
         /// <summary>
