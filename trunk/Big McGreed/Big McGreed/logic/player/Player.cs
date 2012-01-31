@@ -81,6 +81,8 @@ namespace Big_McGreed.logic.player
 
         public int Score { get; set; }
 
+        public string naam = "";
+
         public int muzzle = 0;
 
         public int kills = 0;
@@ -94,6 +96,7 @@ namespace Big_McGreed.logic.player
         {
             Lifes = maxHP;
             oil = maxOil;
+            naam = "";
             visible = true;
             currentLevel = 1;
             setX(Mouse.GetState().X);

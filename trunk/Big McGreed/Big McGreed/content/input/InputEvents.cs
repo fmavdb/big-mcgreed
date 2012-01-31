@@ -10,7 +10,7 @@ namespace Big_McGreed.content.input
     /// Contains key events.
     /// </summary>
     public class InputEvents
-    { 
+    {
         /// <summary>
         /// Handles the pressed key.
         /// </summary>
@@ -19,6 +19,7 @@ namespace Big_McGreed.content.input
         public void KeyPress(object sender, KeyPressEventArgs e)
         {
             //Character that was typed = e.KeyChar
+            Program.INSTANCE.player.naam += e.KeyChar;
         }
     }
 }

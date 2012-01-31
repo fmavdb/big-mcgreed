@@ -26,21 +26,21 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            Program.INSTANCE.CurrentGameState = GameWorld.GameState.Paused;
-
             if (Program.INSTANCE.LastGameState == GameWorld.GameState.GameOver)
             {
                 Program.INSTANCE.CurrentGameState = GameWorld.GameState.Menu;
             }
-            else if (Program.INSTANCE.highscoreMenu == "HoofdMenu")
-            {
-                Program.INSTANCE.CurrentGameState = GameWorld.GameState.Menu;
-                Program.INSTANCE.highscoreMenu = "";
-            }
-            else if (Program.INSTANCE.highscoreMenu == "Paused")
+            else if (Program.INSTANCE.LastGameState == GameWorld.GameState.InGame)
             {
                 Program.INSTANCE.CurrentGameState = GameWorld.GameState.Paused;
-                Program.INSTANCE.highscoreMenu = "";
+            }
+            else if (Program.INSTANCE.LastGameState == GameWorld.GameState.Menu)
+            {
+                Program.INSTANCE.CurrentGameState = GameWorld.GameState.Menu;
+            }
+            else if (Program.INSTANCE.LastGameState == GameWorld.GameState.Paused)
+            {
+                Program.INSTANCE.CurrentGameState = GameWorld.GameState.Paused;
             }
         }
     }
