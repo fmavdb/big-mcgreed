@@ -27,6 +27,7 @@ using Big_McGreed.content.level;
 using XNAGifAnimation;
 using System.IO;
 using Big_McGreed.logic.mask;
+using Big_McGreed.content.time;
 
 namespace Big_McGreed
 {
@@ -147,7 +148,9 @@ namespace Big_McGreed
         private GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
-        private GifAnimation animation; 
+        private GifAnimation animation;
+
+        private Time time;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GameWorld"/> class.
@@ -204,6 +207,7 @@ namespace Big_McGreed
             gameMap = new GameMap();
             gameMap.LoadGameObjects();         
             highScores = new HighScore();
+            time = new Time();
             LevelInformation.Load();
             base.Initialize();
         }
@@ -214,6 +218,8 @@ namespace Big_McGreed
         public void newGame()
         {
             player = new Player();
+            time.Reset();
+            time.Start();
             lock (npcs)
             {
                 npcs.Clear();
@@ -237,10 +243,10 @@ namespace Big_McGreed
         /// </summary>
         protected override void LoadContent()
         {
+            player = new Player(); //Voor crosshair
             animation = Content.Load<GifAnimation>("wolfanim");
             highScores.LoadContent();
             arduino.connect();
-            newGame();
             playerUpdate.start();
             npcUpdate.start();
             CleanUp.INSTANCE.start();
@@ -364,6 +370,7 @@ namespace Big_McGreed
                     break;
                 case GameState.GameOver:
                     IManager.Draw(spriteBatch);
+                    time.Draw(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
                     if (highscoreNameInUse)
@@ -375,11 +382,16 @@ namespace Big_McGreed
                 case GameState.Paused:
                 case GameState.Menu:
                     IManager.Draw(spriteBatch);
+                    if (gameState == GameState.Paused || gameState == GameState.Select) //Mag niet bij menu
+                    {
+                        time.Draw(spriteBatch);
+                    }
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
                     break;
                 case GameState.Upgrade:
                     IManager.Draw(spriteBatch);
+                    time.Draw(spriteBatch);
                     gameFrame.DrawGold(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
@@ -388,6 +400,7 @@ namespace Big_McGreed
                     gameMap.DrawObjects(spriteBatch);
                     gameFrame.Draw(spriteBatch);
                     IManager.Draw(spriteBatch);
+                    time.Draw(spriteBatch);
                     npcUpdate.Draw(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
@@ -419,12 +432,14 @@ namespace Big_McGreed
                 switch (gameState)
                 {
                     case GameState.InGame:
+                        time.Start();
                         IManager.getActiveComponents().Clear();
                         IManager.activeInterface = null;
                         addInterfaceComponent(IManager.upgradeButtonIG, true);
                         break;
 
                     case GameState.Paused:
+                        time.Pause();
                         IManager.getActiveComponents().Clear();
                         IManager.activeInterface = null;
                         addInterfaceComponent(IManager.resume, true);
@@ -445,6 +460,7 @@ namespace Big_McGreed
                         break;
 
                     case GameState.Upgrade:
+                        time.Pause();
                         IManager.getActiveComponents().Clear();
                         IManager.activeInterface = IManager.upgradeAchtergrond;
                         addInterfaceComponent(IManager.menuButtonKlein, true);
@@ -465,6 +481,7 @@ namespace Big_McGreed
                         break;
 
                     case GameState.Select:
+                        time.Pause();
                         IManager.getActiveComponents().Clear();
                         IManager.activeInterface = IManager.yesNoSelect;
                         addInterfaceComponent(IManager.noButton, false);
@@ -472,6 +489,7 @@ namespace Big_McGreed
                         break;
 
                     case GameState.GameOver:
+                        time.Pause();
                         IManager.getActiveComponents().Clear();
                         IManager.activeInterface = IManager.gameOverInterface;
                         addInterfaceComponent(IManager.menuButtonKlein, true);

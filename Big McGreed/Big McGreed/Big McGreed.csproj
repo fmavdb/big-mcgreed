@@ -154,6 +154,7 @@
     <Compile Include="content\input\InputEvents.cs" />
     <Compile Include="content\input\MessageType.cs" />
     <Compile Include="content\level\LevelInformation.cs" />
+    <Compile Include="content\time\Time.cs" />
     <Compile Include="logic\upgrades\Upgrade.cs" />
     <Compile Include="logic\upgrades\UpgradeDefinition.cs" />
     <Compile Include="engine\misc\CleanUp.cs" />

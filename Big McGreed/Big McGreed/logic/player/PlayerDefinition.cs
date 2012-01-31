@@ -26,7 +26,7 @@ namespace Big_McGreed.logic.player
             return def;
         }
 
-        public Texture2D mainTexture { get; private set; }
+        public Texture2D mainTexture { get; set; }
 
         public Texture2D personTexture { get; private set; }
 
