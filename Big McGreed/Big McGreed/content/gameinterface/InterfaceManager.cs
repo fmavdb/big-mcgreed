@@ -112,6 +112,8 @@ namespace Big_McGreed.content.gameinterface
         /// </summary>
         public HighscoreDisplay highscoreDisplay { get; private set; }
 
+        public GameOverInterface gameOverInterface { get; private set; }
+
         public UpgradeButtonInGame upgradeButtonIG { get; private set; }
 
         /// <summary>
@@ -141,6 +143,7 @@ namespace Big_McGreed.content.gameinterface
             yesNoSelect = new YesNoSelect();
             upgradeAchtergrond = new UpgradeAchtergrond();
             highscoreDisplay = new HighscoreDisplay();
+            gameOverInterface = new GameOverInterface();
         }
 
         /// <summary>

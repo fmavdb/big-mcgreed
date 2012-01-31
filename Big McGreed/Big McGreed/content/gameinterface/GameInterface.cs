@@ -59,6 +59,10 @@ namespace Big_McGreed.content.gameinterface
             {
                 ((UpgradeAchtergrond)this).Draw(batch);
             }
+            else if (this is GameOverInterface)
+            {
+                ((GameOverInterface)this).Draw(batch);
+            }
         }
     }
 }

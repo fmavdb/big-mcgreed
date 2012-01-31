@@ -12,20 +12,20 @@ namespace Big_McGreed.content.gameinterface.buttons
     {
         public SubmitHighscore()
         {
-            normal = Program.INSTANCE.loadTexture("TinyButtonNormal");
-            pressed = Program.INSTANCE.loadTexture("TinyButtonPressed");
-            hover = Program.INSTANCE.loadTexture("TinyButtonHighlight");
+            normal = Program.INSTANCE.loadTexture("ButtonNormal");
+            pressed = Program.INSTANCE.loadTexture("ButtonPressed");
+            hover = Program.INSTANCE.loadTexture("ButtonHighlight");
             current = normal;
 
-            tinyButton = true;
             text = "SUBMIT";
 
-            Location = new Vector2(GameFrame.Width - (current.Width + 10), GameFrame.Height - (current.Height + 10));
+            Location = new Vector2(Program.INSTANCE.IManager.gameOverInterface.getX() + Program.INSTANCE.IManager.gameOverInterface.mainTexture.Width / 2 - this.current.Width /2,
+                                   Program.INSTANCE.IManager.gameOverInterface.getY() + Program.INSTANCE.IManager.gameOverInterface.mainTexture.Height / 1.25f - this.current.Height / 2);
         }
 
         public override void action()
         {
-            
+            Program.INSTANCE.highScores.addToHighScore(Program.INSTANCE.player.naam, Program.INSTANCE.player.Score);
         }
     }
 }

@@ -26,6 +26,7 @@ using Big_McGreed.content.input;
 using Big_McGreed.content.level;
 using XNAGifAnimation;
 using System.IO;
+using Big_McGreed.logic.mask;
 
 namespace Big_McGreed
 {
@@ -99,7 +100,7 @@ namespace Big_McGreed
         }
 
         public string buttonClickedState = "";
-        public string highscoreMenu = "";
+        public bool highscoreNameInUse = false;
 
         private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.Menu;
@@ -189,8 +190,8 @@ namespace Big_McGreed
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameFrame.Width = graphics.PreferredBackBufferWidth;
             GameFrame.Height = graphics.PreferredBackBufferHeight;
-            //inputHandler = new InputHandler(Window.Handle);
-            //inputHandler.Initialize();
+            inputHandler = new InputHandler(Window.Handle);
+            inputHandler.Initialize();
             dataBase = new SqlDatabase();   
             arduino = new ArduinoManager();
             npcs = new LinkedList<NPC>();
@@ -280,8 +281,18 @@ namespace Big_McGreed
             //animation.Update(gameTime.ElapsedGameTime.Ticks);
             switch (gameState)
             {
-                case GameState.Highscore:
                 case GameState.GameOver:
+                    if (Keyboard.GetState().IsKeyDown(Keys.BrowserBack))
+                    {
+                        Console.WriteLine("Backspace");
+                        if (player.naam.Length > 0)
+                        {
+                            player.naam = player.naam.Substring(0, player.naam.Length - 1);
+                        }
+                    } 
+                    IManager.Update();
+                    break;
+                case GameState.Highscore:
                 case GameState.Select:
                 case GameState.Paused:
                 case GameState.Upgrade:
@@ -298,6 +309,10 @@ namespace Big_McGreed
                     else if (Keyboard.GetState().IsKeyDown(Keys.PrintScreen))
                     {
                         ScreenShot(DateTime.Now.ToString("yyyyMMdd_HHmmss"));
+                    }
+                    else if (Keyboard.GetState().IsKeyDown(Keys.Delete))
+                    {
+                        CurrentGameState = GameState.GameOver;
                     }
                     lastWave += gameTime.ElapsedGameTime;
                     if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
@@ -348,6 +363,13 @@ namespace Big_McGreed
                         player.Draw(spriteBatch);    
                     break;
                 case GameState.GameOver:
+                    IManager.Draw(spriteBatch);
+                    if (player != null && player.visible)
+                        player.Draw(spriteBatch);
+                    if (highscoreNameInUse)
+                        highScores.NameInUse(spriteBatch);
+                    spriteBatch.DrawString(IManager.font, player.naam, new Vector2(GameFrame.Width / 2 - IManager.font.MeasureString(player.naam).X / 2, IManager.gameOverInterface.tekstLocation.Y * 1.15f), Color.White);
+                    break;
                 case GameState.Select:
                 case GameState.Paused:
                 case GameState.Menu:
@@ -450,10 +472,9 @@ namespace Big_McGreed
 
                     case GameState.GameOver:
                         IManager.getActiveComponents().Clear();
-                        IManager.activeInterface = null;
+                        IManager.activeInterface = IManager.gameOverInterface;
                         addInterfaceComponent(IManager.menuButtonKlein, true);
                         addInterfaceComponent(IManager.submitHighscore, false);                        
-                        IManager.updateButtons();
                         break;
                 }
             }

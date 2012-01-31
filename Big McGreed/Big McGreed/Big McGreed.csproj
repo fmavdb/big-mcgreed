@@ -124,6 +124,7 @@
     <Compile Include="content\gameinterface\buttons\UpgradeWeaponRifle.cs" />
     <Compile Include="content\gameinterface\buttons\UpgradeWeaponShotgun.cs" />
     <Compile Include="content\gameinterface\GameInterface.cs" />
+    <Compile Include="content\gameinterface\interfaces\GameOverInterface.cs" />
     <Compile Include="content\info\ProgramInformation.cs" />
     <Compile Include="content\gameframe\GameFrame.cs" />
     <Compile Include="content\hardware\ArduinoCom.cs" />
