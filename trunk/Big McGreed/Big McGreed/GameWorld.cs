@@ -388,9 +388,9 @@ namespace Big_McGreed
                     gameFrame.Draw(spriteBatch);
                     IManager.Draw(spriteBatch);
                     npcUpdate.Draw(spriteBatch);
-                    gameMap.DrawProjectiles(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
+                    gameMap.DrawProjectiles(spriteBatch);
                     break;
                     
             }
