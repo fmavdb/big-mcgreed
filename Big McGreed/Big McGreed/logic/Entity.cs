@@ -37,6 +37,7 @@ namespace Big_McGreed.logic
         public int damage { get; protected set; }
 
         private int lifes;
+
         /// <summary>
         /// Gets or sets the lifes.
         /// </summary>
@@ -133,9 +134,6 @@ namespace Big_McGreed.logic
                         else if (this is Player)
                         {
                             Program.INSTANCE.CurrentGameState = GameWorld.GameState.GameOver;
-                            Thread thread = new Thread(new ThreadStart(run2));
-                            thread.Start();
-
                         }
                     } 
                 }
@@ -154,6 +152,7 @@ namespace Big_McGreed.logic
                 hitted = true;
                 if (this is NPC)
                 {
+                    ((NPC)this).attacking = false;
                     setX(getX() * 0.97f);
                 }
             }

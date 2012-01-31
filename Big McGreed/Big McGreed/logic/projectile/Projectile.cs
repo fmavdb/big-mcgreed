@@ -64,7 +64,7 @@ namespace Big_McGreed.logic.projectile
             this.type = type;
             this.target = target;
             Hit = hit;
-            setLocation(Program.INSTANCE.player.Weapon.getLocation());
+            setLocation(new Vector2(Program.INSTANCE.player.Weapon.getX(), Program.INSTANCE.player.Weapon.getY() + Program.INSTANCE.player.Weapon.definition.mainTexture.Height + (definition.mainTexture.Height / 2)));
             Rotation = (float)Math.Atan2(getY() - target.Y, getX() - target.X);
             Vector2 direction = target - getLocation();
             direction.Normalize();
@@ -106,7 +106,7 @@ namespace Big_McGreed.logic.projectile
         /// </summary>
         public void Draw(SpriteBatch batch)
         {
-            batch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, Rotation, new Vector2(Program.INSTANCE.player.Weapon.definition.mainTexture.Width / 0.95f, Program.INSTANCE.player.Weapon.definition.mainTexture.Height / 1.5f), 1.0f, SpriteEffects.None, 1.0f);
+            batch.Draw(definition.mainTexture, getLocation(), new Rectangle(0, 0, definition.mainTexture.Width, definition.mainTexture.Height), Color.White, Rotation, new Vector2(Program.INSTANCE.player.Weapon.definition.mainTexture.Width, Program.INSTANCE.player.Weapon.definition.mainTexture.Height - definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
         }
     }
 }
