@@ -80,6 +80,11 @@ namespace Big_McGreed.content.upgrades
             return true;
         }
 
+        public int getLevel()
+        {
+            return level;
+        }
+
         /// <summary>
         /// Gets the previous upgrades.
         /// </summary>
