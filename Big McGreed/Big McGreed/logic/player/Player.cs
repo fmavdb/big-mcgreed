@@ -155,7 +155,7 @@ namespace Big_McGreed.logic.player
                 case GameWorld.GameState.InGame:
                     if (muzzle > 0)
                     {
-                        batch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(weapon.definition.mainTexture.Width * 2.05f, Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+                        batch.Draw(muzzleTexture, weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(weapon.definition.mainTexture.Width * (weapon.getLevel() == 0 ? 2.10f : 1.75f), Weapon.definition.mainTexture.Height * 0.35f), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle--;
                     }
                     rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y * 0.96, Weapon.getX() - Mouse.GetState().X);
