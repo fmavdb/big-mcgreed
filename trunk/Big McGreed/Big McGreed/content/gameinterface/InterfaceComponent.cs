@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Big_McGreed.logic.player;
 
 namespace Big_McGreed.content.gameinterface
 {
@@ -155,6 +156,8 @@ namespace Big_McGreed.content.gameinterface
 
         protected Vector2 textLocation = Vector2.Zero;
 
+        private bool thisButtonDisabledCrosshair = false;
+
         /// <summary>
         /// Draws this instance.
         /// </summary>
@@ -166,7 +169,17 @@ namespace Big_McGreed.content.gameinterface
             {
                 if (hoverText != null)
                 {
+                    Player.drawCrosshair = false;
+                    thisButtonDisabledCrosshair = true;
                     batch.DrawString(Program.INSTANCE.IManager.tinyFont, hoverText, new Vector2(Mouse.GetState().X, Mouse.GetState().Y - Program.INSTANCE.IManager.tinyFont.MeasureString(hoverText).Y), Color.White);
+                }
+            }
+            else
+            {
+                if (hoverText != null && thisButtonDisabledCrosshair)
+                {
+                    Player.drawCrosshair = true;
+                    thisButtonDisabledCrosshair = false;
                 }
             }
         }

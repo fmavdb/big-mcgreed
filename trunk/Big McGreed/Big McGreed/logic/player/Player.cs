@@ -24,6 +24,8 @@ namespace Big_McGreed.logic.player
 
         public static int maxOil = 100;
 
+        public static bool drawCrosshair = true;
+
         /// <summary>
         /// Gets or sets the wall.
         /// </summary>
@@ -87,7 +89,7 @@ namespace Big_McGreed.logic.player
 
         public int kills = 0;
 
-        Texture2D muzzleTexture = Program.INSTANCE.loadTexture("Muzzle Effect");
+        static Texture2D muzzleTexture = Program.INSTANCE.loadTexture("Muzzle Effect");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
@@ -163,7 +165,10 @@ namespace Big_McGreed.logic.player
                     batch.Draw(Wall.definition.mainTexture, Wall.getLocation(), Color.White);
                     break;
             }
-            batch.Draw(definition.mainTexture, getLocation(), Color.White);
+            if (drawCrosshair)
+            {
+                batch.Draw(definition.mainTexture, getLocation(), Color.White);
+            }
         }
     }
 }
