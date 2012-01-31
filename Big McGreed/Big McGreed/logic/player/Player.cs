@@ -103,7 +103,7 @@ namespace Big_McGreed.logic.player
             setY(Mouse.GetState().Y);
             boerLocatie.X = GameFrame.Width - Program.INSTANCE.gameFrame.boerderijTexture.Width / 3f;
             boerLocatie.Y = GameFrame.Height - Program.INSTANCE.gameFrame.boerderijTexture.Height / 1.12f;
-            Weapon = new Upgrade(this, new Vector2(boerLocatie.X + definition.personTexture.Width / 1.75f, boerLocatie.Y + definition.personTexture.Height / 1.1f), "weapon"); //1ste wapen is revolver: naam + level dus: weapon0.png
+            Weapon = new Upgrade(this, new Vector2(boerLocatie.X + definition.personTexture.Width / 1.75f, boerLocatie.Y + definition.personTexture.Height / 1.55f), "weapon"); //1ste wapen is revolver: naam + level dus: weapon0.png
             Wall = new Upgrade(Program.INSTANCE.player, new Vector2(Program.INSTANCE.gameFrame.boerderijPositie.X - UpgradeDefinition.forName("muur0").mainTexture.Width , GameFrame.Height - UpgradeDefinition.forName("muur0").mainTexture.Height * 1.15f), "muur");
         }
 
@@ -158,8 +158,8 @@ namespace Big_McGreed.logic.player
                         batch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(weapon.definition.mainTexture.Width * 2, Weapon.definition.mainTexture.Height / 0.8f), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle--;
                     }
-                    rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y - 50, Weapon.getX() - Mouse.GetState().X);
-                    batch.Draw(Weapon.definition.mainTexture, Weapon.getLocation(), new Rectangle(0, 0, Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), Color.White, rotation, new Vector2(Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+                    rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y * 0.96, Weapon.getX() - Mouse.GetState().X);
+                    batch.Draw(Weapon.definition.mainTexture, Weapon.getLocation(), new Rectangle(0, 0, Weapon.definition.mainTexture.Width, Weapon.definition.mainTexture.Height), Color.White, rotation, new Vector2(Weapon.definition.mainTexture.Width, 0), 1.0f, SpriteEffects.None, 1.0f);
                     batch.Draw(Wall.definition.mainTexture, Wall.getLocation(), Color.White);
                     break;
             }
