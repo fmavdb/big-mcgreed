@@ -45,7 +45,7 @@ namespace Big_McGreed.logic.player
             get { return weapon; }
 
             set
-            {
+            {                
                 this.weapon = value;
                 this.damage = Weapon.definition.damage;
             }
@@ -94,6 +94,7 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
+            boughtUpgrades = new List<Upgrade>();
             Lifes = maxHP;
             oil = maxOil;
             naam = "";
