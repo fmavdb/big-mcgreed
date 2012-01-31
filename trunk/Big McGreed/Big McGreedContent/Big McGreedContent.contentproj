@@ -94,13 +94,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Achtergrond.jpg">
-      <Name>Achtergrond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Boerderij.png">
       <Name>Boerderij</Name>
       <Importer>TextureImporter</Importer>
@@ -296,6 +289,20 @@
   <ItemGroup>
     <Compile Include="weapon1.png">
       <Name>weapon1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="weapon2.png">
+      <Name>weapon2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Achtergrond.png">
+      <Name>Achtergrond</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
