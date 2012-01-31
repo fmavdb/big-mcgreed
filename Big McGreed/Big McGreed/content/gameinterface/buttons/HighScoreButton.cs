@@ -21,14 +21,6 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            if (Program.INSTANCE.LastGameState == GameWorld.GameState.Menu)
-            {
-                Program.INSTANCE.highscoreMenu = "HoofdMenu";
-            }
-            if (Program.INSTANCE.LastGameState == GameWorld.GameState.Paused)
-            {
-                Program.INSTANCE.highscoreMenu = "Paused";
-            }
             Program.INSTANCE.CurrentGameState = GameWorld.GameState.Highscore;
         }
     }

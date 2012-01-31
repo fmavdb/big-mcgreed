@@ -130,7 +130,7 @@ namespace Big_McGreed.logic.player
                     //}
                     if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.InGame)
                     {
-                        Program.INSTANCE.gameMap.AddProjectile(new Projectile(1, new Hit(null, this, damage), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 3)));
+                        Program.INSTANCE.gameMap.AddProjectile(new Projectile(1, new Hit(null, this, damage), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 8)));
                         //hit(new Hit(this, null, 10));
                         leftButtonPressed = true;
                         muzzle = 12;
@@ -150,13 +150,12 @@ namespace Big_McGreed.logic.player
         /// <param name="batch">The batch</param>
         public override void Draw(SpriteBatch batch)
         {
-            batch.Draw(definition.mainTexture, getLocation(), Color.White);
             switch(Program.INSTANCE.CurrentGameState)
             {
                 case GameWorld.GameState.InGame:
                     if (muzzle > 0)
                     {
-                        batch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(muzzleTexture.Width, muzzleTexture.Height), 1.0f, SpriteEffects.None, 1.0f);
+                        batch.Draw(muzzleTexture, Weapon.getLocation(), new Rectangle(0, 0, muzzleTexture.Width, muzzleTexture.Height), Color.White, rotation, new Vector2(weapon.definition.mainTexture.Width * 2, Weapon.definition.mainTexture.Height / 0.8f), 1.0f, SpriteEffects.None, 1.0f);
                         muzzle--;
                     }
                     rotation = (float)Math.Atan2(Weapon.getY() - Mouse.GetState().Y - 50, Weapon.getX() - Mouse.GetState().X);
@@ -164,6 +163,7 @@ namespace Big_McGreed.logic.player
                     batch.Draw(Wall.definition.mainTexture, Wall.getLocation(), Color.White);
                     break;
             }
+            batch.Draw(definition.mainTexture, getLocation(), Color.White);
         }
     }
 }

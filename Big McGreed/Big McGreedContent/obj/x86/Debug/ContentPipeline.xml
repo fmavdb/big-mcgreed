@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\muur0.xnb</Output>
-      <Time>2012-01-31T13:25:58.1719036+01:00</Time>
+      <Time>2012-01-31T16:06:45.5881643+01:00</Time>
     </Item>
     <Item>
       <Source>muur1.png</Source>
@@ -396,6 +396,15 @@
       <Options>None</Options>
       <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb</Output>
       <Time>2012-01-30T17:21:28+01:00</Time>
+    </Item>
+    <Item>
+      <Source>WindowBackground.png</Source>
+      <Name>WindowBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\WindowBackground.xnb</Output>
+      <Time>2011-12-26T21:25:54+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

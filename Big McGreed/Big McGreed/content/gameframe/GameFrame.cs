@@ -25,12 +25,14 @@ namespace Big_McGreed.content.gameframe
 
         private Texture2D mainTexture = null;
         public Texture2D boerderijTexture = null;
+        private Texture2D raamAchtergrond = null;
         private Texture2D hpBarTextureGroen = null;
         private Texture2D hpBarTextureRood = null;
         private Texture2D oilBarTextureFull = null;
         private Texture2D oilBarTextureEmpty = null;
 
         public Vector2 boerderijPositie { get; private set; }
+        public Vector2 raamAchtergrondPositie { get; private set; }
         private Vector2 hpBarPositie = Vector2.Zero;
         private Vector2 oilBarPositie = Vector2.Zero;
         public Vector2 goldPositie = Vector2.Zero;
@@ -62,6 +64,9 @@ namespace Big_McGreed.content.gameframe
 
             boerderijTexture = Program.INSTANCE.loadTexture("Boerderij");
             boerderijPositie = new Vector2(Width - boerderijTexture.Width / 2, Height - boerderijTexture.Height * 1.2f);
+
+            raamAchtergrond = Program.INSTANCE.loadTexture("WindowBackground");
+            raamAchtergrondPositie = new Vector2(boerderijPositie.X + raamAchtergrond.Width / 2, boerderijPositie.Y + raamAchtergrond.Height / 2);
 
             hpBarTextureRood = Program.INSTANCE.loadTexture("HPBarRood");
             hpBarTextureGroen = Program.INSTANCE.loadTexture("HPBarGroen");
@@ -99,6 +104,7 @@ namespace Big_McGreed.content.gameframe
             {
                 batch.Draw(mainTexture, Vector2.Zero, Color.White);
             }
+            batch.Draw(raamAchtergrond, raamAchtergrondPositie, Color.White);
             batch.Draw(Program.INSTANCE.player.definition.personTexture, Program.INSTANCE.player.BoerLocatie, Color.White);
             batch.Draw(boerderijTexture, boerderijPositie, Color.White);
             batch.Draw(hpBarTextureRood, hpBarPositie, Color.White);
