@@ -68,6 +68,13 @@ namespace Big_McGreed.content.upgrades
             return true;
         }
 
+        public bool setLevel(int level)
+        {
+            this.level = level;
+            fullName = name + level;
+            return true;
+        }
+
         /// <summary>
         /// Gets the definition.
         /// </summary>

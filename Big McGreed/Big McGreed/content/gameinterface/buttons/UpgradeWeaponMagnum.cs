@@ -24,7 +24,7 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            //Program.INSTANCE.player.Weapon.LevelUp();
+            Program.INSTANCE.player.Weapon.setLevel(0);
         }
     }
 }

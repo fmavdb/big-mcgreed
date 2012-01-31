@@ -178,13 +178,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="GameWorld.cs" />
-    <Compile Include="utility\ArrayUtilities.cs" />
-    <Compile Include="utility\IDraw.cs" />
-    <Compile Include="utility\RotatedRectangle.cs" />
-    <Compile Include="utility\IRunnable.cs">
+    <Compile Include="logic\utility\ArrayUtilities.cs" />
+    <Compile Include="logic\utility\IDraw.cs" />
+    <Compile Include="logic\utility\RotatedRectangle.cs" />
+    <Compile Include="logic\utility\IRunnable.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="utility\StringUtilities.cs" />
+    <Compile Include="logic\utility\StringUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
