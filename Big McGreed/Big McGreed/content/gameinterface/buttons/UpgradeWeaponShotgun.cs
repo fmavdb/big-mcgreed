@@ -19,8 +19,6 @@ namespace Big_McGreed.content.gameinterface.buttons
             hover = Program.INSTANCE.loadTexture("ShotgunHover");
             current = normal;
 
-            errorText = "You need to be in wave 3 to acces this weapon!";
-
             Location = new Vector2(gameframe.GameFrame.Width / 2 - current.Width / 2, gameframe.GameFrame.Height / 2 + current.Height * 0.8f);
         }
 
@@ -32,7 +30,8 @@ namespace Big_McGreed.content.gameinterface.buttons
             }
             else
             {
-                error = true;
+                Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "You need to be in level 3 or higher to use this weapon!";
+                Program.INSTANCE.IManager.upgradeAchtergrond.timer = 1000;
             }
         }
     }

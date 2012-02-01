@@ -14,9 +14,14 @@ namespace Big_McGreed.content.gameinterface.interfaces
 
         public const string tekst2 = "Ecologie Upgrades";
 
+        public string tekst3 = null;
+
         public Vector2 tekst1Location;
 
         public Vector2 tekst2Location;
+
+        public int timer = -1;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UpgradeAchtergrond"/> class.
@@ -41,6 +46,16 @@ namespace Big_McGreed.content.gameinterface.interfaces
         {
             batch.DrawString(Program.INSTANCE.IManager.font, tekst1, tekst1Location, Color.White);
             batch.DrawString(Program.INSTANCE.IManager.font, tekst2, tekst2Location, Color.White);
+            if (tekst3 != null && timer > 0)
+            {
+                batch.DrawString(Program.INSTANCE.IManager.font, tekst3, new Vector2(getX() + mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(tekst3).X / 2, getY() + mainTexture.Height - Program.INSTANCE.IManager.font.MeasureString(tekst3).Y * 2), Color.Red);
+                timer--;
+            }
+            else if (timer == 0)
+            {
+                tekst3 = null;
+                timer = -1;
+            }
         }
     }
 }

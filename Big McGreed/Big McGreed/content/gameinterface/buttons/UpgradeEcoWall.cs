@@ -20,7 +20,6 @@ namespace Big_McGreed.content.gameinterface.buttons
             current = normal;
 
             hoverText = "Get an electric fence which you can use UNLIMITED \n times, it has a delay of 1 min.";
-            errorText = "You do not have enough money!";
 
             Location = new Vector2(Program.INSTANCE.IManager.upgradeAchtergrond.tekst2Location.X + Program.INSTANCE.IManager.font.MeasureString(UpgradeAchtergrond.tekst2).X / 2 - current.Width / 2, Program.INSTANCE.IManager.upgradeAchtergrond.tekst2Location.Y + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Height / 5);
         }
@@ -29,12 +28,10 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             if (Program.INSTANCE.player.Wall.LevelUp() == true)
             {
+                Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "Your ecologic mind gave you an ecologic wall!";
+                Program.INSTANCE.IManager.upgradeAchtergrond.timer = 5000;
                 Program.INSTANCE.player.good++;
                 Program.INSTANCE.player.UpdateCrosshair();
-            }
-            else
-            {
-                error = true;
             }
         }
     }
