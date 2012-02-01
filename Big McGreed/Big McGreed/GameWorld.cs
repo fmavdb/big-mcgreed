@@ -28,6 +28,8 @@ using XNAGifAnimation;
 using System.IO;
 using Big_McGreed.logic.mask;
 using Big_McGreed.content.time;
+using Big_McGreed.content.video;
+using Big_McGreed.content.audio;
 
 namespace Big_McGreed
 {
@@ -70,6 +72,7 @@ namespace Big_McGreed
         /// </summary>
         public enum GameState
         {
+            Begin,
             /// <summary>
             /// Main menu.
             /// </summary>
@@ -155,6 +158,8 @@ namespace Big_McGreed
         public SpriteBatch spriteBatch;
 
         private GifAnimation animation;
+        public Intro intro;
+        public Audio inGameMusic;
 
         private Time time;
 
@@ -224,6 +229,7 @@ namespace Big_McGreed
         /// </summary>
         public void newGame()
         {
+            inGameMusic = new Audio("achtergrond muziek", true);
             player = new Player();
             time.Reset();
             time.Start();
@@ -243,6 +249,7 @@ namespace Big_McGreed
             }
             gameMap.ClearProjectiles(); //Remove existing projectiles.
             gameMap.LoadGameObjects(); //Reload game objects.
+            inGameMusic.PlaySound();
         }
 
         /// <summary>
@@ -299,6 +306,13 @@ namespace Big_McGreed
             }
             switch (gameState)
             {
+                case GameState.Begin:
+                    intro.StopVideo();
+                    if (Keyboard.GetState().IsKeyDown(Keys.NumPad5))
+                    {
+                        intro.SkipVideo();
+                    }
+                    break;
                 case GameState.GameOver:
                 case GameState.Highscore:
                 case GameState.Select:
@@ -361,6 +375,10 @@ namespace Big_McGreed
             //spriteBatch.Draw(this.animation.GetTexture(), new Vector2(GameFrame.Width / 2, 0), Color.White);
             switch (gameState)
             {
+                case GameState.Begin:
+                    intro.StartVideo();
+                    intro.DrawVideo(spriteBatch);
+                    break;
                 case GameState.Highscore:
                     IManager.Draw(spriteBatch);
                     highScores.Draw(spriteBatch);
@@ -431,6 +449,15 @@ namespace Big_McGreed
                 this.gameState = value;
                 switch (gameState)
                 {
+                    case GameState.Begin:
+                        if (inGameMusic != null)
+                        {
+                            inGameMusic.StopSound();
+                        }
+                        IManager.getActiveComponents().Clear();
+                        IManager.activeInterface = null;
+                        intro = new Intro();
+                        break;
                     case GameState.InGame:
                         time.Start();
                         IManager.getActiveComponents().Clear();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Big_McGreed.content.video;
 
 namespace Big_McGreed.content.gameinterface.buttons
 {
@@ -22,8 +23,7 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.Menu)
             {
-                Program.INSTANCE.CurrentGameState = GameWorld.GameState.InGame;
-                Program.INSTANCE.newGame();
+                Program.INSTANCE.CurrentGameState = GameWorld.GameState.Begin;
             }
             else if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.Paused)
             {

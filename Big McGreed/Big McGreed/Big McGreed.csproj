@@ -113,6 +113,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="content\audio\Audio.cs" />
     <Compile Include="content\data\DatabaseException.cs" />
     <Compile Include="content\data\sql\SqlDatabase.cs" />
     <Compile Include="content\gameinterface\buttons\UpgradeButtonInGame.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="content\input\MessageType.cs" />
     <Compile Include="content\level\LevelInformation.cs" />
     <Compile Include="content\time\Time.cs" />
+    <Compile Include="content\video\Intro.cs" />
     <Compile Include="logic\upgrades\Upgrade.cs" />
     <Compile Include="logic\upgrades\UpgradeDefinition.cs" />
     <Compile Include="engine\misc\CleanUp.cs" />
