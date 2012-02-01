@@ -29,8 +29,7 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             if (Program.INSTANCE.buttonClickedState == "newGame")
             {
-                Program.INSTANCE.CurrentGameState = GameWorld.GameState.InGame;
-                Program.INSTANCE.newGame();
+                Program.INSTANCE.CurrentGameState = GameWorld.GameState.Begin;
                 Program.INSTANCE.buttonClickedState = "";
             }
             else if (Program.INSTANCE.buttonClickedState == "mainMenu")
