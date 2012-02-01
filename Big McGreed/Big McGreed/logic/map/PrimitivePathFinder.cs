@@ -60,7 +60,7 @@ namespace Big_McGreed.logic.map
                     TimeSpan hitTimePassed = DateTime.Now - npc.lastHit;
                     if (hitTimePassed.TotalMilliseconds >= npc.definition.attackSpeed)
                     {
-                        player.hit(new Hit(player, npc, npc.damage));
+                        player.hit(new Hit(player, npc, GameWorld.random.Next(1, npc.damage)));
                         npc.lastHit = DateTime.Now;
                     }
                     return true;
@@ -68,7 +68,7 @@ namespace Big_McGreed.logic.map
                 GifAnimation mainTexture = npc.definition.mainTexture;
                 Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), mainTexture.Width, mainTexture.Height);
                 Rectangle wallRectangle = new Rectangle(player.Wall.getX(), player.Wall.getY(), player.Wall.definition.mainTexture.Width, player.Wall.definition.mainTexture.Height);
-                if (intersects(npcRectangle, wallRectangle))
+                if (intersects(npcRectangle, wallRectangle) && (npc.getX() >= (player.Wall.getX() + player.Wall.definition.mainTexture.Width / 2) - npc.definition.mainTexture.Width))
                 {
                     Matrix npcMatrix = Matrix.CreateTranslation(npc.getX(), npc.getY(), 0);
                     Matrix wallMatrix = Matrix.CreateTranslation(player.Wall.getX(), player.Wall.getY(), 0);
@@ -78,7 +78,7 @@ namespace Big_McGreed.logic.map
                         TimeSpan hitTimePassed = DateTime.Now - npc.lastHit;
                         if (hitTimePassed.TotalMilliseconds >= npc.definition.attackSpeed)
                         {
-                            player.hit(new Hit(player, npc, npc.damage));
+                            player.hit(new Hit(player, npc, GameWorld.random.Next(1, npc.damage)));
                             npc.attacking = true;
                             npc.lastHit = DateTime.Now;
                         }

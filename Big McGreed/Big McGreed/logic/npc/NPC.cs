@@ -100,6 +100,7 @@ namespace Big_McGreed.logic.npc
                 }
                 else if (Program.INSTANCE.player.currentLevel == 3)
                 {
+                    Program.INSTANCE.IManager.gameOverInterface.gameWon = true;
                     Program.INSTANCE.CurrentGameState = GameWorld.GameState.GameOver;
                 }
             }
