@@ -285,7 +285,7 @@ namespace Big_McGreed
         protected override void Update(GameTime gameTime)
         {
             //animation.Update(gameTime.ElapsedGameTime.Ticks);
-            foreach (NPC npc in npcs)
+            foreach (NPC npc in new LinkedList<NPC>(npcs))
             {
                 npc.Update(gameTime);
             }
@@ -310,10 +310,6 @@ namespace Big_McGreed
                     {
                         ScreenShot(DateTime.Now.ToString("yyyyMMdd_HHmmss"));
                     }
-                    else if (Keyboard.GetState().IsKeyDown(Keys.Delete))
-                    {
-                        CurrentGameState = GameState.GameOver;
-                    }
                     lastWave += gameTime.ElapsedGameTime;
                     if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
                     {
@@ -326,8 +322,8 @@ namespace Big_McGreed
                             int typeToSpawn = spawnBoss ? wave.bossType : wave.npcTypes[random.Next(wave.npcTypes.Length)];
                             NPC npc = new NPC(typeToSpawn);
                             float maxY = GameFrame.Height - npc.definition.mainTexture.Height;
-                            float y = random.Next(GameFrame.Height);
-                            float minY = 0 - npc.definition.mainTexture.Height;
+                            float y = random.Next(GameFrame.Height / 2, GameFrame.Height);
+                            float minY = 0;
                             if (y < minY)
                                 y = minY;
                             else if (y > maxY)
@@ -369,8 +365,6 @@ namespace Big_McGreed
                         player.Draw(spriteBatch);
                     if (highscoreNameInUse)
                         highScores.NameInUse(spriteBatch);
-                    if (player.naam != null || player.naam != null && player.naam != "")
-                        spriteBatch.DrawString(IManager.font, player.naam, new Vector2(GameFrame.Width / 2 - IManager.font.MeasureString(player.naam).X / 2, IManager.gameOverInterface.tekstLocation.Y * 1.15f), Color.White);
                     spriteBatch.DrawString(IManager.font, "Score: " + Program.INSTANCE.player.Score, new Vector2(GameFrame.Width / 2 - IManager.font.MeasureString("Score: " + Program.INSTANCE.player.Score).X / 2, IManager.gameOverInterface.getY() + IManager.gameOverInterface.mainTexture.Height * 1.2f), Color.White);
                     break;
                 case GameState.Select:

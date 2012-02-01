@@ -12,10 +12,12 @@ namespace Big_McGreed.content.gameinterface.buttons
     {
         public SubmitHighscore()
         {
-            normal = Program.INSTANCE.loadTexture("ButtonNormal");
-            pressed = Program.INSTANCE.loadTexture("ButtonPressed");
-            hover = Program.INSTANCE.loadTexture("ButtonHighlight");
+            normal = Program.INSTANCE.loadTexture("TinyButtonNormal");
+            pressed = Program.INSTANCE.loadTexture("TinyButtonPressed");
+            hover = Program.INSTANCE.loadTexture("TinyButtonHighlight");
             current = normal;
+
+            tinyButton = true;
 
             text = "SUBMIT";
 

@@ -18,12 +18,16 @@ namespace Big_McGreed.content.input
         /// <param name="e">The <see cref="System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
         public void KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Character that was typed = e.KeyChar
-            foreach (char Char in utility.StringUtilities.validChars)
+            if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.GameOver)
             {
-                if (Char == e.KeyChar)
+                //Character that was typed = e.KeyChar
+                foreach (char Char in utility.StringUtilities.validChars)
                 {
-                    Program.INSTANCE.player.naam += e.KeyChar;
+                    if (Char == e.KeyChar)
+                    {
+                        Program.INSTANCE.player.naam += e.KeyChar;
+                        Program.INSTANCE.highscoreNameInUse = false;
+                    }
                 }
             }
         }
@@ -34,6 +38,7 @@ namespace Big_McGreed.content.input
         public void OnBackSpacePress()
         {
             Program.INSTANCE.player.naam = Program.INSTANCE.player.naam.Substring(0, Program.INSTANCE.player.naam.Length - 1);
+            Program.INSTANCE.highscoreNameInUse = false;
         }
     }
 }

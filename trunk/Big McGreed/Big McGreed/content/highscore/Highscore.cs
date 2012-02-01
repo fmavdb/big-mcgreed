@@ -106,8 +106,8 @@ namespace Big_McGreed.content.highscore
 
         public void NameInUse(SpriteBatch batch)
         {
-            batch.DrawString(Program.INSTANCE.IManager.font, "Sorry this name is already being used!", new Vector2(Program.INSTANCE.IManager.gameOverInterface.getX() + Program.INSTANCE.IManager.gameOverInterface.mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString("Sorry this name is already being used!").X / 2,
-                                                    Program.INSTANCE.IManager.gameOverInterface.getY() + Program.INSTANCE.IManager.gameOverInterface.mainTexture.Height / 1.5f - Program.INSTANCE.IManager.font.MeasureString("Sorry this name is already being used!").Y / 1.5f), Color.Red);
+            batch.DrawString(Program.INSTANCE.IManager.font, "This name is already being used!", new Vector2(Program.INSTANCE.IManager.gameOverInterface.getX() + Program.INSTANCE.IManager.gameOverInterface.mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString("This name is already being used!").X / 2,
+                                                    Program.INSTANCE.IManager.gameOverInterface.getY() + Program.INSTANCE.IManager.gameOverInterface.mainTexture.Height / 2 - Program.INSTANCE.IManager.font.MeasureString("This name is already being used!").Y / 2), Color.Red);
         }
     }
 }

@@ -11,23 +11,23 @@ namespace Big_McGreed.content.gameinterface.interfaces
 {
     public class GameOverInterface : GameInterface
     {
-        public const string tekst = "Please enter your name";
-        public Vector2 tekstLocation;
+        public Vector2 naamLocation;
 
         public GameOverInterface()
         {
-            mainTexture = Program.INSTANCE.loadTexture("TinyInterface");
+            mainTexture = Program.INSTANCE.loadTexture("HighscoreInterface");
 
-            title = "Game Over!";
+            title = "GAME OVER!";
 
             centerInterface();
 
-            tekstLocation = new Vector2(this.getX() + this.mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(tekst).X / 2, this.getY() + this.mainTexture.Height / 3 - Program.INSTANCE.IManager.font.MeasureString(tekst).Y / 2);
+            titleLocation = new Vector2(getX() + mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(title).X / 2, getY() + Program.INSTANCE.IManager.font.MeasureString(title).Y * 0.50f);
+            //naamLocation = new Vector2(this.getX() + this.mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(tekst).X / 2, this.getY() + this.mainTexture.Height / 3 - Program.INSTANCE.IManager.font.MeasureString(tekst).Y / 2);
         }
 
         public void Draw(SpriteBatch batch)
         {
-            batch.DrawString(Program.INSTANCE.IManager.font, tekst, tekstLocation, Color.White);
+            batch.DrawString(Program.INSTANCE.IManager.font, Program.INSTANCE.player.naam, new Vector2(this.getX() + this.mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(Program.INSTANCE.player.naam).X / 2, this.getY() + this.mainTexture.Height / 2 - Program.INSTANCE.IManager.font.MeasureString(Program.INSTANCE.player.naam).Y / 2), Color.Black);
         }
     }
 }

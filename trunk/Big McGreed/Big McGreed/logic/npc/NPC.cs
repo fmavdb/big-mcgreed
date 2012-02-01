@@ -112,12 +112,12 @@ namespace Big_McGreed.logic.npc
                 //toDraw = definition.hittedTexture;
                 hitted = false;
             }
-            batch.Draw(toDraw.GetTexture(), getLocation(), Color.White);
+            batch.Draw(toDraw.GetTexture(), getLocation(), Color.Tan);
         }
 
         public void Update(GameTime gameTime)
         {
-            definition.mainTexture.Update(gameTime.ElapsedGameTime.Ticks / 2);
+            definition.mainTexture.Update(gameTime.ElapsedGameTime.Ticks);
         }
     }
 }
