@@ -220,6 +220,7 @@ namespace Big_McGreed
             player = new Player();
             time.Reset();
             time.Start();
+            IManager.gameOverInterface.gameWon = false;
             lock (npcs)
             {
                 npcs.Clear();
@@ -244,7 +245,7 @@ namespace Big_McGreed
         protected override void LoadContent()
         {
             player = new Player(); //Voor crosshair
-            animation = Content.Load<GifAnimation>("wolfanim");
+            //animation = Content.Load<GifAnimation>("wolfanim");
             highScores.LoadContent();
             arduino.connect();
             playerUpdate.start();
@@ -321,9 +322,9 @@ namespace Big_McGreed
                                 wave.bossSpawned = spawnBoss;
                             int typeToSpawn = spawnBoss ? wave.bossType : wave.npcTypes[random.Next(wave.npcTypes.Length)];
                             NPC npc = new NPC(typeToSpawn);
-                            float maxY = GameFrame.Height - npc.definition.mainTexture.Height;
-                            float y = random.Next(GameFrame.Height / 2, GameFrame.Height);
-                            float minY = 0;
+                            float maxY = GameFrame.Height - npc.definition.mainTexture.Height - 50;
+                            float minY = GameFrame.Height / 2;
+                            float y = random.Next((int)minY, (int)maxY);
                             if (y < minY)
                                 y = minY;
                             else if (y > maxY)
@@ -390,9 +391,9 @@ namespace Big_McGreed
                     gameFrame.Draw(spriteBatch);
                     IManager.Draw(spriteBatch);
                     time.Draw(spriteBatch);
-                    npcUpdate.Draw(spriteBatch);
                     if (player != null && player.visible)
                         player.Draw(spriteBatch);
+                    npcUpdate.Draw(spriteBatch);
                     gameMap.DrawProjectiles(spriteBatch);
                     break;
                     
