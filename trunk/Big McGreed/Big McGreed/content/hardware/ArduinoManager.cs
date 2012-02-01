@@ -69,12 +69,26 @@ namespace Big_McGreed.content.hardware
         /// </summary>
         public void sendMessage()
         {
-            //Zo verstuur je een bericht NAAR de Arduino!
-            if (true) //Iets is true... 
+            if (Program.INSTANCE.sendHP == true)
             {
-                sendMessage(MessageBuilder.AppendCommand(ArduinoConstants.BOTTOM_LED_AAN));
+                sendMessage("#PLAYER_HP:" + Program.INSTANCE.player.Lifes + "%");
+                Program.INSTANCE.sendHP = false;
             }
-            sendMessage("#AMOUNT_KILLS:" + Program.INSTANCE.player.kills + "%");
+            if (Program.INSTANCE.sendOil == true)
+            {
+                sendMessage("#OIL_LEVEL:" + Program.INSTANCE.player.oil + "%");
+                Program.INSTANCE.sendOil = false;
+            }
+            if (Program.INSTANCE.sendGold == true)
+            {
+                sendMessage("#GOLD:" + Program.INSTANCE.player.gold + "%");
+                Program.INSTANCE.sendGold = false;
+            }
+            if (Program.INSTANCE.sendScore == true)
+            {
+                sendMessage("SCORE:" + Program.INSTANCE.player.Score + "%");
+                Program.INSTANCE.sendScore = false;
+            }
         }
 
         /// <summary>

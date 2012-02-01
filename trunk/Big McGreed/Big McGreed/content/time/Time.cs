@@ -15,11 +15,12 @@ namespace Big_McGreed.content.time
         public Stopwatch watch { get; private set; }
 
         private Vector2 position;
+        private string watchText = "";
 
         public Time()
         {
             watch = new Stopwatch();
-            position = new Vector2(GameFrame.Width / 2, 0);
+            position = new Vector2(GameFrame.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(watchText).X, GameFrame.Height - Program.INSTANCE.IManager.font.MeasureString(watchText).Y);
         }
 
         private int seconds;
@@ -66,7 +67,10 @@ namespace Big_McGreed.content.time
 
         public void Draw(SpriteBatch batch)
         {
-            batch.DrawString(Program.INSTANCE.IManager.font, getMinutes() + ":" + getSeconds() + ":" + getMilliSeconds(), position, Color.White);
+            watchText = getMinutes() + ":" + getSeconds() + ":" + getMilliSeconds();
+            position = new Vector2(GameFrame.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(watchText).X, GameFrame.Height - Program.INSTANCE.IManager.font.MeasureString(watchText).Y);
+
+            batch.DrawString(Program.INSTANCE.IManager.font, watchText, position, Color.White);
         }
     }
 }

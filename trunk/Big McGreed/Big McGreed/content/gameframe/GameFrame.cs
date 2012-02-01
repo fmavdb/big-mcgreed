@@ -134,18 +134,29 @@ namespace Big_McGreed.content.gameframe
             double factor = ((double)hp / (double)Player.maxHP);
             rectangleHP = new Rectangle(0, 0, (int)(hpBarTextureGroen.Width * factor), hpBarTextureGroen.Height);
             hpText = hp + "/" + Player.maxHP;
+            Program.INSTANCE.sendHP = true;
+        }
+
+        public void UpdateOil(int oil)
+        {
+            double factor = ((double)oil / (double)Player.maxOil);
+            rectangleOil = new Rectangle(0, 0, (int)(oilBarTextureFull.Width * factor), oilBarTextureFull.Height);
+            oilText = oil + "/" + Player.maxOil;
+            Program.INSTANCE.sendOil = true;
         }
 
         public void UpdateScore()
         {
             scoreText = "Score: " + Program.INSTANCE.player.Score;
             scorePositie = new Vector2(GameFrame.Width - Program.INSTANCE.IManager.font.MeasureString(scoreText).X * 1.1f, GameFrame.Height - Program.INSTANCE.IManager.font.MeasureString(scoreText).Y);
+            Program.INSTANCE.sendScore = true;
         }
 
         public void DrawGold(SpriteBatch batch)
         {
             batch.DrawString(gameFrameFont, "Gold:", goldTextUpgradePositie, Color.White);
             batch.DrawString(gameFrameFont, currency + Program.INSTANCE.player.gold, goldUpgradePositie, Color.White);
+            Program.INSTANCE.sendGold = true;
         }
     }
 }
