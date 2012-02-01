@@ -129,7 +129,7 @@ namespace Big_McGreed.logic
                         {
                             ((NPC)this).Dispose();
                             if (hit.From is Player)
-                                ((Player)hit.From).gold += 100;
+                                ((Player)hit.From).gold += ((NPC)this).definition.gold;
                         }
                         else if (this is Player)
                         {
