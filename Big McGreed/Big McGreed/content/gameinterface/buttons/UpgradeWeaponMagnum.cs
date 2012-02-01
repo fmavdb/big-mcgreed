@@ -14,9 +14,9 @@ namespace Big_McGreed.content.gameinterface.buttons
     {
         public UpgradeWeaponMagnum()
         {
-            normal = Program.INSTANCE.loadTexture("EcoHelpNormal");
-            pressed = Program.INSTANCE.loadTexture("EcoHelpClicked");
-            hover = Program.INSTANCE.loadTexture("EcoHelpHighlight");
+            normal = Program.INSTANCE.loadTexture("MagnumNormal");
+            pressed = Program.INSTANCE.loadTexture("MagnumClicked");
+            hover = Program.INSTANCE.loadTexture("MagnumHover");
             current = normal;
 
             Location = new Vector2(gameframe.GameFrame.Width / 2 - current.Width / 2, gameframe.GameFrame.Height / 2 - current.Height * 1.5f);
@@ -24,7 +24,14 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            Program.INSTANCE.player.Weapon.setLevel(0);
+            if (Program.INSTANCE.player.currentLevel >= 1)
+            {
+                Program.INSTANCE.player.Weapon.setLevel(0);
+            }
+            else
+            {
+                error = true;
+            }
         }
     }
 }

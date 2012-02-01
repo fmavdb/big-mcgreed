@@ -27,6 +27,8 @@ namespace Big_McGreed.content.gameinterface.buttons
         public override void action()
         {
             Program.INSTANCE.player.Wall.LevelUp();
+            Program.INSTANCE.player.evil++;
+            Program.INSTANCE.player.UpdateCrosshair();
         }
     }
 }

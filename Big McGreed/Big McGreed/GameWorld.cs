@@ -285,19 +285,13 @@ namespace Big_McGreed
         protected override void Update(GameTime gameTime)
         {
             //animation.Update(gameTime.ElapsedGameTime.Ticks);
+            foreach (NPC npc in npcs)
+            {
+                npc.Update(gameTime);
+            }
             switch (gameState)
             {
                 case GameState.GameOver:
-                    if (Keyboard.GetState().IsKeyDown(Keys.BrowserBack))
-                    {
-                        Console.WriteLine("Backspace");
-                        if (player.naam.Length > 0)
-                        {
-                            player.naam = player.naam.Substring(0, player.naam.Length - 1);
-                        }
-                    } 
-                    IManager.Update();
-                    break;
                 case GameState.Highscore:
                 case GameState.Select:
                 case GameState.Paused:
@@ -377,6 +371,7 @@ namespace Big_McGreed
                         highScores.NameInUse(spriteBatch);
                     if (player.naam != null || player.naam != null && player.naam != "")
                         spriteBatch.DrawString(IManager.font, player.naam, new Vector2(GameFrame.Width / 2 - IManager.font.MeasureString(player.naam).X / 2, IManager.gameOverInterface.tekstLocation.Y * 1.15f), Color.White);
+                    spriteBatch.DrawString(IManager.font, "Score: " + Program.INSTANCE.player.Score, new Vector2(GameFrame.Width / 2 - IManager.font.MeasureString("Score: " + Program.INSTANCE.player.Score).X / 2, IManager.gameOverInterface.getY() + IManager.gameOverInterface.mainTexture.Height * 1.2f), Color.White);
                     break;
                 case GameState.Select:
                 case GameState.Paused:

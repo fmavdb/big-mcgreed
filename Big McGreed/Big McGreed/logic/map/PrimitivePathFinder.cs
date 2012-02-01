@@ -11,6 +11,7 @@ using Big_McGreed.content.gameframe;
 using Big_McGreed.utility;
 using Microsoft.Xna.Framework.Graphics;
 using Big_McGreed.logic.mask;
+using XNAGifAnimation;
 
 namespace Big_McGreed.logic.map
 {
@@ -64,7 +65,7 @@ namespace Big_McGreed.logic.map
                     }
                     return true;
                 }
-                Texture2D mainTexture = npc.definition.mainTexture;
+                GifAnimation mainTexture = npc.definition.mainTexture;
                 Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), mainTexture.Width, mainTexture.Height);
                 Rectangle wallRectangle = new Rectangle(player.Wall.getX(), player.Wall.getY(), player.Wall.definition.mainTexture.Width, player.Wall.definition.mainTexture.Height);
                 if (intersects(npcRectangle, wallRectangle))
@@ -127,7 +128,7 @@ namespace Big_McGreed.logic.map
             {
                 if (npc.visible && !npc.disposed)
                 {
-                    Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.Width, npc.definition.mainTexture.Height);
+                    Rectangle npcRectangle = new Rectangle(npc.getX(), npc.getY(), npc.definition.mainTexture.GetTexture().Width, npc.definition.mainTexture.GetTexture().Height);
                     if (intersects(projectileRectangle, npcRectangle)) {
                         //Nu maken we de NPC matrix aan. (Die heeft de standaard origine en geen rotatie)
                         Matrix npcMatrix = Matrix.CreateTranslation(npc.getX(), npc.getY(), 0) * Matrix.Identity;

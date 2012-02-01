@@ -79,6 +79,8 @@ namespace Big_McGreed.engine.update
             lock (Program.INSTANCE.npcs)
             {
                 Program.INSTANCE.npcs.Remove(npc);
+                Program.INSTANCE.player.Score += 100;
+                Program.INSTANCE.gameFrame.UpdateScore();
             }
         }
 

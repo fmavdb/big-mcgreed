@@ -19,7 +19,13 @@ namespace Big_McGreed.content.input
         public void KeyPress(object sender, KeyPressEventArgs e)
         {
             //Character that was typed = e.KeyChar
-            Program.INSTANCE.player.naam += e.KeyChar;
+            foreach (char Char in utility.StringUtilities.validChars)
+            {
+                if (Char == e.KeyChar)
+                {
+                    Program.INSTANCE.player.naam += e.KeyChar;
+                }
+            }
         }
 
         /// <summary>
@@ -27,7 +33,7 @@ namespace Big_McGreed.content.input
         /// </summary>
         public void OnBackSpacePress()
         {
-            //TODO
+            Program.INSTANCE.player.naam = Program.INSTANCE.player.naam.Substring(0, Program.INSTANCE.player.naam.Length - 1);
         }
     }
 }

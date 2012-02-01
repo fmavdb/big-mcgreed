@@ -73,11 +73,10 @@ namespace Big_McGreed.content.upgrades
         /// </summary>
         /// <param name="level">The level.</param>
         /// <returns></returns>
-        public bool setLevel(int level)
+        public void setLevel(int level)
         {
             this.level = level;
             fullName = name + level;
-            return true;
         }
 
         public int getLevel()

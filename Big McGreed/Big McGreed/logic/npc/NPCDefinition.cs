@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System.Data.OleDb;
+using XNAGifAnimation;
 
 namespace Big_McGreed.logic.npc
 {
@@ -13,7 +14,7 @@ namespace Big_McGreed.logic.npc
         /// <summary>
         /// Gets the main texture.
         /// </summary>
-        public Texture2D mainTexture { get; private set; }
+        public GifAnimation mainTexture { get; private set; }
 
         /// <summary>
         /// Gets the pixels.
@@ -59,15 +60,15 @@ namespace Big_McGreed.logic.npc
                 }
                 object texture = reader["NPCTextureName"];
                 if (texture != null)
-                    def.mainTexture = Program.INSTANCE.loadTexture(Convert.ToString(texture));
+                    def.mainTexture = Program.INSTANCE.Content.Load<GifAnimation>(Convert.ToString(texture));
                 else
                 {
                     Console.Error.WriteLine("NPC type: " + type + " main texture has not been added.");
-                    def.mainTexture = Program.INSTANCE.loadTexture("poppetje");
+                    def.mainTexture = Program.INSTANCE.Content.Load<GifAnimation>("zakenman");
                 }
                 def.hittedTexture = Program.INSTANCE.loadTexture("poppetje_rood");
                 Color[] colors1D = new Color[def.mainTexture.Width * def.mainTexture.Height];
-                def.mainTexture.GetData<Color>(colors1D);
+                def.mainTexture.GetTexture().GetData<Color>(colors1D);
                 def.pixels = new Color[def.mainTexture.Width, def.mainTexture.Height];
                 for (int x = 0; x < def.mainTexture.Width; x++)
                     for (int y = 0; y < def.mainTexture.Height; y++)
