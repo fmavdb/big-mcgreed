@@ -53,6 +53,14 @@ namespace Big_McGreed.content.gameinterface
             batch.Draw(mainTexture, getLocation(), Color.White);
             if (title != null)
             {
+                if (this is GameOverInterface && ((GameOverInterface)this).gameWon)
+                {
+                    if (title != "WE HAVE A WINNER!")
+                    {
+                        title = "WE HAVE A WINNER!";
+                        centerTitle();
+                    }
+                }
                 batch.DrawString(Program.INSTANCE.IManager.font, title, titleLocation, Color.White);
             }
             if (this is UpgradeAchtergrond)

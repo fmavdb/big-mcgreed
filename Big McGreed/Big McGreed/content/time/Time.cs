@@ -22,6 +22,12 @@ namespace Big_McGreed.content.time
             position = new Vector2(GameFrame.Width / 2, 0);
         }
 
+        private int seconds;
+
+        private int milliseconds;
+
+        private int minutes;
+
         public void Pause()
         {
             watch.Stop();

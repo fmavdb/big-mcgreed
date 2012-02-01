@@ -532,6 +532,15 @@
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\HighscoreInterface.xnb</Output>
       <Time>2012-01-31T21:30:42+01:00</Time>
     </Item>
+    <Item>
+      <Source>boss1.gif</Source>
+      <Name>boss1</Name>
+      <Importer>GifAminationImporter</Importer>
+      <Processor>GifAnimationProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\boss1.xnb</Output>
+      <Time>2012-02-01T12:55:22+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

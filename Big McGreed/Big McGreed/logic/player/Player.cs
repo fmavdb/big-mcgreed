@@ -61,7 +61,7 @@ namespace Big_McGreed.logic.player
         /// <summary>
         /// Gets the current level.
         /// </summary>
-        public int currentLevel { get; private set; }
+        public int currentLevel { get; set; }
 
         /// <summary>
         /// Wether the left mouse button has been pressed.

@@ -13,6 +13,8 @@ namespace Big_McGreed.content.gameinterface.interfaces
     {
         public Vector2 naamLocation;
 
+        public bool gameWon;
+
         public GameOverInterface()
         {
             mainTexture = Program.INSTANCE.loadTexture("HighscoreInterface");
