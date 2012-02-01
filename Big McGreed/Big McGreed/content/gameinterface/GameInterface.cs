@@ -22,6 +22,8 @@ namespace Big_McGreed.content.gameinterface
 
         protected string title = null;
 
+        protected float size = 1.0f;
+
         protected Vector2 titleLocation;
 
         /// <summary>
@@ -50,7 +52,14 @@ namespace Big_McGreed.content.gameinterface
         /// <param name="batch">The batch.</param>
         public void Draw(SpriteBatch batch)
         {
-            batch.Draw(mainTexture, getLocation(), Color.White);
+            if (size != 1.0f)
+            {
+                batch.Draw(mainTexture, getLocation(), null, Color.White, 0.0f, Vector2.Zero, size, SpriteEffects.None, 1.0f);
+            }
+            else
+            {
+                batch.Draw(mainTexture, getLocation(), Color.White);
+            }
             if (title != null)
             {
                 if (this is GameOverInterface && ((GameOverInterface)this).gameWon)

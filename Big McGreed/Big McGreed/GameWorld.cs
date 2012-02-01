@@ -215,6 +215,7 @@ namespace Big_McGreed
             highScores = new HighScore();
             time = new Time();
             LevelInformation.Load();
+            CurrentGameState = GameState.Menu;
             base.Initialize();
         }
 
@@ -379,6 +380,8 @@ namespace Big_McGreed
                 case GameState.Paused:
                 case GameState.Menu:
                     IManager.Draw(spriteBatch);
+                    Program.INSTANCE.gameFrame.DrawRaamAchterkant(spriteBatch);
+                    Program.INSTANCE.gameFrame.DrawBoerderij(spriteBatch);
                     if (gameState == GameState.Paused || gameState == GameState.Select) //Mag niet bij menu
                     {
                         time.Draw(spriteBatch);
@@ -449,7 +452,7 @@ namespace Big_McGreed
 
                     case GameState.Menu:
                         IManager.getActiveComponents().Clear();
-                        IManager.activeInterface = null;
+                        IManager.activeInterface = IManager.logo;
                         addInterfaceComponent(IManager.newGame, true);
                         addInterfaceComponent(IManager.highScore, false);
                         addInterfaceComponent(IManager.quit, false);
