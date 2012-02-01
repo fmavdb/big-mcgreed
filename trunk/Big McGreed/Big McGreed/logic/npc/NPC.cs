@@ -59,7 +59,7 @@ namespace Big_McGreed.logic.npc
         {
             this.type = type;
             setLocation(location);
-            velocity = new Vector2(5f, 0f);
+            velocity = new Vector2(definition.speed, 0f);
             visible = true;
             Initialize();
         }
@@ -71,7 +71,7 @@ namespace Big_McGreed.logic.npc
         public NPC(int type)
         {
             this.type = type;
-            velocity = new Vector2(5f, 0f);
+            velocity = new Vector2(definition.speed, 0f);
             visible = true;
             Initialize();
         }

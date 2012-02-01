@@ -539,7 +539,7 @@
       <Processor>GifAnimationProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\zakenman.xnb</Output>
-      <Time>2012-02-01T13:53:54+01:00</Time>
+      <Time>2012-02-01T15:02:05+01:00</Time>
     </Item>
     <Item>
       <Source>boss1.gif</Source>
@@ -566,7 +566,7 @@
       <Processor>GifAnimationProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\zakenman2.xnb</Output>
-      <Time>2012-02-01T15:02:05+01:00</Time>
+      <Time>2012-02-01T13:53:54+01:00</Time>
     </Item>
     <Item>
       <Source>zakenman3.gif</Source>
@@ -576,6 +576,15 @@
       <Options>None</Options>
       <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\zakenman3.xnb</Output>
       <Time>2012-02-01T14:00:04+01:00</Time>
+    </Item>
+    <Item>
+      <Source>boss3.gif</Source>
+      <Name>boss3</Name>
+      <Importer>GifAminationImporter</Importer>
+      <Processor>GifAnimationProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\Documents\Visual Studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\boss3.xnb</Output>
+      <Time>2012-02-01T18:09:10+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

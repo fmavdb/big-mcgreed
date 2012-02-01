@@ -153,7 +153,7 @@ namespace Big_McGreed.logic
                 if (this is NPC)
                 {
                     ((NPC)this).attacking = false;
-                    setX(getX() * 0.97f);
+                    setX(getX() * 0.95f);
                 }
             }
         }

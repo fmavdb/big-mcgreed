@@ -121,10 +121,11 @@ namespace Big_McGreed.logic.map
                     }
                 }
             }*/
+            LinkedList<NPC> currentNPCS = new LinkedList<NPC>(Program.INSTANCE.npcs);
             Rectangle projectileRectangle = new Rectangle(projectile.getX(), projectile.getY(), projectile.definition.mainTexture.Width, projectile.definition.mainTexture.Height);
             //Eerst maken we een matrix aan, die passen we aan op de positie, origine en de rotatie van het projectiel.
             Matrix projectileMatrix = Matrix.CreateRotationZ(projectile.Rotation) * Matrix.CreateTranslation(projectile.getX(), projectile.getY(), 0) * Matrix.Identity;
-            foreach (NPC npc in new LinkedList<NPC>(Program.INSTANCE.npcs))
+            foreach (NPC npc in currentNPCS)
             {
                 if (npc.visible && !npc.disposed)
                 {
