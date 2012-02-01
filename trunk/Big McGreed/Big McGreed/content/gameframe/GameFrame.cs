@@ -108,9 +108,9 @@ namespace Big_McGreed.content.gameframe
             {
                 batch.Draw(mainTexture, Vector2.Zero, Color.White);
             }
-            batch.Draw(raamAchtergrond, raamAchtergrondPositie, Color.White);
+            DrawRaamAchterkant(batch);
             batch.Draw(Program.INSTANCE.player.definition.personTexture, Program.INSTANCE.player.BoerLocatie, Color.White);
-            batch.Draw(boerderijTexture, boerderijPositie, Color.White);
+            DrawBoerderij(batch);
             batch.Draw(hpBarTextureRood, hpBarPositie, Color.White);
             batch.Draw(hpBarTextureGroen, hpBarPositie, rectangleHP, Color.White);
             batch.Draw(oilBarTextureEmpty, oilBarPositie, Color.White);
@@ -157,6 +157,16 @@ namespace Big_McGreed.content.gameframe
             batch.DrawString(gameFrameFont, "Gold:", goldTextUpgradePositie, Color.White);
             batch.DrawString(gameFrameFont, currency + Program.INSTANCE.player.gold, goldUpgradePositie, Color.White);
             Program.INSTANCE.sendGold = true;
+        }
+
+        public void DrawBoerderij(SpriteBatch batch)
+        {
+            batch.Draw(boerderijTexture, boerderijPositie, Color.White);
+        }
+
+        public void DrawRaamAchterkant(SpriteBatch batch)
+        {
+            batch.Draw(raamAchtergrond, raamAchtergrondPositie, Color.White);
         }
     }
 }

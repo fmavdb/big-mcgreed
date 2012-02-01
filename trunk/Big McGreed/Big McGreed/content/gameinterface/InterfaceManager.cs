@@ -114,6 +114,8 @@ namespace Big_McGreed.content.gameinterface
 
         public GameOverInterface gameOverInterface { get; private set; }
 
+        public Logo logo { get; private set; }
+
         public UpgradeButtonInGame upgradeButtonIG { get; private set; }
 
         /// <summary>
@@ -144,6 +146,7 @@ namespace Big_McGreed.content.gameinterface
             upgradeAchtergrond = new UpgradeAchtergrond();
             highscoreDisplay = new HighscoreDisplay();
             gameOverInterface = new GameOverInterface();
+            logo = new Logo();
         }
 
         /// <summary>
@@ -261,7 +264,16 @@ namespace Big_McGreed.content.gameinterface
         /// </summary>
         public void updateButtons()
         {
-            float startY = GameFrame.Height / 5;
+            float startY;
+            if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.Menu)
+            {
+                startY = GameFrame.Height / 2;
+            }
+            else
+            {
+                startY = GameFrame.Height / 4;
+            }
+
             lock (activeComponents)
             {
                 foreach (InterfaceComponent button in activeComponents)
