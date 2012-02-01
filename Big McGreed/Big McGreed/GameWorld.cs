@@ -103,6 +103,12 @@ namespace Big_McGreed
         public string buttonClickedState = "";
         public bool highscoreNameInUse = false;
 
+        //arduino
+        public bool sendHP = false;
+        public bool sendGold = false;
+        public bool sendScore = false;
+        public bool sendOil = false;
+
         private Vector2 mousePosition = Vector2.Zero;
         private GameState gameState = GameState.Menu;
         private GameState lastState = GameState.Menu;
@@ -302,6 +308,7 @@ namespace Big_McGreed
                     break;
                 case GameState.InGame:
                     IManager.Update();
+                    arduino.sendMessage();
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                     {
                         CurrentGameState = GameState.Paused;
