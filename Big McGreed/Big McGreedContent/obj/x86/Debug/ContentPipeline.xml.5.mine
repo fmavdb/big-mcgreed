@@ -2,13 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Muur0.png</Source>
-      <Name>Muur0</Name>
+      <Source>muur0.png</Source>
+      <Name>muur0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muur0.xnb</Output>
-      <Time>2012-01-19T13:08:02.3701348+01:00</Time>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\muur0.xnb</Output>
+      <Time>2012-01-31T17:02:01.5082892+01:00</Time>
     </Item>
     <Item>
       <Source>muur1.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\muur1.xnb</Output>
-      <Time>2012-01-19T13:08:00.3491319+01:00</Time>
+      <Time>2012-01-31T17:02:01.5082892+01:00</Time>
     </Item>
     <Item>
       <Source>poppetje.png</Source>
@@ -45,15 +45,6 @@
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonPressed.xnb</Output>
       <Time>2011-12-15T12:37:59+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Achtergrond.jpg</Source>
-      <Name>Achtergrond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb</Output>
-      <Time>2011-12-08T10:45:45.196442+01:00</Time>
     </Item>
     <Item>
       <Source>Boerderij.png</Source>
@@ -143,7 +134,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Muzzle Effect.xnb</Output>
-      <Time>2012-01-11T19:25:53.4729569+01:00</Time>
+      <Time>2012-01-31T19:29:30.8317163+01:00</Time>
     </Item>
     <Item>
       <Source>OilEmpty.png</Source>
@@ -197,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\weapon0.xnb</Output>
-      <Time>2012-01-11T15:03:13.1231076+01:00</Time>
+      <Time>2012-01-30T16:55:38.5617052+01:00</Time>
     </Item>
     <Item>
       <Source>wolk.png</Source>
@@ -206,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\wolk.xnb</Output>
-      <Time>2011-12-13T09:13:48+01:00</Time>
+      <Time>2012-01-29T13:27:43+01:00</Time>
     </Item>
     <Item>
       <Source>NormalInterface.png</Source>
@@ -335,6 +326,51 @@
       <Time>2012-01-25T17:29:28.1613467+01:00</Time>
     </Item>
     <Item>
+      <Source>boer.png</Source>
+      <Name>boer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\boer.xnb</Output>
+      <Time>2012-01-30T16:55:38.5929052+01:00</Time>
+    </Item>
+    <Item>
+      <Source>weapon1.png</Source>
+      <Name>weapon1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\weapon1.xnb</Output>
+      <Time>2012-01-31T17:02:01.4614891+01:00</Time>
+    </Item>
+    <Item>
+      <Source>weapon2.png</Source>
+      <Name>weapon2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\weapon2.xnb</Output>
+      <Time>2012-01-31T17:02:01.4614891+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Achtergrond.png</Source>
+      <Name>Achtergrond</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\Achtergrond.xnb</Output>
+      <Time>2012-01-31T17:02:01.445889+01:00</Time>
+    </Item>
+    <Item>
+      <Source>WindowBackground.png</Source>
+      <Name>WindowBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\WindowBackground.xnb</Output>
+      <Time>2012-01-31T17:02:01.445889+01:00</Time>
+    </Item>
+    <Item>
       <Source>FPS.spritefont</Source>
       <Name>FPS</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -350,7 +386,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\ButtonFont.xnb</Output>
-      <Time>2011-12-14T08:57:48.1670177+01:00</Time>
+      <Time>2012-01-26T12:39:17.1657329+01:00</Time>
     </Item>
     <Item>
       <Source>TinyButtonFont.spritefont</Source>
@@ -408,11 +444,11 @@
       </Assembly>
       <Assembly>
         <Key>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\GifAnimation.Pipeline\bin\x86\Debug\GifAnimation.Pipeline.dll</Key>
-        <Value>2012-01-25T17:30:52.5261598+01:00</Value>
+        <Value>2012-02-01T10:12:08.3631426+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\GifAnimation\bin\x86\Debug\GifAnimation.dll</Key>
-        <Value>2012-01-25T17:30:51.7093243+01:00</Value>
+        <Value>2012-02-01T10:12:08.0601275+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
