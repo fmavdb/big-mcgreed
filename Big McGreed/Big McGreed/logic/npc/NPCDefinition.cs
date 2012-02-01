@@ -42,6 +42,16 @@ namespace Big_McGreed.logic.npc
         public int damage = -1;
 
         /// <summary>
+        /// The NPC´s gold.
+        /// </summary>
+        public int gold = 0;
+
+        /// <summary>
+        /// The NPC's attackSpeed.
+        /// </summary>
+        public int attackSpeed = 0;
+
+        /// <summary>
         /// Initializes a new instance for the npc type.
         /// </summary>
         /// <param name="type">The type.</param>
@@ -96,6 +106,22 @@ namespace Big_McGreed.logic.npc
                 {
                     Console.Error.WriteLine("NPC type: " + type + " damage has not been added.");
                     def.damage = -1;
+                }
+                object gold = reader["NPCGold"];
+                if (gold != null)
+                    def.gold = Convert.ToInt32(gold);
+                else
+                {
+                    Console.Error.WriteLine("NPC type: " + type + " gold has not been added.");
+                    def.gold = 0;
+                }
+                object attackSpeed = reader["NPCAttackSpeed"];
+                if (attackSpeed != null)
+                    def.attackSpeed = Convert.ToInt32(attackSpeed);
+                else
+                {
+                    Console.Error.WriteLine("NPC type: " + type + " attack speed has not been added.");
+                    def.attackSpeed = 5000;
                 }
                 reader.Close();
                 GameWorld.npcDefinitions.Add(type, def);

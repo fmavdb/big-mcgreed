@@ -58,7 +58,7 @@ namespace Big_McGreed.logic.map
                 if (npc.attacking) //Waarom controleren op collision als ie toch stilstaat...
                 {
                     TimeSpan hitTimePassed = DateTime.Now - npc.lastHit;
-                    if (hitTimePassed.TotalMilliseconds >= 5000) //TODO - NPC Attack speed
+                    if (hitTimePassed.TotalMilliseconds >= npc.definition.attackSpeed)
                     {
                         player.hit(new Hit(player, npc, npc.damage));
                         npc.lastHit = DateTime.Now;
@@ -76,7 +76,7 @@ namespace Big_McGreed.logic.map
                     if (collision.X != -1 && collision.Y != -1)
                     {
                         TimeSpan hitTimePassed = DateTime.Now - npc.lastHit;
-                        if (hitTimePassed.TotalMilliseconds >= 5000) //TODO - NPC Attack speed
+                        if (hitTimePassed.TotalMilliseconds >= npc.definition.attackSpeed)
                         {
                             player.hit(new Hit(player, npc, npc.damage));
                             npc.attacking = true;

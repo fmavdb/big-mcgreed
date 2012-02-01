@@ -129,7 +129,7 @@ namespace Big_McGreed.logic.npc
                 //toDraw = definition.hittedTexture;
                 hitted = false;
             }
-            batch.Draw(toDraw.GetTexture(), getLocation(), Color.Green);
+            batch.Draw(toDraw.GetTexture(), getLocation(), Color.Black);
         }
 
         public void Update(GameTime gameTime)

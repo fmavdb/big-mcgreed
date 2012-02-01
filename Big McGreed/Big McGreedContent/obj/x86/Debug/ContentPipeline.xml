@@ -541,6 +541,15 @@
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\boss1.xnb</Output>
       <Time>2012-02-01T12:55:22+01:00</Time>
     </Item>
+    <Item>
+      <Source>boss2.gif</Source>
+      <Name>boss2</Name>
+      <Importer>GifAminationImporter</Importer>
+      <Processor>GifAnimationProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\boss2.xnb</Output>
+      <Time>2012-02-01T14:17:55+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
