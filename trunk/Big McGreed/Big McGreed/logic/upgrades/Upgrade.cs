@@ -61,7 +61,7 @@ namespace Big_McGreed.content.upgrades
         {
             if (level >= 2)  //Already achieved highest level.
                 return false;
-            if (player.gold < definition.cost) //Player does not have enough valuta.
+            if (player.gold < UpgradeDefinition.forName(name + level + 1).cost) //Player does not have enough valuta.
                 return false;
             level++;
             fullName = name + level;

@@ -28,10 +28,6 @@ namespace Big_McGreed.content.gameinterface.buttons
             {
                 Program.INSTANCE.player.Weapon.setLevel(0);
             }
-            else
-            {
-                error = true;
-            }
         }
     }
 }
