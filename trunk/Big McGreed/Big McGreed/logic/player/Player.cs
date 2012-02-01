@@ -26,6 +26,8 @@ namespace Big_McGreed.logic.player
 
         public static bool drawCrosshair = true;
 
+        private DateTime lastShot;
+
         /// <summary>
         /// Gets or sets the wall.
         /// </summary>
@@ -101,6 +103,7 @@ namespace Big_McGreed.logic.player
         {
             Lifes = maxHP;
             oil = maxOil;
+            lastShot = DateTime.Now;
             naam = "";
             good = 0;
             evil = 0;
@@ -111,7 +114,7 @@ namespace Big_McGreed.logic.player
             boerLocatie.X = GameFrame.Width - Program.INSTANCE.gameFrame.boerderijTexture.Width / 3f;
             boerLocatie.Y = GameFrame.Height - Program.INSTANCE.gameFrame.boerderijTexture.Height / 1.12f;
             Weapon = new Upgrade(this, new Vector2(boerLocatie.X + definition.personTexture.Width / 1.75f, boerLocatie.Y + definition.personTexture.Height / 1.55f), "weapon"); //1ste wapen is revolver: naam + level dus: weapon0.png
-            Wall = new Upgrade(Program.INSTANCE.player, new Vector2(Program.INSTANCE.gameFrame.boerderijPositie.X - UpgradeDefinition.forName("muur0").mainTexture.Width , GameFrame.Height - UpgradeDefinition.forName("muur0").mainTexture.Height * 1.15f), "muur");
+            Wall = new Upgrade(this, new Vector2(Program.INSTANCE.gameFrame.boerderijPositie.X - UpgradeDefinition.forName("muur0").mainTexture.Width , GameFrame.Height - UpgradeDefinition.forName("muur0").mainTexture.Height * 1.15f), "muur");
         }
 
         /// <summary>
@@ -131,16 +134,17 @@ namespace Big_McGreed.logic.player
             {
                 if (!leftButtonPressed)
                 {
-                    //foreach (NPC npc in PrimitivePathFinder.collision(this, Mouse.GetState().X, Mouse.GetState().Y))
-                    //{
-                        //npc.hit(new Hit(npc, this, 10));
-                    //}
                     if (Program.INSTANCE.CurrentGameState == GameWorld.GameState.InGame)
                     {
-                        Program.INSTANCE.gameMap.AddProjectile(new Projectile(1, new Hit(null, this, damage), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 8)));
-                        //hit(new Hit(this, null, 10));
-                        leftButtonPressed = true;
-                        muzzle = 12;
+                        TimeSpan hitTimePassed = DateTime.Now - lastShot;
+                        if (hitTimePassed.TotalMilliseconds >= Weapon.definition.weaponSpeed)
+                        {
+                            Program.INSTANCE.gameMap.AddProjectile(new Projectile(1, new Hit(null, this, damage), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 8)));
+                            //hit(new Hit(this, null, 10));
+                            leftButtonPressed = true;
+                            muzzle = 12;
+                            lastShot = DateTime.Now;
+                        }
                     }
                 }
             }

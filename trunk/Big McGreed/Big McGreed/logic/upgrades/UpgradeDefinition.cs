@@ -22,6 +22,8 @@ namespace Big_McGreed.content.upgrades
 
         public int damage = -1;
 
+        public int weaponSpeed = -1;
+
         /// <summary>
         /// Gets the pixels.
         /// </summary>
@@ -52,7 +54,7 @@ namespace Big_McGreed.content.upgrades
                     reader = Program.INSTANCE.dataBase.getReader("SELECT * FROM Weapon WHERE WeaponFullName = '" + fullName + "'");
                     reader.Read();
                     def.damage = Convert.ToInt32(reader["WeaponDamage"]);
-                    //TODO - Projectile Type
+                    def.weaponSpeed = Convert.ToInt32(reader["WeaponSpeed"]);
                     reader.Close();
                 }
                 if (fullName.Contains("muur"))

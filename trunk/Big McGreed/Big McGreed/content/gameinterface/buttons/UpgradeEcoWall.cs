@@ -28,7 +28,7 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             if (Program.INSTANCE.player.Wall.LevelUp() == true)
             {
-                Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "Your ecologic mind gave you an ecologic wall!";
+                Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "Your ecologic thinking brought you an ecologic fence!";
                 Program.INSTANCE.IManager.upgradeAchtergrond.timer = 5000;
                 Program.INSTANCE.player.good++;
                 Program.INSTANCE.player.UpdateCrosshair();
