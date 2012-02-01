@@ -30,6 +30,11 @@ namespace Big_McGreed.content.highscore
 
         public void addToHighScore(string naam, int score)
         {
+            if (naam == "")
+            {
+                Program.INSTANCE.highscoreNameInUse = true;
+                return;
+            }
             foreach (string bestaandeNaam in highScores.Keys)
             {
                 if (bestaandeNaam == Program.INSTANCE.player.naam)

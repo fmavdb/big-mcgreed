@@ -37,6 +37,12 @@ namespace Big_McGreed.logic.npc
         /// </value>
         public DateTime lastHit { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="NPC"/> is attacking.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if attacking; otherwise, <c>false</c>.
+        /// </value>
         public bool attacking { get; set; }
 
         /// <summary>
@@ -84,7 +90,18 @@ namespace Big_McGreed.logic.npc
         {
             if (type == LevelInformation.forValue(Program.INSTANCE.player.currentLevel).bossType)
             {
-                //TODO - Boss is dead, proceed to next level? Player has won the game?
+                if (Program.INSTANCE.player.currentLevel == 1)
+                {
+                    Program.INSTANCE.player.currentLevel = 2;
+                }
+                else if (Program.INSTANCE.player.currentLevel == 2)
+                {
+                    Program.INSTANCE.player.currentLevel = 3;
+                }
+                else if (Program.INSTANCE.player.currentLevel == 3)
+                {
+                    Program.INSTANCE.CurrentGameState = GameWorld.GameState.GameOver;
+                }
             }
             disposed = true;
         }
@@ -112,7 +129,7 @@ namespace Big_McGreed.logic.npc
                 //toDraw = definition.hittedTexture;
                 hitted = false;
             }
-            batch.Draw(toDraw.GetTexture(), getLocation(), Color.Tan);
+            batch.Draw(toDraw.GetTexture(), getLocation(), Color.Green);
         }
 
         public void Update(GameTime gameTime)
