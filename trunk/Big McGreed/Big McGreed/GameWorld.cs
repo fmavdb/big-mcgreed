@@ -460,13 +460,13 @@ namespace Big_McGreed
                         IManager.activeInterface = IManager.upgradeAchtergrond;
                         addInterfaceComponent(IManager.menuButtonKlein, true);
                         addInterfaceComponent(IManager.resumeKlein, false);
+                        addInterfaceComponent(IManager.upgradeWeaponMagnum, false);
+                        addInterfaceComponent(IManager.upgradeWeaponRifle, false);
+                        addInterfaceComponent(IManager.upgradeWeaponShotgun, false);
                         addInterfaceComponent(IManager.upgradeEcoWall, false);
                         addInterfaceComponent(IManager.upgradeEcoHelp, false);
                         addInterfaceComponent(IManager.upgradeOilWall, false);
                         addInterfaceComponent(IManager.upgradeOilHelp, false);
-                        addInterfaceComponent(IManager.upgradeWeaponMagnum, false);
-                        addInterfaceComponent(IManager.upgradeWeaponRifle, false);
-                        addInterfaceComponent(IManager.upgradeWeaponShotgun, false);
                         break;
 
                     case GameState.Highscore:
