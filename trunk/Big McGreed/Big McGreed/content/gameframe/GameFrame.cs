@@ -39,6 +39,7 @@ namespace Big_McGreed.content.gameframe
         public Vector2 goldUpgradePositie = Vector2.Zero;
         private Vector2 goldTextUpgradePositie = Vector2.Zero;
         private Vector2 goldTextPositie = Vector2.Zero;
+        private Vector2 scorePositie = Vector2.Zero;
         private Vector2 hpBarTextPositie = Vector2.Zero;
         private Vector2 hpBarHpLeftPositie = Vector2.Zero;
         private Vector2 oilBarTextPositie = Vector2.Zero;
@@ -52,6 +53,7 @@ namespace Big_McGreed.content.gameframe
         private string currency = "$";
         public string hpText = "100/100";
         private string oilText = "100/100";
+        public string scoreText = "Score: 0";
 
         private Texture2D muur;
 
@@ -90,6 +92,8 @@ namespace Big_McGreed.content.gameframe
             hpBarHpLeftPositie = new Vector2(hpBarPositie.X + hpBarTextureGroen.Width /2 - gameFrameFont.MeasureString(hpText).X / 2, hpBarPositie.Y);
             oilBaroilLevelPositie = new Vector2(oilBarPositie.X + oilBarTextureFull.Width / 2 - gameFrameFont.MeasureString(oilText).X / 2, oilBarPositie.Y);
 
+            scorePositie = new Vector2(GameFrame.Width - Program.INSTANCE.IManager.font.MeasureString(scoreText).X * 1.1f, GameFrame.Height - Program.INSTANCE.IManager.font.MeasureString(scoreText).Y);
+
             //muur = Program.INSTANCE.loadTexture("Muur1");
         }
 
@@ -115,6 +119,7 @@ namespace Big_McGreed.content.gameframe
             batch.DrawString(gameFrameFont, "Gold:", goldTextPositie, Color.White);
             batch.DrawString(gameFrameFont, "HP:", hpBarTextPositie, Color.White);
             batch.DrawString(gameFrameFont, "Oil:", oilBarTextPositie, Color.White);
+            batch.DrawString(gameFrameFont, scoreText, scorePositie, Color.White);
             batch.DrawString(gameFrameFont, currency + Program.INSTANCE.player.gold, goldPositie, Color.White);
             batch.DrawString(gameFrameFont, hpText, hpBarHpLeftPositie, Color.White);
             batch.DrawString(gameFrameFont, oilText, oilBaroilLevelPositie, Color.White);
@@ -129,6 +134,12 @@ namespace Big_McGreed.content.gameframe
             double factor = ((double)hp / (double)Player.maxHP);
             rectangleHP = new Rectangle(0, 0, (int)(hpBarTextureGroen.Width * factor), hpBarTextureGroen.Height);
             hpText = hp + "/" + Player.maxHP;
+        }
+
+        public void UpdateScore()
+        {
+            scoreText = "Score: " + Program.INSTANCE.player.Score;
+            scorePositie = new Vector2(GameFrame.Width - Program.INSTANCE.IManager.font.MeasureString(scoreText).X * 1.1f, GameFrame.Height - Program.INSTANCE.IManager.font.MeasureString(scoreText).Y);
         }
 
         public void DrawGold(SpriteBatch batch)

@@ -19,6 +19,7 @@ namespace Big_McGreed.content.gameinterface
         /// </summary>
         protected bool tinyButton = false;
 
+        protected bool error = false;
         /// <summary>
         /// Executes the action.
         /// </summary>
@@ -26,6 +27,7 @@ namespace Big_McGreed.content.gameinterface
 
         protected string hoverText = null;
 
+        protected string errorText = null;
         private Vector2 location;
 
         /// <summary>
@@ -172,6 +174,11 @@ namespace Big_McGreed.content.gameinterface
                     Player.drawCrosshair = false;
                     thisButtonDisabledCrosshair = true;
                     batch.DrawString(Program.INSTANCE.IManager.tinyFont, hoverText, new Vector2(Mouse.GetState().X, Mouse.GetState().Y - Program.INSTANCE.IManager.tinyFont.MeasureString(hoverText).Y), Color.White);
+                }
+                else if (errorText != null && error == true)
+                {
+                    batch.DrawString(Program.INSTANCE.IManager.font, errorText, new Vector2(Program.INSTANCE.IManager.upgradeAchtergrond.getX() + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Width / 2 - Program.INSTANCE.IManager.font.MeasureString(errorText).X / 2,
+                                    Program.INSTANCE.IManager.upgradeAchtergrond.getY() + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Height * 0.85f), Color.Red);
                 }
             }
             else

@@ -75,6 +75,8 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Vector2 BoerLocatie { get { return boerLocatie; } private set { boerLocatie = value; } }
 
+        static Texture2D muzzleTexture = Program.INSTANCE.loadTexture("Muzzle Effect");
+
         private float rotation;
 
         public int gold { get; set; }
@@ -89,7 +91,8 @@ namespace Big_McGreed.logic.player
 
         public int kills = 0;
 
-        static Texture2D muzzleTexture = Program.INSTANCE.loadTexture("Muzzle Effect");
+        public int good = 0;
+        public int evil = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Player"/> class.
@@ -99,6 +102,8 @@ namespace Big_McGreed.logic.player
             Lifes = maxHP;
             oil = maxOil;
             naam = "";
+            good = 0;
+            evil = 0;
             visible = true;
             currentLevel = 1;
             setX(Mouse.GetState().X);
@@ -168,6 +173,23 @@ namespace Big_McGreed.logic.player
             if (drawCrosshair)
             {
                 batch.Draw(definition.mainTexture, getLocation(), Color.White);
+            }
+        }
+
+        public void UpdateCrosshair()
+        {
+            int conclusion = good - evil; // Hoger dan 1 is groen, 0 is normaal, lager dan 0 is olie
+            if (conclusion > 0)
+            {
+                GameWorld.playerDefinition.mainTexture = Program.INSTANCE.loadTexture("crosshairGood");
+            }
+            else if (conclusion == 0)
+            {
+                GameWorld.playerDefinition.mainTexture = Program.INSTANCE.loadTexture("crosshairNormal");
+            }
+            else
+            {
+                GameWorld.playerDefinition.mainTexture = Program.INSTANCE.loadTexture("crosshairEvil");
             }
         }
     }

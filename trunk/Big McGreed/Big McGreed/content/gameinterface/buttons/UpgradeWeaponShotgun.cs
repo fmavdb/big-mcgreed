@@ -14,17 +14,26 @@ namespace Big_McGreed.content.gameinterface.buttons
     {
         public UpgradeWeaponShotgun()
         {
-            normal = Program.INSTANCE.loadTexture("EcoHelpNormal");
-            pressed = Program.INSTANCE.loadTexture("EcoHelpClicked");
-            hover = Program.INSTANCE.loadTexture("EcoHelpHighlight");
+            normal = Program.INSTANCE.loadTexture("ShotgunNormal");
+            pressed = Program.INSTANCE.loadTexture("ShotgunClicked");
+            hover = Program.INSTANCE.loadTexture("ShotgunHover");
             current = normal;
+
+            errorText = "You need to be in wave 3 to acces this weapon!";
 
             Location = new Vector2(gameframe.GameFrame.Width / 2 - current.Width / 2, gameframe.GameFrame.Height / 2 + current.Height * 0.8f);
         }
 
         public override void action()
         {
-            Program.INSTANCE.player.Weapon.setLevel(2);
+            if (Program.INSTANCE.player.currentLevel >= 3)
+            {
+                Program.INSTANCE.player.Weapon.setLevel(2);
+            }
+            else
+            {
+                error = true;
+            }
         }
     }
 }

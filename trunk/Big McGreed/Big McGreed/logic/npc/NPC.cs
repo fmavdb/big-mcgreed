@@ -13,6 +13,7 @@ using Big_McGreed.utility;
 using Big_McGreed.logic.map;
 using Big_McGreed.content.gameframe;
 using Big_McGreed.content.level;
+using XNAGifAnimation;
 
 namespace Big_McGreed.logic.npc
 {
@@ -105,13 +106,18 @@ namespace Big_McGreed.logic.npc
         /// <param name="batch">The batch.</param>
         public override void Draw(SpriteBatch batch) 
         {
-            Texture2D toDraw = definition.mainTexture;
+            GifAnimation toDraw = definition.mainTexture;
             if (hitted)
             {
-                toDraw = definition.hittedTexture;
+                //toDraw = definition.hittedTexture;
                 hitted = false;
             }
-            batch.Draw(toDraw, getLocation(), Color.White);
+            batch.Draw(toDraw.GetTexture(), getLocation(), Color.White);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            definition.mainTexture.Update(gameTime.ElapsedGameTime.Ticks / 2);
         }
     }
 }
