@@ -26,9 +26,13 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            Program.INSTANCE.player.Wall.LevelUp();
-            Program.INSTANCE.player.evil++;
-            Program.INSTANCE.player.UpdateCrosshair();
+            if (Program.INSTANCE.player.Wall.LevelUp() == true)
+            {
+                Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "Your industrial thinking brought you an industrial fence!";
+                Program.INSTANCE.IManager.upgradeAchtergrond.timer = 5000;
+                Program.INSTANCE.player.evil++;
+                Program.INSTANCE.player.UpdateCrosshair();
+            }
         }
     }
 }

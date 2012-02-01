@@ -19,6 +19,8 @@ namespace Big_McGreed.content.gameinterface.buttons
             hover = Program.INSTANCE.loadTexture("MagnumHover");
             current = normal;
 
+            hoverText = "The standard, all favourite Magnum!";
+
             Location = new Vector2(gameframe.GameFrame.Width / 2 - current.Width / 2, gameframe.GameFrame.Height / 2 - current.Height * 1.5f);
         }
 

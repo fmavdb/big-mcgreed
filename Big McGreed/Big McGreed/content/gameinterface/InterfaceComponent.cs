@@ -170,16 +170,9 @@ namespace Big_McGreed.content.gameinterface
             {
                 if (hoverText != null)
                 {
-                    if (this is UpgradeWeaponRifle)
-                    {
-                        if (Program.INSTANCE.player.currentLevel != 2)
-                        {
-                            hoverText = "";
-                        }
-                    }
                     Player.drawCrosshair = false;
                     thisButtonDisabledCrosshair = true;
-                    batch.DrawString(Program.INSTANCE.IManager.tinyFont, hoverText, new Vector2(Mouse.GetState().X, Mouse.GetState().Y - Program.INSTANCE.IManager.tinyFont.MeasureString(hoverText).Y), Color.White);
+                    batch.DrawString(Program.INSTANCE.IManager.tinyFont, hoverText, new Vector2(Mouse.GetState().X, Mouse.GetState().Y - Program.INSTANCE.IManager.tinyFont.MeasureString(hoverText).Y), Color.Black);
                 }
             }
             else

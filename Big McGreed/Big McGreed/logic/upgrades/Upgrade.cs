@@ -20,12 +20,13 @@ namespace Big_McGreed.content.upgrades
 
         private string name;
 
-        private int level = 0; 
+        private int level = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Upgrade"/> class.
         /// </summary>
         /// <param name="player">The player.</param>
+        /// <param name="location">The location.</param>
         /// <param name="name">The name.</param>
         public Upgrade(Player player, Vector2 location, string name)
         {
@@ -59,11 +60,28 @@ namespace Big_McGreed.content.upgrades
         /// <returns></returns>
         public bool LevelUp()
         {
-            if (level >= 2)  //Already achieved highest level.
+            if (level >= 2)
+            {
+                Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "You already have the highest level upgrade!";
+                Program.INSTANCE.IManager.upgradeAchtergrond.timer = 1000;
                 return false;
-            if (player.gold < UpgradeDefinition.forName(name + level + 1).cost) //Player does not have enough valuta.
+            }
+            int nextLevel = level + 1;
+            UpgradeDefinition def = UpgradeDefinition.forName(name + nextLevel);
+            if (def == null)
+            {
+                string fullname = name + nextLevel;
+                Console.WriteLine("Upgrade: " + fullname + " has not been added to the database.");
                 return false;
-            level++;
+            }
+            if (player.gold < def.cost)
+            {
+                int neededGold = def.cost - player.gold;
+                Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "You need " + neededGold + " gold more to buy this upgrade!";
+                Program.INSTANCE.IManager.upgradeAchtergrond.timer = 1000;
+                return false;
+            }
+            level = nextLevel;
             fullName = name + level;
             return true;
         }
