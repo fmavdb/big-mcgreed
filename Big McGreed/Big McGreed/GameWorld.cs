@@ -341,6 +341,7 @@ namespace Big_McGreed
                     break;
                 case GameState.InGame:
                     IManager.Update();
+                    gameFrame.UpdateGifGameFrame(gameTime);
                     arduino.sendMessage();
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                     {
@@ -350,6 +351,11 @@ namespace Big_McGreed
                     else if (Keyboard.GetState().IsKeyDown(Keys.PrintScreen))
                     {
                         ScreenShot(DateTime.Now.ToString("yyyyMMdd_HHmmss"));
+                        break;
+                    }
+                    else if (Keyboard.GetState().IsKeyDown(Keys.M))
+                    {
+                        player.gold += 2500;
                         break;
                     }
                     else if (Keyboard.GetState().IsKeyDown(Keys.Space))
