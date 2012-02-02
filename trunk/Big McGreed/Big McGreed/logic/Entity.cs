@@ -71,7 +71,7 @@ namespace Big_McGreed.logic
         /// <summary>
         /// Wether the entity is hitted or not.
         /// </summary>
-        protected bool hitted = false;
+        protected int hitted = -1;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Entity"/> is destroyed.
@@ -149,7 +149,7 @@ namespace Big_McGreed.logic
             lock (receivedHits)
             {
                 receivedHits.Enqueue(hit);
-                hitted = true;
+                hitted = 25;
                 if (this is NPC)
                 {
                     ((NPC)this).attacking = false;
@@ -177,6 +177,11 @@ namespace Big_McGreed.logic
         /// </summary>
         public abstract void Draw(SpriteBatch batch);
 
+        /// <summary>
+        /// Registers the tick.
+        /// </summary>
+        /// <param name="tick">The tick.</param>
+        /// <param name="identifier">The identifier.</param>
         public void registerTick(Tick tick, string identifier)
         {
             if (identifier == null)
