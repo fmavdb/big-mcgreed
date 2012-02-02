@@ -28,6 +28,7 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             if (Program.INSTANCE.player.Wall.LevelUp() == true)
             {
+                Program.INSTANCE.player.evilWall = true;
                 Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "Your industrial thinking brought you an industrial fence!";
                 Program.INSTANCE.IManager.upgradeAchtergrond.timer = 5000;
                 Program.INSTANCE.player.evil++;

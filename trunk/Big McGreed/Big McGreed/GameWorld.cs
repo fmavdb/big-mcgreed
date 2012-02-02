@@ -354,8 +354,21 @@ namespace Big_McGreed
                     }
                     else if (Keyboard.GetState().IsKeyDown(Keys.Space))
                     {
-                        player.Wall.definition.ChangeTextureToElectric();
-                        player.electricWallTimer = 7500;
+                        if (player.Wall.getLevel() == 1)
+                        {
+                            if (player.evilWall)
+                            {
+                                player.Wall.definition.ChangeTextureToElectric();
+                                player.electricWallTimer = 7500;
+                                player.oil -= 50;
+                            }
+                            else
+                            {
+                                player.Wall.definition.ChangeTextureToElectric();
+                                player.electricWallTimer = 7500;
+                            }
+                        }
+                        break;
                     }
                     lastWave += gameTime.ElapsedGameTime;
                     if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
