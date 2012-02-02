@@ -22,15 +22,18 @@ namespace Big_McGreed.content.upgrades
 
         private int level = 0;
 
+        private int maximumLevel = 2;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Upgrade"/> class.
         /// </summary>
         /// <param name="player">The player.</param>
         /// <param name="location">The location.</param>
         /// <param name="name">The name.</param>
-        public Upgrade(Player player, Vector2 location, string name)
+        public Upgrade(Player player, Vector2 location, string name, int maximumLevel)
         {
             this.player = player;
+            this.maximumLevel = maximumLevel;
             setLocation(location);
             Name = name;
         }
@@ -60,7 +63,7 @@ namespace Big_McGreed.content.upgrades
         /// <returns></returns>
         public bool LevelUp()
         {
-            if (level >= 2)
+            if (level >= maximumLevel)
             {
                 Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "You already have the highest level upgrade!";
                 Program.INSTANCE.IManager.upgradeAchtergrond.timer = 1000;

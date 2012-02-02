@@ -313,9 +313,14 @@ namespace Big_McGreed
         protected override void Update(GameTime gameTime)
         {
             //animation.Update(gameTime.ElapsedGameTime.Ticks);
-            foreach (NPC npc in new LinkedList<NPC>(npcs))
+            try
             {
-                npc.Update(50000);
+                foreach (NPC npc in new LinkedList<NPC>(npcs))
+                {
+                    npc.Update(50000);
+                }
+            } catch (Exception e) {
+                return;
             }
             switch (gameState)
             {
@@ -378,7 +383,7 @@ namespace Big_McGreed
                             int typeToSpawn = spawnBoss ? wave.bossType : wave.npcTypes[random.Next(wave.npcTypes.Length)];
                             NPC npc = new NPC(typeToSpawn);
                             float maxY = GameFrame.Height - npc.definition.mainTexture.Height - 50;
-                            float minY = GameFrame.Height / 2 - 50;
+                            float minY = GameFrame.Height / 2 - 150;
                             float y = random.Next((int)minY, (int)maxY);
                             if (y < minY)
                                 y = minY;
