@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Big_McGreed.content.gameinterface.interfaces;
 using Big_McGreed.content.upgrades;
+using Big_McGreed.logic.player;
 
 namespace Big_McGreed.content.gameinterface.buttons
 {
@@ -26,10 +27,12 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            Program.INSTANCE.player.Wall.LevelUp();
-            Program.INSTANCE.player.evil++;
-            Program.INSTANCE.player.damageFactor = 1.25;
-            Program.INSTANCE.player.UpdateCrosshair();
+            if (Program.INSTANCE.player.boerderij.LevelUp())
+            {
+                Program.INSTANCE.player.evil++;
+                Program.INSTANCE.player.damageFactor = 1.25;
+                Program.INSTANCE.player.UpdateCrosshair();
+            }
         }
     }
 }

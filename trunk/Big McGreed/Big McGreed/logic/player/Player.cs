@@ -112,6 +112,7 @@ namespace Big_McGreed.logic.player
             damageFactor = 1.00;
             evilWall = false;
             maxHP = 100;
+            oil = maxOil;
             electricWallTimer = -1;
             Lifes = maxHP;
             oil = maxOil;
@@ -120,6 +121,7 @@ namespace Big_McGreed.logic.player
             good = 0;
             evil = 0;
             UpdateCrosshair();
+            Program.INSTANCE.gameFrame.UpdateOil(oil);
             visible = true;
             currentLevel = 1;
             setX(Mouse.GetState().X);
