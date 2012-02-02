@@ -686,6 +686,15 @@
       <Output>C:\Users\Frank\documents\visual studio 2010\Projects\Big McGreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\achtergrond muziek.xnb</Output>
       <Time>2012-02-01T19:02:19.9008622+01:00</Time>
     </Item>
+    <Item>
+      <Source>olie generator.png</Source>
+      <Name>olie generator</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Geert\Documents\Visual Studio 2010\Projects\Proftaak\big-mcgreed\Big McGreed\Big McGreed\bin\x86\Debug\Content\olie generator.xnb</Output>
+      <Time>2012-02-02T12:30:30+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
