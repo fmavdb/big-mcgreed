@@ -60,6 +60,10 @@ namespace Big_McGreed.logic.map
                     TimeSpan hitTimePassed = DateTime.Now - npc.lastHit;
                     if (hitTimePassed.TotalMilliseconds >= npc.definition.attackSpeed)
                     {
+                        if (player.electricWallTimer > 0)
+                        {
+                            npc.hit(new Hit(npc, player, player.damage));
+                        }
                         player.hit(new Hit(player, npc, GameWorld.random.Next(1, npc.damage)));
                         npc.lastHit = DateTime.Now;
                     }
@@ -78,6 +82,10 @@ namespace Big_McGreed.logic.map
                         TimeSpan hitTimePassed = DateTime.Now - npc.lastHit;
                         if (hitTimePassed.TotalMilliseconds >= npc.definition.attackSpeed)
                         {
+                            if (player.electricWallTimer > 0)
+                            {
+                                npc.hit(new Hit(npc, player, player.damage));
+                            }
                             player.hit(new Hit(player, npc, GameWorld.random.Next(1, npc.damage)));
                             npc.attacking = true;
                             npc.lastHit = DateTime.Now;
