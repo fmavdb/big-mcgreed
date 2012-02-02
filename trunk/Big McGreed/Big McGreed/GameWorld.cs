@@ -409,8 +409,8 @@ namespace Big_McGreed
                             }
                             int typeToSpawn = spawnBoss ? wave.bossType : wave.npcTypes[random.Next(wave.npcTypes.Length)];
                             NPC npc = new NPC(typeToSpawn);
-                            float maxY = GameFrame.Height - npc.definition.mainTexture.Height - 75;
-                            float minY = GameFrame.Height / 2 + 50;
+                            float maxY = GameFrame.Height - npc.definition.mainTexture.Height - 50;
+                            float minY = GameFrame.Height / 2 + 75;
                             float y = random.Next((int)minY, (int)maxY);
                             if (y < minY)
                                 y = minY;
