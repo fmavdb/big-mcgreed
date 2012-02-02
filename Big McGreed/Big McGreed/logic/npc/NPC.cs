@@ -140,12 +140,17 @@ namespace Big_McGreed.logic.npc
         public override void Draw(SpriteBatch batch) 
         {
             GifAnimation toDraw = definition.mainTexture;
-            if (hitted)
+            Color toColor = Color.White;
+            if (hitted > 0)
             {
-                //toDraw = definition.hittedTexture;
-                hitted = false;
+                toColor = Color.Red;
+                hitted--;
             }
-            batch.Draw(toDraw.GetTexture(), getLocation(), Color.White);
+            else if (hitted == 0)
+            {
+                hitted = -1;
+            }
+            batch.Draw(toDraw.GetTexture(), getLocation(), toColor);
         }
 
         public void Update(GameTime gameTime)
