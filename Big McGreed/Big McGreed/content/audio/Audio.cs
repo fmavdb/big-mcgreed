@@ -41,5 +41,15 @@ namespace Big_McGreed.content.audio
             playingSound = false;
             instance.Pause();
         }
+
+        public void PauseSound()
+        {
+            instance.Pause();
+        }
+
+        public void ResumeSound()
+        {
+            instance.Resume();
+        }
     }
 }
