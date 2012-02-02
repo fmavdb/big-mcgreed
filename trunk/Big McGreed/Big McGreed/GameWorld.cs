@@ -361,14 +361,16 @@ namespace Big_McGreed
                                 player.Wall.definition.ChangeTextureToElectric();
                                 player.electricWallTimer = 7500;
                                 player.oil -= 50;
+                                gameFrame.UpdateOil(player.oil);
+                                break;
                             }
                             else
                             {
                                 player.Wall.definition.ChangeTextureToElectric();
                                 player.electricWallTimer = 7500;
+                                break;
                             }
                         }
-                        break;
                     }
                     lastWave += gameTime.ElapsedGameTime;
                     if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
@@ -396,7 +398,7 @@ namespace Big_McGreed
                             int typeToSpawn = spawnBoss ? wave.bossType : wave.npcTypes[random.Next(wave.npcTypes.Length)];
                             NPC npc = new NPC(typeToSpawn);
                             float maxY = GameFrame.Height - npc.definition.mainTexture.Height - 50;
-                            float minY = GameFrame.Height / 2 - 150;
+                            float minY = GameFrame.Height / 2 + 50;
                             float y = random.Next((int)minY, (int)maxY);
                             if (y < minY)
                                 y = minY;
