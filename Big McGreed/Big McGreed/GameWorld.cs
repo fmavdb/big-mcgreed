@@ -308,7 +308,7 @@ namespace Big_McGreed
             {
                 case GameState.Begin:
                     intro.StopVideo();
-                    if (Keyboard.GetState().IsKeyDown(Keys.NumPad5))
+                    if (Keyboard.GetState().IsKeyDown(Keys.End))
                     {
                         intro.SkipVideo();
                     }
@@ -328,10 +328,16 @@ namespace Big_McGreed
                     {
                         CurrentGameState = GameState.Paused;
                         break;
-                    } 
+                    }
                     else if (Keyboard.GetState().IsKeyDown(Keys.PrintScreen))
                     {
                         ScreenShot(DateTime.Now.ToString("yyyyMMdd_HHmmss"));
+                        break;
+                    }
+                    else if (Keyboard.GetState().IsKeyDown(Keys.Space))
+                    {
+                        player.Wall.definition.ChangeTextureToElectric();
+                        player.electricWallTimer = 30000;
                     }
                     lastWave += gameTime.ElapsedGameTime;
                     if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
@@ -345,7 +351,7 @@ namespace Big_McGreed
                             int typeToSpawn = spawnBoss ? wave.bossType : wave.npcTypes[random.Next(wave.npcTypes.Length)];
                             NPC npc = new NPC(typeToSpawn);
                             float maxY = GameFrame.Height - npc.definition.mainTexture.Height - 50;
-                            float minY = GameFrame.Height / 2;
+                            float minY = GameFrame.Height / 2 - 50;
                             float y = random.Next((int)minY, (int)maxY);
                             if (y < minY)
                                 y = minY;

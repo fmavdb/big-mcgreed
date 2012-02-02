@@ -24,6 +24,8 @@ namespace Big_McGreed.logic.player
 
         public static int maxOil = 100;
 
+        public int electricWallTimer { get; set; }
+
         public static bool drawCrosshair = true;
 
         private DateTime lastShot;
@@ -101,6 +103,7 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
+            electricWallTimer = -1;
             Lifes = maxHP;
             oil = maxOil;
             lastShot = DateTime.Now;
@@ -130,6 +133,15 @@ namespace Big_McGreed.logic.player
         /// </summary>
         protected override void run2()
         {
+            if (electricWallTimer > 0)
+            {
+                electricWallTimer--;
+            }
+            else if (electricWallTimer == 0)
+            {
+                Wall.definition.ChangeTextureBackToNormal();
+                electricWallTimer = -1;
+            }
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
                 if (!leftButtonPressed)
