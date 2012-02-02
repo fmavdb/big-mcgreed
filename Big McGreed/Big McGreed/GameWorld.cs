@@ -366,11 +366,14 @@ namespace Big_McGreed
                             {
                                 if (player.evilWall)
                                 {
-                                    player.Wall.definition.ChangeTextureToElectric();
-                                    player.electricWallTimer = 2000;
-                                    player.oil -= 50;
-                                    gameFrame.UpdateOil(player.oil);
-                                    break;
+                                    if (player.oil - 50 > 0)
+                                    {
+                                        player.Wall.definition.ChangeTextureToElectric();
+                                        player.electricWallTimer = 2000;
+                                        player.oil -= 50;
+                                        gameFrame.UpdateOil(player.oil);
+                                        break;
+                                    }
                                 }
                                 else
                                 {
