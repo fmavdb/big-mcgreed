@@ -83,6 +83,8 @@ namespace Big_McGreed.logic.player
 
         static Texture2D muzzleTexture = Program.INSTANCE.loadTexture("Muzzle Effect");
 
+        public bool evilWall { get; set; }
+
         private float rotation;
 
         public int gold { get; set; }
@@ -105,6 +107,7 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
+            evilWall = false;
             maxHP = 100;
             electricWallTimer = -1;
             Lifes = maxHP;
