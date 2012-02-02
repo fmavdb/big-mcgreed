@@ -30,6 +30,7 @@ namespace Big_McGreed.content.gameinterface.buttons
             if (Program.INSTANCE.player.boerderij.LevelUp())
             {
                 Program.INSTANCE.player.good++;
+                Program.INSTANCE.player.gold -= Program.INSTANCE.player.boerderij.definition.cost;
                 Program.INSTANCE.player.UpdateCrosshair();
                 Program.INSTANCE.player.Lifes += 50;
                 Player.maxHP = 150;

@@ -28,6 +28,7 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             if (Program.INSTANCE.player.Wall.LevelUp() == true)
             {
+                Program.INSTANCE.player.gold -= Program.INSTANCE.player.Wall.definition.cost;
                 Program.INSTANCE.IManager.upgradeAchtergrond.tekst3 = "Your ecologic thinking brought you an ecologic fence!";
                 Program.INSTANCE.IManager.upgradeAchtergrond.timer = 5000;
                 Program.INSTANCE.player.good++;

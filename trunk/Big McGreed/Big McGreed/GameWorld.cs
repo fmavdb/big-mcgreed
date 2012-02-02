@@ -353,11 +353,6 @@ namespace Big_McGreed
                         ScreenShot(DateTime.Now.ToString("yyyyMMdd_HHmmss"));
                         break;
                     }
-                    else if (Keyboard.GetState().IsKeyDown(Keys.M))
-                    {
-                        player.gold += 2500;
-                        break;
-                    }
                     else if (Keyboard.GetState().IsKeyDown(Keys.Space))
                     {
                         if (player.Wall.getLevel() == 1)
