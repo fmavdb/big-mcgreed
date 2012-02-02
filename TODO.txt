@@ -2,8 +2,4 @@
 
 -Zonnepaneel / molen drawen bij groene upgrade-muur.
 
--De twee vriendjes van bigmcgreed drawen + nieuwe boerderij
-
--Elektrisch hek 'power'
-
 -Kleine menu button moet kijken naar speler hp!
