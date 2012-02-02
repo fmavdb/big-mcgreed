@@ -28,6 +28,7 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             Program.INSTANCE.player.Wall.LevelUp();
             Program.INSTANCE.player.evil++;
+            Program.INSTANCE.player.damageFactor = 1.25;
             Program.INSTANCE.player.UpdateCrosshair();
         }
     }
