@@ -19,7 +19,7 @@ namespace Big_McGreed.content.gameinterface.buttons
             hover = Program.INSTANCE.loadTexture("EcoHelpHighlight");
             current = normal;
 
-            hoverText = "Get more HP and get the help of 2 gunmen.";
+            hoverText = "Get more HP and get the help of 2 gunmen." + "\n" + "COST: " + UpgradeDefinition.forName("boerderij1").cost;
 
             Location = new Vector2(Program.INSTANCE.IManager.upgradeAchtergrond.tekst2Location.X + Program.INSTANCE.IManager.font.MeasureString(UpgradeAchtergrond.tekst2).X / 2 - current.Width / 2, Program.INSTANCE.IManager.upgradeAchtergrond.tekst2Location.Y + Program.INSTANCE.IManager.upgradeAchtergrond.mainTexture.Height / 2.5f);
         }
