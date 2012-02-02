@@ -317,7 +317,7 @@ namespace Big_McGreed
             {
                 foreach (NPC npc in new LinkedList<NPC>(npcs))
                 {
-                    npc.Update(50000);
+                    npc.Update(gameTime);
                 }
             } catch (Exception e) {
                 return;

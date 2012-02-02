@@ -34,6 +34,7 @@ namespace Big_McGreed.content.gameframe
         private Texture2D oilBarTextureFull = null;
         private Texture2D oilBarTextureEmpty = null;
         private GifAnimation ecoUpgrade = null;
+        private Texture2D oilUpgrade = null;
 
         public Vector2 boerderijPositie { get; private set; }
         public Vector2 raamAchtergrondPositie { get; private set; }
@@ -48,7 +49,7 @@ namespace Big_McGreed.content.gameframe
         private Vector2 hpBarHpLeftPositie = Vector2.Zero;
         private Vector2 oilBarTextPositie = Vector2.Zero;
         private Vector2 oilBaroilLevelPositie = Vector2.Zero;
-        private Vector2 ecoUpgradePositie = Vector2.Zero;
+        private Vector2 UpgradePositie = Vector2.Zero;
 
         private Rectangle rectangleHP;
         private Rectangle rectangleOil;
@@ -69,6 +70,7 @@ namespace Big_McGreed.content.gameframe
         {
             mainTexture = Program.INSTANCE.loadTexture("Border");
             ecoUpgrade = Program.INSTANCE.Content.Load<GifAnimation>("Molen-GIF");
+            oilUpgrade = Program.INSTANCE.loadTexture("olie generator");
 
             boerderijTexture = Program.INSTANCE.loadTexture("boerderij0");
             boerderijPositie = new Vector2(Width - boerderijTexture.Width / 2, Height - boerderijTexture.Height * 1.2f);
@@ -99,7 +101,7 @@ namespace Big_McGreed.content.gameframe
             oilBaroilLevelPositie = new Vector2(oilBarPositie.X + oilBarTextureFull.Width / 2 - gameFrameFont.MeasureString(oilText).X / 2, oilBarPositie.Y);
 
             scorePositie = new Vector2(GameFrame.Width - Program.INSTANCE.IManager.font.MeasureString(scoreText).X * 1.1f, GameFrame.Height - Program.INSTANCE.IManager.font.MeasureString(scoreText).Y);
-            ecoUpgradePositie = new Vector2(GameFrame.Width / 3 - ecoUpgrade.GetTexture().Width / 2, GameFrame.Height / 3);
+            UpgradePositie = new Vector2(GameFrame.Width / 3 - ecoUpgrade.GetTexture().Width / 2, GameFrame.Height / 3);
 
         }
 
@@ -132,7 +134,11 @@ namespace Big_McGreed.content.gameframe
 
             if (Program.INSTANCE.player.good > 0)
             {
-                batch.Draw(ecoUpgrade.GetTexture(), ecoUpgradePositie, Color.White);
+                batch.Draw(ecoUpgrade.GetTexture(), UpgradePositie, Color.White);
+            }
+            if (Program.INSTANCE.player.evil > 0)
+            {
+                batch.Draw(oilUpgrade, new Vector2(UpgradePositie.X, UpgradePositie.Y + 250), Color.White);
             }
         }
 
