@@ -103,6 +103,7 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
+            maxHP = 100;
             electricWallTimer = -1;
             Lifes = maxHP;
             oil = maxOil;

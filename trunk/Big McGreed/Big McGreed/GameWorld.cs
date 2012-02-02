@@ -350,7 +350,7 @@ namespace Big_McGreed
                     else if (Keyboard.GetState().IsKeyDown(Keys.Space))
                     {
                         player.Wall.definition.ChangeTextureToElectric();
-                        player.electricWallTimer = 30000;
+                        player.electricWallTimer = 7500;
                     }
                     lastWave += gameTime.ElapsedGameTime;
                     if (lastWave.TotalMilliseconds >= LevelInformation.forValue(player.currentLevel).waveDelay)
