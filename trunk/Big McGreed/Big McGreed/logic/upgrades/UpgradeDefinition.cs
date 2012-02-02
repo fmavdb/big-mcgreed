@@ -71,6 +71,7 @@ namespace Big_McGreed.content.upgrades
                             def.pixels[x, y] = colors1D[x + y * def.mainTexture.Width];
                     if (fullName.Contains("1")) 
                     {
+                        def.oldTexture = def.mainTexture;
                         def.electricWall = Program.INSTANCE.loadTexture("Muur1Shock");
                     }
                 }
@@ -79,12 +80,20 @@ namespace Big_McGreed.content.upgrades
             return def;
         }
 
+        /// <summary>
+        /// Changes the texture to electric.
+        /// </summary>
         public void ChangeTextureToElectric()
         {
-            oldTexture = mainTexture;
-            mainTexture = electricWall;
+            if (oldTexture != mainTexture)
+                oldTexture = mainTexture;
+            if (mainTexture != electricWall)
+                mainTexture = electricWall;
         }
 
+        /// <summary>
+        /// Changes the texture back to normal.
+        /// </summary>
         public void ChangeTextureBackToNormal()
         {
             mainTexture = oldTexture;
