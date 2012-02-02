@@ -13,7 +13,9 @@ namespace Big_McGreed.content.upgrades
         /// <summary>
         /// Gets the main texture.
         /// </summary>
-        public Texture2D mainTexture { get; private set; }
+        public Texture2D mainTexture { get; set; }
+
+        private Texture2D oldTexture { get; set; }
 
         /// <summary>
         /// The upgrades cost.
@@ -23,6 +25,8 @@ namespace Big_McGreed.content.upgrades
         public int damage = -1;
 
         public int weaponSpeed = -1;
+
+        public Texture2D electricWall { get; private set; }
 
         /// <summary>
         /// Gets the pixels.
@@ -65,10 +69,25 @@ namespace Big_McGreed.content.upgrades
                     for (int x = 0; x < def.mainTexture.Width; x++)
                         for (int y = 0; y < def.mainTexture.Height; y++)
                             def.pixels[x, y] = colors1D[x + y * def.mainTexture.Width];
+                    if (fullName.Contains("1")) 
+                    {
+                        def.electricWall = Program.INSTANCE.loadTexture("Muur1Shock");
+                    }
                 }
                 GameWorld.upgradeDefinitions.Add(fullName, def);
             }
             return def;
+        }
+
+        public void ChangeTextureToElectric()
+        {
+            oldTexture = mainTexture;
+            mainTexture = electricWall;
+        }
+
+        public void ChangeTextureBackToNormal()
+        {
+            mainTexture = oldTexture;
         }
 
         /// <summary>
