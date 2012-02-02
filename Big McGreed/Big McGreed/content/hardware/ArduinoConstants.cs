@@ -18,7 +18,7 @@ namespace Big_McGreed.content.hardware
 
         //Strings
         public const string BOTTOM_LED_AAN = "SET_BOTTOM_LED_ON"; //Voorbeeld
-        public const string COM_POORT = "COM13";
+        public const string COM_POORT = "COM8";
         public const string COMMAND_START = "#";
         public const string COMMAND_END = "%";
     }
