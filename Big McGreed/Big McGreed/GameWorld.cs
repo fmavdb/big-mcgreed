@@ -362,19 +362,22 @@ namespace Big_McGreed
                     {
                         if (player.Wall.getLevel() == 1)
                         {
-                            if (player.evilWall)
+                            if (player.electricWallTimer == -1)
                             {
-                                player.Wall.definition.ChangeTextureToElectric();
-                                player.electricWallTimer = 7500;
-                                player.oil -= 50;
-                                gameFrame.UpdateOil(player.oil);
-                                break;
-                            }
-                            else
-                            {
-                                player.Wall.definition.ChangeTextureToElectric();
-                                player.electricWallTimer = 7500;
-                                break;
+                                if (player.evilWall)
+                                {
+                                    player.Wall.definition.ChangeTextureToElectric();
+                                    player.electricWallTimer = 4000;
+                                    player.oil -= 50;
+                                    gameFrame.UpdateOil(player.oil);
+                                    break;
+                                }
+                                else
+                                {
+                                    player.Wall.definition.ChangeTextureToElectric();
+                                    player.electricWallTimer = 4000;
+                                    break;
+                                }
                             }
                         }
                     }
