@@ -81,7 +81,7 @@ namespace Big_McGreed.logic.npc
         private void Initialize()
         {
             updateLifes(definition.hp);
-            damage = definition.damage;
+            Damage = definition.damage;
             lastHit = DateTime.Now;
         }
 

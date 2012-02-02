@@ -367,7 +367,7 @@ namespace Big_McGreed
                                 if (player.evilWall)
                                 {
                                     player.Wall.definition.ChangeTextureToElectric();
-                                    player.electricWallTimer = 4000;
+                                    player.electricWallTimer = 2000;
                                     player.oil -= 50;
                                     gameFrame.UpdateOil(player.oil);
                                     break;
@@ -375,7 +375,7 @@ namespace Big_McGreed
                                 else
                                 {
                                     player.Wall.definition.ChangeTextureToElectric();
-                                    player.electricWallTimer = 4000;
+                                    player.electricWallTimer = 2000;
                                     break;
                                 }
                             }

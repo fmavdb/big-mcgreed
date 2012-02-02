@@ -28,13 +28,31 @@ namespace Big_McGreed.logic
         /// </summary>
         protected Hashtable ticks { get; private set; }
 
+
+        private int damage;
+
         /// <summary>
         /// Gets or sets the damage.
         /// </summary>
         /// <value>
         /// The damage.
         /// </value>
-        public int damage { get; protected set; }
+        public int Damage
+        {
+            get
+            {
+                if (this is Player)
+                {
+                    return (int)(damage * ((Player)this).damageFactor);
+                }
+                return damage;
+            }
+
+            protected set
+            { 
+                this.damage = value; 
+            }
+        }
 
         private int lifes;
 

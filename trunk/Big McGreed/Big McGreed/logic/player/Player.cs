@@ -30,6 +30,8 @@ namespace Big_McGreed.logic.player
 
         private DateTime lastShot;
 
+        public double damageFactor = 1.00;
+
         /// <summary>
         /// Gets or sets the wall.
         /// </summary>
@@ -55,7 +57,7 @@ namespace Big_McGreed.logic.player
             set
             {                
                 this.weapon = value;
-                this.damage = Weapon.definition.damage;
+                this.Damage = Weapon.definition.damage;
             }
         }
 
@@ -107,6 +109,7 @@ namespace Big_McGreed.logic.player
         /// </summary>
         public Player()
         {
+            damageFactor = 1.00;
             evilWall = false;
             maxHP = 100;
             electricWallTimer = -1;
@@ -159,7 +162,7 @@ namespace Big_McGreed.logic.player
                         TimeSpan hitTimePassed = DateTime.Now - lastShot;
                         if (hitTimePassed.TotalMilliseconds >= Weapon.definition.weaponSpeed)
                         {
-                            Program.INSTANCE.gameMap.AddProjectile(new Projectile(1, new Hit(null, this, damage), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 8)));
+                            Program.INSTANCE.gameMap.AddProjectile(new Projectile(1, new Hit(null, this, Damage), new Vector2(Mouse.GetState().X, Mouse.GetState().Y + definition.mainTexture.Height / 8)));
                             //hit(new Hit(this, null, 10));
                             leftButtonPressed = true;
                             muzzle = 12;

@@ -62,9 +62,9 @@ namespace Big_McGreed.logic.map
                     {
                         if (player.electricWallTimer > 0)
                         {
-                            npc.hit(new Hit(npc, player, player.damage));
+                            npc.hit(new Hit(npc, player, player.Damage));
                         }
-                        player.hit(new Hit(player, npc, GameWorld.random.Next(1, npc.damage)));
+                        player.hit(new Hit(player, npc, GameWorld.random.Next(1, npc.Damage)));
                         npc.lastHit = DateTime.Now;
                     }
                     return true;
@@ -84,9 +84,9 @@ namespace Big_McGreed.logic.map
                         {
                             if (player.electricWallTimer > 0)
                             {
-                                npc.hit(new Hit(npc, player, player.damage));
+                                npc.hit(new Hit(npc, player, player.Damage));
                             }
-                            player.hit(new Hit(player, npc, GameWorld.random.Next(1, npc.damage)));
+                            player.hit(new Hit(player, npc, GameWorld.random.Next(1, npc.Damage)));
                             npc.attacking = true;
                             npc.lastHit = DateTime.Now;
                         }
