@@ -40,6 +40,8 @@ namespace Big_McGreed.logic.player
 
         private Upgrade weapon;
 
+        public Upgrade boerderij;
+
         /// <summary>
         /// Gets or sets the weapon.
         /// </summary>
@@ -111,6 +113,7 @@ namespace Big_McGreed.logic.player
             naam = "";
             good = 0;
             evil = 0;
+            UpdateCrosshair();
             visible = true;
             currentLevel = 1;
             setX(Mouse.GetState().X);
@@ -119,6 +122,7 @@ namespace Big_McGreed.logic.player
             boerLocatie.Y = GameFrame.Height - Program.INSTANCE.gameFrame.boerderijTexture.Height / 1.12f;
             Weapon = new Upgrade(this, new Vector2(boerLocatie.X + definition.personTexture.Width / 1.75f, boerLocatie.Y + definition.personTexture.Height / 1.55f), "weapon"); //1ste wapen is revolver: naam + level dus: weapon0.png
             Wall = new Upgrade(this, new Vector2(Program.INSTANCE.gameFrame.boerderijPositie.X - UpgradeDefinition.forName("muur0").mainTexture.Width , GameFrame.Height - UpgradeDefinition.forName("muur0").mainTexture.Height * 1.15f), "muur");
+            boerderij = new Upgrade(this, Vector2.Zero, "Boerderij");
         }
 
         /// <summary>

@@ -153,9 +153,9 @@ namespace Big_McGreed.logic.npc
             batch.Draw(toDraw.GetTexture(), getLocation(), toColor);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(int gameTime)
         {
-            definition.mainTexture.Update(gameTime.ElapsedGameTime.Ticks);
+            definition.mainTexture.Update(gameTime);
         }
     }
 }

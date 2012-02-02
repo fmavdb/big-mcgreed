@@ -315,7 +315,7 @@ namespace Big_McGreed
             //animation.Update(gameTime.ElapsedGameTime.Ticks);
             foreach (NPC npc in new LinkedList<NPC>(npcs))
             {
-                npc.Update(gameTime);
+                npc.Update(50000);
             }
             switch (gameState)
             {

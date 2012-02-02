@@ -23,6 +23,8 @@ namespace Big_McGreed.content.gameframe
         /// </summary>
         public static int Height;
 
+        private int oldLevel = -1;
+
         private Texture2D mainTexture = null;
         public Texture2D boerderijTexture = null;
         private Texture2D raamAchtergrond = null;
@@ -64,7 +66,7 @@ namespace Big_McGreed.content.gameframe
         {
             mainTexture = Program.INSTANCE.loadTexture("Border");
 
-            boerderijTexture = Program.INSTANCE.loadTexture("Boerderij");
+            boerderijTexture = Program.INSTANCE.loadTexture("boerderij0");
             boerderijPositie = new Vector2(Width - boerderijTexture.Width / 2, Height - boerderijTexture.Height * 1.2f);
 
             raamAchtergrond = Program.INSTANCE.loadTexture("WindowBackground");
@@ -161,6 +163,19 @@ namespace Big_McGreed.content.gameframe
 
         public void DrawBoerderij(SpriteBatch batch)
         {
+            if (oldLevel != Program.INSTANCE.player.boerderij.getLevel())
+            {
+                if (Program.INSTANCE.player.boerderij.getLevel() == 0)
+                {
+                    boerderijTexture = Program.INSTANCE.loadTexture("boerderij0");
+                    oldLevel = Program.INSTANCE.player.boerderij.getLevel();
+                }
+                else
+                {
+                    boerderijTexture = Program.INSTANCE.loadTexture("boerderij1");
+                    oldLevel = Program.INSTANCE.player.boerderij.getLevel();
+                }
+            }
             batch.Draw(boerderijTexture, boerderijPositie, Color.White);
         }
 
