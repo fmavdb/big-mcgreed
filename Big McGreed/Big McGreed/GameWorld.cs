@@ -491,7 +491,7 @@ namespace Big_McGreed
                     break;
                     
             }
-            info.Draw(spriteBatch);
+            //info.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
