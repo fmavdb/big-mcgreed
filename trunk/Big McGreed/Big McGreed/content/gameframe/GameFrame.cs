@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Big_McGreed.logic.player;
+using XNAGifAnimation;
 
 namespace Big_McGreed.content.gameframe
 {
@@ -32,6 +33,7 @@ namespace Big_McGreed.content.gameframe
         private Texture2D hpBarTextureRood = null;
         private Texture2D oilBarTextureFull = null;
         private Texture2D oilBarTextureEmpty = null;
+        private GifAnimation ecoUpgrade = null;
 
         public Vector2 boerderijPositie { get; private set; }
         public Vector2 raamAchtergrondPositie { get; private set; }
@@ -46,6 +48,7 @@ namespace Big_McGreed.content.gameframe
         private Vector2 hpBarHpLeftPositie = Vector2.Zero;
         private Vector2 oilBarTextPositie = Vector2.Zero;
         private Vector2 oilBaroilLevelPositie = Vector2.Zero;
+        private Vector2 ecoUpgradePositie = Vector2.Zero;
 
         private Rectangle rectangleHP;
         private Rectangle rectangleOil;
@@ -65,6 +68,7 @@ namespace Big_McGreed.content.gameframe
         public GameFrame()
         {
             mainTexture = Program.INSTANCE.loadTexture("Border");
+            ecoUpgrade = Program.INSTANCE.Content.Load<GifAnimation>("Molen-GIF");
 
             boerderijTexture = Program.INSTANCE.loadTexture("boerderij0");
             boerderijPositie = new Vector2(Width - boerderijTexture.Width / 2, Height - boerderijTexture.Height * 1.2f);
@@ -95,8 +99,8 @@ namespace Big_McGreed.content.gameframe
             oilBaroilLevelPositie = new Vector2(oilBarPositie.X + oilBarTextureFull.Width / 2 - gameFrameFont.MeasureString(oilText).X / 2, oilBarPositie.Y);
 
             scorePositie = new Vector2(GameFrame.Width - Program.INSTANCE.IManager.font.MeasureString(scoreText).X * 1.1f, GameFrame.Height - Program.INSTANCE.IManager.font.MeasureString(scoreText).Y);
+            ecoUpgradePositie = new Vector2(GameFrame.Width / 3 - ecoUpgrade.GetTexture().Width / 2, GameFrame.Height / 3);
 
-            //muur = Program.INSTANCE.loadTexture("Muur1");
         }
 
         /// <summary>
@@ -125,6 +129,11 @@ namespace Big_McGreed.content.gameframe
             batch.DrawString(gameFrameFont, currency + Program.INSTANCE.player.gold, goldPositie, Color.White);
             batch.DrawString(gameFrameFont, hpText, hpBarHpLeftPositie, Color.White);
             batch.DrawString(gameFrameFont, oilText, oilBaroilLevelPositie, Color.White);
+
+            if (Program.INSTANCE.player.good > 0)
+            {
+                batch.Draw(ecoUpgrade.GetTexture(), ecoUpgradePositie, Color.White);
+            }
         }
 
         /// <summary>
@@ -182,6 +191,11 @@ namespace Big_McGreed.content.gameframe
         public void DrawRaamAchterkant(SpriteBatch batch)
         {
             batch.Draw(raamAchtergrond, raamAchtergrondPositie, Color.White);
+        }
+
+        public void UpdateGifGameFrame(GameTime gameTime)
+        {
+            ecoUpgrade.Update(gameTime.ElapsedGameTime.Ticks);
         }
     }
 }
