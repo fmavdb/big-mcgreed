@@ -159,7 +159,14 @@ namespace Big_McGreed
 
         private GifAnimation animation;
         public Intro intro;
+
         public Audio inGameMusic;
+        public Audio EnterFistBoss;
+        public Audio defeatBoss;
+        public Audio defeatBoss2;
+        public Audio youDie;
+        public Audio enterSecondBoss;
+        public Audio enterThirdBoss;
 
         private Time time;
 
@@ -230,6 +237,12 @@ namespace Big_McGreed
         public void newGame()
         {
             inGameMusic = new Audio("achtergrond muziek", true);
+            EnterFistBoss = new Audio("jiminy_christmas", false);
+            defeatBoss = new Audio("time_for_upgrades", false);
+            defeatBoss2 = new Audio("take_care_of_things", false);
+            youDie = new Audio("dills_my_pickle", false);
+            enterSecondBoss = new Audio("son_of_a_gun", false);
+            enterThirdBoss = new Audio("herd_of_turtles", false);
             player = new Player();
             time.Reset();
             time.Start();
@@ -347,7 +360,21 @@ namespace Big_McGreed
                         {
                             bool spawnBoss = wave.currentSpawnedEnemiesAmount >= wave.amountOfEnemies && !wave.bossSpawned;
                             if (spawnBoss)
+                            {
                                 wave.bossSpawned = spawnBoss;
+                                if (player.currentLevel == 1)
+                                {
+                                    EnterFistBoss.PlaySound();
+                                }
+                                else if (player.currentLevel == 2)
+                                {
+                                    enterSecondBoss.PlaySound();
+                                }
+                                else if (player.currentLevel == 3)
+                                {
+                                    enterThirdBoss.PlaySound();
+                                }
+                            }
                             int typeToSpawn = spawnBoss ? wave.bossType : wave.npcTypes[random.Next(wave.npcTypes.Length)];
                             NPC npc = new NPC(typeToSpawn);
                             float maxY = GameFrame.Height - npc.definition.mainTexture.Height - 50;
@@ -523,6 +550,10 @@ namespace Big_McGreed
 
                     case GameState.GameOver:
                         time.Pause();
+                        if (IManager.gameOverInterface.gameWon == false)
+                        {
+                            youDie.PlaySound();
+                        }
                         IManager.getActiveComponents().Clear();
                         IManager.activeInterface = IManager.gameOverInterface;
                         addInterfaceComponent(IManager.menuButtonKlein, true);

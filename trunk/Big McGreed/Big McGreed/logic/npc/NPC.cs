@@ -27,6 +27,8 @@ namespace Big_McGreed.logic.npc
         /// </summary>
         public int type { get; private set; }
 
+        private Random soundRandom = new Random();
+
         private Vector2 velocity = Vector2.Zero;
 
         /// <summary>
@@ -88,15 +90,28 @@ namespace Big_McGreed.logic.npc
         /// </summary>
         public void Dispose()
         {
+            int soundIndex = soundRandom.Next(1, 2);
+            Console.WriteLine(soundIndex);
+
             if (type == LevelInformation.forValue(Program.INSTANCE.player.currentLevel).bossType)
             {
                 if (Program.INSTANCE.player.currentLevel == 1)
                 {
                     Program.INSTANCE.player.currentLevel = 2;
+                    if (soundIndex == 1)
+                    {
+                        Program.INSTANCE.defeatBoss.PlaySound();
+                    }
+                    else if (soundIndex == 2)
+                    {
+                        Program.INSTANCE.defeatBoss2.PlaySound();
+                    }
+                    Program.INSTANCE.CurrentGameState = GameWorld.GameState.Upgrade;
                 }
                 else if (Program.INSTANCE.player.currentLevel == 2)
                 {
                     Program.INSTANCE.player.currentLevel = 3;
+                    Program.INSTANCE.CurrentGameState = GameWorld.GameState.Upgrade;
                 }
                 else if (Program.INSTANCE.player.currentLevel == 3)
                 {
