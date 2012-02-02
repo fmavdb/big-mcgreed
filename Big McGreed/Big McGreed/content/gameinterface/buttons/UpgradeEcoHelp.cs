@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Big_McGreed.content.gameinterface.interfaces;
 using Big_McGreed.content.upgrades;
+using Big_McGreed.logic.player;
 
 namespace Big_McGreed.content.gameinterface.buttons
 {
@@ -26,9 +27,14 @@ namespace Big_McGreed.content.gameinterface.buttons
 
         public override void action()
         {
-            Program.INSTANCE.player.boerderij.LevelUp();
-            Program.INSTANCE.player.good++;
-            Program.INSTANCE.player.UpdateCrosshair();
+            if (Program.INSTANCE.player.boerderij.LevelUp())
+            {
+                Program.INSTANCE.player.good++;
+                Program.INSTANCE.player.UpdateCrosshair();
+                Program.INSTANCE.player.Lifes += 50;
+                Player.maxHP = 150;
+                Program.INSTANCE.gameFrame.UpdateHP(Program.INSTANCE.player.Lifes);
+            }
         }
     }
 }
