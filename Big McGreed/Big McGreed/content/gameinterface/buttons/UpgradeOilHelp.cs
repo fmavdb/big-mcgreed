@@ -29,6 +29,7 @@ namespace Big_McGreed.content.gameinterface.buttons
         {
             if (Program.INSTANCE.player.boerderij.LevelUp())
             {
+                Program.INSTANCE.player.gold -= Program.INSTANCE.player.boerderij.definition.cost;
                 Program.INSTANCE.player.evil++;
                 Program.INSTANCE.player.damageFactor = 1.25;
                 Program.INSTANCE.player.UpdateCrosshair();
