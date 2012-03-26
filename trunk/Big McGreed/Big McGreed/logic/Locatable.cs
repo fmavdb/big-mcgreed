@@ -7,7 +7,10 @@ using Microsoft.Xna.Framework;
 
 namespace Big_McGreed.logic
 {
-    public abstract class Locatable
+    /// <summary>
+    /// Can be implemented to prevent an overkill of code.
+    /// </summary>
+    public class Locatable
     {
         private Vector2 location;
 

@@ -5,8 +5,26 @@ using System.Text;
 
 namespace Big_McGreed.content.hardware
 {
+    //Definieer het type van de delegate
+    //-Double, Integer, void etc.
+    public delegate void BufferedCommandHandler(String command);
+
     public class MessageBuilder
     {
+
+        public event BufferedCommandHandler bufferedCommandHandler;
+
+        //Specificeer de methode...
+        //-Return type
+        //-Paremeters
+        protected void CommandHandler(String command)
+        {
+            if (bufferedCommandHandler != null) //Als er events zijn geregistreerd, execute deze dan.
+            {
+                bufferedCommandHandler(command);
+            }   
+        }
+
         private string buffer;
            
         public MessageBuilder()
@@ -19,6 +37,11 @@ namespace Big_McGreed.content.hardware
             if (data != null)
             {
                 buffer += data;
+                if (buffer.StartsWith(ArduinoConstants.COMMAND_START) && buffer.EndsWith(ArduinoConstants.COMMAND_END))
+                {
+                    CommandHandler(buffer); //Execute the registered events.
+                    buffer = ""; //Reset the buffer.
+                }
             }
         }
 
@@ -34,7 +57,7 @@ namespace Big_McGreed.content.hardware
             return buffer;
         }
 
-        public override string ToString()
+        private string ToString()
         {
             int beginIndex = buffer.IndexOf(ArduinoConstants.COMMAND_START);
             if (beginIndex != -1)

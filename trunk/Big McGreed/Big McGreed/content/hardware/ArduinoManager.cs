@@ -23,8 +23,10 @@ namespace Big_McGreed.content.hardware
         {
             com = new ArduinoCom();
             messageBuilder = new MessageBuilder();
-            receiveMessagesThread = new Thread(new ThreadStart(run));
-            receiveMessagesThread.Priority = ThreadPriority.AboveNormal;     
+            //Zet de referentie op de methode ofwel, creer een variable van het delegate type BufferedCommandHandler
+            messageBuilder.bufferedCommandHandler += new BufferedCommandHandler(receiveMessage); //Voeg een nieuwe event handler toe, deze word ge-executeerd, wanneer een message 'langskomt'.
+            //receiveMessagesThread = new Thread(new ThreadStart(run));
+            //receiveMessagesThread.Priority = ThreadPriority.AboveNormal;     
         }
 
         /// <summary>
@@ -95,7 +97,7 @@ namespace Big_McGreed.content.hardware
         /// Receives the message.
         /// </summary>
         /// <param name="message">The message.</param>
-        private void receiveMessage(string message)
+        private void receiveMessage(String message)
         {
             message = message.Substring(1, message.Length - 1); //Haal command start en end van de string af.
             switch (message)
@@ -138,12 +140,12 @@ namespace Big_McGreed.content.hardware
         /// </summary>
         public void processReceivedMessages()
         {
-            string message = messageBuilder.ToString();
+            /*string message = messageBuilder.ToString();
             while (message != null)
             {
                 receiveMessage(message);
                 message = messageBuilder.ToString();
-            }
+            }*/
         }
 
         /// <summary>
@@ -159,7 +161,7 @@ namespace Big_McGreed.content.hardware
                     {
                         string dataFromSocket = com.port.ReadExisting();
                         messageBuilder.Append(dataFromSocket);
-                        processReceivedMessages();
+                        //processReceivedMessages(); //Is  nu evented.
                     }
                     catch (Exception e)
                     {
