@@ -167,7 +167,7 @@ namespace Big_McGreed.logic
             lock (receivedHits)
             {
                 receivedHits.Enqueue(hit);
-                hitted = 25;
+                hitted = 25;     
                 if (this is NPC)
                 {
                     ((NPC)this).attacking = false;
