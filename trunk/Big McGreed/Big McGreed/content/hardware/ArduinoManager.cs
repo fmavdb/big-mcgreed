@@ -23,10 +23,8 @@ namespace Big_McGreed.content.hardware
         {
             com = new ArduinoCom();
             messageBuilder = new MessageBuilder();
-            //Zet de referentie op de methode ofwel, creer een variable van het delegate type BufferedCommandHandler
-            messageBuilder.bufferedCommandHandler += new BufferedCommandHandler(receiveMessage); //Voeg een nieuwe event handler toe, deze word ge-executeerd, wanneer een message 'langskomt'.
-            //receiveMessagesThread = new Thread(new ThreadStart(run));
-            //receiveMessagesThread.Priority = ThreadPriority.AboveNormal;     
+
+            messageBuilder.bufferedCommandHandler += new BufferedCommandHandler(receiveMessage); 
         }
 
         /// <summary>
@@ -96,17 +94,17 @@ namespace Big_McGreed.content.hardware
         /// <summary>
         /// Receives the message.
         /// </summary>
-        /// <param name="message">The message.</param>
-        private void receiveMessage(String message)
+        /// <param name="command">The message.</param>
+        private void receiveMessage(String command)
         {
-            message = message.Substring(1, message.Length - 1); //Haal command start en end van de string af.
-            switch (message)
+            command = command.Substring(1, command.Length - 1); //Haal command start en end van de string af.
+            switch (command)
             {
                 case ArduinoConstants.BOTTOM_LED_AAN:
                     //Doe iets...
                     break;
                 default:
-                    Console.Error.WriteLine(new ArduinoException("Arduino message: " + message + " is unhandled."));
+                    Console.Error.WriteLine(new ArduinoException("Arduino message: " + command + " is unhandled."));
                     break;
             }
         }
@@ -136,19 +134,6 @@ namespace Big_McGreed.content.hardware
         }
 
         /// <summary>
-        /// Processes the received messages.
-        /// </summary>
-        public void processReceivedMessages()
-        {
-            /*string message = messageBuilder.ToString();
-            while (message != null)
-            {
-                receiveMessage(message);
-                message = messageBuilder.ToString();
-            }*/
-        }
-
-        /// <summary>
         /// This runs every DATA_READING_INTERVAL milliseconds. 
         /// </summary>
         protected void run()
@@ -161,7 +146,6 @@ namespace Big_McGreed.content.hardware
                     {
                         string dataFromSocket = com.port.ReadExisting();
                         messageBuilder.Append(dataFromSocket);
-                        //processReceivedMessages(); //Is  nu evented.
                     }
                     catch (Exception e)
                     {

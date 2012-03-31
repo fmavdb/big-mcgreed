@@ -14,12 +14,9 @@ namespace Big_McGreed.content.hardware
 
         public event BufferedCommandHandler bufferedCommandHandler;
 
-        //Specificeer de methode...
-        //-Return type
-        //-Paremeters
         protected void CommandHandler(String command)
         {
-            if (bufferedCommandHandler != null) //Als er events zijn geregistreerd, execute deze dan.
+            if (bufferedCommandHandler != null) 
             {
                 bufferedCommandHandler(command);
             }   

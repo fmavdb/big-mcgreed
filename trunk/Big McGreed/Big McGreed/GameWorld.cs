@@ -312,6 +312,7 @@ namespace Big_McGreed
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            try {
             //animation.Update(gameTime.ElapsedGameTime.Ticks);
             try
             {
@@ -421,6 +422,11 @@ namespace Big_McGreed
             }
             info.Update(gameTime);
             base.Update(gameTime);
+            }
+            catch (Exception e)
+            {
+                return;
+            }
         }
 
         /// <summary>
